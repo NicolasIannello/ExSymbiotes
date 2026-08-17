@@ -1,0 +1,152 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+	<!--<ThingDef ParentName="BasePawn" Name="BaseFleshbeast" Abstract="True">
+		<statBases>
+			<ComfyTemperatureMin>-40</ComfyTemperatureMin>
+			<ComfyTemperatureMax>60</ComfyTemperatureMax>
+			<Flammability>1.25</Flammability>
+			<MeatAmount>70</MeatAmount>
+		</statBases>
+		<tradeability>None</tradeability>
+		<hiddenWhileUndiscovered>true</hiddenWhileUndiscovered>
+		<race>
+			<thinkTreeMain>Fleshbeast</thinkTreeMain>
+			<thinkTreeConstant>FleshbeastConstant</thinkTreeConstant>
+			<intelligence>ToolUser</intelligence>
+			<specificMeatDef>Meat_Twisted</specificMeatDef>
+			<disableIgniteVerb>true</disableIgniteVerb>
+			<canOpenFactionlessDoors>false</canOpenFactionlessDoors>
+			<needsRest>false</needsRest>
+			<hasGenders>false</hasGenders>
+			<foodType>None</foodType>
+			<bloodDef>Filth_Blood</bloodDef>
+			<bloodSmearDef>Filth_BloodSmear</bloodSmearDef>
+			<soundMeleeDodge>Pawn_MeleeDodge</soundMeleeDodge>
+			<trainability>None</trainability>
+			<fleshType>Fleshbeast</fleshType>
+			<isImmuneToInfections>true</isImmuneToInfections>
+			<bleedRateFactor>0.5</bleedRateFactor>
+			<hediffGiverSets>
+				<li>Fleshbeast</li>
+			</hediffGiverSets>
+			<corpseHiddenWhileUndiscovered>true</corpseHiddenWhileUndiscovered>
+		</race>
+		<comps>
+			<li Class="CompProperties_HoldingPlatformTarget">
+				<baseEscapeIntervalMtbDays>60</baseEscapeIntervalMtbDays>
+				<getsColdContainmentBonus>true</getsColdContainmentBonus>
+			</li>
+			<li Class="CompProperties_InspectString">
+				<compClass>CompInspectStringEmergence</compClass>
+				<inspectString>Emerged from {SOURCEPAWN_labelShort}.</inspectString>
+			</li>
+		</comps>
+	</ThingDef>-->
+
+	<ThingDef ParentName="BaseFleshbeast">
+		<defName>ExSymbiotes_Symbiote</defName>
+		<label>symbiote</label>
+		<description>A man-sized amalgamation of several smaller fleshbeasts. Each of the creature's limbs is capable of surviving independently. On death, trispikes may split into separate fingerspikes as each limb rips free and attacks.</description>
+		<statBases>
+			<MoveSpeed>4.3</MoveSpeed>
+			<MinimumContainmentStrength>40</MinimumContainmentStrength>
+			<ToxicResistance>0.5</ToxicResistance>
+		</statBases>
+		<uiIconPath>Things/Pawn/Fleshbeast/ExSymbiotes_Symbiote/Trispike_MenuIcon</uiIconPath>
+		<race>
+			<body>ExSymbiotes_Symbiote_Body</body>
+			<baseBodySize>1</baseBodySize>
+			<baseHealthScale>0.3</baseHealthScale>
+			<lifeExpectancy>10</lifeExpectancy>
+			<renderTree>Trispike</renderTree>
+			<!--<deathAction Class="DeathActionProperties_Divide">
+				<divideBloodFilthCountRange>1~2</divideBloodFilthCountRange>
+				<dividePawnCount>3</dividePawnCount>
+				<dividePawnKindOptions>
+					<li>Fingerspike</li>
+				</dividePawnKindOptions>
+			</deathAction>-->
+			<lifeStageAges>
+				<li>
+					<def>EntityFullyFormed</def>
+					<soundWounded>Pawn_Fleshbeast_Trispike_Wounded</soundWounded>
+					<soundDeath>Pawn_Fleshbeast_Trispike_Death</soundDeath>
+					<soundCall>Pawn_Fleshbeast_Trispike_Call</soundCall>
+				</li>
+			</lifeStageAges>
+		</race>
+		<comps>
+			<li Class="CompProperties_AttachPoints">
+				<points>
+					<li>
+						<offset>(-.35, 0, .35)</offset>
+						<type>PlatformRestraint0</type>
+					</li>
+					<li>
+						<offset>(.35, 0, .35)</offset>
+						<type>PlatformRestraint1</type>
+					</li>
+					<li>
+						<offset>(.35, 0, -.35)</offset>
+						<type>PlatformRestraint2</type>
+					</li>
+					<li>
+						<offset>(-.35, 0, -.35)</offset>
+						<type>PlatformRestraint3</type>
+					</li>
+				</points>
+			</li>
+			<li Class="CompProperties_Studiable">
+				<frequencyTicks>120000</frequencyTicks>
+				<knowledgeCategory>Advanced</knowledgeCategory>
+				<minMonolithLevelForStudy>1</minMonolithLevelForStudy>
+				<anomalyKnowledge>2</anomalyKnowledge>
+				<requiresHoldingPlatform>true</requiresHoldingPlatform>
+			</li>
+			<li Class="CompProperties_ProducesBioferrite">
+				<bioferriteDensity>2</bioferriteDensity>
+			</li>
+		</comps>
+		<tools>
+			<li>
+				<label>head</label>
+				<capacities>
+					<li>Blunt</li>
+				</capacities>
+				<power>3</power>
+				<cooldownTime>2</cooldownTime>
+				<linkedBodyPartsGroup>HeadAttackTool</linkedBodyPartsGroup>
+				<ensureLinkedBodyPartsGroupAlwaysUsable>true</ensureLinkedBodyPartsGroupAlwaysUsable>
+				<chanceFactor>0.2</chanceFactor>
+				<soundMeleeHit>Pawn_Fleshbeast_Attack_Blunt</soundMeleeHit>
+			</li>
+		</tools>
+	</ThingDef>
+
+	<PawnKindDef ParentName="BaseFleshbeastKind">
+		<defName>ExSymbiotes_Symbiote_PawnKind</defName>
+		<label>symbiote</label>
+		<race>ExSymbiotes_Symbiote</race>
+		<overrideDeathOnDownedChance>0.9</overrideDeathOnDownedChance>
+		<abilities>
+			<li>SpikeLaunch_Toughspike</li>
+		</abilities>
+		<combatPower>90</combatPower>
+		<lifeStages>
+			<li>
+				<bodyGraphicData>
+					<texPath>Things/Pawn/Fleshbeast/ExSymbiotes_Symbiote/ExSymbiotes_Symbiote</texPath>
+					<graphicClass>Graphic_Multi</graphicClass>
+					<drawSize>2</drawSize>
+					<drawOffset>(0, 0, 0.1)</drawOffset>
+				</bodyGraphicData>
+				<silhouetteGraphicData>
+					<texPath>Things/Pawn/Fleshbeast/ExSymbiotes_Symbiote/Trispike_MenuIcon</texPath>
+					<graphicClass>Graphic_Single</graphicClass>
+					<drawSize>2</drawSize>
+				</silhouetteGraphicData>
+			</li>
+		</lifeStages>
+	</PawnKindDef>
+</Defs>

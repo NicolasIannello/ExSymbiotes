@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+	<!--<IncidentDef Name="ObeliskBase" ParentName="AnomalyIncidentBase" Abstract="True">
+		<category>ThreatBig</category>
+		<targetTags>
+			<li>Map_PlayerHome</li>
+		</targetTags>
+		<letterText>A mysterious obelisk has crashed nearby.\n\nThe obelisk hums with putrid psychic energy, gradually intensifying as it approaches some dangerous limit. You can send colonists to suppress the obelisk to prevent it from activating.\n\nYou can also mark the obelisk for study to try to learn its purpose and perhaps make use of it.\n\nYou can always attack the obelisk to destroy it, but doing so may unleash unnatural and dangerous phenomena.</letterText>
+		<letterDef>NeutralEvent</letterDef>
+		<baseChance>0.5</baseChance>
+		<earliestDay>50</earliestDay>
+		<minRefireDays>120</minRefireDays>
+		<minAnomalyThreatLevel>1</minAnomalyThreatLevel>
+	</IncidentDef>-->
+	
+	<IncidentDef ParentName="ObeliskBase">
+		<defName>ExSymbiotes_SymbioteMass_Incident</defName>
+		<label>symbiote mass</label>
+		<letterLabel>Warped obelisk</letterLabel>
+		<workerClass>IncidentWorker_ObeliskAbductor</workerClass>
+	</IncidentDef>
+
+</Defs>

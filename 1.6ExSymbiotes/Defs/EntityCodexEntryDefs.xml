@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+	<EntityCodexEntryDef>
+		<defName>ExSymbiotes_SymbioteMass_EntityCodexEntry</defName>
+		<label>symbiote mass</label>
+		<useDescriptionFrom>ExSymbiotes_SymbioteMass</useDescriptionFrom>
+		<uiIconPath>UI/CodexEntries/Obelisk_Warped</uiIconPath>
+		<category>Advanced</category>
+		<linkedThings>
+			<li>ExSymbiotes_SymbioteMass</li>
+		</linkedThings>
+		<provocationIncidents>
+			<li>ExSymbiotes_SymbioteMass_Incident</li>
+		</provocationIncidents>
+		<orderInCategory>1401</orderInCategory>
+	</EntityCodexEntryDef>
+
+	<EntityCodexEntryDef>
+		<defName>ExSymbiotes_Symbiote_EntityCodexEntry</defName>
+		<label>symbiote</label>
+		<description>Hideous creatures composed of masses of cancerous flesh. Some contain multiple nervous systems, allowing them to split into smaller fleshbeasts.</description>
+		<uiIconPath>UI/CodexEntries/Fleshbeasts</uiIconPath>
+		<category>Advanced</category>
+		<linkedThings>
+			<li>ExSymbiotes_Symbiote</li>
+		</linkedThings>
+		<provocationIncidents>
+			<li>ExSymbiotes_SymbioteMass_Incident</li>
+		</provocationIncidents>
+		<orderInCategory>1402</orderInCategory>
+	</EntityCodexEntryDef>
+</Defs>

@@ -1,0 +1,149 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+	<!--<ThingDef Name="WarpedObelisk" ParentName="BuildingBase" Abstract="True">
+		<description>A large metallic pillar that emanates a putrid psychic energy. The pillar hums ominously and appears to be increasing in activity. It's not clear what will happen when it reaches its full capacity.\n\nYou can send colonists to suppress the obelisk to prevent it from activating. You can also mark the obelisk for study to try to learn its purpose and perhaps make use of it.\n\nYou can attack the obelisk to destroy it, but doing so may unleash unnatural and dangerous phenomena.</description>
+		<tickerType>Normal</tickerType>
+		<size>(3,3)</size>
+		<drawerType>RealtimeOnly</drawerType>
+		<fillPercent>1</fillPercent>
+		<graphicData>
+			<graphicClass>Graphic_ActivityMask</graphicClass>
+			<shaderType>CutoutComplexBlend</shaderType>
+			<drawSize>(5,5)</drawSize>
+			<addTopAltitudeBias>true</addTopAltitudeBias>
+			<drawOffset>(0,0,0.3)</drawOffset>
+			<colorTwo>(226,53,33)</colorTwo>
+			<shadowData>
+				<volume>(2.5, 5, 2.5)</volume>
+				<offset>(0, 0, -0.3)</offset>
+			</shadowData>
+		</graphicData>
+		<altitudeLayer>Building</altitudeLayer>
+		<passability>Impassable</passability>
+		<building>
+			<paintable>false</paintable>
+			<deconstructible>false</deconstructible>
+			<claimable>false</claimable>
+			<soundMeleeHitOverride>ObeliskDamaged</soundMeleeHitOverride>
+		</building>
+		<killedLeavings>
+			<Shard>1</Shard>
+		</killedLeavings>
+		<statBases>
+			<MaxHitPoints>3000</MaxHitPoints>
+			<Flammability>0</Flammability>
+			<MeditationFocusStrength>0.24</MeditationFocusStrength>
+		</statBases>
+		<comps>
+			<li Class="CompProperties_Activity">
+				<startingRange>0.2~0.4</startingRange>
+				<changePerDayBase>0.2</changePerDayBase>
+				<changePerDamage>0.001</changePerDamage>
+				<warning>0.9</warning>
+				<workerClass>ObeliskActivityWorker</workerClass>
+				<activityResearchFactorCurve>
+					<points>
+						<li>0, 0.5</li>
+						<li>0.5, 1</li>
+						<li>0.99, 2</li>
+					</points>
+				</activityResearchFactorCurve>
+			</li>
+			<li Class="CompProperties_Studiable">
+				<frequencyTicks>120000</frequencyTicks>
+				<knowledgeCategory>Advanced</knowledgeCategory>
+				<anomalyKnowledge>2</anomalyKnowledge>
+				<minMonolithLevelForStudy>1</minMonolithLevelForStudy>
+				<studyEnabledByDefault>false</studyEnabledByDefault>
+				<showToggleGizmo>true</showToggleGizmo>
+				<canBeActivityDeactivated>true</canBeActivityDeactivated>
+			</li>
+			<li Class="CompProperties_MeditationFocus">
+				<statDef>MeditationFocusStrength</statDef>
+				<focusTypes>
+					<li>Void</li>
+				</focusTypes>
+			</li>
+		</comps>
+		<inspectorTabs>
+			<li>ITab_StudyNotes</li>
+		</inspectorTabs>
+	</ThingDef>-->
+
+	<ThingDef ParentName="WarpedObelisk">
+		<defName>ExSymbiotes_SymbioteMass</defName>
+		<label>symbiote mass</label>
+		<graphicData>
+			<texPath>Things/Building/Obelisk_Warped/WarpedObelisk</texPath>
+		</graphicData>
+		<comps>
+			<li Class="CompProperties_Obelisk">
+				<compClass>CompObelisk_Abductor</compClass>
+				<interactionEffectCooldownDays>0</interactionEffectCooldownDays>
+			</li>
+			<li Class="CompProperties_StudyUnlocks">
+				<studyNotes>
+					<li>
+						<threshold>2</threshold>
+						<label>Obelisk study progress</label>
+						<!-- text in this is the same as other obelisk -->
+						<text>Investigation of the obelisk has revealed some information. It is an archotechnological device that seems to interact with organic creatures at a distance. It is probably a piece of a much larger archotech structure that was destroyed or broken apart long ago. The machinery at its core is inhumanly complex and frighteningly powerful. Its purpose and method of action remain totally mysterious.\n\nIf not suppressed, its activity level will increase over time. You can't tell what will happen when the device fully activates.</text>
+					</li>
+					<li>
+						<threshold>10</threshold>
+						<label>Obelisk study complete</label>
+						<text>You've completed your investigation of the obelisk. It creates a bridge to a point in a spacetime void separated from ours along usually inaccessible spatial dimensions.\n\nThe void plane is filled with a gray labyrinthine structure of astronomical scale. Someone trapped there could return by finding the obelisk's mirror version inside the gray rooms and hallways.\n\nThe gray structures seem to have been created by an archotech superintelligence, but there's no way to know their purpose, age, or spatial limits.\n\nThe obelisk is damaged and unstable, so its energy level rises unless suppressed. If it were to fully activate, it could begin to abduct individuals at random.\n\nYou can now intentionally provoke a response from the symbiote mass.</text>
+					</li>
+				</studyNotes>
+			</li>
+			<li Class="CompProperties_ObeliskTriggerInteractor">
+				<activeTicks>1</activeTicks>
+				<ticksToActivate>180</ticksToActivate>
+				<cooldownTicks>900000</cooldownTicks>
+				<!-- 15 days -->
+				<onCooldownString>Teleportation cooldown</onCooldownString>
+				<activateTexPath>UI/Commands/TriggerAbductorObelisk</activateTexPath>
+				<activateLabelString>Teleport...</activateLabelString>
+				<activateDescString>Transport a willing person to a distant spatial dimension. It may be difficult for them to return.</activateDescString>
+				<guiLabelString>Choose who should do this</guiLabelString>
+				<jobString>Trigger teleportation</jobString>
+				<activatingStringPending>triggering obelisk teleportation</activatingStringPending>
+				<activatingString>triggering obelisk teleportation: {1}s</activatingString>
+				<messageCompletedString>{PAWN_nameDef} has successfully triggered obelisk teleportation.</messageCompletedString>
+				<messageCooldownEnded>The symbiote mass is ready to use again.</messageCooldownEnded>
+				<showMustBeActivatedByColonist>false</showMustBeActivatedByColonist>
+				<targetingParameters>
+					<canTargetBuildings>false</canTargetBuildings>
+					<canTargetAnimals>false</canTargetAnimals>
+					<canTargetMechs>false</canTargetMechs>
+					<onlyTargetControlledPawns>true</onlyTargetControlledPawns>
+				</targetingParameters>
+			</li>
+		</comps>
+	</ThingDef>
+
+	<ThingDef ParentName="SkyfallerBase">
+		<defName>ExSymbiotes_SymbioteMassIncoming</defName>
+		<label>obelisk (incoming)</label>
+		<graphicData>
+			<texPath>Things/Building/ObeliskSkyfaller/ObeliskSkyfaller</texPath>
+			<graphicClass>Graphic_Single</graphicClass>
+			<shaderType>CutoutFlying</shaderType>
+			<drawSize>(20, 20)</drawSize>
+		</graphicData>
+		<skyfaller>
+			<movementType>ConstantSpeed</movementType>
+			<shadow>Things/Skyfaller/SkyfallerShadowRectangle</shadow>
+			<shadowSize>(2, 2)</shadowSize>
+			<ticksToImpactRange>780~780</ticksToImpactRange>
+			<anticipationSound>WarpedObelisk_Fall</anticipationSound>
+			<anticipationSoundTicks>780</anticipationSoundTicks>
+			<impactSound>WarpedObelisk_Impact</impactSound>
+			<rotateGraphicTowardsDirection>true</rotateGraphicTowardsDirection>
+			<motesPerCell>0</motesPerCell>
+			<explosionRadius>4</explosionRadius>
+			<explosionDamage>Bomb</explosionDamage>
+		</skyfaller>
+	</ThingDef>
+</Defs>
