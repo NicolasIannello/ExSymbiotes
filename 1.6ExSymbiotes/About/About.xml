@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<ModMetaData>
+	<name>Ex's Symbiotes</name>
+	<author>Eximeisty</author>
+	<modVersion>1.0</modVersion>
+	<supportedVersions>
+		<li>1.6</li>
+	</supportedVersions>
+	<packageId>Eximeisty.ExSymbiotes</packageId>
+	<description>Adds a new anomaly entity</description>
+
+	<modDependencies>
+		<li>
+			<packageId>Ludeon.RimWorld.Anomaly</packageId>
+			<displayName>Anomaly</displayName>
+		</li>
+	</modDependencies>
+</ModMetaData>
