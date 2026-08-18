@@ -17,7 +17,7 @@ namespace ExSymbiotes
     [DefOf]
     public static class ExSymbiotesDefOf
     {
-        public static ThingDef ExSymbiotes_SymbioteMass;
+        public static ThingDef ExSymbiotes_SymbioteMass_Black;
         public static ThingDef ExSymbiotes_SymbioteMassIncoming;
 
         static ExSymbiotesDefOf()

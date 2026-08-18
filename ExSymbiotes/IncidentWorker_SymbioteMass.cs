@@ -1,20 +1,20 @@
 ﻿using RimWorld;
 using Verse;
-//  CHECK CompProperties_Obelisk CompProperties_ObeliskTriggerInteractor
+
 namespace ExSymbiotes
 {
     public class IncidentWorker_SymbioteMass : IncidentWorker
     {
-        public ThingDef SymbioteMassDef = ExSymbiotesDefOf.ExSymbiotes_SymbioteMass;
+        public ThingDef SymbioteMassDef = ExSymbiotesDefOf.ExSymbiotes_SymbioteMass_Black;
 
         public override float ChanceFactorNow(IIncidentTarget target)
         {
-            //if (!(target is Map map))
-            //{
-            //    return base.ChanceFactorNow(target);
-            //}
-            //int num = map.listerBuildings.allBuildingsNonColonist.Count((Building b) => b.def.GetCompProperties<CompProperties_Obelisk>() != null);
-            //return ((num > 0) ? ((float)num * 0.7f) : 1f) * base.ChanceFactorNow(target);
+            // if (!(target is Map map))
+            // {
+            //     return base.ChanceFactorNow(target);
+            // }
+            // int num = map.listerBuildings.allBuildingsNonColonist.Count((Building b) => b.def.GetCompProperties<CompProperties_Obelisk>() != null);
+            // return ((num > 0) ? ((float)num * 0.7f) : 1f) * base.ChanceFactorNow(target);
             return 1f;
         }
 
@@ -33,7 +33,7 @@ namespace ExSymbiotes
             {
                 return false;
             }
-            skyfaller.impactLetter = LetterMaker.MakeLetter(def.letterLabel, def.letterText, def.letterDef ?? LetterDefOf.ThreatBig, new TargetInfo(skyfaller.Position, map));
+            skyfaller.impactLetter = LetterMaker.MakeLetter(def.letterLabel, def.letterText, LetterDefOf.ThreatBig, new TargetInfo(skyfaller.Position, map));
             return true;
         }
 

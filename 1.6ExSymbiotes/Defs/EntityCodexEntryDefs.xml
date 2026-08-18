@@ -3,11 +3,11 @@
 	<EntityCodexEntryDef>
 		<defName>ExSymbiotes_SymbioteMass_EntityCodexEntry</defName>
 		<label>symbiote mass</label>
-		<useDescriptionFrom>ExSymbiotes_SymbioteMass</useDescriptionFrom>
+		<useDescriptionFrom>ExSymbiotes_SymbioteMass_Black</useDescriptionFrom>
 		<uiIconPath>Things/Buildings/SymbioteMass/SymbioteMass</uiIconPath>
 		<category>Advanced</category>
 		<linkedThings>
-			<li>ExSymbiotes_SymbioteMass</li>
+			<li>ExSymbiotes_SymbioteMass_Black</li>
 		</linkedThings>
 		<provocationIncidents>
 			<li>ExSymbiotes_SymbioteMass_Incident</li>
@@ -18,7 +18,7 @@
 	<EntityCodexEntryDef>
 		<defName>ExSymbiotes_Symbiote_EntityCodexEntry</defName>
 		<label>symbiote</label>
-		<description>Hideous creatures composed of masses of cancerous flesh. Some contain multiple nervous systems, allowing them to split into smaller fleshbeasts.</description>
+		<description>Hideous creatures composed of an unknow sustance.</description>
 		<uiIconPath>Things/Pawn/Symbiote/Symbiote</uiIconPath>
 		<category>Advanced</category>
 		<linkedThings>
