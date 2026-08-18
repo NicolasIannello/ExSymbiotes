@@ -53,7 +53,7 @@
 			<MinimumContainmentStrength>40</MinimumContainmentStrength>
 			<ToxicResistance>0.5</ToxicResistance>
 		</statBases>
-		<uiIconPath>Things/Pawn/Fleshbeast/ExSymbiotes_Symbiote/Trispike_MenuIcon</uiIconPath>
+		<uiIconPath>Things/Pawn/Symbiote/Symbiote</uiIconPath>
 		<race>
 			<body>ExSymbiotes_Symbiote_Body</body>
 			<baseBodySize>1</baseBodySize>
@@ -136,13 +136,13 @@
 		<lifeStages>
 			<li>
 				<bodyGraphicData>
-					<texPath>Things/Pawn/Fleshbeast/ExSymbiotes_Symbiote/ExSymbiotes_Symbiote</texPath>
+					<texPath>Things/Pawn/Symbiote/Symbiote</texPath>
 					<graphicClass>Graphic_Multi</graphicClass>
 					<drawSize>2</drawSize>
 					<drawOffset>(0, 0, 0.1)</drawOffset>
 				</bodyGraphicData>
 				<silhouetteGraphicData>
-					<texPath>Things/Pawn/Fleshbeast/ExSymbiotes_Symbiote/Trispike_MenuIcon</texPath>
+					<texPath>Things/Pawn/Symbiote/Symbiote_Silhouette</texPath>
 					<graphicClass>Graphic_Single</graphicClass>
 					<drawSize>2</drawSize>
 				</silhouetteGraphicData>

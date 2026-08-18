@@ -75,7 +75,7 @@
 		<defName>ExSymbiotes_SymbioteMass</defName>
 		<label>symbiote mass</label>
 		<graphicData>
-			<texPath>Things/Building/Obelisk_Warped/WarpedObelisk</texPath>
+			<texPath>Things/Buildings/SymbioteMass/SymbioteMass</texPath>
 		</graphicData>
 		<comps>
 			<li Class="CompProperties_Obelisk">
@@ -127,14 +127,14 @@
 		<defName>ExSymbiotes_SymbioteMassIncoming</defName>
 		<label>obelisk (incoming)</label>
 		<graphicData>
-			<texPath>Things/Building/ObeliskSkyfaller/ObeliskSkyfaller</texPath>
+			<texPath>Things/Buildings/SymbioteMass/SymbioteMassSkyfaller</texPath>
 			<graphicClass>Graphic_Single</graphicClass>
 			<shaderType>CutoutFlying</shaderType>
 			<drawSize>(20, 20)</drawSize>
 		</graphicData>
 		<skyfaller>
 			<movementType>ConstantSpeed</movementType>
-			<shadow>Things/Skyfaller/SkyfallerShadowRectangle</shadow>
+			<shadow>Things/Skyfaller/SkyfallerShadowCircle</shadow>
 			<shadowSize>(2, 2)</shadowSize>
 			<ticksToImpactRange>780~780</ticksToImpactRange>
 			<anticipationSound>WarpedObelisk_Fall</anticipationSound>
