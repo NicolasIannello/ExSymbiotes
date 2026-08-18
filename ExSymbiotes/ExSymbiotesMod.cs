@@ -1,4 +1,5 @@
-﻿using Verse;
+﻿using RimWorld;
+using Verse;
 
 namespace ExSymbiotes
 {
@@ -11,5 +12,17 @@ namespace ExSymbiotes
             Instance = this;
         }
 
+    }
+
+    [DefOf]
+    public static class ExSymbiotesDefOf
+    {
+        public static ThingDef ExSymbiotes_SymbioteMass;
+        public static ThingDef ExSymbiotes_SymbioteMassIncoming;
+
+        static ExSymbiotesDefOf()
+        {
+            DefOfHelper.EnsureInitializedInCtor(typeof(ExSymbiotesDefOf));
+        }
     }
 }
