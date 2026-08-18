@@ -1,20 +1,20 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <Defs>
 
-	<!--<IncidentDef Name="ObeliskBase" ParentName="AnomalyIncidentBase" Abstract="True">
+	<IncidentDef Name="ExSymbiotes_SymbioteMassBase" ParentName="AnomalyIncidentBase" Abstract="True">
 		<category>ThreatBig</category>
 		<targetTags>
 			<li>Map_PlayerHome</li>
 		</targetTags>
-		<letterText>A mysterious obelisk has crashed nearby.\n\nThe obelisk hums with putrid psychic energy, gradually intensifying as it approaches some dangerous limit. You can send colonists to suppress the obelisk to prevent it from activating.\n\nYou can also mark the obelisk for study to try to learn its purpose and perhaps make use of it.\n\nYou can always attack the obelisk to destroy it, but doing so may unleash unnatural and dangerous phenomena.</letterText>
+		<letterText>A mysterious symbiote mass has crashed nearby.\n\nThe symbiote mass pulsates with putrid psychic energy, gradually intensifying as it approaches some dangerous limit. You can send colonists to suppress the symbiote mass to prevent it from waking up.\n\nYou can also mark the symbiote mass for study to try to learn its purpose and perhaps make use of it.\n\nYou can always attack the symbiote mass to destroy it, but doing so may unleash unnatural and dangerous phenomena.</letterText>
 		<letterDef>NeutralEvent</letterDef>
-		<baseChance>0.5</baseChance>
-		<earliestDay>50</earliestDay>
+		<baseChance>0.4</baseChance>
+		<earliestDay>100</earliestDay>
 		<minRefireDays>120</minRefireDays>
-		<minAnomalyThreatLevel>1</minAnomalyThreatLevel>
-	</IncidentDef>-->
+		<minAnomalyThreatLevel>2</minAnomalyThreatLevel>
+	</IncidentDef>
 	
-	<IncidentDef ParentName="ObeliskBase">
+	<IncidentDef ParentName="ExSymbiotes_SymbioteMassBase">
 		<defName>ExSymbiotes_SymbioteMass_Incident</defName>
 		<label>symbiote mass</label>
 		<letterLabel>Symbiote mass</letterLabel>
