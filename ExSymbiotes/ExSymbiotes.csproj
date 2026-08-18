@@ -49,10 +49,11 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="CompSymbioteMass_Black.cs" />
     <Compile Include="ExSymbiotesMod.cs" />
-    <Compile Include="IncidentWorker_SymbioteMass.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="SymbioteMass\Building_SymbioteMass.cs" />
+    <Compile Include="SymbioteMass\CompSymbioteMass_Black.cs" />
+    <Compile Include="SymbioteMass\IncidentWorker_SymbioteMass.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

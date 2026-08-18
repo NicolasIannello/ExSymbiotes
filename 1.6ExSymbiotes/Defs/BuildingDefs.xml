@@ -1,39 +1,36 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <Defs>
-
-	<ThingDef Name="ExSymbiotes_SymbioteMass" ParentName="BuildingBase" Abstract="True">
+	<ThingDef Name="ExSymbiotes_SymbioteMass" ParentName="BuildingNaturalBase" Abstract="True">
 		<description>A large mass of living tissue that emanates a putrid psychic energy. The symbiote mass pulsates ominously and appears to be increasing in activity. It's not clear what will happen when it wakes up.\n\nYou can send colonists to suppress the symbiote mass to prevent it from waking up. You can also mark the symbiote mass for study to try to learn its purpose and perhaps make use of it.\n\nYou can attack the symbiote mass to destroy it, but doing so may unleash unnatural and dangerous phenomena.</description>
 		<tickerType>Normal</tickerType>
 		<size>(3,3)</size>
 		<drawerType>RealtimeOnly</drawerType>
+		<thingClass>ExSymbiotes.Building_SymbioteMass</thingClass>
+		<category>Building</category>
+		<uiIconPath>Things/Buildings/SymbioteMass/SymbioteMass</uiIconPath>
+		<blockWind>true</blockWind>
 		<fillPercent>1</fillPercent>
-		<graphicData>
-			<graphicClass>Graphic_ActivityMask</graphicClass>
-			<shaderType>CutoutComplexBlend</shaderType>
-			<drawSize>(5,5)</drawSize>
-			<addTopAltitudeBias>true</addTopAltitudeBias>
-			<drawOffset>(0,0,0.3)</drawOffset>
-			<colorTwo>(226,53,33)</colorTwo>
-			<shadowData>
-				<volume>(2.5, 5, 2.5)</volume>
-				<offset>(0, 0, -0.3)</offset>
-			</shadowData>
-		</graphicData>
+		<rotatable>false</rotatable>
+		<holdsRoof>false</holdsRoof>
+		<terrainAffordanceNeeded>Light</terrainAffordanceNeeded>
 		<altitudeLayer>Building</altitudeLayer>
 		<passability>Impassable</passability>
+		<soundImpactDefault>Fleshmass_Damaged</soundImpactDefault>
+		<preventSkyfallersLandingOn>true</preventSkyfallersLandingOn>
 		<building>
-			<paintable>false</paintable>
-			<deconstructible>false</deconstructible>
+			<isEdifice>true</isEdifice>
+			<isInert>true</isInert>
+			<isTargetable>false</isTargetable>
 			<claimable>false</claimable>
-			<soundMeleeHitOverride>Fleshmass_Damaged</soundMeleeHitOverride>
+			<canBuildNonEdificesUnder>false</canBuildNonEdificesUnder>
+			<deconstructible>false</deconstructible>
+			<destroyEffecter>FleshmassHeartDestroyed</destroyEffecter>
 		</building>
-<!--		<killedLeavings>-->
-<!--			<Shard>0</Shard>-->
-<!--		</killedLeavings>-->
+		<forceLeavingsAllowed>true</forceLeavingsAllowed>
 		<statBases>
+			<Beauty>-25</Beauty>
 			<MaxHitPoints>10000</MaxHitPoints>
 			<Flammability>1</Flammability>
-			<MeditationFocusStrength>0.24</MeditationFocusStrength>
 		</statBases>
 		<comps>
 			<li Class="CompProperties_Activity">
@@ -50,6 +47,13 @@
 					</points>
 				</activityResearchFactorCurve>
 			</li>
+			<li Class="CompProperties_LeaveFilthOnDestroyed">
+				<filthDef>Filth_LooseGround</filthDef>
+				<thickness>2</thickness>
+			</li>
+			<li Class="CompProperties_AmbientSound">
+				<sound>FleshmassHeart_Ambience</sound>
+			</li>
 			<li Class="CompProperties_Studiable">
 				<frequencyTicks>120000</frequencyTicks>
 				<knowledgeCategory>Advanced</knowledgeCategory>
@@ -58,12 +62,6 @@
 				<studyEnabledByDefault>false</studyEnabledByDefault>
 				<showToggleGizmo>true</showToggleGizmo>
 				<canBeActivityDeactivated>false</canBeActivityDeactivated>
-			</li>
-			<li Class="CompProperties_MeditationFocus">
-				<statDef>MeditationFocusStrength</statDef>
-				<focusTypes>
-					<li>Void</li>
-				</focusTypes>
 			</li>
 		</comps>
 		<inspectorTabs>
@@ -74,9 +72,11 @@
 	<ThingDef ParentName="ExSymbiotes_SymbioteMass">
 		<defName>ExSymbiotes_SymbioteMass_Black</defName>
 		<label>symbiote mass</label>
-		<graphicData>
-			<texPath>Things/Buildings/SymbioteMass/SymbioteMass</texPath>
-		</graphicData>
+		<killedLeavings>
+			<Shard>3</Shard>
+			<VoidsightSerum>1</VoidsightSerum>
+<!--			CHECK STUDT PROGRESS ON KILL-->
+		</killedLeavings>
 		<comps>
 			<li Class="CompProperties_Obelisk">
 				<compClass>ExSymbiotes.CompSymbioteMass_Black</compClass>
@@ -99,8 +99,6 @@
 			<li Class="CompProperties_ObeliskTriggerInteractor">
 				<activeTicks>1</activeTicks>
 				<ticksToActivate>180</ticksToActivate>
-				<cooldownTicks>900000</cooldownTicks><!-- 15 days -->
-				<onCooldownString>Symbiote mass cooldown</onCooldownString>
 				<activateTexPath>Things/Item/Serum/SerumVoidsight</activateTexPath>
 				<activateLabelString>Contain...</activateLabelString>
 				<activateDescString>Contain the entity at its core.</activateDescString>
@@ -109,7 +107,6 @@
 				<activatingStringPending>containing symbiote mass</activatingStringPending>
 				<activatingString>containing symbiote mass: {1}s</activatingString>
 				<messageCompletedString>{PAWN_nameDef} has successfully contain symbiote mass.</messageCompletedString>
-				<messageCooldownEnded>The symbiote mass is ready to use again.</messageCooldownEnded>
 				<showMustBeActivatedByColonist>false</showMustBeActivatedByColonist>
 				<targetingParameters>
 					<canTargetBuildings>false</canTargetBuildings>

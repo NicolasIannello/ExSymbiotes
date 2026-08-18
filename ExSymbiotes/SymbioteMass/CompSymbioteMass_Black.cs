@@ -5,22 +5,12 @@ namespace ExSymbiotes
 {
   public class CompSymbioteMass_Black : CompObelisk_ExplodingSpawner
   {
+    public Building_SymbioteMass Heart => this.parent as Building_SymbioteMass;
 
     public override void TriggerInteractionEffect(Pawn interactor, bool triggeredByPlayer = false)
     {
       Log.Message(interactor.NameFullColored+" "+triggeredByPlayer);
-      if (triggeredByPlayer)
-      {
-        ThingDef serumDef = ThingDef.Named("VoidsightSerum");
-        Thing serum = ThingMaker.MakeThing(serumDef);
-        serum.stackCount = 1;
-
-        GenPlace.TryPlaceThing(serum, parent.Position, parent.Map, ThingPlaceMode.Direct);
-      }
-      else
-      {
-        
-      }
+      if (triggeredByPlayer) this.Heart?.StartTachycardiacOverload();
     }
 
     public override void OnActivityActivated()
