@@ -49,6 +49,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="CompSymbioteMass_Black.cs" />
     <Compile Include="ExSymbiotesMod.cs" />
     <Compile Include="IncidentWorker_SymbioteMass.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
