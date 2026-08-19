@@ -72,11 +72,6 @@
 	<ThingDef ParentName="ExSymbiotes_SymbioteMass">
 		<defName>ExSymbiotes_SymbioteMass_Black</defName>
 		<label>symbiote mass</label>
-		<killedLeavings>
-			<Shard>3</Shard>
-			<VoidsightSerum>1</VoidsightSerum>
-<!--			CHECK STUDT PROGRESS ON KILL-->
-		</killedLeavings>
 		<comps>
 			<li Class="CompProperties_Obelisk">
 				<compClass>ExSymbiotes.CompSymbioteMass_Black</compClass>

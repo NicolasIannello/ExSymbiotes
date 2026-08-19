@@ -15,6 +15,7 @@ namespace ExSymbiotes
     private int lastBeatTick = -99999;
     [Unsaved(false)]
     private Graphic cachedCenterPartGraphic;
+    private bool study = false;
 
     private Graphic CenterPartGraphic
     {
@@ -44,14 +45,19 @@ namespace ExSymbiotes
 
     public override void Kill(DamageInfo? dinfo = null, Hediff exactCulprit = null)
     {
+      GenPlace.TryPlaceThing(GetReward(study ? "VoidsightSerum" : "Shard", study ? 1 : 5), this.Position, this.Map, ThingPlaceMode.Near);
       base.Kill(dinfo, exactCulprit);
-      // ThingDef serumDef = ThingDef.Named("VoidsightSerum");
-      // Thing serum = ThingMaker.MakeThing(serumDef);
-      // serum.stackCount = 1;
-      //
-      // GenPlace.TryPlaceThing(serum, this.Position, this.Map, ThingPlaceMode.Direct);
     }
 
+    private Thing GetReward(string itemDefName, int stack)
+    {
+      ThingDef itemDef = ThingDef.Named(itemDefName);
+      Thing item = ThingMaker.MakeThing(itemDef);
+      item.stackCount = stack;
+
+      return item;
+    }
+    
     protected override void Tick()
     {
       base.Tick();
@@ -70,13 +76,14 @@ namespace ExSymbiotes
       SoundDefOf.FleshmassHeart_Throb.PlayOneShot((SoundInfo) (Thing) this);
     }
 
-    public void StartTachycardiacOverload()
+    public void StartTachycardiacOverload(bool study)
     {
+      this.study = study;
       this.bpm *= 2;
       this.bpmAccel = 15;
       this.overloadTick = Find.TickManager.TicksGame + EffecterDefOf.TachycardiacArrest.maintainTicks;
       EffecterDefOf.TachycardiacArrest.SpawnMaintained(this.Position, this.Map);
-      Messages.Message((string) "MessageHeartAttack".Translate(), (LookTargets) (Thing) this, MessageTypeDefOf.PositiveEvent);
+      Messages.Message((string) "ExSymbiotes.MessageHeartAttack".Translate(), (LookTargets) (Thing) this, MessageTypeDefOf.PositiveEvent);
     }
 
     protected override void DrawAt(Vector3 drawLoc, bool flip = false)

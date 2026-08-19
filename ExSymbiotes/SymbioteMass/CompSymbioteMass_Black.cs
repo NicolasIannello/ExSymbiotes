@@ -10,19 +10,17 @@ namespace ExSymbiotes
     public override void TriggerInteractionEffect(Pawn interactor, bool triggeredByPlayer = false)
     {
       Log.Message(interactor.NameFullColored+" "+triggeredByPlayer);
-      if (triggeredByPlayer) this.Heart?.StartTachycardiacOverload();
+      if (triggeredByPlayer) this.Heart?.StartTachycardiacOverload(StudyFinished);
     }
 
     public override void OnActivityActivated()
     {
       base.OnActivityActivated();
-      Log.Message("OnActivityActivated");
     }
 
     public override void CompTick()
     {
       base.CompTick();
-      Log.Message("CompTick");
     }
     
     // public override void PostExposeData()
