@@ -120,7 +120,7 @@
 
 	<ThingDef ParentName="SkyfallerBase">
 		<defName>ExSymbiotes_SymbioteMassIncoming</defName>
-		<label>obelisk (incoming)</label>
+		<label>symbiote mass (incoming)</label>
 		<graphicData>
 			<texPath>Things/Buildings/SymbioteMass/SymbioteMassSkyfaller</texPath>
 			<graphicClass>Graphic_Single</graphicClass>
