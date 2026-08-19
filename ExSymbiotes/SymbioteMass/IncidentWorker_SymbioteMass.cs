@@ -9,13 +9,12 @@ namespace ExSymbiotes
 
         public override float ChanceFactorNow(IIncidentTarget target)
         {
-            // if (!(target is Map map))
-            // {
-            //     return base.ChanceFactorNow(target);
-            // }
-            // int num = map.listerBuildings.allBuildingsNonColonist.Count((Building b) => b.def.GetCompProperties<CompProperties_Obelisk>() != null);
-            // return ((num > 0) ? ((float)num * 0.7f) : 1f) * base.ChanceFactorNow(target);
-            return 1f;
+            if (!(target is Map map))
+            {
+                return base.ChanceFactorNow(target);
+            }
+            int num = map.listerBuildings.allBuildingsNonColonist.Count((Building b) => b.def.GetCompProperties<CompProperties_Obelisk>() != null);
+            return ((num > 0) ? ((float)num * 0.5f) : 1f) * base.ChanceFactorNow(target);
         }
 
         protected override bool CanFireNowSub(IncidentParms parms)
