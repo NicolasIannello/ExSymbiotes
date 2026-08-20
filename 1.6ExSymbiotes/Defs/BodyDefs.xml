@@ -1,8 +1,19 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <Defs>
 
+	<BodyPartDef>
+		<defName>SymbioteSpike</defName>
+		<label>spike</label>
+		<hitPoints>40</hitPoints>
+		<frostbiteVulnerability>0.1</frostbiteVulnerability>
+		<permanentInjuryChanceFactor>0</permanentInjuryChanceFactor>
+		<tags>
+			<li>ManipulationLimbCore</li>
+		</tags>
+	</BodyPartDef>
+	
 	<BodyDef>
-		<defName>ExSymbiotes_Symbiote_Body</defName>
+		<defName>ExSymbiotes_Body</defName>
 		<label>symbiote</label>
 		<corePart>
 			<def>Torso</def>
@@ -19,6 +30,17 @@
 					<groups>
 						<li>Torso</li>
 					</groups>
+					<parts>
+						<li>
+							<def>SymbioteSpike</def>
+							<customLabel>back spike</customLabel>
+							<coverage>0.77</coverage>
+							<groups>
+								<li>Arms</li>
+								<li>MiddleSpike</li>
+							</groups>
+						</li>
+					</parts>
 				</li>
 				<li>
 					<def>Stomach</def>
@@ -154,6 +176,17 @@
 					<groups>
 						<li>Shoulders</li>
 					</groups>
+					<parts>
+						<li>
+							<def>SymbioteSpike</def>
+							<customLabel>left arm spike</customLabel>
+							<coverage>0.77</coverage>
+							<groups>
+								<li>Arms</li>
+								<li>LeftSpike</li>
+							</groups>
+						</li>
+					</parts>
 				</li>
 				<li>
 					<def>Shoulder</def>
@@ -162,6 +195,17 @@
 					<groups>
 						<li>Shoulders</li>
 					</groups>
+					<parts>
+						<li>
+							<def>SymbioteSpike</def>
+							<customLabel>right arm spike</customLabel>
+							<coverage>0.77</coverage>
+							<groups>
+								<li>Arms</li>
+								<li>RightSpike</li>
+							</groups>
+						</li>
+					</parts>
 				</li>
 				<li>
 					<def>FleshbeastLeg</def>
