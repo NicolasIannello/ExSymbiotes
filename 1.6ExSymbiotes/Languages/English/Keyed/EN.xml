@@ -1,4 +1,8 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <LanguageData>
     <ExSymbiotes.MessageHeartAttack>The symbiote mass is convulsing!</ExSymbiotes.MessageHeartAttack>
+    <ExSymbiotes.LabelSymbioteHorde>Symbiote mass awakened.</ExSymbiotes.LabelSymbioteHorde>
+    <ExSymbiotes.LabelSymbioteHorde2>Symbiote mass horde.</ExSymbiotes.LabelSymbioteHorde2>
+    <ExSymbiotes.TextSymbioteHorde>The symbiote mass has awakened, it will spit symbiotes periodically until it consumes itself.</ExSymbiotes.TextSymbioteHorde>
+    <ExSymbiotes.TextSymbioteHorde2>The symbiote mass is spitting more symbiotes. It will continue until it consumes itself.</ExSymbiotes.TextSymbioteHorde2>
 </LanguageData>

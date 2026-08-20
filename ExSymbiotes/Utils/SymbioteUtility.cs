@@ -24,7 +24,7 @@ namespace ExSymbiotes.Utils
             return PawnGroupMakerUtility.GeneratePawns(parms).ToList<Pawn>();
         }
 
-        public static void SymbioteHorde(Map map, Building_SymbioteMass mass)//INCREMENT POINTS PER MISSING HEALTH
+        public static void SymbioteHorde(Map map, Building_SymbioteMass mass, bool first = false)//INCREMENT POINTS PER MISSING HEALTH
         {
             List<Pawn> fleshbeastsForPoints = GetSymbiotesForPoints(StorytellerUtility.DefaultThreatPointsNow(map), map);
             List<PawnFlyer> source = new List<PawnFlyer>();
@@ -47,6 +47,12 @@ namespace ExSymbiotes.Utils
             });
             SoundDefOf.Pawn_Fleshbeast_EmergeFromPitGate.PlayOneShot((SoundInfo) (Thing) mass);
             mass.TakeDamage(new DamageInfo(DamageDefOf.Blunt, 1500));
+            Find.LetterStack.ReceiveLetter(
+                first ? "ExSymbiotes.LabelSymbioteHorde".Translate() : "ExSymbiotes.LabelSymbioteHorde2".Translate(),
+                first ? "ExSymbiotes.TextSymbioteHorde".Translate() : "ExSymbiotes.TextSymbioteHorde2".Translate(),
+                LetterDefOf.ThreatBig,
+                new TargetInfo(mass.Position, map)
+            );
         }
     }
 }

@@ -17,7 +17,7 @@ namespace ExSymbiotes
     public override void OnActivityActivated()
     {
       base.OnActivityActivated();
-      SymbioteUtility.SymbioteHorde(Heart.Map, Heart);
+      SymbioteUtility.SymbioteHorde(Heart.Map, Heart, true);
       this.nextTick = Find.TickManager.TicksGame + 60000 + 15000;
     }
 
