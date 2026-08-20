@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <Defs>
 
-	<!--<ThingDef ParentName="BasePawn" Name="BaseFleshbeast" Abstract="True">
+	<ThingDef ParentName="BasePawn" Name="ExSymbiotes_BaseSymbiote" Abstract="True">
 		<statBases>
 			<ComfyTemperatureMin>-40</ComfyTemperatureMin>
 			<ComfyTemperatureMax>60</ComfyTemperatureMax>
@@ -20,29 +20,30 @@
 			<needsRest>false</needsRest>
 			<hasGenders>false</hasGenders>
 			<foodType>None</foodType>
-			<bloodDef>Filth_Blood</bloodDef>
-			<bloodSmearDef>Filth_BloodSmear</bloodSmearDef>
+<!--			<hasCorpse>false</hasCorpse>-->
+			<bloodDef>Filth_DarkBlood</bloodDef>
+			<bloodSmearDef>ExSymbiotes_Filth_BloodSmear_Black</bloodSmearDef>
 			<soundMeleeDodge>Pawn_MeleeDodge</soundMeleeDodge>
 			<trainability>None</trainability>
-			<fleshType>Fleshbeast</fleshType>
+			<fleshType>EntityMechanical</fleshType>
 			<isImmuneToInfections>true</isImmuneToInfections>
 			<bleedRateFactor>0.5</bleedRateFactor>
 			<hediffGiverSets>
-				<li>Fleshbeast</li>
+				<li>AnomalyEntity</li>
 			</hediffGiverSets>
 			<corpseHiddenWhileUndiscovered>true</corpseHiddenWhileUndiscovered>
 		</race>
 		<comps>
 			<li Class="CompProperties_HoldingPlatformTarget">
-				<baseEscapeIntervalMtbDays>60</baseEscapeIntervalMtbDays>
-				<getsColdContainmentBonus>true</getsColdContainmentBonus>
+				<baseEscapeIntervalMtbDays>30</baseEscapeIntervalMtbDays>
+				<getsColdContainmentBonus>false</getsColdContainmentBonus>
 			</li>
 			<li Class="CompProperties_InspectString">
 				<compClass>CompInspectStringEmergence</compClass>
 				<inspectString>Emerged from {SOURCEPAWN_labelShort}.</inspectString>
 			</li>
 		</comps>
-	</ThingDef>-->
+	</ThingDef>
 
 	<ThingDef ParentName="BaseFleshbeast">
 		<defName>ExSymbiotes_Symbiote</defName>
@@ -60,13 +61,13 @@
 			<baseHealthScale>0.3</baseHealthScale>
 			<lifeExpectancy>10</lifeExpectancy>
 			<renderTree>ExSymbiotes_Symbiote_PawnRenderTree</renderTree>
-<!--			<deathAction Class="DeathActionProperties_Divide">-->
-<!--				<divideBloodFilthCountRange>1~2</divideBloodFilthCountRange>-->
-<!--				<dividePawnCount>3</dividePawnCount>-->
-<!--				<dividePawnKindOptions>-->
-<!--					<li>Fingerspike</li>-->
-<!--				</dividePawnKindOptions>-->
-<!--			</deathAction>-->
+			<deathAction Class="DeathActionProperties_Vanish">
+				<workerClass>DeathActionWorker_Vanish</workerClass>
+				<!--CHECK workerclass				-->
+				<filth>Filth_RevenantBloodPool</filth>
+				<filthCountRange>1~2</filthCountRange>
+<!--				<meatExplosionSize>Small</meatExplosionSize>-->
+			</deathAction>
 			<lifeStageAges>
 				<li>
 					<def>EntityFullyFormed</def>

@@ -24,7 +24,7 @@
 			<claimable>false</claimable>
 			<canBuildNonEdificesUnder>false</canBuildNonEdificesUnder>
 			<deconstructible>false</deconstructible>
-			<destroyEffecter>FleshmassHeartDestroyed</destroyEffecter>
+			<destroyEffecter>ExSymbiotes_FleshmassHeartDestroyed</destroyEffecter>
 		</building>
 		<forceLeavingsAllowed>true</forceLeavingsAllowed>
 		<statBases>
@@ -48,7 +48,7 @@
 				</activityResearchFactorCurve>
 			</li>
 			<li Class="CompProperties_LeaveFilthOnDestroyed">
-				<filthDef>Filth_LooseGround</filthDef>
+				<filthDef>Filth_RevenantBloodPool</filthDef>
 				<thickness>2</thickness>
 			</li>
 			<li Class="CompProperties_AmbientSound">

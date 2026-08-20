@@ -82,7 +82,7 @@ namespace ExSymbiotes
       this.bpm *= 2;
       this.bpmAccel = 15;
       this.overloadTick = Find.TickManager.TicksGame + EffecterDefOf.TachycardiacArrest.maintainTicks;
-      EffecterDefOf.TachycardiacArrest.SpawnMaintained(this.Position, this.Map);
+      ExSymbiotesDefOf.ExSymbiotes_TachycardiacArrest.SpawnMaintained(this.Position, this.Map);
       Messages.Message((string) "ExSymbiotes.MessageHeartAttack".Translate(), (LookTargets) (Thing) this, MessageTypeDefOf.PositiveEvent);
     }
 

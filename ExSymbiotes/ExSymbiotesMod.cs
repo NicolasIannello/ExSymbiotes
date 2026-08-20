@@ -21,6 +21,7 @@ namespace ExSymbiotes
         public static ThingDef ExSymbiotes_SymbioteMassIncoming;
         public static PawnKindDef ExSymbiotes_Symbiote_PawnKind;
         public static PawnGroupKindDef ExSymbiotes_Symbiote_PawnGroupKind;
+        public static EffecterDef ExSymbiotes_TachycardiacArrest;
 
         static ExSymbiotesDefOf()
         {
