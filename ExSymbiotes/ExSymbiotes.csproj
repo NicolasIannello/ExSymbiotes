@@ -54,6 +54,7 @@
     <Compile Include="SymbioteMass\Building_SymbioteMass.cs" />
     <Compile Include="SymbioteMass\CompSymbioteMass_Black.cs" />
     <Compile Include="SymbioteMass\IncidentWorker_SymbioteMass.cs" />
+    <Compile Include="Utils\SymbioteUtility.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

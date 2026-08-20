@@ -1,0 +1,52 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using UnityEngine;
+using Verse;
+using Verse.AI.Group;
+using Verse.Sound;
+using RimWorld;
+
+namespace ExSymbiotes.Utils
+{
+    public class SymbioteUtility
+    {
+        public static List<Pawn> GetSymbiotesForPoints(float points, Map map)
+        {
+            PawnGroupMakerParms parms = new PawnGroupMakerParms()
+            {
+                groupKind = ExSymbiotesDefOf.ExSymbiotes_Symbiote_PawnGroupKind,
+                tile = map.Tile,
+                faction = Faction.OfEntities,
+                points = (double) points > 0.0 ? points : StorytellerUtility.DefaultThreatPointsNow((IIncidentTarget) map)
+            };
+            parms.points = Mathf.Max(parms.points, parms.faction.def.MinPointsToGeneratePawnGroup(parms.groupKind) * 1.05f);
+            return PawnGroupMakerUtility.GeneratePawns(parms).ToList<Pawn>();
+        }
+
+        public static void SymbioteHorde(Map map, Building_SymbioteMass mass)//INCREMENT POINTS PER MISSING HEALTH
+        {
+            List<Pawn> fleshbeastsForPoints = GetSymbiotesForPoints(StorytellerUtility.DefaultThreatPointsNow(map), map);
+            List<PawnFlyer> source = new List<PawnFlyer>();
+            List<IntVec3> spawnPositions = new List<IntVec3>();
+            CellRect cellRect = GenAdj.OccupiedRect(mass.Position, Rot4.North, ThingDefOf.PitGate.Size).ContractedBy(2);
+            foreach (Pawn pawn in fleshbeastsForPoints)
+            {
+                IntVec3 randomCell = cellRect.RandomCell;
+                GenSpawn.Spawn((Thing) pawn, randomCell, map);
+                IntVec3 result;
+                CellFinder.TryFindRandomCellNear(mass.Position, map, ThingDefOf.PitGate.size.x / 2 + 1, (Predicate<IntVec3>) (cell => !cell.Fogged(map) && cell.Walkable(map) && !cell.Impassable(map)), out result);
+                pawn.rotationTracker.FaceCell(result);
+                source.Add(PawnFlyer.MakeFlyer(ThingDefOf.PawnFlyer_Stun, pawn, result, (EffecterDef) null, (SoundDef) null, overrideStartVec: new Vector3?(randomCell.ToVector3() + new Vector3(0.0f, 0.0f, -1f))));
+                spawnPositions.Add(randomCell);
+            }
+            float intervalSeconds = 600.TicksToSeconds() / (float) fleshbeastsForPoints.Count;
+            map.deferredSpawner.AddRequest(new SpawnRequest(source.Cast<Thing>().ToList<Thing>(), spawnPositions, 1, intervalSeconds)
+            {
+                lord = LordMaker.MakeNewLord(Faction.OfEntities, (LordJob) new LordJob_FleshbeastAssault(), map)
+            });
+            SoundDefOf.Pawn_Fleshbeast_EmergeFromPitGate.PlayOneShot((SoundInfo) (Thing) mass);
+            mass.TakeDamage(new DamageInfo(DamageDefOf.Blunt, 1500));
+        }
+    }
+}
