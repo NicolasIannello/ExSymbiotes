@@ -62,11 +62,10 @@
 			<lifeExpectancy>10</lifeExpectancy>
 			<renderTree>ExSymbiotes_Symbiote_PawnRenderTree</renderTree>
 			<deathAction Class="DeathActionProperties_Vanish">
-				<workerClass>DeathActionWorker_Vanish</workerClass>
-				<!--CHECK workerclass				-->
+				<workerClass>ExSymbiotes.DeathActionWorker_VanishSymbiote</workerClass>
 				<filth>Filth_RevenantBloodPool</filth>
 				<filthCountRange>1~2</filthCountRange>
-<!--				<meatExplosionSize>Small</meatExplosionSize>-->
+				<meatExplosionSize>Normal</meatExplosionSize>
 			</deathAction>
 			<lifeStageAges>
 				<li>

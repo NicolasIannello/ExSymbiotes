@@ -54,5 +54,33 @@ namespace ExSymbiotes.Utils
                 new TargetInfo(mass.Position, map)
             );
         }
+        
+        public static void MeatSplatter(
+            int filthCount,
+            IntVec3 pos,
+            Map map,
+            FleshbeastUtility.MeatExplosionSize size = FleshbeastUtility.MeatExplosionSize.Normal)
+        {
+            switch (size)
+            {
+                case FleshbeastUtility.MeatExplosionSize.Small:
+                    ExSymbiotesDefOf.ExSymbiotes_MeatExplosion_Black.Spawn(pos, map).Cleanup();
+                    break;
+                case FleshbeastUtility.MeatExplosionSize.Normal:
+                    ExSymbiotesDefOf.ExSymbiotes_MeatExplosion_Black.Spawn(pos, map).Cleanup();
+                    break;
+                case FleshbeastUtility.MeatExplosionSize.Large:
+                    ExSymbiotesDefOf.ExSymbiotes_MeatExplosion_Black.Spawn(pos, map).Cleanup();
+                    break;
+            }
+            CellRect cellRect = new CellRect(pos.x, pos.z, 3, 3).ClipInsideMap(map);
+            for (int index = 0; index < filthCount; ++index)
+            {
+                IntVec3 randomCell = cellRect.RandomCell;
+                ThingDef filthDef = ThingDefOf.Filth_RevenantBloodPool;
+                if (randomCell.InBounds(map) && GenSight.LineOfSight(randomCell, pos, map))
+                    FilthMaker.TryMakeFilth(randomCell, map, filthDef);
+            }
+        }
     }
 }
