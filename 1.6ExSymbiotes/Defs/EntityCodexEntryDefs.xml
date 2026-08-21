@@ -13,6 +13,9 @@
 			<li>ExSymbiotes_SymbioteMass_Incident</li>
 		</provocationIncidents>
 		<orderInCategory>1441</orderInCategory>
+		<discoveredResearchProjects>
+			<li>ExSymbiotes_SymbioticMassResearch</li>
+		</discoveredResearchProjects>
 	</EntityCodexEntryDef>
 
 	<EntityCodexEntryDef>

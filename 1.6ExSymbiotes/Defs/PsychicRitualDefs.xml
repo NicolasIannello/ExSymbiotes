@@ -1,0 +1,26 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+    <ExSymbiotes.PsychicRitualDef_SummonSymbioticMass>
+        <defName>ExSymbiotes_SummonSymbioticMass</defName>
+        <label>summon symbiotic mass</label>
+        <description>Perform a psychic ritual which provokes a symbiotic mass to crash nearby.</description>
+        <iconPath>Things/SummonSymbioticMass</iconPath>
+        <researchPrerequisite>ExSymbiotes_SymbioticMassResearch</researchPrerequisite>
+        <outcomeDescription>Perform a psychic ritual which provokes a symbiotic mass to crash nearby.</outcomeDescription>
+        <hoursUntilOutcome>4</hoursUntilOutcome>
+        <castableOnPocketMaps>false</castableOnPocketMaps>
+        <layerWhitelist>
+            <li>Surface</li>
+        </layerWhitelist>
+        <requiredOffering>
+            <filter>
+                <thingDefs>
+                    <li>Bioferrite</li>
+                </thingDefs>
+            </filter>
+            <count>75</count>
+        </requiredOffering>
+        <cooldownHours>540</cooldownHours>
+        <chanterRole>ChanterAdvanced</chanterRole>
+    </ExSymbiotes.PsychicRitualDef_SummonSymbioticMass>
+</Defs>

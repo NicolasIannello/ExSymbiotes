@@ -9,6 +9,20 @@
         <minMonolithLevelVisible>1</minMonolithLevelVisible>
         <tutorTag>Research-Tab-ExSymbiotes</tutorTag>
     </ResearchTabDef>
+
+    <ResearchProjectDef>
+        <defName>ExSymbiotes_SymbioticMassResearch</defName>
+        <label>symbiotic mass</label>
+        <description>Perform a psychic ritual which provokes a symbiotic mass to crash nearby.</description>
+        <tab>ExSymbiotes_Tab</tab>
+        <prerequisites>
+            <li>AdvancedPsychicRituals</li>
+        </prerequisites>
+        <knowledgeCost>50</knowledgeCost>
+        <knowledgeCategory>Advanced</knowledgeCategory>
+        <researchViewX>0.00</researchViewX>
+        <researchViewY>0.0</researchViewY>
+    </ResearchProjectDef>
     
     <ResearchProjectDef>
         <defName>ExSymbiotes_SymbioticTissueResearch</defName>

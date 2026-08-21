@@ -51,6 +51,8 @@
   <ItemGroup>
     <Compile Include="ExSymbiotesMod.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Ritual\PsychicRitualDef_SummonSymbioticMass.cs" />
+    <Compile Include="Ritual\PsychicRitualToil_SummonSymbioticMass.cs" />
     <Compile Include="SymbioteMass\Building_SymbioteMass.cs" />
     <Compile Include="SymbioteMass\CompSymbioteMass_Black.cs" />
     <Compile Include="SymbioteMass\IncidentWorker_SymbioteMass.cs" />
