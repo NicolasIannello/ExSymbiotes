@@ -1,0 +1,27 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+    <ResearchTabDef>
+        <defName>ExSymbiotes_Tab</defName>
+        <label>symbiotes</label>
+        <generalTitle>Symbiotes research projects</generalTitle>
+        <generalDescription>Unlock symbiote-related technologies by studying symbiotes entities.</generalDescription>
+        <visibleByDefault>false</visibleByDefault>
+        <minMonolithLevelVisible>1</minMonolithLevelVisible>
+        <tutorTag>Research-Tab-ExSymbiotes</tutorTag>
+    </ResearchTabDef>
+    
+    <ResearchProjectDef>
+        <defName>ExSymbiotes_SymbioticTissueResearch</defName>
+        <label>symbiotic tissue</label>
+        <description>Synthesize products by infusing them with symbiotic tissue.</description>
+        <tab>ExSymbiotes_Tab</tab>
+        <prerequisites>
+            <li>BioferriteShaping</li>
+        </prerequisites>
+        <knowledgeCost>30</knowledgeCost>
+        <knowledgeCategory>Advanced</knowledgeCategory>
+        <researchViewX>0.00</researchViewX>
+        <researchViewY>3.40</researchViewY>
+    </ResearchProjectDef>
+
+</Defs>

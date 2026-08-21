@@ -12,7 +12,7 @@
 		<provocationIncidents>
 			<li>ExSymbiotes_SymbioteMass_Incident</li>
 		</provocationIncidents>
-		<orderInCategory>1401</orderInCategory>
+		<orderInCategory>1441</orderInCategory>
 	</EntityCodexEntryDef>
 
 	<EntityCodexEntryDef>
@@ -23,10 +23,14 @@
 		<category>Advanced</category>
 		<linkedThings>
 			<li>ExSymbiotes_Symbiote</li>
+			<li>ExSymbiotes_SymbioticTissue</li>
 		</linkedThings>
 		<provocationIncidents>
 			<li>ExSymbiotes_SymbioteMass_Incident</li>
 		</provocationIncidents>
-		<orderInCategory>1402</orderInCategory>
+		<orderInCategory>1442</orderInCategory>
+		<discoveredResearchProjects>
+			<li>ExSymbiotes_SymbioticTissueResearch</li>
+		</discoveredResearchProjects>
 	</EntityCodexEntryDef>
 </Defs>

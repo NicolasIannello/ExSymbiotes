@@ -1,0 +1,205 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+    <RecipeDef>
+        <defName>ExSymbiotes_Make_Leather_Symbiotic</defName>
+        <label>make symbiotic leather</label>
+        <description>Imbue leathers with symbiotic tissue.</description>
+        <jobString>Making symbiotic leather.</jobString>
+        <workSpeedStat>GeneralLaborSpeed</workSpeedStat>
+        <effectWorking>Tailor</effectWorking>
+        <soundWorking>Recipe_Tailor</soundWorking>
+        <workAmount>900</workAmount>
+        <allowMixingIngredients>true</allowMixingIngredients>
+        <targetCountAdjustment>50</targetCountAdjustment>
+        <researchPrerequisite>ExSymbiotes_SymbioticTissueResearch</researchPrerequisite>
+        <recipeUsers>
+            <li>BioferriteShaper</li>
+        </recipeUsers>
+        <ingredients>
+            <li>
+                <filter>
+                    <categories>
+                        <li>Leathers</li>
+                    </categories>
+                </filter>
+                <count>10</count>
+            </li>
+            <li>
+                <filter>
+                    <thingDefs><li>ExSymbiotes_SymbioticTissue</li></thingDefs>
+                </filter>
+                <count>10</count>
+            </li>
+            <li>
+                <filter>
+                    <thingDefs><li>Bioferrite</li></thingDefs>
+                </filter>
+                <count>1</count>
+            </li>
+        </ingredients>
+        <fixedIngredientFilter>
+            <categories>
+                <li>Leathers</li>
+            </categories>
+            <thingDefs><li>Bioferrite</li></thingDefs>
+            <thingDefs><li>ExSymbiotes_SymbioticTissue</li></thingDefs>
+            <disallowedThingDefs>
+                <li>ExSymbiotes_Leather_Symbiotic</li>
+            </disallowedThingDefs>
+        </fixedIngredientFilter>
+        <products>
+            <ExSymbiotes_Leather_Symbiotic>10</ExSymbiotes_Leather_Symbiotic>
+        </products>
+        <workSkill>Crafting</workSkill>
+        <displayPriority>100</displayPriority>
+    </RecipeDef>
+
+    <RecipeDef>
+        <defName>ExSymbiotes_Make_Leather_SymbioticBulk</defName>
+        <label>make symbiotic leather X100</label>
+        <description>Imbue leathers with symbiotic tissue.</description>
+        <jobString>Making symbiotic leather X100.</jobString>
+        <workSpeedStat>GeneralLaborSpeed</workSpeedStat>
+        <effectWorking>Tailor</effectWorking>
+        <soundWorking>Recipe_Tailor</soundWorking>
+        <workAmount>3000</workAmount>
+        <allowMixingIngredients>true</allowMixingIngredients>
+        <targetCountAdjustment>50</targetCountAdjustment>
+        <researchPrerequisite>ExSymbiotes_SymbioticTissueResearch</researchPrerequisite>
+        <recipeUsers>
+            <li>BioferriteShaper</li>
+        </recipeUsers>
+        <ingredients>
+            <li>
+                <filter>
+                    <categories>
+                        <li>Leathers</li>
+                    </categories>
+                </filter>
+                <count>100</count>
+            </li>
+            <li>
+                <filter>
+                    <thingDefs><li>ExSymbiotes_SymbioticTissue</li></thingDefs>
+                </filter>
+                <count>100</count>
+            </li>
+            <li>
+                <filter>
+                    <thingDefs><li>Bioferrite</li></thingDefs>
+                </filter>
+                <count>10</count>
+            </li>
+        </ingredients>
+        <fixedIngredientFilter>
+            <categories>
+                <li>Leathers</li>
+            </categories>
+            <thingDefs><li>Bioferrite</li></thingDefs>
+            <thingDefs><li>ExSymbiotes_SymbioticTissue</li></thingDefs>
+            <disallowedThingDefs>
+                <li>ExSymbiotes_Leather_Symbiotic</li>
+            </disallowedThingDefs>
+        </fixedIngredientFilter>
+        <products>
+            <ExSymbiotes_Leather_Symbiotic>100</ExSymbiotes_Leather_Symbiotic>
+        </products>
+        <workSkill>Crafting</workSkill>
+        <displayPriority>101</displayPriority>
+    </RecipeDef>
+
+    <RecipeDef>
+        <defName>ExSymbiotes_Make_SymbioticPlasteel</defName>
+        <label>make symbiotic plasteel</label>
+        <description>Imbue plasteel with symbiotic tissue.</description>
+        <jobString>Making symbiotic plasteel.</jobString>
+        <workSpeedStat>GeneralLaborSpeed</workSpeedStat>
+        <effectWorking>Smith</effectWorking>
+        <soundWorking>Recipe_Smith</soundWorking>
+        <workAmount>900</workAmount>
+        <allowMixingIngredients>true</allowMixingIngredients>
+        <targetCountAdjustment>50</targetCountAdjustment>
+        <researchPrerequisite>ExSymbiotes_SymbioticTissueResearch</researchPrerequisite>
+        <recipeUsers>
+            <li>BioferriteShaper</li>
+        </recipeUsers>
+        <ingredients>
+            <li>
+                <filter>
+                    <thingDefs><li>Plasteel</li></thingDefs>
+                </filter>
+                <count>10</count>
+            </li>
+            <li>
+                <filter>
+                    <thingDefs><li>ExSymbiotes_SymbioticTissue</li></thingDefs>
+                </filter>
+                <count>10</count>
+            </li>
+            <li>
+                <filter>
+                    <thingDefs><li>Bioferrite</li></thingDefs>
+                </filter>
+                <count>1</count>
+            </li>
+        </ingredients>
+        <fixedIngredientFilter>
+            <thingDefs><li>Plasteel</li></thingDefs>
+            <thingDefs><li>Bioferrite</li></thingDefs>
+            <thingDefs><li>ExSymbiotes_SymbioticTissue</li></thingDefs>
+        </fixedIngredientFilter>
+        <products>
+            <ExSymbiotes_SymbioticPlasteel>10</ExSymbiotes_SymbioticPlasteel>
+        </products>
+        <workSkill>Crafting</workSkill>
+        <displayPriority>102</displayPriority>
+    </RecipeDef>
+
+    <RecipeDef>
+        <defName>ExSymbiotes_Make_SymbioticPlasteelBulk</defName>
+        <label>make symbiotic plasteel X100</label>
+        <description>Imbue plasteel with symbiotic tissue.</description>
+        <jobString>Making symbiotic plasteel X100.</jobString>
+        <workSpeedStat>GeneralLaborSpeed</workSpeedStat>
+        <effectWorking>Smith</effectWorking>
+        <soundWorking>Recipe_Smith</soundWorking>
+        <workAmount>3000</workAmount>
+        <allowMixingIngredients>true</allowMixingIngredients>
+        <targetCountAdjustment>50</targetCountAdjustment>
+        <researchPrerequisite>ExSymbiotes_SymbioticTissueResearch</researchPrerequisite>
+        <recipeUsers>
+            <li>BioferriteShaper</li>
+        </recipeUsers>
+        <ingredients>
+            <li>
+                <filter>
+                    <thingDefs><li>Plasteel</li></thingDefs>
+                </filter>
+                <count>100</count>
+            </li>
+            <li>
+                <filter>
+                    <thingDefs><li>ExSymbiotes_SymbioticTissue</li></thingDefs>
+                </filter>
+                <count>100</count>
+            </li>
+            <li>
+                <filter>
+                    <thingDefs><li>Bioferrite</li></thingDefs>
+                </filter>
+                <count>10</count>
+            </li>
+        </ingredients>
+        <fixedIngredientFilter>
+            <thingDefs><li>Plasteel</li></thingDefs>
+            <thingDefs><li>Bioferrite</li></thingDefs>
+            <thingDefs><li>ExSymbiotes_SymbioticTissue</li></thingDefs>
+        </fixedIngredientFilter>
+        <products>
+            <ExSymbiotes_SymbioticPlasteel>100</ExSymbiotes_SymbioticPlasteel>
+        </products>
+        <workSkill>Crafting</workSkill>
+        <displayPriority>103</displayPriority>
+    </RecipeDef>
+    
+</Defs>
