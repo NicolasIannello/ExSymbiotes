@@ -125,4 +125,74 @@
         </stuffProps>
         <terrainAffordanceNeeded>Medium</terrainAffordanceNeeded>
     </ThingDef>
+
+    <ThingDef ParentName="ResourceBase">
+        <defName>ExSymbiotes_SymbioticCore</defName>
+        <label>symbiotic core</label>
+        <description>Symbiotic core dropped from a symbiotic mass, consume to produce a simbiosis.</description>
+        <graphicData>
+            <texPath>Things/Item/SymbioticCore</texPath>
+            <graphicClass>Graphic_Single</graphicClass>
+            <drawSize>0.8</drawSize>
+        </graphicData>
+        <thingClass>ThingWithComps</thingClass>
+        <stackLimit>10</stackLimit>
+        <socialPropernessMatters>false</socialPropernessMatters>
+        <orderedTakeGroup>Drug</orderedTakeGroup>
+        <hiddenWhileUndiscovered>true</hiddenWhileUndiscovered>
+        <genericMarketSellable>false</genericMarketSellable>
+        <statBases>
+            <MaxHitPoints>60</MaxHitPoints>
+            <MarketValue>200</MarketValue>
+            <DeteriorationRate>2.0</DeteriorationRate>
+            <Mass>0.5</Mass>
+            <Flammability>1</Flammability>
+        </statBases>
+        <thingCategories>
+            <li>Drugs</li>
+        </thingCategories>
+        <thingSetMakerTags>
+            <li>RewardStandardLowFreq</li>
+        </thingSetMakerTags>
+        <ingestible>
+            <preferability>NeverForNutrition</preferability>
+            <maxNumToIngestAtOnce>1</maxNumToIngestAtOnce>
+            <defaultNumToIngestAtOnce>1</defaultNumToIngestAtOnce>
+            <drugCategory>Medical</drugCategory>
+            <foodType>Processed</foodType>
+            <baseIngestTicks>100</baseIngestTicks>
+            <humanlikeOnly>true</humanlikeOnly>
+            <chairSearchRadius>0</chairSearchRadius>
+            <ingestSound>Ingest_Pill</ingestSound>
+            <ingestHoldUsesTable>false</ingestHoldUsesTable>
+            <ingestCommandString>Ingest {0}</ingestCommandString>
+            <ingestReportString>Ingesting {0}.</ingestReportString>
+            <showIngestFloatOption>false</showIngestFloatOption> <!-- Useable does this -->
+            <outcomeDoers>
+                <li Class="IngestionOutcomeDoer_UseThing" />
+            </outcomeDoers>
+        </ingestible>
+        <comps>
+            <li Class="CompProperties_Drug">
+                <listOrder>1200</listOrder>
+                <teetotalerCanConsume>false</teetotalerCanConsume>
+            </li>
+            <li Class="CompProperties_Usable">
+                <useLabel>Use {0_label}</useLabel>
+                <useJob>Ingest</useJob>
+                <showUseGizmo>true</showUseGizmo>
+                <allowedMutants>
+                    <li>Ghoul</li>
+                </allowedMutants>
+            </li>
+            <li Class="CompProperties_Serum" />
+            <li Class="CompProperties_UseEffectAddHediff">
+                <hediffDef>ExSymbiotes_Symbiosis</hediffDef>
+                <allowRepeatedUse>false</allowRepeatedUse>
+            </li>
+            <li Class="CompProperties_UseEffectPlaySound">
+                <soundOnUsed>MechSerumUsed</soundOnUsed>
+            </li>
+        </comps>
+    </ThingDef>
 </Defs>

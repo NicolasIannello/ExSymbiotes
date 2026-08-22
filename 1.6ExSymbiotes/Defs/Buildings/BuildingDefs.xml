@@ -94,7 +94,7 @@
 			<li Class="CompProperties_ObeliskTriggerInteractor">
 				<activeTicks>1</activeTicks>
 				<ticksToActivate>180</ticksToActivate>
-				<activateTexPath>Things/Item/Serum/SerumVoidsight</activateTexPath>
+				<activateTexPath>Things/Item/SymbioticCore</activateTexPath>
 				<activateLabelString>Contain...</activateLabelString>
 				<activateDescString>Contain the entity at its core.</activateDescString>
 				<guiLabelString>Choose who should do this</guiLabelString>

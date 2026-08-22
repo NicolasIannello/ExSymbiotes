@@ -46,7 +46,7 @@ namespace ExSymbiotes
     public override void Kill(DamageInfo? dinfo = null, Hediff exactCulprit = null)
     {
       if (study)
-        GenPlace.TryPlaceThing(GetReward("VoidsightSerum", 1), this.Position, this.Map, ThingPlaceMode.Near);
+        GenPlace.TryPlaceThing(GetReward("ExSymbiotes_SymbioticCore", 1), this.Position, this.Map, ThingPlaceMode.Near);
       else
       {
         GenPlace.TryPlaceThing(GetReward("Shard", 10), this.Position, this.Map, ThingPlaceMode.Near);
