@@ -47,6 +47,8 @@ namespace ExSymbiotes.Utils
             });
             SoundDefOf.Pawn_Fleshbeast_EmergeFromPitGate.PlayOneShot((SoundInfo) (Thing) mass);
             mass.TakeDamage(new DamageInfo(DamageDefOf.Blunt, 1500));
+            EffecterDefOf.VoidNodeDisrupted.SpawnMaintained(mass, map);
+            EffecterDefOf.VoidStructureActivated.Spawn(mass, map);
             Find.LetterStack.ReceiveLetter(
                 first ? "ExSymbiotes.LabelSymbioteHorde".Translate() : "ExSymbiotes.LabelSymbioteHorde2".Translate(),
                 first ? "ExSymbiotes.TextSymbioteHorde".Translate() : "ExSymbiotes.TextSymbioteHorde2".Translate(),
