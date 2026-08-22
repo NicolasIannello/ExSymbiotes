@@ -80,12 +80,12 @@
 			<li Class="CompProperties_StudyUnlocks">
 				<studyNotes>
 					<li>
-						<threshold>4</threshold>
+						<threshold>8</threshold>
 						<label>Symbiote mass study progress</label>
-						<text>Investigation of the symbiote mass has revealed some information. It is a dormant living thing. A bunch of things move inside protecting something at its core.\n\nIf not suppressed, its activity level will increase over time. You can't tell what will happen when the entity wakes up.</text>
+						<text>Investigation of the symbiote mass has revealed some information. It is a dormant living thing. A bunch of things move inside protecting something at its core.\n\nYou believe that destroying it could give some resources, but also if you keep studying it you could get better rewards.\n\nIf not suppressed, its activity level will increase over time. You can't tell what will happen when the entity wakes up.</text>
 					</li>
 					<li>
-						<threshold>10</threshold>
+						<threshold>20</threshold>
 						<label>Symbiote mass study complete</label>
 						<text>You've completed your investigation of the symbiote mass. This lifeform can assimilate with other living things.\n\nYou believe you can use this power without losing control of your body, destroying the symbiote mass in the proccess.\n\nThe symbiote mass has become unstable, it must be suppressed. If it were to fully wake up, it would release symbiotes to take over all living things.\n\nYou can now intentionally provoke a response from the symbiote mass.</text>
 					</li>
