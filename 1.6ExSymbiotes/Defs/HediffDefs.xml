@@ -1,0 +1,66 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+    <HediffDef>
+        <defName>ExSymbiotes_Symbiosis</defName>
+        <label>symbiosis</label>
+        <hediffClass>HediffWithComps</hediffClass>
+        <description>This has perform symbiosis with a symbiotic core.The symbiote lives inside them, guiding their actions and twisting their flesh.</description>
+        <isBad>false</isBad>
+        <hairColorOverride>(31, 27, 28)</hairColorOverride>
+        <skinColorOverride>(31, 27, 28)</skinColorOverride>
+        <stages>
+            <li>
+                <statFactors>
+                    <MeleeDamageFactor>1.5</MeleeDamageFactor>
+                    <MoveSpeed>1.30</MoveSpeed>
+                    <WorkSpeedGlobal>2.0</WorkSpeedGlobal>
+                </statFactors>
+                <capMods>
+                    <li><capacity>Manipulation</capacity><postFactor>1.25</postFactor></li>
+                    <li><capacity>Sight</capacity><postFactor>1.25</postFactor></li>
+                    <li><capacity>Eating</capacity><postFactor>1.25</postFactor></li>
+                    <li><capacity>BloodPumping</capacity><postFactor>1.25</postFactor></li>
+                    <li><capacity>BloodFiltration</capacity><postFactor>1.25</postFactor></li>
+                    <li><capacity>Breathing</capacity><postFactor>1.25</postFactor></li>
+                </capMods>
+                <regeneration>50</regeneration>
+            </li>
+        </stages>
+        <renderNodeProperties>
+            <li Class="PawnRenderNodeProperties_Eye">
+                <texPath>Things/Pawn/Symbiote/Attachments/Eye/SymbioticEye</texPath>
+                <texPathFemale>Things/Pawn/Symbiote/Attachments/Eye/SymbioticEye</texPathFemale>
+                <parentTagDef>Head</parentTagDef>
+                <anchorTag>RightEye</anchorTag>
+                <rotDrawMode>Fresh, Rotting</rotDrawMode>
+                <drawSize>0.35</drawSize>
+                <side>Right</side>
+                <drawData>
+                    <defaultData>
+                        <layer>54</layer>
+                        <offset>(-0.015, 0, -0.24)</offset>
+                    </defaultData>
+                </drawData>
+            </li>
+            <li Class="PawnRenderNodeProperties_Eye">
+                <texPath>Things/Pawn/Symbiote/Attachments/Eye/SymbioticEye</texPath>
+                <texPathFemale>Things/Pawn/Symbiote/Attachments/Eye/SymbioticEye</texPathFemale>
+                <parentTagDef>Head</parentTagDef>
+                <anchorTag>LeftEye</anchorTag>
+                <rotDrawMode>Fresh, Rotting</rotDrawMode>
+                <drawSize>0.35</drawSize>
+                <side>Left</side>
+                <drawData>
+                    <defaultData>
+                        <layer>54</layer>
+                        <offset>(+0.015, 0, -0.24)</offset>
+                        <flip>true</flip>
+                    </defaultData>
+                    <dataWest>
+                        <flip>false</flip>
+                    </dataWest>
+                </drawData>
+            </li>
+        </renderNodeProperties>
+    </HediffDef>
+</Defs>
