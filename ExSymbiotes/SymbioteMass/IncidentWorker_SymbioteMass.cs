@@ -14,7 +14,7 @@ namespace ExSymbiotes
                 return base.ChanceFactorNow(target);
             }
             int num = map.listerBuildings.allBuildingsNonColonist.Count((Building b) => b.def.GetCompProperties<CompProperties_Obelisk>() != null);
-            return ((num > 0) ? ((float)num * 0.5f) : 1f) * base.ChanceFactorNow(target);
+            return ((num > 0) ? ((float)num * 0.3f) : 1f) * base.ChanceFactorNow(target);
         }
 
         protected override bool CanFireNowSub(IncidentParms parms)
