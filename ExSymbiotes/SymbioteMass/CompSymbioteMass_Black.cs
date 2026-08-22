@@ -24,11 +24,17 @@ namespace ExSymbiotes
     public override void CompTick()
     {
       base.CompTick();
-      if(Heart.IsHashIntervalTick(400) && nextTick>0 && nextTick<=Find.TickManager.TicksGame)
+      if(Heart.IsHashIntervalTick(475) && nextTick>0 && nextTick<=Find.TickManager.TicksGame)
       {
         SymbioteUtility.SymbioteHorde(Heart.Map, Heart);
         this.nextTick = Find.TickManager.TicksGame + 60000 + 15000;
       }
+      // if (incidentFlag && Heart.IsHashIntervalTick(245) && StudyLevel==1)
+      // {
+      //   EffecterDefOf.VoidNodeDisrupted.SpawnMaintained(parent, parent.Map);
+      //   EffecterDefOf.VoidStructureActivated.Spawn(parent, parent.Map);
+      //   incidentFlag = false;
+      // }
     }
     
     public override void PostExposeData()
