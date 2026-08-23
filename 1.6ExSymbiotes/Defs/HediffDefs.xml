@@ -61,6 +61,63 @@
                     </dataWest>
                 </drawData>
             </li>
+            <!--            <li Class="PawnRenderNodeProperties_Eye">-->
+            <!--                <texPath>Things/Pawn/Symbiote/Attachments/Symbiosis/Symbiosis</texPath>-->
+            <!--                <texPathFemale>Things/Pawn/Symbiote/Attachments/Symbiosis/Symbiosis</texPathFemale>-->
+            <!--                <parentTagDef>Body</parentTagDef>-->
+            <!--                <anchorTag>Torso</anchorTag>-->
+            <!--                <rotDrawMode>Fresh, Rotting</rotDrawMode>-->
+            <!--                <drawSize>1</drawSize>-->
+            <!--                <drawData>-->
+            <!--                    <defaultData>-->
+            <!--                        <layer>5</layer>-->
+            <!--                        <offset>(0, 0, 0)</offset>-->
+            <!--                    </defaultData>-->
+            <!--                </drawData>-->
+            <!--            </li>-->
+            <li Class="PawnRenderNodeProperties_Spastic">
+                <texPath>Things/Pawn/Symbiote/Attachments/Symbiosis/Symbiosis</texPath>
+                <parentTagDef>Body</parentTagDef>
+                <anchorTag>Torso</anchorTag>
+                <overrideMeshSize>(1.0)</overrideMeshSize>
+                <drawSize>1</drawSize>
+                <!--                <colorType>Skin</colorType>-->
+                <rotDrawMode>Fresh, Rotting</rotDrawMode>
+                <!--                <useSkinShader>true</useSkinShader>-->
+                <useRottenColor>true</useRottenColor>
+                <!--                <rotationRange>-30~30</rotationRange>-->
+                <!--                <durationTicksRange>10~35</durationTicksRange>-->
+                <!--                <nextSpasmTicksRange>10~50</nextSpasmTicksRange>-->
+                <drawData>
+                    <scaleOffsetByBodySize>false</scaleOffsetByBodySize>
+                    <!--                    <useBodyPartAnchor>true</useBodyPartAnchor>-->
+                    <childScale>0.7</childScale>
+                    <bodyTypeScales>
+                        <Male>1.5</Male>
+                        <Female>1.2</Female>
+                        <Hulk>2</Hulk>
+                        <Fat>1.6</Fat>
+                        <Thin>0.7</Thin>
+                    </bodyTypeScales>
+                    <defaultData>
+                        <layer>5</layer>
+                    </defaultData>
+                    <dataNorth>
+                        <rotationOffset>0</rotationOffset>
+                        <flip>true</flip>
+                    </dataNorth>
+                    <dataEast>
+                        <rotationOffset>280</rotationOffset>
+                    </dataEast>
+                    <dataSouth>
+                        <rotationOffset>180</rotationOffset>
+                    </dataSouth>
+                    <dataWest>
+                        <rotationOffset>270</rotationOffset>
+                        <flip>true</flip>
+                    </dataWest>
+                </drawData>
+            </li>
         </renderNodeProperties>
     </HediffDef>
 </Defs>
