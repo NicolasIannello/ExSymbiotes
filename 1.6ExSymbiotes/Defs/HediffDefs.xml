@@ -26,6 +26,13 @@
                 <regeneration>50</regeneration>
             </li>
         </stages>
+        <comps>
+            <li Class="HediffCompProperties_GiveAbility">
+                <abilityDefs>
+                    <li>ExSymbiotes_SymbioticArmor</li>
+                </abilityDefs>
+            </li>
+        </comps>
         <renderNodeProperties>
             <li Class="PawnRenderNodeProperties_Eye">
                 <texPath>Things/Pawn/Symbiote/Attachments/Eye/SymbioticEye</texPath>
@@ -119,5 +126,31 @@
                 </drawData>
             </li>
         </renderNodeProperties>
+    </HediffDef>
+
+    <HediffDef>
+        <defName>ExSymbiotes_SymbioticArmor</defName>
+        <label>symbiotic armor</label>
+        <hediffClass>HediffWithComps</hediffClass>
+        <description>The symbiote builds a hardened overlay of tissue over the user.</description>
+        <isBad>false</isBad>
+        <stages>
+            <li>
+                <statOffsets>
+                    <ArmorRating_Sharp>0.2</ArmorRating_Sharp>
+                    <ArmorRating_Blunt>0.2</ArmorRating_Blunt>
+                </statOffsets>
+                <statFactors>
+                    <ArmorRating_Sharp>1.20</ArmorRating_Sharp>
+                    <ArmorRating_Blunt>1.20</ArmorRating_Blunt>
+                </statFactors>
+            </li>
+        </stages>
+        <comps>
+            <li Class="HediffCompProperties_Disappears">
+                <showRemainingTime>True</showRemainingTime>
+            </li>
+            <li Class="HediffCompProperties_DisappearsOnDeath"/>
+        </comps>
     </HediffDef>
 </Defs>
