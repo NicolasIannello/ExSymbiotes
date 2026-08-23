@@ -4,7 +4,7 @@
         <defName>ExSymbiotes_SummonSymbioticMass</defName>
         <label>summon symbiotic mass</label>
         <description>Perform a psychic ritual which provokes a symbiotic mass to crash nearby.</description>
-        <iconPath>Things/SummonSymbioticMass</iconPath>
+        <iconPath>UI/SummonSymbioticMass</iconPath>
         <researchPrerequisite>ExSymbiotes_SymbioticMassResearch</researchPrerequisite>
         <outcomeDescription>Perform a psychic ritual which provokes a symbiotic mass to crash nearby.</outcomeDescription>
         <hoursUntilOutcome>4</hoursUntilOutcome>
