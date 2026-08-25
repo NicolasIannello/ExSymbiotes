@@ -1,4 +1,5 @@
-﻿using RimWorld;
+﻿using HarmonyLib;
+using RimWorld;
 using Verse;
 
 namespace ExSymbiotes
@@ -6,9 +7,12 @@ namespace ExSymbiotes
     public class ExSymbiotesMod : Mod
     {
         public static ExSymbiotesMod Instance;
+        public static Harmony Harmony;
 
         public ExSymbiotesMod(ModContentPack content) : base(content)
         {
+            Harmony = new Harmony("com.eximeisty.ExSymbiotes");
+            Harmony.PatchAll();
             Instance = this;
         }
 
