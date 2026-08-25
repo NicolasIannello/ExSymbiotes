@@ -36,7 +36,6 @@
         <renderNodeProperties>
             <li Class="PawnRenderNodeProperties_Eye">
                 <texPath>Things/Pawn/Symbiote/Attachments/Eye/SymbioticEye</texPath>
-                <texPathFemale>Things/Pawn/Symbiote/Attachments/Eye/SymbioticEye</texPathFemale>
                 <parentTagDef>Head</parentTagDef>
                 <anchorTag>RightEye</anchorTag>
                 <rotDrawMode>Fresh, Rotting</rotDrawMode>
@@ -51,7 +50,6 @@
             </li>
             <li Class="PawnRenderNodeProperties_Eye">
                 <texPath>Things/Pawn/Symbiote/Attachments/Eye/SymbioticEye</texPath>
-                <texPathFemale>Things/Pawn/Symbiote/Attachments/Eye/SymbioticEye</texPathFemale>
                 <parentTagDef>Head</parentTagDef>
                 <anchorTag>LeftEye</anchorTag>
                 <rotDrawMode>Fresh, Rotting</rotDrawMode>
@@ -144,9 +142,11 @@
                     <ArmorRating_Sharp>1.20</ArmorRating_Sharp>
                     <ArmorRating_Blunt>1.20</ArmorRating_Blunt>
                 </statFactors>
+                <regeneration>250</regeneration>
             </li>
         </stages>
         <comps>
+            <li Class="ExSymbiotes.HediffCompProperties_SymbioticArmor"/>
             <li Class="HediffCompProperties_Disappears">
                 <showRemainingTime>True</showRemainingTime>
             </li>
