@@ -27,6 +27,7 @@
             </li>
         </stages>
         <comps>
+            <li Class="ExSymbiotes.HediffCompProperties_Symbiosis"/>
             <li Class="HediffCompProperties_GiveAbility">
                 <abilityDefs>
                     <li>ExSymbiotes_SymbioticArmor</li>
