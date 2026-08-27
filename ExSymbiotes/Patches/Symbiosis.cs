@@ -22,24 +22,20 @@ namespace ExSymbiotes
             GraphicStateDef state;
             GraphicStateDef graphicState = !parms.flags.FlagSet(PawnRenderFlags.Portrait) && node.TryGetAnimationGraphicState(parms, out state) ? state : (GraphicStateDef) null;
             Graphic graphic = graphicState == null ? node.PrimaryGraphic : node.GraphicForState(graphicState);
+            if (node.Props.flipGraphic && parms.facing.IsHorizontal) parms.facing = parms.facing.Opposite;
             Material baseMat = graphic.NodeGetMat(parms);
-            Material myMat;
+            Material symbioticArmorMat;
             
-            if (!materials.TryGetValue(baseMat, out myMat))
+            if (!materials.TryGetValue(baseMat, out symbioticArmorMat))
             {
-                if (!UnityData.IsInMainThread)
-                {
-                    Log.Error("Anomaly Symbiotes: Attempted to create duplicate material off main thread, do this in ensure materials initialized.");
-                    return;
-                }
-                myMat = new Material(InvisibilityMatPool.GetInvisibleMat(baseMat));
-                myMat.shader = ShaderDatabase.CutoutSkin; // Cutout CutoutSkin Metalblood;
-                myMat.color = pawn.story.SkinColor;
-                myMat.SetColor("_ShadowColor", new Color(0.118f, 0, 0.812f));
-                materials.Add(baseMat, myMat);
+                symbioticArmorMat = new Material(baseMat);
+                symbioticArmorMat.shader = ShaderDatabase.CutoutSkin;
+                symbioticArmorMat.color = pawn.story.SkinColor;
+                symbioticArmorMat.SetColor("_ShadowColor", new Color(0.118f, 0, 0.812f));
+                materials.Add(baseMat, symbioticArmorMat);
             }
             
-            __result = myMat;
+            __result = symbioticArmorMat;
         }
     }
 }
