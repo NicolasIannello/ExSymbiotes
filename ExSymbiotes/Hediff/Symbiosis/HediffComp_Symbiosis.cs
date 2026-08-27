@@ -8,7 +8,7 @@ namespace ExSymbiotes
 
         public override void CompPostPostAdd(DamageInfo? dinfo)
         {
-            Pawn.story.skinColorOverride = Pawn.story.SkinColor;
+            Pawn.story.skinColorOverride = this.Props.color;
         }
 
         public override void CompPostPostRemoved()

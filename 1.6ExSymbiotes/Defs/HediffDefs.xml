@@ -7,7 +7,7 @@
         <description>This has perform symbiosis with a symbiotic core.The symbiote lives inside them, guiding their actions and twisting their flesh.</description>
         <isBad>false</isBad>
         <hairColorOverride>(31, 27, 28)</hairColorOverride>
-        <skinColorOverride>(31, 27, 28)</skinColorOverride>
+<!--        <skinColorOverride>(31, 27, 28)</skinColorOverride>-->
         <stages>
             <li>
                 <statFactors>
@@ -27,7 +27,9 @@
             </li>
         </stages>
         <comps>
-            <li Class="ExSymbiotes.HediffCompProperties_Symbiosis"/>
+            <li Class="ExSymbiotes.HediffCompProperties_Symbiosis">
+                <color>(31, 27, 28)</color>        
+            </li>
             <li Class="HediffCompProperties_GiveAbility">
                 <abilityDefs>
                     <li>ExSymbiotes_SymbioticArmor</li>
