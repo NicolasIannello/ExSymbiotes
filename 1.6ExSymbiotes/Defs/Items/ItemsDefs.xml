@@ -163,7 +163,7 @@
             <baseIngestTicks>100</baseIngestTicks>
             <humanlikeOnly>true</humanlikeOnly>
             <chairSearchRadius>0</chairSearchRadius>
-            <ingestSound>Ingest_Pill</ingestSound>
+            <ingestSound>RawMeat_Eat</ingestSound>
             <ingestHoldUsesTable>false</ingestHoldUsesTable>
             <ingestCommandString>Ingest {0}</ingestCommandString>
             <ingestReportString>Ingesting {0}.</ingestReportString>
