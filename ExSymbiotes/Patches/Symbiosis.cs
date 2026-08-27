@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using HarmonyLib;
+using RimWorld;
 using Verse;
 using UnityEngine;
 
@@ -38,4 +39,23 @@ namespace ExSymbiotes
             __result = symbioticArmorMat;
         }
     }
+
+    [HarmonyPatch(typeof(Thing), nameof(Thing.Ingested))]
+    public static class Patch_Thing_Ingested
+    {
+        public static void Postfix(Thing __instance, Pawn ingester)
+        {
+            if (!ingester.IsColonist) return;
+            if(FoodUtility.IsHumanlikeCorpseOrHumanlikeMeat(__instance, __instance.def))
+            {
+                Hediff symbiosis = ingester.health.hediffSet.GetFirstHediffOfDef(ExSymbiotesDefOf.ExSymbiotes_Symbiosis);
+                if (symbiosis != null)
+                {
+                    HediffComp_Symbiosis comp = symbiosis.TryGetComp<HediffComp_Symbiosis>();
+                    comp.AddSymbiosis(2);
+                }
+            }
+        }
+    }
+    
 }

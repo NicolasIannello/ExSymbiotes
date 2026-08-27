@@ -10,7 +10,7 @@ namespace ExSymbiotes
         public HediffCompProperties_Symbiosis Props => (HediffCompProperties_Symbiosis) this.props;
         protected int energy;
         public int Energy => this.energy;
-        public int EnergyMax = 100;
+        public int EnergyMax = 10;
         
         public override void CompPostPostAdd(DamageInfo? dinfo)
         {
@@ -48,15 +48,14 @@ namespace ExSymbiotes
                 };
         }
         
-        private void Fill()
-        {
-            this.energy = 100;
-        }
+        private void Fill() => this.energy = EnergyMax;
         
         public override void CompExposeData()
         {
             base.CompExposeData();
             Scribe_Values.Look<int>(ref this.energy, "energy");
         }
+        
+        public void AddSymbiosis(int amount) => this.energy += amount;
     }
 }
