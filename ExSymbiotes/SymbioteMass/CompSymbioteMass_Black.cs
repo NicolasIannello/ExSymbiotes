@@ -29,18 +29,17 @@ namespace ExSymbiotes
         SymbioteUtility.SymbioteHorde(Heart.Map, Heart);
         this.nextTick = Find.TickManager.TicksGame + 60000 + 15000;
       }
-      // if (incidentFlag && Heart.IsHashIntervalTick(245) && StudyLevel==1)
-      // {
-      //   EffecterDefOf.VoidNodeDisrupted.SpawnMaintained(parent, parent.Map);
-      //   EffecterDefOf.VoidStructureActivated.Spawn(parent, parent.Map);
-      //   incidentFlag = false;
-      // }
     }
     
     public override void PostExposeData()
     {
       base.PostExposeData();
       Scribe_Values.Look<int>(ref this.nextTick, "nextTick");
+    }
+
+    public void SpawnRedMass()
+    {
+      this.Heart?.SpawnRedMass();
     }
   }
 }

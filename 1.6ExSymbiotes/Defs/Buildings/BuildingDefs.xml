@@ -89,12 +89,87 @@
 						<label>Symbiote mass study complete</label>
 						<text>You've completed your investigation of the symbiote mass. This lifeform can assimilate with other living things.\n\nYou believe you can use this power without losing control of your body, destroying the symbiote mass in the proccess.\n\nThe symbiote mass has become unstable, it must be suppressed. If it were to fully wake up, it would release symbiotes to take over all living things.\n\nYou can now intentionally provoke a response from the symbiote mass.</text>
 					</li>
+					<li>
+						<threshold>22</threshold>
+						<label>Symbiote mass new discovey</label>
+						<text>Upon further investigation you discovered that there may be a way to further develop the symbiotic mass, but doing so might awaken a more dangerous type of symbiote.</text>
+					</li>
 				</studyNotes>
 			</li>
 			<li Class="CompProperties_ObeliskTriggerInteractor">
 				<activeTicks>1</activeTicks>
 				<ticksToActivate>180</ticksToActivate>
 				<activateTexPath>Things/Item/SymbioticCore</activateTexPath>
+				<activateLabelString>Contain...</activateLabelString>
+				<activateDescString>Contain the entity at its core.</activateDescString>
+				<guiLabelString>Choose who should do this</guiLabelString>
+				<jobString>Contain symbiote mass</jobString>
+				<activatingStringPending>containing symbiote mass</activatingStringPending>
+				<activatingString>containing symbiote mass: {1}s</activatingString>
+				<messageCompletedString>{PAWN_nameDef} has successfully contained the symbiote mass.</messageCompletedString>
+				<showMustBeActivatedByColonist>false</showMustBeActivatedByColonist>
+				<targetingParameters>
+					<canTargetBuildings>false</canTargetBuildings>
+					<canTargetAnimals>false</canTargetAnimals>
+					<canTargetMechs>false</canTargetMechs>
+					<onlyTargetControlledPawns>true</onlyTargetControlledPawns>
+				</targetingParameters>
+			</li>
+			<li Class="ExSymbiotes.CompProperties_SymbioticMassDeactivationInteractor">
+				<shardsRequired>4</shardsRequired>
+				<activeTicks>1</activeTicks>
+				<ticksToActivate>500</ticksToActivate>
+				<activateTexPath>UI/SummonSymbioticMass</activateTexPath>
+				<activateLabelString>Mutate...</activateLabelString>
+				<activateDescString>Mutate the entity at its core.</activateDescString>
+				<guiLabelString>Choose who should do this</guiLabelString>
+				<jobString>Mutate symbiote mass</jobString>
+				<activatingStringPending>mutating symbiote mass</activatingStringPending>
+				<activatingString>mutating symbiote mass: {1}s</activatingString>
+				<messageCompletedString>{PAWN_nameDef} has successfully mutated the symbiote mass.</messageCompletedString>
+				<showMustBeActivatedByColonist>false</showMustBeActivatedByColonist>
+				<targetingParameters>
+					<canTargetBuildings>false</canTargetBuildings>
+					<canTargetAnimals>false</canTargetAnimals>
+					<canTargetMechs>false</canTargetMechs>
+					<onlyTargetControlledPawns>true</onlyTargetControlledPawns>
+				</targetingParameters>
+			</li>
+		</comps>
+	</ThingDef>
+
+	<ThingDef ParentName="ExSymbiotes_SymbioteMass">
+		<defName>ExSymbiotes_SymbioteMass_Red</defName>
+		<label>symbiote mass red</label>
+		<uiIconPath>Things/Buildings/SymbioteMass/SymbioteMassRed</uiIconPath>
+		<statBases Inherit="False">
+			<Beauty>-25</Beauty>
+			<MaxHitPoints>30000</MaxHitPoints>
+			<Flammability>1</Flammability>
+		</statBases>
+		<comps>
+			<li Class="CompProperties_Obelisk">
+				<compClass>ExSymbiotes.CompSymbioteMass_Black</compClass>
+				<interactionEffectCooldownDays>0</interactionEffectCooldownDays>
+			</li>
+			<li Class="CompProperties_StudyUnlocks">
+				<studyNotes>
+					<li>
+						<threshold>8</threshold>
+						<label>Symbiote mass study progress</label>
+						<text>Investigation of the symbiote mass has revealed some information. It is a dormant living thing. A bunch of things move inside protecting something at its core.\n\nYou believe that destroying it could give some resources, but also if you keep studying it you could get better rewards.\n\nIf not suppressed, its activity level will increase over time. You can't tell what will happen when the entity wakes up.</text>
+					</li>
+					<li>
+						<threshold>20</threshold>
+						<label>Symbiote mass study complete</label>
+						<text>You've completed your investigation of the symbiote mass. This lifeform can assimilate with other living things.\n\nYou believe you can use this power without losing control of your body, destroying the symbiote mass in the proccess.\n\nThe symbiote mass has become unstable, it must be suppressed. If it were to fully wake up, it would release symbiotes to take over all living things.\n\nYou can now intentionally provoke a response from the symbiote mass.</text>
+					</li>
+				</studyNotes>
+			</li>
+			<li Class="CompProperties_ObeliskTriggerInteractor">
+				<activeTicks>1</activeTicks>
+				<ticksToActivate>180</ticksToActivate>
+				<activateTexPath>Things/Item/SymbioticCoreRed</activateTexPath>
 				<activateLabelString>Contain...</activateLabelString>
 				<activateDescString>Contain the entity at its core.</activateDescString>
 				<guiLabelString>Choose who should do this</guiLabelString>
@@ -112,7 +187,7 @@
 			</li>
 		</comps>
 	</ThingDef>
-
+	
 	<ThingDef ParentName="SkyfallerBase">
 		<defName>ExSymbiotes_SymbioteMassIncoming</defName>
 		<label>symbiote mass (incoming)</label>

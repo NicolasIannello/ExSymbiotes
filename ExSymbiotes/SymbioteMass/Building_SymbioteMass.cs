@@ -16,12 +16,13 @@ namespace ExSymbiotes
     [Unsaved(false)]
     private Graphic cachedCenterPartGraphic;
     private bool study = false;
-
+    private bool red = false;
+    private int texture = 0;
     private Graphic CenterPartGraphic
     {
       get
       {
-        return this.cachedCenterPartGraphic ?? (this.cachedCenterPartGraphic = GraphicDatabase.Get<Graphic_Multi>("Things/Buildings/SymbioteMass/SymbioteMass", ShaderDatabase.Cutout, (Vector2) Building_SymbioteMass.PartDrawSize, Color.white));
+        return this.cachedCenterPartGraphic ?? (this.cachedCenterPartGraphic = GraphicDatabase.Get<Graphic_Multi>(texture==0 ? "Things/Buildings/SymbioteMass/SymbioteMass" : "Things/Buildings/SymbioteMass/SymbioteMassRed", ShaderDatabase.Cutout, (Vector2) Building_SymbioteMass.PartDrawSize, Color.white));
       }
     }
 
@@ -45,13 +46,29 @@ namespace ExSymbiotes
 
     public override void Kill(DamageInfo? dinfo = null, Hediff exactCulprit = null)
     {
-      if (study)
-        GenPlace.TryPlaceThing(GetReward("ExSymbiotes_SymbioticCore", 1), this.Position, this.Map, ThingPlaceMode.Near);
+      if (!red)
+      {
+        if (study) GenPlace.TryPlaceThing(GetReward("ExSymbiotes_SymbioticCore", 1), this.Position, this.Map, ThingPlaceMode.Near);
+        else
+        {
+          GenPlace.TryPlaceThing(GetReward("Shard", 10), this.Position, this.Map, ThingPlaceMode.Near);
+          GenPlace.TryPlaceThing(GetReward("ExSymbiotes_SymbioticTissue", 50), this.Position, this.Map, ThingPlaceMode.Near);
+        }
+      }
       else
       {
-        GenPlace.TryPlaceThing(GetReward("Shard", 10), this.Position, this.Map, ThingPlaceMode.Near);
-        GenPlace.TryPlaceThing(GetReward("ExSymbiotes_SymbioticTissue", 50), this.Position, this.Map, ThingPlaceMode.Near);
+        Map map = this.Map;
+        IntVec3 pos = this.Position;
+        Thing redMass = ThingMaker.MakeThing(ExSymbiotesDefOf.ExSymbiotes_SymbioteMass_Red); 
+        ((Building_SymbioteMass)redMass).texture = 1;
+        
+        base.Kill(dinfo, exactCulprit);
+
+        GenPlace.TryPlaceThing(redMass, pos, map, ThingPlaceMode.Direct, null, null, new Rot4?(redMass.Rotation));
+
+        return;
       }
+
       base.Kill(dinfo, exactCulprit);
     }
 
@@ -87,7 +104,7 @@ namespace ExSymbiotes
       this.study = study;
       this.bpm *= 2;
       this.bpmAccel = 15;
-      this.overloadTick = Find.TickManager.TicksGame + EffecterDefOf.TachycardiacArrest.maintainTicks;
+      this.overloadTick = Find.TickManager.TicksGame + ExSymbiotesDefOf.ExSymbiotes_TachycardiacArrest.maintainTicks;
       ExSymbiotesDefOf.ExSymbiotes_TachycardiacArrest.SpawnMaintained(this.Position, this.Map);
       Messages.Message((string) "ExSymbiotes.MessageHeartAttack".Translate(), (LookTargets) (Thing) this, MessageTypeDefOf.PositiveEvent);
     }
@@ -105,5 +122,14 @@ namespace ExSymbiotes
       return (double) num < 1.0 ? Mathf.Lerp(1f, maxScale, Mathf.Sin(3.1415927f * num)) : 1f;
     }
     
+    public void SpawnRedMass()
+    {
+      this.red = true;
+      this.bpm *= 2;
+      this.bpmAccel = 15;
+      this.overloadTick = Find.TickManager.TicksGame + EffecterDefOf.TachycardiacArrest.maintainTicks;
+      EffecterDefOf.TachycardiacArrest.SpawnMaintained(this.Position, this.Map);
+      Messages.Message((string) "ExSymbiotes.MessageRedMass".Translate(), (LookTargets) (Thing) this, MessageTypeDefOf.NegativeEvent);
+    }
   }
 }
