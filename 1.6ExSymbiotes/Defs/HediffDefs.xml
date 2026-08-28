@@ -33,6 +33,8 @@
             <li Class="HediffCompProperties_GiveAbility">
                 <abilityDefs>
                     <li>ExSymbiotes_SymbioticArmor</li>
+                    <li MayRequire="Ludeon.RimWorld.Biotech">ExSymbiotes_SymbioticCoagulate</li>
+                    <li MayRequire="Ludeon.RimWorld.Biotech">ExSymbiotes_SymbioticLongjump</li>
                 </abilityDefs>
             </li>
         </comps>

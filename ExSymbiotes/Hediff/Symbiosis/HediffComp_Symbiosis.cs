@@ -33,7 +33,7 @@ namespace ExSymbiotes
             if (DebugSettings.ShowDevGizmos)
             {
                 Command_Action commandAction1 = new Command_Action();
-                commandAction1.defaultLabel = "DEV: Fill";
+                commandAction1.defaultLabel = "DEV: Fill Symbiosis";
                 commandAction1.action = new Action(this.Fill);
                 yield return (Gizmo) commandAction1;
             }
