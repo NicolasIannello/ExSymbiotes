@@ -7,7 +7,6 @@
         <iconPath>UI/SymbioticArmor</iconPath>
         <cooldownTicksRange>300</cooldownTicksRange>
         <writeCombatLog>True</writeCombatLog>
-<!--        <hotKey>Misc12</hotKey>-->
         <targetRequired>false</targetRequired>
         <casterMustBeCapableOfViolence>false</casterMustBeCapableOfViolence>
         <statBases>
@@ -26,6 +25,9 @@
             </targetParams>
         </verbProperties>
         <comps>
+            <li Class="ExSymbiotes.CompProperties_AbilitySymbiosisCost">
+                <symbiosisCost>4</symbiosisCost>
+            </li>
             <li Class="CompProperties_AbilityGiveHediff">
                 <compClass>CompAbilityEffect_GiveHediff</compClass>
                 <hediffDef>ExSymbiotes_SymbioticArmor</hediffDef>

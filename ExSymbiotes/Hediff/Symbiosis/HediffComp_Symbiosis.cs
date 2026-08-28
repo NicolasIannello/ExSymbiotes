@@ -57,5 +57,7 @@ namespace ExSymbiotes
         }
         
         public void AddSymbiosis(int amount) => this.energy += amount;
+        
+        public void RemoveSymbiosis(int amount) => this.energy -= amount;
     }
 }

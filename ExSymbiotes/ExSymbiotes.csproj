@@ -58,6 +58,8 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ExSymbiotesMod.cs" />
+    <Compile Include="Hediff\CompAbilityEffect_SymbiosisCost.cs" />
+    <Compile Include="Hediff\CompProperties_AbilitySymbiosisCost.cs" />
     <Compile Include="Hediff\Symbiosis\HediffCompProperties_Symbiosis.cs" />
     <Compile Include="Hediff\Symbiosis\HediffComp_Symbiosis.cs" />
     <Compile Include="Hediff\SymbioticArmor\HediffCompProperties_SymbioticArmor.cs" />
