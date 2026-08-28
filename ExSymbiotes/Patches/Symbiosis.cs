@@ -40,22 +40,43 @@ namespace ExSymbiotes
         }
     }
 
-    [HarmonyPatch(typeof(Thing), nameof(Thing.Ingested))]
-    public static class Patch_Thing_Ingested
+    [HarmonyPatch(typeof(Corpse), "IngestedCalculateAmounts")]
+    public static class Patch_Corpse_IngestedCalculateAmounts
     {
-        public static void Postfix(Thing __instance, Pawn ingester)
+        public static void Prefix(Corpse __instance, Pawn ingester, float nutritionWanted, out bool __state)
         {
-            if (!ingester.IsColonist) return;
-            if(FoodUtility.IsHumanlikeCorpseOrHumanlikeMeat(__instance, __instance.def))
+            if (!ingester.IsColonist)
             {
-                Hediff symbiosis = ingester.health.hediffSet.GetFirstHediffOfDef(ExSymbiotesDefOf.ExSymbiotes_Symbiosis);
-                if (symbiosis != null)
+                __state = false;
+                return;
+            }
+            
+            BodyPartRecord brain = __instance.InnerPawn.health.hediffSet.GetBrain();
+            bool hasBrain = brain != null && !__instance.InnerPawn.health.hediffSet.PartIsMissing(brain);
+            __state = hasBrain;
+        }
+
+        public static void Postfix(Corpse __instance, Pawn ingester, float nutritionWanted, bool __state)
+        {
+            if (!ingester.IsColonist || !__state) return;
+            
+            Hediff symbiosis = ingester.health.hediffSet.GetFirstHediffOfDef(ExSymbiotesDefOf.ExSymbiotes_Symbiosis);
+            if (symbiosis != null)
+            {
+                BodyPartRecord brain = __instance.InnerPawn.health.hediffSet.GetBrain();
+                bool hasBrain = brain != null && !__instance.InnerPawn.health.hediffSet.PartIsMissing(brain);
+
+                if (hasBrain)
                 {
-                    HediffComp_Symbiosis comp = symbiosis.TryGetComp<HediffComp_Symbiosis>();
-                    comp.AddSymbiosis(2);
+                    Hediff_MissingPart hediffMissingPart = (Hediff_MissingPart) HediffMaker.MakeHediff(HediffDefOf.MissingBodyPart, __instance.InnerPawn, brain);
+                    hediffMissingPart.lastInjury = HediffDefOf.Bite;
+                    hediffMissingPart.IsFresh = true;
+                    __instance.InnerPawn.health.AddHediff((Hediff) hediffMissingPart);
                 }
+                
+                HediffComp_Symbiosis comp = symbiosis.TryGetComp<HediffComp_Symbiosis>();
+                comp.AddSymbiosis(2);
             }
         }
     }
-    
 }
