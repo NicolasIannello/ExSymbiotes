@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using ExSymbiotes.Utils;
 using HarmonyLib;
 using RimWorld;
 using Verse;
@@ -60,7 +61,7 @@ namespace ExSymbiotes
         {
             if (!ingester.IsColonist || !__state) return;
             
-            Hediff symbiosis = ingester.health.hediffSet.GetFirstHediffOfDef(ExSymbiotesDefOf.ExSymbiotes_Symbiosis);
+            Hediff symbiosis = SymbioteUtility.HasSymbiosis(ingester);
             if (symbiosis != null)
             {
                 BodyPartRecord brain = __instance.InnerPawn.health.hediffSet.GetBrain();

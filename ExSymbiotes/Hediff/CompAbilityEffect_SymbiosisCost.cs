@@ -1,4 +1,5 @@
-﻿using RimWorld;
+﻿using ExSymbiotes.Utils;
+using RimWorld;
 using Verse;
 
 namespace ExSymbiotes
@@ -11,7 +12,7 @@ namespace ExSymbiotes
       {
         get
         {
-          Hediff symbiosis = this.parent.pawn.health.hediffSet.GetFirstHediffOfDef(ExSymbiotesDefOf.ExSymbiotes_Symbiosis);
+          Hediff symbiosis = SymbioteUtility.HasSymbiosis(this.parent.pawn);
           if (symbiosis != null)
           {
             HediffComp_Symbiosis comp = symbiosis.TryGetComp<HediffComp_Symbiosis>();
@@ -24,7 +25,7 @@ namespace ExSymbiotes
       public override void Apply(LocalTargetInfo target, LocalTargetInfo dest)
       {
         base.Apply(target, dest);
-        Hediff symbiosis = this.parent.pawn.health.hediffSet.GetFirstHediffOfDef(ExSymbiotesDefOf.ExSymbiotes_Symbiosis);
+        Hediff symbiosis = SymbioteUtility.HasSymbiosis(this.parent.pawn);
         if (symbiosis != null)
         {
           HediffComp_Symbiosis comp = symbiosis.TryGetComp<HediffComp_Symbiosis>();
@@ -34,7 +35,7 @@ namespace ExSymbiotes
 
       public override bool GizmoDisabled(out string reason)
       {
-        Hediff symbiosis = this.parent.pawn.health.hediffSet.GetFirstHediffOfDef(ExSymbiotesDefOf.ExSymbiotes_Symbiosis);
+        Hediff symbiosis = SymbioteUtility.HasSymbiosis(this.parent.pawn);
         if (symbiosis == null)
         {
           reason = (string) "ExSymbiotes.AbilityDisabledNoSymbiosisHediff".Translate((NamedArgument) (Thing) this.parent.pawn);

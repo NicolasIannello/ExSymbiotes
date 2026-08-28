@@ -84,5 +84,15 @@ namespace ExSymbiotes.Utils
                     FilthMaker.TryMakeFilth(randomCell, map, filthDef);
             }
         }
+        
+        public static Hediff HasSymbiosis(Pawn pawn)
+        {
+            Hediff symbiosisB = pawn.health.hediffSet.GetFirstHediffOfDef(ExSymbiotesDefOf.ExSymbiotes_Symbiosis);
+            if (symbiosisB != null) return symbiosisB;
+            Hediff symbiosisR = pawn.health.hediffSet.GetFirstHediffOfDef(ExSymbiotesDefOf.ExSymbiotes_Symbiosis_Red);
+            if (symbiosisR != null) return symbiosisR;
+
+            return null;
+        }
     }
 }
