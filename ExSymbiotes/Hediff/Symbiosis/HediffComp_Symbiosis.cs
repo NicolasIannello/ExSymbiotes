@@ -56,8 +56,8 @@ namespace ExSymbiotes
             Scribe_Values.Look<int>(ref this.energy, "energy");
         }
         
-        public void AddSymbiosis(int amount) => this.energy += amount;
+        public void AddSymbiosis(int amount) => this.energy = (energy + amount)>10 ? 10 : energy + amount;
         
-        public void RemoveSymbiosis(int amount) => this.energy -= amount;
+        public void RemoveSymbiosis(int amount) => this.energy = (energy - amount)<0 ? 0 : energy - amount;
     }
 }

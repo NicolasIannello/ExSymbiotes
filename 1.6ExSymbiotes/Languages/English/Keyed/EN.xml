@@ -6,7 +6,7 @@
     <ExSymbiotes.TextSymbioteHorde>The symbiote mass has awakened, it will spit symbiotes periodically until it consumes itself.</ExSymbiotes.TextSymbioteHorde>
     <ExSymbiotes.TextSymbioteHorde2>The symbiote mass is spitting more symbiotes. It will continue until it consumes itself.</ExSymbiotes.TextSymbioteHorde2>
     <ExSymbiotes.Symbiosis>Symbiosis</ExSymbiotes.Symbiosis>
-    <ExSymbiotes.SymbiosisTip>Amount of nutrients in the symbiote. Nutrients are required to use symbiote abilities</ExSymbiotes.SymbiosisTip>
+    <ExSymbiotes.SymbiosisTip>Amount of nutrients in the symbiote. Nutrients are required to use symbiote abilities, consume brains from corpses to gain nutrients.</ExSymbiotes.SymbiosisTip>
     <ExSymbiotes.AbilityDisabledNoSymbiosisHediff>{0_labelShort} is not symbiotic.</ExSymbiotes.AbilityDisabledNoSymbiosisHediff>
     <ExSymbiotes.AbilityDisabledNoSymbiosis>{0_labelShort} does not have enough symbiosis.</ExSymbiotes.AbilityDisabledNoSymbiosis>
     <ExSymbiotes.AbilitySymbiosisCost>Symbiosis cost</ExSymbiotes.AbilitySymbiosisCost>
