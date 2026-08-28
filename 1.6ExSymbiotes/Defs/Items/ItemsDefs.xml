@@ -126,9 +126,9 @@
         <terrainAffordanceNeeded>Medium</terrainAffordanceNeeded>
     </ThingDef>
 
-    <ThingDef ParentName="ResourceBase">
+    <ThingDef Name="ExSymbiotes_SymbioticCore" ParentName="ResourceBase">
         <defName>ExSymbiotes_SymbioticCore</defName>
-        <label>symbiotic core</label>
+        <label>symbiotic core (Black)</label>
         <description>Symbiotic core dropped from a symbiotic mass, consume to produce a simbiosis.</description>
         <graphicData>
             <texPath>Things/Item/SymbioticCore</texPath>
@@ -186,8 +186,40 @@
                 </allowedMutants>
             </li>
             <li Class="CompProperties_Serum" />
-            <li Class="CompProperties_UseEffectAddHediff">
+            <li Class="ExSymbiotes.CompProperties_UseEffectAddSymbiosis">
                 <hediffDef>ExSymbiotes_Symbiosis</hediffDef>
+                <allowRepeatedUse>false</allowRepeatedUse>
+            </li>
+            <li Class="CompProperties_UseEffectPlaySound">
+                <soundOnUsed>MechSerumUsed</soundOnUsed>
+            </li>
+        </comps>
+    </ThingDef>
+
+    <ThingDef ParentName="ExSymbiotes_SymbioticCore">
+        <defName>ExSymbiotes_SymbioticCore_Red</defName>
+        <label>symbiotic core (Red)</label>
+        <graphicData>
+            <texPath>Things/Item/SymbioticCoreRed</texPath>
+            <graphicClass>Graphic_Single</graphicClass>
+            <drawSize>0.8</drawSize>
+        </graphicData>
+        <comps Inherit="False">
+            <li Class="CompProperties_Drug">
+                <listOrder>1200</listOrder>
+                <teetotalerCanConsume>false</teetotalerCanConsume>
+            </li>
+            <li Class="CompProperties_Usable">
+                <useLabel>Use {0_label}</useLabel>
+                <useJob>Ingest</useJob>
+                <showUseGizmo>true</showUseGizmo>
+                <allowedMutants>
+                    <li>Ghoul</li>
+                </allowedMutants>
+            </li>
+            <li Class="CompProperties_Serum" />
+            <li Class="ExSymbiotes.CompProperties_UseEffectAddSymbiosis">
+                <hediffDef>ExSymbiotes_Symbiosis_Red</hediffDef>
                 <allowRepeatedUse>false</allowRepeatedUse>
             </li>
             <li Class="CompProperties_UseEffectPlaySound">

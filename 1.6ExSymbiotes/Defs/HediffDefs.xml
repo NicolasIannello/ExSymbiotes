@@ -1,8 +1,8 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Defs>
-    <HediffDef>
+    <HediffDef Name="ExSymbiotes_Symbiosis">
         <defName>ExSymbiotes_Symbiosis</defName>
-        <label>symbiosis</label>
+        <label>symbiosis (Black)</label>
         <hediffClass>HediffWithComps</hediffClass>
         <description>This has perform symbiosis with a symbiotic core.The symbiote lives inside them, guiding their actions and twisting their flesh.</description>
         <isBad>false</isBad>
@@ -72,6 +72,41 @@
                 </drawData>
             </li>
         </renderNodeProperties>
+    </HediffDef>
+
+    <HediffDef ParentName="ExSymbiotes_Symbiosis">
+        <defName>ExSymbiotes_Symbiosis_Red</defName>
+        <label>symbiosis (Red)</label>
+        <hairColorOverride>(156, 9, 9)</hairColorOverride>
+        <skinColorOverride>(156, 9, 9)</skinColorOverride>
+        <stages Inherit="False">
+            <li>
+                <statFactors>
+                    <MeleeDamageFactor>1.8</MeleeDamageFactor>
+                    <MoveSpeed>1.50</MoveSpeed>
+                    <WorkSpeedGlobal>2.0</WorkSpeedGlobal>
+                </statFactors>
+                <capMods>
+                    <li><capacity>Manipulation</capacity><postFactor>1.25</postFactor></li>
+                    <li><capacity>Sight</capacity><postFactor>1.25</postFactor></li>
+                    <li><capacity>Eating</capacity><postFactor>1.25</postFactor></li>
+                    <li><capacity>BloodPumping</capacity><postFactor>1.25</postFactor></li>
+                    <li><capacity>BloodFiltration</capacity><postFactor>1.25</postFactor></li>
+                    <li><capacity>Breathing</capacity><postFactor>1.25</postFactor></li>
+                </capMods>
+                <regeneration>50</regeneration>
+            </li>
+        </stages>
+        <comps Inherit="False">
+            <li Class="ExSymbiotes.HediffCompProperties_Symbiosis">
+                <color>(156, 9, 9)</color>
+            </li>
+            <li Class="HediffCompProperties_GiveAbility">
+                <abilityDefs>
+                    <li MayRequire="Ludeon.RimWorld.Biotech">ExSymbiotes_SymbioticLongjump</li>
+                </abilityDefs>
+            </li>
+        </comps>
     </HediffDef>
 
     <HediffDef>

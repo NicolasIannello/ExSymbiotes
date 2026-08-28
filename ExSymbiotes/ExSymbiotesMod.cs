@@ -29,6 +29,7 @@ namespace ExSymbiotes
         public static EffecterDef ExSymbiotes_MeatExplosion_Black;
         public static IncidentDef ExSymbiotes_SymbioteMass_Incident;
         public static HediffDef ExSymbiotes_Symbiosis;
+        public static HediffDef ExSymbiotes_Symbiosis_Red;
         
         static ExSymbiotesDefOf()
         {
