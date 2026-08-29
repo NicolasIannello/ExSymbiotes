@@ -46,13 +46,13 @@ namespace ExSymbiotes
 
     public override void Kill(DamageInfo? dinfo = null, Hediff exactCulprit = null)
     {
-      if (!red)
+      if (!red || texture==1)
       {
-        if (study) GenPlace.TryPlaceThing(GetReward("ExSymbiotes_SymbioticCore", 1), this.Position, this.Map, ThingPlaceMode.Near);
+        if (study) GenPlace.TryPlaceThing(GetReward(texture==0 ? "ExSymbiotes_SymbioticCore" : "ExSymbiotes_SymbioticCore_Red", 1), this.Position, this.Map, ThingPlaceMode.Near);
         else
         {
           GenPlace.TryPlaceThing(GetReward("Shard", 10), this.Position, this.Map, ThingPlaceMode.Near);
-          GenPlace.TryPlaceThing(GetReward("ExSymbiotes_SymbioticTissue", 50), this.Position, this.Map, ThingPlaceMode.Near);
+          GenPlace.TryPlaceThing(GetReward(texture==0 ? "ExSymbiotes_SymbioticTissue" : "ExSymbiotes_SymbioticTissue_Red", 50), this.Position, this.Map, ThingPlaceMode.Near);
         }
       }
       else
@@ -104,8 +104,16 @@ namespace ExSymbiotes
       this.study = study;
       this.bpm *= 2;
       this.bpmAccel = 15;
-      this.overloadTick = Find.TickManager.TicksGame + ExSymbiotesDefOf.ExSymbiotes_TachycardiacArrest.maintainTicks;
-      ExSymbiotesDefOf.ExSymbiotes_TachycardiacArrest.SpawnMaintained(this.Position, this.Map);
+      if (texture == 1)
+      {
+        this.overloadTick = Find.TickManager.TicksGame + EffecterDefOf.TachycardiacArrest.maintainTicks;
+        EffecterDefOf.TachycardiacArrest.SpawnMaintained(this.Position, this.Map);
+      }
+      else
+      {
+        this.overloadTick = Find.TickManager.TicksGame + ExSymbiotesDefOf.ExSymbiotes_TachycardiacArrest.maintainTicks;
+        ExSymbiotesDefOf.ExSymbiotes_TachycardiacArrest.SpawnMaintained(this.Position, this.Map);
+      }
       Messages.Message((string) "ExSymbiotes.MessageHeartAttack".Translate(), (LookTargets) (Thing) this, MessageTypeDefOf.PositiveEvent);
     }
 

@@ -1,9 +1,9 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Defs>
 
-    <ThingDef ParentName="ResourceBase">
+    <ThingDef Name="ExSymbiotes_SymbioticTissue" ParentName="ResourceBase">
         <defName>ExSymbiotes_SymbioticTissue</defName>
-        <label>symbiotic tissue</label>
+        <label>symbiotic tissue (Black)</label>
         <description>Remainings of the core of the symbiotic mass. Obtained by destroying a symbiotic mass</description>
         <graphicData>
             <texPath>Things/Item/SymbioticTissue</texPath>
@@ -25,10 +25,25 @@
             <li>ResourcesRaw</li>
         </thingCategories>
     </ThingDef>
-    
-    <ThingDef ParentName="ResourceBase">
+
+    <ThingDef ParentName="ExSymbiotes_SymbioticTissue">
+        <defName>ExSymbiotes_SymbioticTissue_Red</defName>
+        <label>symbiotic tissue (Red)</label>
+        <graphicData>
+            <texPath>Things/Item/SymbioticTissueRed</texPath>
+            <graphicClass>Graphic_Single</graphicClass>
+        </graphicData>
+        <statBases>
+            <MaxHitPoints>100</MaxHitPoints>
+            <MarketValue>20</MarketValue>
+            <Mass>0.6</Mass>
+            <Flammability>2</Flammability>
+        </statBases>
+    </ThingDef>
+<!--        LEATHER     -->
+    <ThingDef Name="ExSymbiotes_Leather_Symbiotic" ParentName="ResourceBase">
         <defName>ExSymbiotes_Leather_Symbiotic</defName>
-        <label>symbiotic leather</label>
+        <label>symbiotic leather (Black)</label>
         <description>Leather imbued with symbiotic tissue. The surface feels alive to the touch.</description>
         <possessionCount>20</possessionCount>
         <genericMarketSellable>false</genericMarketSellable>
@@ -68,9 +83,46 @@
         </stuffProps>
     </ThingDef>
 
-    <ThingDef ParentName="ResourceBase">
+    <ThingDef ParentName="ExSymbiotes_Leather_Symbiotic">
+        <defName>ExSymbiotes_Leather_Symbiotic_Red</defName>
+        <label>symbiotic leather (Red)</label>
+        <graphicData>
+            <texPath>Things/Item/Resource/Leather</texPath>
+            <graphicClass>Graphic_StackCount</graphicClass>
+            <color>(156, 9, 9)</color>
+        </graphicData>
+        <statBases>
+            <MaxHitPoints>100</MaxHitPoints>
+            <DeteriorationRate>0</DeteriorationRate>
+            <Mass>0.03</Mass>
+            <Flammability>2</Flammability>
+            <MarketValue>25</MarketValue>
+            <StuffPower_Armor_Sharp>3.5</StuffPower_Armor_Sharp>
+            <StuffPower_Armor_Blunt>1.5</StuffPower_Armor_Blunt>
+            <StuffPower_Armor_Heat>0</StuffPower_Armor_Heat>
+            <StuffPower_Insulation_Cold>60</StuffPower_Insulation_Cold>
+            <StuffPower_Insulation_Heat>40</StuffPower_Insulation_Heat>
+            <SharpDamageMultiplier>2.25</SharpDamageMultiplier>
+            <BluntDamageMultiplier>1.75</BluntDamageMultiplier>
+        </statBases>
+        <stuffProps>
+            <categories>
+                <li>Fabric</li>
+            </categories>
+            <color>(156, 9, 9)</color>
+            <isAirtight>true</isAirtight>
+            <statFactors>
+                <Flammability>2</Flammability>
+                <MaxHitPoints>2.4</MaxHitPoints>
+                <Beauty>4</Beauty>
+            </statFactors>
+        </stuffProps>
+    </ThingDef>
+
+    <!--        PLASTEEL        -->
+    <ThingDef Name="ExSymbiotes_SymbioticPlasteel" ParentName="ResourceBase">
         <defName>ExSymbiotes_SymbioticPlasteel</defName>
-        <label>symbiotic plasteel</label>
+        <label>symbiotic plasteel (Black)</label>
         <description>Advanced spacer tech structural material imbued with symbiotic tissue. The surface feels alive to the touch</description>
         <graphicData>
             <texPath>Things/Item/Resource/Plasteel</texPath>
@@ -126,6 +178,51 @@
         <terrainAffordanceNeeded>Medium</terrainAffordanceNeeded>
     </ThingDef>
 
+    <ThingDef ParentName="ExSymbiotes_SymbioticPlasteel">
+        <defName>ExSymbiotes_SymbioticPlasteel_Red</defName>
+        <label>symbiotic plasteel (Red)</label>
+        <graphicData>
+            <texPath>Things/Item/Resource/Plasteel</texPath>
+            <graphicClass>Graphic_StackCount</graphicClass>
+            <color>(156, 9, 9)</color>
+        </graphicData>
+        <statBases>
+            <MarketValue>40</MarketValue>
+            <Mass>0.25</Mass>
+            <StuffPower_Armor_Sharp>3.5</StuffPower_Armor_Sharp>
+            <StuffPower_Armor_Blunt>2.5</StuffPower_Armor_Blunt>
+            <StuffPower_Armor_Heat>0</StuffPower_Armor_Heat>
+            <StuffPower_Insulation_Cold>60</StuffPower_Insulation_Cold>
+            <StuffPower_Insulation_Heat>40</StuffPower_Insulation_Heat>
+            <SharpDamageMultiplier>2.25</SharpDamageMultiplier>
+            <BluntDamageMultiplier>1.75</BluntDamageMultiplier>
+        </statBases>
+        <stuffProps>
+            <categories>
+                <li>Metallic</li>
+            </categories>
+            <appearance>Metal</appearance>
+            <commonality>0.05</commonality>
+            <constructEffect>ConstructMetal</constructEffect>
+            <isAirtight>true</isAirtight>
+            <color>(156, 9, 9)</color>
+            <soundImpactBullet>BulletImpact_Metal</soundImpactBullet>
+            <soundMeleeHitSharp>MeleeHit_Metal_Sharp</soundMeleeHitSharp>
+            <soundMeleeHitBlunt>MeleeHit_Metal_Blunt</soundMeleeHitBlunt>
+            <soundImpactMelee>Pawn_Melee_Punch_HitBuilding_Metal</soundImpactMelee>
+            <statFactors>
+                <MaxHitPoints>3.3</MaxHitPoints>
+                <Beauty>1</Beauty>
+                <Flammability>2</Flammability>
+                <WorkToMake>2.2</WorkToMake>
+                <WorkToBuild>2.2</WorkToBuild>
+                <MeleeWeapon_CooldownMultiplier>0.8</MeleeWeapon_CooldownMultiplier>
+            </statFactors>
+        </stuffProps>
+        <terrainAffordanceNeeded>Medium</terrainAffordanceNeeded>
+    </ThingDef>
+
+    <!--        CORES       -->
     <ThingDef Name="ExSymbiotes_SymbioticCore" ParentName="ResourceBase">
         <defName>ExSymbiotes_SymbioticCore</defName>
         <label>symbiotic core (Black)</label>
