@@ -47,10 +47,6 @@
 					</points>
 				</activityResearchFactorCurve>
 			</li>
-			<li Class="CompProperties_LeaveFilthOnDestroyed">
-				<filthDef>Filth_RevenantBloodPool</filthDef>
-				<thickness>2</thickness>
-			</li>
 			<li Class="CompProperties_AmbientSound">
 				<sound>FleshmassHeart_Ambience</sound>
 			</li>
@@ -76,6 +72,10 @@
 			<li Class="CompProperties_Obelisk">
 				<compClass>ExSymbiotes.CompSymbioteMass_Black</compClass>
 				<interactionEffectCooldownDays>0</interactionEffectCooldownDays>
+			</li>
+			<li Class="CompProperties_LeaveFilthOnDestroyed">
+				<filthDef>Filth_RevenantBloodPool</filthDef>
+				<thickness>2</thickness>
 			</li>
 			<li Class="CompProperties_StudyUnlocks">
 				<studyNotes>
@@ -151,6 +151,10 @@
 			<li Class="CompProperties_Obelisk">
 				<compClass>ExSymbiotes.CompSymbioteMass_Black</compClass>
 				<interactionEffectCooldownDays>0</interactionEffectCooldownDays>
+			</li>
+			<li Class="CompProperties_LeaveFilthOnDestroyed">
+				<filthDef>ExSymbiotes_Filth_RevenantBloodPool_Red</filthDef>
+				<thickness>2</thickness>
 			</li>
 			<li Class="CompProperties_StudyUnlocks">
 				<studyNotes>
