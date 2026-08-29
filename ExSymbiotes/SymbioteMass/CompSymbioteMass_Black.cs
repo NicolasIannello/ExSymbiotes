@@ -11,7 +11,7 @@ namespace ExSymbiotes
 
     public override void TriggerInteractionEffect(Pawn interactor, bool triggeredByPlayer = false)
     {
-      this.Heart?.StartTachycardiacOverload(StudyFinished);
+      this.Heart?.StartTachycardiacOverload(StudyLevel>=2);
     }
 
     public override void OnActivityActivated()
