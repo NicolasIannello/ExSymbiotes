@@ -103,6 +103,7 @@
             </li>
             <li Class="HediffCompProperties_GiveAbility">
                 <abilityDefs>
+                    <li>ExSymbiotes_SymbioticScythe</li>
                     <li MayRequire="Ludeon.RimWorld.Biotech">ExSymbiotes_SymbioticLongjump</li>
                 </abilityDefs>
             </li>
@@ -130,6 +131,29 @@
         </stages>
         <comps>
             <li Class="ExSymbiotes.HediffCompProperties_SymbioticArmor"/>
+            <li Class="HediffCompProperties_Disappears">
+                <showRemainingTime>True</showRemainingTime>
+            </li>
+            <li Class="HediffCompProperties_DisappearsOnDeath"/>
+        </comps>
+    </HediffDef>
+
+    <HediffDef>
+        <defName>ExSymbiotes_SymbioticScythe</defName>
+        <label>symbiotic scythe</label>
+        <hediffClass>HediffWithComps</hediffClass>
+        <description>The symbiote mutates the user arm into a scythe.</description>
+        <isBad>false</isBad>
+        <stages>
+            <li>
+                <statFactors>
+                    <MoveSpeed>2</MoveSpeed>
+                </statFactors>
+                <regeneration>50</regeneration>
+            </li>
+        </stages>
+        <comps>
+            <li Class="ExSymbiotes.HediffCompProperties_SymbioticScythe"/>
             <li Class="HediffCompProperties_Disappears">
                 <showRemainingTime>True</showRemainingTime>
             </li>

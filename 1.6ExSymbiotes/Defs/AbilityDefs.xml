@@ -90,4 +90,44 @@
             </li>
         </comps>
     </AbilityDef>
+
+    <AbilityDef>
+        <defName>ExSymbiotes_SymbioticScythe</defName>
+        <label>symbiotic scythe</label>
+        <description>The symbiote mutates the user arm into a scythe, dropping the current weapon on the ground.</description>
+        <iconPath>UI/SymbioticScythe</iconPath>
+        <cooldownTicksRange>300</cooldownTicksRange>
+        <writeCombatLog>True</writeCombatLog>
+        <targetRequired>false</targetRequired>
+        <casterMustBeCapableOfViolence>true</casterMustBeCapableOfViolence>
+        <statBases>
+            <Ability_Duration>60</Ability_Duration>
+        </statBases>
+        <verbProperties>
+            <verbClass>Verb_CastAbility</verbClass>
+            <drawAimPie>false</drawAimPie>
+            <requireLineOfSight>false</requireLineOfSight>
+            <nonInterruptingSelfCast>true</nonInterruptingSelfCast>
+            <warmupTime>1</warmupTime>
+            <range>19.9</range>
+            <targetable>false</targetable>
+            <targetParams>
+                <canTargetSelf>True</canTargetSelf>
+            </targetParams>
+        </verbProperties>
+        <comps>
+            <li Class="ExSymbiotes.CompProperties_AbilitySymbiosisCost">
+                <symbiosisCost>4</symbiosisCost>
+            </li>
+            <li Class="CompProperties_AbilityGiveHediff">
+                <compClass>CompAbilityEffect_GiveHediff</compClass>
+                <hediffDef>ExSymbiotes_SymbioticScythe</hediffDef>
+                <replaceExisting>true</replaceExisting>
+                <psychic>True</psychic>
+            </li>
+            <li Class="CompProperties_AbilityFleckOnTarget">
+                <fleckDef>PsycastPsychicEffect</fleckDef>
+            </li>
+        </comps>
+    </AbilityDef>
 </Defs>

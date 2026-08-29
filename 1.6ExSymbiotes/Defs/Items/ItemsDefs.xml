@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Defs>
-
+    <!--        TISSUE      -->
     <ThingDef Name="ExSymbiotes_SymbioticTissue" ParentName="ResourceBase">
         <defName>ExSymbiotes_SymbioticTissue</defName>
         <label>symbiotic tissue (Black)</label>
@@ -40,7 +40,7 @@
             <Flammability>2</Flammability>
         </statBases>
     </ThingDef>
-<!--        LEATHER     -->
+    <!--        LEATHER     -->
     <ThingDef Name="ExSymbiotes_Leather_Symbiotic" ParentName="ResourceBase">
         <defName>ExSymbiotes_Leather_Symbiotic</defName>
         <label>symbiotic leather (Black)</label>
@@ -323,5 +323,54 @@
                 <soundOnUsed>MechSerumUsed</soundOnUsed>
             </li>
         </comps>
+    </ThingDef>
+    
+    <!--        WEAPONS     -->
+    <ThingDef ParentName="ResourceVerbBase">
+        <defName>ExSymbiotes_SymbioteScythe</defName>
+        <label>symbiotic scythe</label>
+        <description>A symbiote arm turned into a scythe.</description>
+        <possessionCount>1</possessionCount>
+        <graphicData>
+<!--            <texPath>Things/Item/Special/ThrumboHorn</texPath>-->
+            <texPath>UI/SymbioticScythe</texPath>
+            <graphicClass>Graphic_Single</graphicClass>
+        </graphicData>
+        <equippedAngleOffset>-20</equippedAngleOffset>
+        <statBases>
+            <MarketValue>0</MarketValue>
+            <MaxHitPoints>150</MaxHitPoints>
+            <Mass>0</Mass>
+            <Flammability>1</Flammability>
+            <DeteriorationRate>10</DeteriorationRate>
+        </statBases>
+        <resourceReadoutPriority>Middle</resourceReadoutPriority>
+        <stackLimit>1</stackLimit>
+        <relicChance>0</relicChance>
+        <comps>
+            <li Class="ExSymbiotes.CompProperties_SymbioticWeapon"></li>
+        </comps>
+        <weaponClasses>
+            <li>Melee</li>
+            <li>MeleePiercer</li>
+        </weaponClasses>
+        <tools>
+            <li>
+                <label>point</label>
+                <capacities>
+                    <li>Stab</li>
+                </capacities>
+                <power>35</power>
+                <cooldownTime>0.75</cooldownTime>
+            </li>
+            <li>
+                <label>edge</label>
+                <capacities>
+                    <li>Cut</li>
+                </capacities>
+                <power>50</power>
+                <cooldownTime>1.5</cooldownTime>
+            </li>
+        </tools>
     </ThingDef>
 </Defs>

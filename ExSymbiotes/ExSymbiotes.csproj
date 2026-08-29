@@ -60,12 +60,16 @@
     <Compile Include="ExSymbiotesMod.cs" />
     <Compile Include="Hediff\CompAbilityEffect_SymbiosisCost.cs" />
     <Compile Include="Hediff\CompProperties_AbilitySymbiosisCost.cs" />
+    <Compile Include="Hediff\CompProperties_SymbioticWeapon.cs" />
     <Compile Include="Hediff\CompProperties_UseEffectAddSymbiosis.cs" />
+    <Compile Include="Hediff\CompSymbioticWeapon.cs" />
     <Compile Include="Hediff\CompUseEffect_AddSymbiosis.cs" />
     <Compile Include="Hediff\Symbiosis\HediffCompProperties_Symbiosis.cs" />
     <Compile Include="Hediff\Symbiosis\HediffComp_Symbiosis.cs" />
     <Compile Include="Hediff\SymbioticArmor\HediffCompProperties_SymbioticArmor.cs" />
     <Compile Include="Hediff\SymbioticArmor\HediffComp_SymbioticArmor.cs" />
+    <Compile Include="Hediff\SymbioticScythe\HediffCompProperties_SymbioticScythe.cs" />
+    <Compile Include="Hediff\SymbioticScythe\HediffComp_SymbioticScythe.cs" />
     <Compile Include="Patches\Symbiosis.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Ritual\PsychicRitualDef_SummonSymbioticMass.cs" />
