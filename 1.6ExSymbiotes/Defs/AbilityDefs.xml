@@ -31,10 +31,9 @@
             <li Class="CompProperties_AbilityGiveHediff">
                 <compClass>CompAbilityEffect_GiveHediff</compClass>
                 <hediffDef>ExSymbiotes_SymbioticArmor</hediffDef>
-                <psychic>True</psychic>
             </li>
             <li Class="CompProperties_AbilityFleckOnTarget">
-                <fleckDef>PsycastPsychicEffect</fleckDef>
+                <fleckDef>UnnaturalHealing</fleckDef>
             </li>
         </comps>
     </AbilityDef>
@@ -123,10 +122,47 @@
                 <compClass>CompAbilityEffect_GiveHediff</compClass>
                 <hediffDef>ExSymbiotes_SymbioticScythe</hediffDef>
                 <replaceExisting>true</replaceExisting>
-                <psychic>True</psychic>
             </li>
             <li Class="CompProperties_AbilityFleckOnTarget">
-                <fleckDef>PsycastPsychicEffect</fleckDef>
+                <fleckDef>BloodSplash</fleckDef>
+            </li>
+        </comps>
+    </AbilityDef>
+
+    <AbilityDef>
+        <defName>ExSymbiotes_SymbioticTendrils</defName>
+        <label>symbiotic tendrils</label>
+        <description>Four symbiotic tendrils protude from the back of the user shooting enemies that get too close.</description>
+        <iconPath>UI/SymbioticTendrils</iconPath>
+        <cooldownTicksRange>300</cooldownTicksRange>
+        <writeCombatLog>True</writeCombatLog>
+        <targetRequired>false</targetRequired>
+        <casterMustBeCapableOfViolence>true</casterMustBeCapableOfViolence>
+        <statBases>
+            <Ability_Duration>30</Ability_Duration>
+        </statBases>
+        <verbProperties>
+            <verbClass>Verb_CastAbility</verbClass>
+            <drawAimPie>false</drawAimPie>
+            <requireLineOfSight>false</requireLineOfSight>
+            <nonInterruptingSelfCast>true</nonInterruptingSelfCast>
+            <warmupTime>1</warmupTime>
+            <range>19.9</range>
+            <targetable>false</targetable>
+            <targetParams>
+                <canTargetSelf>True</canTargetSelf>
+            </targetParams>
+        </verbProperties>
+        <comps>
+            <li Class="ExSymbiotes.CompProperties_AbilitySymbiosisCost">
+                <symbiosisCost>4</symbiosisCost>
+            </li>
+            <li Class="CompProperties_AbilityGiveHediff">
+                <compClass>CompAbilityEffect_GiveHediff</compClass>
+                <hediffDef>ExSymbiotes_SymbioticTendrils</hediffDef>
+            </li>
+            <li Class="CompProperties_AbilityFleckOnTarget">
+                <fleckDef>BloodSplash</fleckDef>
             </li>
         </comps>
     </AbilityDef>
