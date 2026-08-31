@@ -72,6 +72,12 @@
                 </drawData>
             </li>
         </renderNodeProperties>
+        <tags>
+            <li>ExSymbiotes_SymbiosisTag</li>
+        </tags>
+        <removeWithTags>
+            <li>ExSymbiotes_SymbiosisTag</li>
+        </removeWithTags>
     </HediffDef>
 
     <HediffDef ParentName="ExSymbiotes_Symbiosis">
@@ -108,6 +114,12 @@
                 </abilityDefs>
             </li>
         </comps>
+        <tags>
+            <li>ExSymbiotes_SymbiosisTag</li>
+        </tags>
+        <removeWithTags>
+            <li>ExSymbiotes_SymbiosisTag</li>
+        </removeWithTags>
     </HediffDef>
 
     <HediffDef>
@@ -203,7 +215,7 @@
                     <dataNorth>
                         <offset>(0.1, 0, 0.05)</offset>
                         <rotationOffset>-225</rotationOffset>
-                        <layer>70</layer>
+                        <layer>71</layer>
                         <flip>true</flip>
                     </dataNorth>
                     <dataEast>
@@ -244,7 +256,7 @@
                     <dataNorth>
                         <offset>(-0.1, 0, 0.05)</offset>
                         <rotationOffset>-225</rotationOffset>
-                        <layer>70</layer>
+                        <layer>72</layer>
                     </dataNorth>
                     <dataEast>
                         <offset>(-0.1, 0, 0.05)</offset>
@@ -281,7 +293,7 @@
                         <layer>0</layer>
                     </dataSouth>
                     <dataNorth>
-                        <offset>(-0.1, 0, -0.05)</offset>
+                        <offset>(-0.05, 0, -0.05)</offset>
                         <rotationOffset>-90</rotationOffset>
                         <layer>70</layer>
                         <flip>true</flip>
@@ -289,7 +301,7 @@
                     <dataEast>
                         <offset>(-0.1, 0, -0.05)</offset>
                         <rotationOffset>-180</rotationOffset>
-                        <layer>70</layer>
+                        <layer>71</layer>
                         <flip>true</flip>
                     </dataEast>
                     <dataWest>
@@ -322,7 +334,7 @@
                         <flip>true</flip>
                     </dataSouth>
                     <dataNorth>
-                        <offset>(0.1, 0, -0.05)</offset>
+                        <offset>(0.05, 0, -0.05)</offset>
                         <rotationOffset>-90</rotationOffset>
                         <layer>70</layer>
                     </dataNorth>
@@ -335,7 +347,7 @@
                     <dataWest>
                         <offset>(0.1, 0, -0.05)</offset>
                         <rotationOffset>-180</rotationOffset>
-                        <layer>70</layer>
+                        <layer>71</layer>
                     </dataWest>
                 </drawData>
             </li>
