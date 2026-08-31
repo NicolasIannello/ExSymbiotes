@@ -283,7 +283,7 @@
                 </allowedMutants>
             </li>
             <li Class="CompProperties_Serum" />
-            <li Class="ExSymbiotes.CompProperties_UseEffectAddSymbiosis">
+            <li Class="CompProperties_UseEffectAddHediff">
                 <hediffDef>ExSymbiotes_Symbiosis</hediffDef>
                 <allowRepeatedUse>false</allowRepeatedUse>
             </li>
@@ -315,7 +315,7 @@
                 </allowedMutants>
             </li>
             <li Class="CompProperties_Serum" />
-            <li Class="ExSymbiotes.CompProperties_UseEffectAddSymbiosis">
+            <li Class="CompProperties_UseEffectAddHediff">
                 <hediffDef>ExSymbiotes_Symbiosis_Red</hediffDef>
                 <allowRepeatedUse>false</allowRepeatedUse>
             </li>
