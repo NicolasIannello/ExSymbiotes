@@ -1,0 +1,34 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+    <ThingDef ParentName="BaseWeaponTurret">
+        <defName>ExSymbiotes_TendrilTurret</defName>
+        <label>tendril turret</label>
+        <description>tendril turret.</description>
+        <graphicData>
+            <texPath>Things/Building/Security/TurretMini_Top</texPath>
+            <graphicClass>Graphic_Single</graphicClass>
+        </graphicData>
+        <statBases>
+            <AccuracyTouch>0.90</AccuracyTouch>
+            <AccuracyShort>0.70</AccuracyShort>
+            <AccuracyMedium>0.40</AccuracyMedium>
+            <AccuracyLong>0.20</AccuracyLong>
+            <RangedWeapon_Cooldown>0</RangedWeapon_Cooldown>
+            <DeteriorationRate>0</DeteriorationRate>
+            <Mass>5</Mass>
+            <Flammability>0</Flammability>
+        </statBases>
+        <verbs>
+            <li>
+                <verbClass>Verb_Shoot</verbClass>
+                <defaultProjectile>Spine_Gorehulk</defaultProjectile>
+                <warmupTime>0</warmupTime>
+                <range>20</range>
+                <ticksBetweenBurstShots>8</ticksBetweenBurstShots>
+                <burstShotCount>2</burstShotCount>
+                <soundCast>Ability_SpineLaunch</soundCast>
+                <soundCastTail>GunTail_Light</soundCastTail>
+            </li>
+        </verbs>
+    </ThingDef>
+</Defs>

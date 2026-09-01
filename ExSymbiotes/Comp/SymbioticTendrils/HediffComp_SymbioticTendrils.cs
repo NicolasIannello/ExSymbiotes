@@ -15,6 +15,7 @@ namespace ExSymbiotes
         ILoadReferenceable, 
         IAttackTargetSearcher
     {
+        public HediffCompProperties_SymbioticTendrils Props => (HediffCompProperties_SymbioticTendrils) this.props;
         private LocalTargetInfo lastAttackedTarget;
         private int lastAttackTargetTick;
         public virtual bool IsEverThreat => true;
@@ -38,9 +39,6 @@ namespace ExSymbiotes
         public override void CompPostTick(ref float severityAdjustment)
         {
             base.CompPostTick(ref severityAdjustment);
-            // if (!this.forcedTarget.HasThing || this.forcedTarget.Thing.Spawned && this.Pawn.Spawned && this.forcedTarget.Thing.Map == this.Pawn.Map)
-            //     return;
-            // this.forcedTarget = LocalTargetInfo.Invalid;
             
             if (this.forcedTarget.IsValid && !this.CanSetForcedTarget)
                 this.ResetForcedTarget();
@@ -69,7 +67,6 @@ namespace ExSymbiotes
                     if (this.burstCooldownTicksLeft <= 0 && this.Pawn.IsHashIntervalTick(15))
                         this.TryStartShootSomething(true);
                 }
-                this.top.TurretTopTick();
             }
             else
                 this.ResetCurrentTarget();
@@ -93,7 +90,7 @@ namespace ExSymbiotes
                 return;
             if (this.gun == null)
             {
-                Log.Error("Turret had null gun after loading. Recreating.");
+                Log.Error("TendrilTurret had null gun after loading. Recreating.");
                 this.MakeGun();
             }
             else
@@ -113,26 +110,21 @@ namespace ExSymbiotes
         private bool holdFire;
         private bool burstActivated;
         public Thing gun;
-        protected TendrilTop top;
         protected Effecter progressBarEffecter;
-        private const int TryStartShootSomethingIntervalTicks = 15;
-        public static Material ForcedTargetLineMat = MaterialPool.MatFrom(GenDraw.LineTexPath, ShaderDatabase.Transparent, new Color(1f, 0.5f, 0.5f));
         public bool Active => this.burstActivated;
         public CompEquippable GunCompEq => this.gun.TryGetComp<CompEquippable>();
         public LocalTargetInfo CurrentTarget => this.currentTargetInt;
         private bool WarmingUp => this.burstWarmupTicksLeft > 0;
         public Verb AttackVerb => this.GunCompEq.PrimaryVerb;
         private bool PlayerControlled => this.Pawn.Faction == Faction.OfPlayer && !this.Pawn.Downed;
-        public HediffComp_SymbioticTendrils() => this.top = new TendrilTop((HediffComp_SymbioticTendrils) this);
         protected virtual bool CanSetForcedTarget => this.PlayerControlled;
         private bool CanToggleHoldFire => this.PlayerControlled;
 
         public override void CompPostMake()
         {
             base.CompPostMake();
-            this.burstCooldownTicksLeft = 2 * 60;//this.def.building.turretInitialCooldownTime.SecondsToTicks();
+            this.burstCooldownTicksLeft = 2 * 60;
             this.MakeGun();
-            this.top.SetRotationFromOrientation();
         }
 
         public override void CompPostPostRemoved()
@@ -214,7 +206,7 @@ namespace ExSymbiotes
                     if (canBeginBurstImmediately)
                         this.BeginBurst();
                     else
-                        this.burstWarmupTicksLeft = 1;
+                        this.burstWarmupTicksLeft = 60;
                 }
                 else
                     this.ResetCurrentTarget();
@@ -248,7 +240,7 @@ namespace ExSymbiotes
         {
             Log.Message("TargSearcher");
 
-            return (IAttackTargetSearcher) this;//maybe pawn??????
+            return (IAttackTargetSearcher) this.Pawn;//maybe pawn??????
         }
         
         private bool IsValidTarget(Thing t)
@@ -265,8 +257,6 @@ namespace ExSymbiotes
                     if (roofDef != null && roofDef.isThickRoof)
                         return false;
                 }
-                // if (this.mannableComp == null)
-                //     return !GenAI.MachinesLike(this.Pawn.Faction, p);
                 if (p.RaceProps.Animal && p.Faction == Faction.OfPlayer)
                     return false;
             }
@@ -314,7 +304,7 @@ namespace ExSymbiotes
                 gizmo.icon = (Texture) ContentFinder<Texture2D>.Get("UI/Commands/Attack");
                 // gizmo.verb = this.AttackVerb;
                 gizmo.hotKey = KeyBindingDefOf.Misc4;
-                // gizmo.drawRadius = false;
+                //gizmo.drawRadius = false;
                 // gizmo.requiresAvailableVerb = false;
                 gizmo.action = delegate
                 {
@@ -391,8 +381,7 @@ namespace ExSymbiotes
         {
             Log.Message("MakeGun");
 
-            ThingDef itemDef = ThingDef.Named("Gun_MiniTurret");
-            this.gun = ThingMaker.MakeThing(itemDef);
+            this.gun = ThingMaker.MakeThing(Props.turretGunDef);
             this.UpdateGunVerbs();
         }
         
