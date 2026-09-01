@@ -90,7 +90,7 @@ namespace ExSymbiotes
                 return;
             if (this.gun == null)
             {
-                Log.Error("TendrilTurret had null gun after loading. Recreating.");
+                Log.Error("Turret had null gun after loading. Recreating.");
                 this.MakeGun();
             }
             else
@@ -206,7 +206,7 @@ namespace ExSymbiotes
                     if (canBeginBurstImmediately)
                         this.BeginBurst();
                     else
-                        this.burstWarmupTicksLeft = 60;
+                        this.burstWarmupTicksLeft = 1;
                 }
                 else
                     this.ResetCurrentTarget();
@@ -240,7 +240,7 @@ namespace ExSymbiotes
         {
             Log.Message("TargSearcher");
 
-            return (IAttackTargetSearcher) this.Pawn;//maybe pawn??????
+            return (IAttackTargetSearcher) this;//maybe pawn??????
         }
         
         private bool IsValidTarget(Thing t)
@@ -298,14 +298,10 @@ namespace ExSymbiotes
             if (this.CanSetForcedTarget)
             {
                 Command_Action gizmo = new Command_Action();
-                // Command_VerbTarget gizmo = new Command_VerbTarget();
                 gizmo.defaultLabel = (string) "CommandSetForceAttackTarget".Translate();
                 gizmo.defaultDesc = (string) "CommandSetForceAttackTargetDesc".Translate();
                 gizmo.icon = (Texture) ContentFinder<Texture2D>.Get("UI/Commands/Attack");
-                // gizmo.verb = this.AttackVerb;
                 gizmo.hotKey = KeyBindingDefOf.Misc4;
-                //gizmo.drawRadius = false;
-                // gizmo.requiresAvailableVerb = false;
                 gizmo.action = delegate
                 {
                     TargetingParameters targetParams = this.AttackVerb.targetParams ?? TargetingParameters.ForAttackAny();
