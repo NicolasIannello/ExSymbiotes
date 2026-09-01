@@ -1,0 +1,412 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using RimWorld;
+using UnityEngine;
+using Verse;
+using Verse.AI;
+using Verse.Sound;
+
+namespace ExSymbiotes
+{
+    [StaticConstructorOnStartup]
+    public class HediffComp_SymbioticTendrils: HediffComp, 
+        IAttackTarget, 
+        ILoadReferenceable, 
+        IAttackTargetSearcher
+    {
+        private LocalTargetInfo lastAttackedTarget;
+        private int lastAttackTargetTick;
+        public virtual bool IsEverThreat => true;
+        protected LocalTargetInfo forcedTarget = LocalTargetInfo.Invalid;
+        
+        public string GetUniqueLoadID() => "ExSymbiotes_HediffComp_SymbioticTendrils" + this.Pawn.ThingID;
+        
+        public bool ThreatDisabled(IAttackTargetSearcher disabledFor) => !this.IsEverThreat;
+
+        Thing IAttackTarget.Thing => (Thing) this.Pawn;
+
+        public Verb CurrentEffectiveVerb => this.AttackVerb;
+        public LocalTargetInfo LastAttackedTarget => this.lastAttackedTarget;
+        public int LastAttackTargetTick => this.lastAttackTargetTick;
+        public LocalTargetInfo TargetCurrentlyAimingAt => this.CurrentTarget;
+        public float TargetPriorityFactor => 1f;
+        public LocalTargetInfo ForcedTarget => this.forcedTarget;
+
+        Thing IAttackTargetSearcher.Thing => (Thing) this.Pawn;
+
+        public override void CompPostTick(ref float severityAdjustment)
+        {
+            base.CompPostTick(ref severityAdjustment);
+            // if (!this.forcedTarget.HasThing || this.forcedTarget.Thing.Spawned && this.Pawn.Spawned && this.forcedTarget.Thing.Map == this.Pawn.Map)
+            //     return;
+            // this.forcedTarget = LocalTargetInfo.Invalid;
+            
+            if (this.forcedTarget.IsValid && !this.CanSetForcedTarget)
+                this.ResetForcedTarget();
+            if (!this.CanToggleHoldFire)
+                this.holdFire = false;
+            if (this.forcedTarget.ThingDestroyed)
+                this.ResetForcedTarget();
+            if (!this.Active && this.Pawn.Spawned)
+            {
+                this.GunCompEq.verbTracker.VerbsTick();
+                if (this.AttackVerb.state == VerbState.Bursting)
+                    return;
+                this.burstActivated = false;
+                if (this.WarmingUp)
+                {
+                    --this.burstWarmupTicksLeft;
+                    if (this.burstWarmupTicksLeft <= 0)
+                        this.BeginBurst();
+                }
+                else
+                {
+                    if (this.burstCooldownTicksLeft > 0)
+                    {
+                        --this.burstCooldownTicksLeft;
+                    }
+                    if (this.burstCooldownTicksLeft <= 0 && this.Pawn.IsHashIntervalTick(15))
+                        this.TryStartShootSomething(true);
+                }
+                this.top.TurretTopTick();
+            }
+            else
+                this.ResetCurrentTarget();
+        }
+
+        public override void CompExposeData()
+        {
+            base.CompExposeData();
+            Scribe_TargetInfo.Look(ref this.forcedTarget, "forcedTarget");
+            Scribe_TargetInfo.Look(ref this.lastAttackedTarget, "lastAttackedTarget");
+            Scribe_Values.Look<int>(ref this.lastAttackTargetTick, "lastAttackTargetTick");
+            
+            Scribe_Values.Look<int>(ref this.burstCooldownTicksLeft, "burstCooldownTicksLeft");
+            Scribe_Values.Look<int>(ref this.burstWarmupTicksLeft, "burstWarmupTicksLeft");
+            Scribe_TargetInfo.Look(ref this.currentTargetInt, "currentTarget");
+            Scribe_Values.Look<bool>(ref this.holdFire, "holdFire");
+            Scribe_Values.Look<bool>(ref this.burstActivated, "burstActivated");
+            Scribe_Deep.Look<Thing>(ref this.gun, "gun");
+            BackCompatibility.PostExposeData((object) this);
+            if (Scribe.mode != LoadSaveMode.PostLoadInit)
+                return;
+            if (this.gun == null)
+            {
+                Log.Error("Turret had null gun after loading. Recreating.");
+                this.MakeGun();
+            }
+            else
+                this.UpdateGunVerbs();
+        }
+        
+        protected void OnAttackedTarget(LocalTargetInfo target)
+        {
+            Log.Message("OnAttackedTarget");
+            this.lastAttackTargetTick = Find.TickManager.TicksGame;
+            this.lastAttackedTarget = target;
+        }
+        
+        protected int burstCooldownTicksLeft;
+        protected int burstWarmupTicksLeft;
+        protected LocalTargetInfo currentTargetInt = LocalTargetInfo.Invalid;
+        private bool holdFire;
+        private bool burstActivated;
+        public Thing gun;
+        protected TendrilTop top;
+        protected Effecter progressBarEffecter;
+        private const int TryStartShootSomethingIntervalTicks = 15;
+        public static Material ForcedTargetLineMat = MaterialPool.MatFrom(GenDraw.LineTexPath, ShaderDatabase.Transparent, new Color(1f, 0.5f, 0.5f));
+        public bool Active => this.burstActivated;
+        public CompEquippable GunCompEq => this.gun.TryGetComp<CompEquippable>();
+        public LocalTargetInfo CurrentTarget => this.currentTargetInt;
+        private bool WarmingUp => this.burstWarmupTicksLeft > 0;
+        public Verb AttackVerb => this.GunCompEq.PrimaryVerb;
+        private bool PlayerControlled => this.Pawn.Faction == Faction.OfPlayer && !this.Pawn.Downed;
+        public HediffComp_SymbioticTendrils() => this.top = new TendrilTop((HediffComp_SymbioticTendrils) this);
+        protected virtual bool CanSetForcedTarget => this.PlayerControlled;
+        private bool CanToggleHoldFire => this.PlayerControlled;
+
+        public override void CompPostMake()
+        {
+            base.CompPostMake();
+            this.burstCooldownTicksLeft = 2 * 60;//this.def.building.turretInitialCooldownTime.SecondsToTicks();
+            this.MakeGun();
+            this.top.SetRotationFromOrientation();
+        }
+
+        public override void CompPostPostRemoved()
+        {
+            base.CompPostPostRemoved();
+            this.ResetCurrentTarget();
+            this.progressBarEffecter?.Cleanup();
+        }
+        
+        public void OrderAttack(LocalTargetInfo targ)
+        {
+            Log.Message("OrderAttack");
+
+            if (!targ.IsValid)
+            {
+                if (!this.forcedTarget.IsValid)
+                    return;
+                this.ResetForcedTarget();
+            }
+            else
+            {
+                IntVec3 intVec3 = targ.Cell - this.Pawn.Position;
+                if ((double) intVec3.LengthHorizontal < (double) this.AttackVerb.verbProps.EffectiveMinRange(targ, (Thing) this.Pawn))
+                {
+                    Messages.Message((string) "MessageTargetBelowMinimumRange".Translate(), (LookTargets) (Thing) this.Pawn, MessageTypeDefOf.RejectInput, false);
+                }
+                else
+                {
+                    intVec3 = targ.Cell - this.Pawn.Position;
+                    if ((double) intVec3.LengthHorizontal > (double) this.AttackVerb.EffectiveRange)
+                    {
+                        Messages.Message((string) "MessageTargetBeyondMaximumRange".Translate(), (LookTargets) (Thing) this.Pawn, MessageTypeDefOf.RejectInput, false);
+                    }
+                    else
+                    {
+                        if (this.forcedTarget != targ)
+                        {
+                            this.forcedTarget = targ;
+                            if (this.burstCooldownTicksLeft <= 0)
+                                this.TryStartShootSomething(false);
+                        }
+                        if (!this.holdFire)
+                            return;
+                        Messages.Message((string) "MessageTurretWontFireBecauseHoldFire".Translate((NamedArgument) this.Pawn.def.label), (LookTargets) (Thing) this.Pawn, MessageTypeDefOf.RejectInput, false);
+                    }
+                }
+            }
+        }
+        
+        public void TryActivateBurst()
+        {
+            Log.Message("TryActivateBurst");
+
+            this.burstActivated = true;
+            this.TryStartShootSomething(true);
+        }
+        
+        public void TryStartShootSomething(bool canBeginBurstImmediately)
+        {
+            Log.Message("TryStartShootSomething");
+
+            if (this.progressBarEffecter != null)
+            {
+                this.progressBarEffecter.Cleanup();
+                this.progressBarEffecter = (Effecter) null;
+            }
+            if (!this.Pawn.Spawned || this.holdFire && this.CanToggleHoldFire && !this.AttackVerb.Available())
+            {
+                this.ResetCurrentTarget();
+            }
+            else
+            {
+                int num = this.currentTargetInt.IsValid ? 1 : 0;
+                this.currentTargetInt = !this.forcedTarget.IsValid ? this.TryFindNewTarget() : this.forcedTarget;
+                if (num == 0 && this.currentTargetInt.IsValid)
+                    SoundDefOf.TurretAcquireTarget.PlayOneShot((SoundInfo) new TargetInfo(this.Pawn.Position, this.Pawn.Map));
+                if (this.currentTargetInt.IsValid)
+                {
+                    if (canBeginBurstImmediately)
+                        this.BeginBurst();
+                    else
+                        this.burstWarmupTicksLeft = 1;
+                }
+                else
+                    this.ResetCurrentTarget();
+            }
+        }
+        
+        public virtual LocalTargetInfo TryFindNewTarget()
+        {
+            Log.Message("TryFindNewTarget");
+
+            IAttackTargetSearcher searcher = this.TargSearcher();
+            Faction faction = searcher.Thing.Faction;
+            float range = this.AttackVerb.EffectiveRange;
+            Building result;
+            if ((double) Rand.Value < 0.5 && this.AttackVerb.ProjectileFliesOverhead() && faction.HostileTo(Faction.OfPlayer) && this.Pawn.Map.listerBuildings.allBuildingsColonist.Where<Building>((Func<Building, bool>) (x =>
+                {
+                    float num = this.AttackVerb.verbProps.EffectiveMinRange((LocalTargetInfo) (Thing) x, (Thing) this.Pawn);
+                    float squared = (float) x.Position.DistanceToSquared(this.Pawn.Position);
+                    return (double) squared > (double) num * (double) num && (double) squared < (double) range * (double) range;
+                })).TryRandomElement<Building>(out result))
+                return (LocalTargetInfo) (Thing) result;
+            TargetScanFlags flags = TargetScanFlags.NeedThreat | TargetScanFlags.NeedAutoTargetable;
+            if (!this.AttackVerb.ProjectileFliesOverhead())
+                flags = flags | TargetScanFlags.NeedLOSToAll | TargetScanFlags.LOSBlockableByGas;
+            if (this.AttackVerb.IsIncendiary_Ranged())
+                flags |= TargetScanFlags.NeedNonBurning;
+            return (LocalTargetInfo) (Thing) AttackTargetFinder.BestShootTargetFromCurrentPosition(searcher, flags, new Predicate<Thing>(this.IsValidTarget));
+        }
+        
+        private IAttackTargetSearcher TargSearcher()
+        {
+            Log.Message("TargSearcher");
+
+            return (IAttackTargetSearcher) this;//maybe pawn??????
+        }
+        
+        private bool IsValidTarget(Thing t)
+        {
+            Log.Message("IsValidTarget");
+
+            if (t is Pawn p)
+            {
+                if (this.Pawn.Faction == Faction.OfPlayer && p.IsPrisoner)
+                    return false;
+                if (this.AttackVerb.ProjectileFliesOverhead())
+                {
+                    RoofDef roofDef = this.Pawn.Map.roofGrid.RoofAt(t.Position);
+                    if (roofDef != null && roofDef.isThickRoof)
+                        return false;
+                }
+                // if (this.mannableComp == null)
+                //     return !GenAI.MachinesLike(this.Pawn.Faction, p);
+                if (p.RaceProps.Animal && p.Faction == Faction.OfPlayer)
+                    return false;
+            }
+            return true;
+        }
+        
+        protected virtual void BeginBurst()
+        {
+            Log.Message("BeginBurst");
+
+            this.AttackVerb.TryStartCastOn(this.CurrentTarget);
+            this.OnAttackedTarget(this.CurrentTarget);
+        }
+        
+        protected virtual void BurstComplete()
+        {
+            Log.Message("BurstComplete");
+
+            this.burstCooldownTicksLeft = this.BurstCooldownTime().SecondsToTicks();
+        }
+        
+        protected virtual float BurstCooldownTime()
+        {
+            Log.Message("BurstCooldownTime");
+
+            return this.AttackVerb.verbProps.defaultCooldownTime;
+        }
+
+        public override IEnumerable<Gizmo> CompGetGizmos()
+        {
+            IEnumerable<Gizmo> compGetGizmos = base.CompGetGizmos();
+            if (compGetGizmos != null) foreach (Gizmo gizmo in compGetGizmos) yield return gizmo;
+            CompChangeableProjectile comp1 = this.gun.TryGetComp<CompChangeableProjectile>();
+            if (comp1 != null)
+            {
+                foreach (Gizmo gizmo in StorageSettingsClipboard.CopyPasteGizmosFor(comp1.GetStoreSettings()))
+                    yield return gizmo;
+            }
+            if (this.CanSetForcedTarget)
+            {
+                Command_Action gizmo = new Command_Action();
+                // Command_VerbTarget gizmo = new Command_VerbTarget();
+                gizmo.defaultLabel = (string) "CommandSetForceAttackTarget".Translate();
+                gizmo.defaultDesc = (string) "CommandSetForceAttackTargetDesc".Translate();
+                gizmo.icon = (Texture) ContentFinder<Texture2D>.Get("UI/Commands/Attack");
+                // gizmo.verb = this.AttackVerb;
+                gizmo.hotKey = KeyBindingDefOf.Misc4;
+                // gizmo.drawRadius = false;
+                // gizmo.requiresAvailableVerb = false;
+                gizmo.action = delegate
+                {
+                    TargetingParameters targetParams = this.AttackVerb.targetParams ?? TargetingParameters.ForAttackAny();
+                    Find.Targeter.BeginTargeting(targetParams, delegate(LocalTargetInfo target)
+                    {
+                        this.OrderAttack(target);
+                    }, this.Pawn);
+                };
+                if (this.Pawn.Spawned)
+                {
+                    float weatherMaxRangeCap = this.Pawn.Map.weatherManager.CurWeatherMaxRangeCap;
+                    if ((double) weatherMaxRangeCap > 0.0 && (double) weatherMaxRangeCap < (double) this.AttackVerb.verbProps.minRange)
+                      gizmo.Disable((string) ("CannotFire".Translate() + ": " + this.Pawn.Map.weatherManager.curWeather.LabelCap));
+                }
+                yield return (Gizmo) gizmo;
+            }
+            if (this.forcedTarget.IsValid)
+            {
+                Command_Action gizmo = new Command_Action();
+                gizmo.defaultLabel = (string) "CommandStopForceAttack".Translate();
+                gizmo.defaultDesc = (string) "CommandStopForceAttackDesc".Translate();
+                gizmo.icon = (Texture) ContentFinder<Texture2D>.Get("UI/Commands/Halt");
+                gizmo.action = (Action) (() =>
+                {
+                  this.ResetForcedTarget();
+                  SoundDefOf.Tick_Low.PlayOneShotOnCamera();
+                });
+                if (!this.forcedTarget.IsValid)
+                  gizmo.Disable((string) "CommandStopAttackFailNotForceAttacking".Translate());
+                gizmo.hotKey = KeyBindingDefOf.Misc5;
+                yield return (Gizmo) gizmo;
+            }
+            
+            if (this.CanToggleHoldFire)
+            {
+              Command_Toggle gizmo = new Command_Toggle();
+              gizmo.defaultLabel = (string) "CommandHoldFire".Translate();
+              gizmo.defaultDesc = (string) "CommandHoldFireDesc".Translate();
+              gizmo.icon = (Texture) ContentFinder<Texture2D>.Get("UI/Commands/HoldFire");
+              gizmo.hotKey = KeyBindingDefOf.Misc6;
+              gizmo.toggleAction = (Action) (() =>
+              {
+                this.holdFire = !this.holdFire;
+                if (!this.holdFire)
+                  return;
+                this.ResetForcedTarget();
+              });
+              gizmo.isActive = (Func<bool>) (() => this.holdFire);
+              yield return (Gizmo) gizmo;
+            }            
+        }
+        
+        private void ResetForcedTarget()
+        {
+            Log.Message("ResetForcedTarget");
+
+            this.forcedTarget = LocalTargetInfo.Invalid;
+            this.burstWarmupTicksLeft = 0;
+            if (this.burstCooldownTicksLeft > 0)
+                return;
+            this.TryStartShootSomething(false);
+        }
+        
+        private void ResetCurrentTarget()
+        {
+            Log.Message("ResetCurrentTarget");
+
+            this.currentTargetInt = LocalTargetInfo.Invalid;
+            this.burstWarmupTicksLeft = 0;
+        }
+        
+        public void MakeGun()
+        {
+            Log.Message("MakeGun");
+
+            ThingDef itemDef = ThingDef.Named("Gun_MiniTurret");
+            this.gun = ThingMaker.MakeThing(itemDef);
+            this.UpdateGunVerbs();
+        }
+        
+        private void UpdateGunVerbs()
+        {
+            Log.Message("UpdateGunVerbs");
+
+            List<Verb> allVerbs = this.gun.TryGetComp<CompEquippable>().AllVerbs;
+            for (int index = 0; index < allVerbs.Count; ++index)
+            {
+                Verb verb = allVerbs[index];
+                verb.caster = (Thing) this.Pawn;
+                verb.castCompleteCallback = new Action(this.BurstComplete);
+            }
+        }
+    }
+}

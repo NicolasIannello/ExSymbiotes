@@ -357,6 +357,7 @@
             <partEfficiency>2</partEfficiency>
         </addedPartProps>
         <comps>
+            <li Class="ExSymbiotes.HediffCompProperties_SymbioticTendrils"/>
             <li Class="HediffCompProperties_Disappears">
                 <showRemainingTime>True</showRemainingTime>
             </li>

@@ -59,6 +59,9 @@
   <ItemGroup>
     <Compile Include="Comp\AbilityEffect\CompAbilityEffect_SymbiosisCost.cs" />
     <Compile Include="Comp\AbilityEffect\CompProperties_AbilitySymbiosisCost.cs" />
+    <Compile Include="Comp\SymbioticTendrils\HediffCompProperties_SymbioticTendrils.cs" />
+    <Compile Include="Comp\SymbioticTendrils\HediffComp_SymbioticTendrils.cs" />
+    <Compile Include="Comp\SymbioticTendrils\TendrilTop.cs" />
     <Compile Include="Comp\Weapon\CompProperties_SymbioticWeapon.cs" />
     <Compile Include="Comp\Weapon\CompSymbioticWeapon.cs" />
     <Compile Include="ExSymbiotesMod.cs" />
