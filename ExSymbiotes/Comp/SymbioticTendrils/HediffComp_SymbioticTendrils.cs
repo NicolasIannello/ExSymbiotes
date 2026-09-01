@@ -9,7 +9,6 @@ using Verse.Sound;
 
 namespace ExSymbiotes
 {
-    [StaticConstructorOnStartup]
     public class HediffComp_SymbioticTendrils: HediffComp, 
         IAttackTarget, 
         ILoadReferenceable, 
@@ -99,7 +98,6 @@ namespace ExSymbiotes
         
         protected void OnAttackedTarget(LocalTargetInfo target)
         {
-            Log.Message("OnAttackedTarget");
             this.lastAttackTargetTick = Find.TickManager.TicksGame;
             this.lastAttackedTarget = target;
         }
@@ -110,7 +108,6 @@ namespace ExSymbiotes
         private bool holdFire;
         private bool burstActivated;
         public Thing gun;
-        protected Effecter progressBarEffecter;
         public bool Active => this.burstActivated;
         public CompEquippable GunCompEq => this.gun.TryGetComp<CompEquippable>();
         public LocalTargetInfo CurrentTarget => this.currentTargetInt;
@@ -123,7 +120,7 @@ namespace ExSymbiotes
         public override void CompPostMake()
         {
             base.CompPostMake();
-            this.burstCooldownTicksLeft = 2 * 60;
+            this.burstCooldownTicksLeft = 30;
             this.MakeGun();
         }
 
@@ -131,13 +128,10 @@ namespace ExSymbiotes
         {
             base.CompPostPostRemoved();
             this.ResetCurrentTarget();
-            this.progressBarEffecter?.Cleanup();
         }
         
         public void OrderAttack(LocalTargetInfo targ)
         {
-            Log.Message("OrderAttack");
-
             if (!targ.IsValid)
             {
                 if (!this.forcedTarget.IsValid)
@@ -174,23 +168,8 @@ namespace ExSymbiotes
             }
         }
         
-        public void TryActivateBurst()
-        {
-            Log.Message("TryActivateBurst");
-
-            this.burstActivated = true;
-            this.TryStartShootSomething(true);
-        }
-        
         public void TryStartShootSomething(bool canBeginBurstImmediately)
         {
-            Log.Message("TryStartShootSomething");
-
-            if (this.progressBarEffecter != null)
-            {
-                this.progressBarEffecter.Cleanup();
-                this.progressBarEffecter = (Effecter) null;
-            }
             if (!this.Pawn.Spawned || this.holdFire && this.CanToggleHoldFire && !this.AttackVerb.Available())
             {
                 this.ResetCurrentTarget();
@@ -199,8 +178,6 @@ namespace ExSymbiotes
             {
                 int num = this.currentTargetInt.IsValid ? 1 : 0;
                 this.currentTargetInt = !this.forcedTarget.IsValid ? this.TryFindNewTarget() : this.forcedTarget;
-                if (num == 0 && this.currentTargetInt.IsValid)
-                    SoundDefOf.TurretAcquireTarget.PlayOneShot((SoundInfo) new TargetInfo(this.Pawn.Position, this.Pawn.Map));
                 if (this.currentTargetInt.IsValid)
                 {
                     if (canBeginBurstImmediately)
@@ -215,8 +192,6 @@ namespace ExSymbiotes
         
         public virtual LocalTargetInfo TryFindNewTarget()
         {
-            Log.Message("TryFindNewTarget");
-
             IAttackTargetSearcher searcher = this.TargSearcher();
             Faction faction = searcher.Thing.Faction;
             float range = this.AttackVerb.EffectiveRange;
@@ -238,15 +213,11 @@ namespace ExSymbiotes
         
         private IAttackTargetSearcher TargSearcher()
         {
-            Log.Message("TargSearcher");
-
-            return (IAttackTargetSearcher) this;//maybe pawn??????
+            return (IAttackTargetSearcher) this;
         }
         
         private bool IsValidTarget(Thing t)
         {
-            Log.Message("IsValidTarget");
-
             if (t is Pawn p)
             {
                 if (this.Pawn.Faction == Faction.OfPlayer && p.IsPrisoner)
@@ -265,24 +236,18 @@ namespace ExSymbiotes
         
         protected virtual void BeginBurst()
         {
-            Log.Message("BeginBurst");
-
             this.AttackVerb.TryStartCastOn(this.CurrentTarget);
             this.OnAttackedTarget(this.CurrentTarget);
         }
         
         protected virtual void BurstComplete()
         {
-            Log.Message("BurstComplete");
-
             this.burstCooldownTicksLeft = this.BurstCooldownTime().SecondsToTicks();
         }
         
         protected virtual float BurstCooldownTime()
         {
-            Log.Message("BurstCooldownTime");
-
-            return this.AttackVerb.verbProps.defaultCooldownTime;
+            return this.Props.cd;
         }
 
         public override IEnumerable<Gizmo> CompGetGizmos()
@@ -356,8 +321,6 @@ namespace ExSymbiotes
         
         private void ResetForcedTarget()
         {
-            Log.Message("ResetForcedTarget");
-
             this.forcedTarget = LocalTargetInfo.Invalid;
             this.burstWarmupTicksLeft = 0;
             if (this.burstCooldownTicksLeft > 0)
@@ -367,24 +330,18 @@ namespace ExSymbiotes
         
         private void ResetCurrentTarget()
         {
-            Log.Message("ResetCurrentTarget");
-
             this.currentTargetInt = LocalTargetInfo.Invalid;
             this.burstWarmupTicksLeft = 0;
         }
         
         public void MakeGun()
         {
-            Log.Message("MakeGun");
-
             this.gun = ThingMaker.MakeThing(Props.turretGunDef);
             this.UpdateGunVerbs();
         }
         
         private void UpdateGunVerbs()
         {
-            Log.Message("UpdateGunVerbs");
-
             List<Verb> allVerbs = this.gun.TryGetComp<CompEquippable>().AllVerbs;
             for (int index = 0; index < allVerbs.Count; ++index)
             {
