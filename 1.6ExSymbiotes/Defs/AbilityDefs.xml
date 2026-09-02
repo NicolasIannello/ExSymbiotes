@@ -166,4 +166,29 @@
             </li>
         </comps>
     </AbilityDef>
+
+    <AbilityDef>
+        <defName>ExSymbiotes_SymbiosisLeap</defName>
+        <label>consume leap</label>
+        <description>Leap onto a target and begin symbiosis.</description>
+        <cooldownTicksRange>3000</cooldownTicksRange> <!-- 1.44 hours -->
+        <jobDef>CastJump</jobDef>
+        <ai_IsOffensive>true</ai_IsOffensive>
+        <aiCanUse>true</aiCanUse>
+        <verbProperties>
+            <verbClass>Verb_CastAbilityConsumeLeap</verbClass>
+            <label>consume leap</label>
+            <range>9.9</range>
+            <requireLineOfSight>true</requireLineOfSight>
+            <warmupTime>0.10</warmupTime>
+            <soundCast>Pawn_Devourer_Jump</soundCast>
+            <soundLanding>Pawn_Devourer_Land</soundLanding>
+            <targetParams>
+                <canTargetBuildings>false</canTargetBuildings>
+            </targetParams>
+        </verbProperties>
+        <comps>
+            <li Class="ExSymbiotes.CompProperties_SymbiosisLeap"/>
+        </comps>
+    </AbilityDef>
 </Defs>

@@ -30,6 +30,8 @@ namespace ExSymbiotes
         public static IncidentDef ExSymbiotes_SymbioteMass_Incident;
         public static HediffDef ExSymbiotes_Symbiosis;
         public static HediffDef ExSymbiotes_Symbiosis_Red;
+        public static AbilityDef ExSymbiotes_SymbiosisLeap;
+        public static JobDef ExSymbiotes_SymbioteDigest;
         
         static ExSymbiotesDefOf()
         {
