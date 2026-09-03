@@ -4,7 +4,6 @@ using RimWorld;
 using UnityEngine;
 using Verse;
 using Verse.AI;
-using Verse.AI.Group;
 
 namespace ExSymbiotes
 {
@@ -14,7 +13,7 @@ namespace ExSymbiotes
       private int ticksDigesting;
       private int ticksToDigestFully;
       private bool wasDrafted;
-
+      
       public CompProperties_Symbiote Props => (CompProperties_Symbiote) this.props;
 
       public Thing DigestingThing
@@ -102,10 +101,6 @@ namespace ExSymbiotes
           return;
         Pawn subject = this.DropPawn(map);
         Find.BattleLog.Add((LogEntry) new BattleLogEntry_Event((Thing) subject, RulePackDefOf.Event_DevourerDigestionAborted, (Thing) this.Pawn));
-        float amount = this.Props.timeDamageCurve.Evaluate((float) this.ticksDigesting / 60f);
-        DamageInfo dinfo = new DamageInfo(DamageDefOf.AcidBurn, amount, instigator: (Thing) this.Pawn);
-        dinfo.SetApplyAllDamage(true);
-        subject.TakeDamage(dinfo);
         if (subject.Faction == Faction.OfPlayer)
         {
           string str = this.Pawn.Dead ? this.Props.messageEmergedCorpse : this.Props.messageEmerged;
@@ -125,15 +120,15 @@ namespace ExSymbiotes
           return;
         Pawn subject = this.DropPawn(this.Pawn.MapHeld);
         Find.BattleLog.Add((LogEntry) new BattleLogEntry_Event((Thing) subject, RulePackDefOf.Event_DevourerDigestionCompleted, (Thing) this.Pawn));
-        DamageInfo dinfo = new DamageInfo(DamageDefOf.AcidBurn, (float) this.Props.completeDigestionDamage, instigator: (Thing) this.Pawn);
-        dinfo.SetApplyAllDamage(true);
-        subject.TakeDamage(dinfo);
         if (!this.Props.messageDigestionCompleted.NullOrEmpty() && !subject.Dead && subject.Faction == Faction.OfPlayer)
           Messages.Message((string) this.Props.messageDigestionCompleted.Formatted(subject.Named("PAWN")), (LookTargets) (Thing) subject, MessageTypeDefOf.NegativeEvent);
         this.Pawn.Drawer.renderer.SetAllGraphicsDirty();
         if (this.Pawn.Drawer.renderer.CurAnimation != AnimationDefOf.DevourerDigesting)
           return;
         this.Pawn.Drawer.renderer.SetAnimation((AnimationDef) null);
+        Hediff hediff = subject.health.AddHediff(ExSymbiotesDefOf.ExSymbiotes_SymbioteControl);
+        HediffComp_SymbioteControl comp = hediff.TryGetComp<HediffComp_SymbioteControl>();
+        comp.AddThing(this.Pawn);
       }
 
       public void StartDigesting(IntVec3 origin, LocalTargetInfo target)
@@ -144,14 +139,12 @@ namespace ExSymbiotes
         }
         else
         {
-          DamageInfo dinfo = new DamageInfo(DamageDefOf.AcidBurn, 99f, instigator: (Thing) this.parent);
-          thing.GetLord()?.Notify_PawnDamaged(thing, dinfo);
           if (thing.drafter != null)
             this.wasDrafted = thing.drafter.Drafted;
           thing.DeSpawn(DestroyMode.Vanish);
           this.ticksDigesting = 0;
           this.innerContainer.TryAdd((Thing) thing, true);
-          this.ticksToDigestFully = this.GetDigestionTicks() - 30;
+          this.ticksToDigestFully = this.GetDigestionTicks();
           this.Pawn.jobs.StartJob(JobMaker.MakeJob(ExSymbiotesDefOf.ExSymbiotes_SymbioteDigest), JobCondition.InterruptForced);
           if (!this.Props.messageDigested.NullOrEmpty() && thing.Faction == Faction.OfPlayer)
             Messages.Message((string) this.Props.messageDigested.Formatted(thing.Named("PAWN")), (LookTargets) (Thing) this.Pawn, MessageTypeDefOf.NegativeEvent);
@@ -177,14 +170,14 @@ namespace ExSymbiotes
           }
           else
           {
-            Debug.LogError((object) "Could not drop digesting pawn from devourer!");
+            Debug.LogError((object) "Could not drop controlling pawn from symbiote!");
             return (Pawn) null;
           }
         }
         if (lastResultingThing is Corpse corpse)
           return corpse.InnerPawn;
         Pawn pawn = (Pawn) lastResultingThing;
-        pawn.stances.stunner.StunFor(60, (Thing) this.Pawn, false, false);
+        pawn.stances.stunner.StunFor(10, (Thing) this.Pawn, false, false);
         if (pawn.drafter != null)
           pawn.drafter.Drafted = this.wasDrafted;
         return pawn;
@@ -192,7 +185,7 @@ namespace ExSymbiotes
 
       public int GetDigestionTicks()
       {
-        return this.DigestingThing == null ? 0 : Mathf.CeilToInt(this.Props.bodySizeDigestTimeCurve.Evaluate(this.DigestingPawn.BodySize) * 60f);
+        return this.DigestingThing == null ? 0 : this.Props.digestTime * 60;
       }
 
       private void EndDigestingJob()
