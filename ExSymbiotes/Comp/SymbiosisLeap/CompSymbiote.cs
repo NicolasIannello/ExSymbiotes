@@ -13,6 +13,7 @@ namespace ExSymbiotes
       private int ticksDigesting;
       private int ticksToDigestFully;
       private bool wasDrafted;
+      private Pawn subject;
       
       public CompProperties_Symbiote Props => (CompProperties_Symbiote) this.props;
 
@@ -53,6 +54,13 @@ namespace ExSymbiotes
 
       public override void CompTick()
       {
+        if (subject!=null)
+        {
+          Hediff hediff = subject.health.AddHediff(ExSymbiotesDefOf.ExSymbiotes_SymbioteControl);
+          HediffComp_SymbioteControl comp = hediff.TryGetComp<HediffComp_SymbioteControl>();
+          comp.AddThing(this.Pawn);
+        }
+        
         if (this.Digesting)
           ++this.ticksDigesting;
         if (!this.Digesting || !this.DigestingPawn.Dead)
@@ -118,7 +126,7 @@ namespace ExSymbiotes
       {
         if (!this.Digesting)
           return;
-        Pawn subject = this.DropPawn(this.Pawn.MapHeld);
+        subject = this.DropPawn(this.Pawn.MapHeld);
         Find.BattleLog.Add((LogEntry) new BattleLogEntry_Event((Thing) subject, RulePackDefOf.Event_DevourerDigestionCompleted, (Thing) this.Pawn));
         if (!this.Props.messageDigestionCompleted.NullOrEmpty() && !subject.Dead && subject.Faction == Faction.OfPlayer)
           Messages.Message((string) this.Props.messageDigestionCompleted.Formatted(subject.Named("PAWN")), (LookTargets) (Thing) subject, MessageTypeDefOf.NegativeEvent);
@@ -126,9 +134,6 @@ namespace ExSymbiotes
         if (this.Pawn.Drawer.renderer.CurAnimation != AnimationDefOf.DevourerDigesting)
           return;
         this.Pawn.Drawer.renderer.SetAnimation((AnimationDef) null);
-        Hediff hediff = subject.health.AddHediff(ExSymbiotesDefOf.ExSymbiotes_SymbioteControl);
-        HediffComp_SymbioteControl comp = hediff.TryGetComp<HediffComp_SymbioteControl>();
-        comp.AddThing(this.Pawn);
       }
 
       public void StartDigesting(IntVec3 origin, LocalTargetInfo target)
