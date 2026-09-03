@@ -171,7 +171,7 @@
         <defName>ExSymbiotes_SymbiosisLeap</defName>
         <label>consume leap</label>
         <description>Leap onto a target and begin symbiosis.</description>
-        <cooldownTicksRange>3000</cooldownTicksRange> <!-- 1.44 hours -->
+        <cooldownTicksRange>6000</cooldownTicksRange> <!-- 1.44 hours -->
         <jobDef>CastJump</jobDef>
         <ai_IsOffensive>true</ai_IsOffensive>
         <aiCanUse>true</aiCanUse>
