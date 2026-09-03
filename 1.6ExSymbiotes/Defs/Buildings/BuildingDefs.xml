@@ -69,9 +69,10 @@
 		<defName>ExSymbiotes_SymbioteMass_Black</defName>
 		<label>symbiote mass</label>
 		<comps>
-			<li Class="CompProperties_Obelisk">
+			<li Class="ExSymbiotes.CompProperties_SymbioteMass">
 				<compClass>ExSymbiotes.CompSymbioteMass_Black</compClass>
 				<interactionEffectCooldownDays>0</interactionEffectCooldownDays>
+				<texture>0</texture>
 			</li>
 			<li Class="CompProperties_LeaveFilthOnDestroyed">
 				<filthDef>Filth_RevenantBloodPool</filthDef>
@@ -148,9 +149,10 @@
 			<Flammability>1</Flammability>
 		</statBases>
 		<comps>
-			<li Class="CompProperties_Obelisk">
+			<li Class="ExSymbiotes.CompProperties_SymbioteMass">
 				<compClass>ExSymbiotes.CompSymbioteMass_Black</compClass>
 				<interactionEffectCooldownDays>0</interactionEffectCooldownDays>
+				<texture>1</texture>
 			</li>
 			<li Class="CompProperties_LeaveFilthOnDestroyed">
 				<filthDef>ExSymbiotes_Filth_RevenantBloodPool_Red</filthDef>

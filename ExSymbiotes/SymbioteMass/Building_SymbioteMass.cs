@@ -17,7 +17,7 @@ namespace ExSymbiotes
     private Graphic cachedCenterPartGraphic;
     private bool study = false;
     private bool red = false;
-    private int texture = 0;
+    public int texture = 0;
     private Graphic CenterPartGraphic
     {
       get

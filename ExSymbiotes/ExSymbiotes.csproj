@@ -83,6 +83,7 @@
     <Compile Include="Ritual\PsychicRitualDef_SummonSymbioticMass.cs" />
     <Compile Include="Ritual\PsychicRitualToil_SummonSymbioticMass.cs" />
     <Compile Include="SymbioteMass\Building_SymbioteMass.cs" />
+    <Compile Include="SymbioteMass\CompProperties_SymbioteMass.cs" />
     <Compile Include="SymbioteMass\CompProperties_SymbioticMassDeactivationInteractor.cs" />
     <Compile Include="SymbioteMass\CompSymbioteMass_Black.cs" />
     <Compile Include="SymbioteMass\CompSymbioticMassDeactivationInteractor.cs" />

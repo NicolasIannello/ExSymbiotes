@@ -8,7 +8,13 @@ namespace ExSymbiotes
   {
     public Building_SymbioteMass Heart => this.parent as Building_SymbioteMass;
     public int nextTick = -99999;
-
+    
+    public override void Initialize(CompProperties props)
+    {
+        base.Initialize(props);
+        Heart.texture = ((CompProperties_SymbioteMass)this.Props).texture;
+    }
+    
     public override void TriggerInteractionEffect(Pawn interactor, bool triggeredByPlayer = false)
     {
       this.Heart?.StartTachycardiacOverload(StudyLevel>=2);
