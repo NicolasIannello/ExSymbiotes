@@ -86,7 +86,7 @@
 			<MinimumContainmentStrength>40</MinimumContainmentStrength>
 			<ToxicResistance>0.5</ToxicResistance>
 		</statBases>
-		<uiIconPath>Things/Pawn/Symbiote/Symbiote</uiIconPath>
+		<uiIconPath>Things/Pawn/Symbiote/Black/Symbiote</uiIconPath>
 		<race>
 			<body>ExSymbiotes_Body</body>
 			<baseBodySize>1</baseBodySize>
@@ -171,7 +171,7 @@
 		<lifeStages>
 			<li>
 				<bodyGraphicData>
-					<texPath>Things/Pawn/Symbiote/Symbiote</texPath>
+					<texPath>Things/Pawn/Symbiote/Black/Symbiote</texPath>
 					<graphicClass>Graphic_Multi</graphicClass>
 					<drawSize>2</drawSize>
 					<drawOffset>(0, 0, 0.1)</drawOffset>
