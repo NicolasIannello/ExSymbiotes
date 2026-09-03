@@ -13,6 +13,14 @@
                         <!--            MAX 20            -->
                     </options>
                 </li>
+                <li>
+                    <kindDef>ExSymbiotes_Symbiote_PawnGroupKindRed</kindDef>
+                    <commonality>100</commonality>
+                    <options>
+                        <ExSymbiotes_Symbiote_PawnKindRed>20</ExSymbiotes_Symbiote_PawnKindRed>
+                        <!--            MAX 20            -->
+                    </options>
+                </li>
             </value>
         </match>
     </Operation>

@@ -25,6 +25,7 @@ namespace ExSymbiotes
         public static ThingDef ExSymbiotes_SymbioteMass_Red;
         public static ThingDef ExSymbiotes_SymbioteMassIncoming;
         public static PawnGroupKindDef ExSymbiotes_Symbiote_PawnGroupKind;
+        public static PawnGroupKindDef ExSymbiotes_Symbiote_PawnGroupKindRed;
         public static EffecterDef ExSymbiotes_TachycardiacArrest;
         public static EffecterDef ExSymbiotes_MeatExplosion_Black;
         public static IncidentDef ExSymbiotes_SymbioteMass_Incident;

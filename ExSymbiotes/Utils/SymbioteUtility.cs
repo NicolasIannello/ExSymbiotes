@@ -11,11 +11,11 @@ namespace ExSymbiotes.Utils
 {
     public class SymbioteUtility
     {
-        public static List<Pawn> GetSymbiotesForPoints(float points, Map map)
+        public static List<Pawn> GetSymbiotesForPoints(float points, Map map, PawnGroupKindDef group)
         {
             PawnGroupMakerParms parms = new PawnGroupMakerParms()
             {
-                groupKind = ExSymbiotesDefOf.ExSymbiotes_Symbiote_PawnGroupKind,
+                groupKind = group,
                 tile = map.Tile,
                 faction = Faction.OfEntities,
                 points = (double) points > 0.0 ? points : StorytellerUtility.DefaultThreatPointsNow((IIncidentTarget) map)
@@ -26,7 +26,8 @@ namespace ExSymbiotes.Utils
 
         public static void SymbioteHorde(Map map, Building_SymbioteMass mass, bool first = false)//INCREMENT POINTS PER MISSING HEALTH
         {
-            List<Pawn> fleshbeastsForPoints = GetSymbiotesForPoints(StorytellerUtility.DefaultThreatPointsNow(map), map);
+            PawnGroupKindDef group = mass.texture == 0 ? ExSymbiotesDefOf.ExSymbiotes_Symbiote_PawnGroupKind : ExSymbiotesDefOf.ExSymbiotes_Symbiote_PawnGroupKindRed;
+            List<Pawn> fleshbeastsForPoints = GetSymbiotesForPoints(StorytellerUtility.DefaultThreatPointsNow(map), map, group);
             List<PawnFlyer> source = new List<PawnFlyer>();
             List<IntVec3> spawnPositions = new List<IntVec3>();
             CellRect cellRect = GenAdj.OccupiedRect(mass.Position, Rot4.North, ThingDefOf.PitGate.Size).ContractedBy(2);
