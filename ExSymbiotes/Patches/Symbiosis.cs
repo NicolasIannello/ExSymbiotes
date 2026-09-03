@@ -11,14 +11,17 @@ namespace ExSymbiotes
     [HarmonyPatch(typeof(PawnRenderNodeWorker), "GetMaterial")]
     public static class Patch_PawnRenderNodeWorker_GetMaterial
     {
-        private static readonly Dictionary<Material, Material> materials = new Dictionary<Material, Material>();
+        private static readonly Dictionary<(Color color, Material mat), Material> materials = new Dictionary<(Color color, Material mat), Material>();
+        private static readonly Color blue= new Color(0.118f, 0, 0.812f);
+        private static readonly Color red= new Color(0.812f, 0, 0.118f);
 
         public static void Postfix(PawnRenderNodeWorker __instance, PawnRenderNode node, PawnDrawParms parms, ref Material __result)
         {
             if (__result == null) return;
             Pawn pawn = parms.pawn;
             if (pawn == null) return;
-            if (!HediffComp_SymbioticArmor.SymbioticArmorWeakTable.TryGetValue(pawn, out HediffComp_SymbioticArmor _)) return;
+            if (!HediffComp_SymbioticArmor.SymbioticArmorWeakTable.TryGetValue(pawn, out HediffComp_SymbioticArmor armor) &&
+                !HediffComp_SymbioteControl.SymbioteControlWeakTable.TryGetValue(pawn, out HediffComp_SymbioteControl _)) return;
             if (__instance is PawnRenderNodeWorker_Eye) return;
             
             GraphicStateDef state;
@@ -27,14 +30,15 @@ namespace ExSymbiotes
             if (node.Props.flipGraphic && parms.facing.IsHorizontal) parms.facing = parms.facing.Opposite;
             Material baseMat = graphic.NodeGetMat(parms);
             Material symbioticArmorMat;
-            
-            if (!materials.TryGetValue(baseMat, out symbioticArmorMat))
+            Color color = armor != null ? blue : red;
+
+            if (!materials.TryGetValue((color, baseMat), out symbioticArmorMat))
             {
                 symbioticArmorMat = new Material(baseMat);
                 symbioticArmorMat.shader = ShaderDatabase.CutoutSkin;
                 symbioticArmorMat.color = pawn.story.SkinColor;
-                symbioticArmorMat.SetColor("_ShadowColor", new Color(0.118f, 0, 0.812f));
-                materials.Add(baseMat, symbioticArmorMat);
+                symbioticArmorMat.SetColor("_ShadowColor", color);
+                materials.Add((color, baseMat), symbioticArmorMat);
             }
             
             __result = symbioticArmorMat;

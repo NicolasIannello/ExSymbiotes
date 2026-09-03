@@ -24,6 +24,7 @@ namespace ExSymbiotes
         public static ThingDef ExSymbiotes_SymbioteMass_Black;
         public static ThingDef ExSymbiotes_SymbioteMass_Red;
         public static ThingDef ExSymbiotes_SymbioteMassIncoming;
+        public static ThingDef ExSymbiotes_Symbiote;
         public static PawnGroupKindDef ExSymbiotes_Symbiote_PawnGroupKind;
         public static PawnGroupKindDef ExSymbiotes_Symbiote_PawnGroupKindRed;
         public static EffecterDef ExSymbiotes_TachycardiacArrest;
@@ -32,6 +33,7 @@ namespace ExSymbiotes
         public static HediffDef ExSymbiotes_Symbiosis;
         public static HediffDef ExSymbiotes_Symbiosis_Red;
         public static HediffDef ExSymbiotes_SymbioteControl;
+        public static HediffDef ExSymbiotes_SymbioteControlRed;
         public static AbilityDef ExSymbiotes_SymbiosisLeap;
         public static JobDef ExSymbiotes_SymbioteDigest;
         

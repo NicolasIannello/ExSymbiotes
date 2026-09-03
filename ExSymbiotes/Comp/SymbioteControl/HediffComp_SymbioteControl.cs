@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Runtime.CompilerServices;
 using RimWorld;
 using UnityEngine;
 using Verse;
@@ -17,6 +18,7 @@ namespace ExSymbiotes
                 return this.innerContainer.InnerListForReading.Count <= 0 ? (Thing) null : this.innerContainer.InnerListForReading[0];
             }
         }
+        public static readonly ConditionalWeakTable<Pawn, HediffComp_SymbioteControl> SymbioteControlWeakTable = new ConditionalWeakTable<Pawn, HediffComp_SymbioteControl>();
 
         public HediffComp_SymbioteControl()
         {
@@ -33,7 +35,7 @@ namespace ExSymbiotes
         public override void CompPostPostRemoved()
         {
             base.CompPostPostRemoved();
-            Thing symbiote = DropPawn(Pawn.Map);
+            Thing symbiote = DropPawn(Pawn.MapHeld);
             DamageInfo dinfo = new DamageInfo(DamageDefOf.AcidBurn, (float) 50, instigator: (Thing) symbiote);
             dinfo.SetApplyAllDamage(true);
             symbiote.TakeDamage(dinfo);
@@ -44,7 +46,11 @@ namespace ExSymbiotes
         public override void Notify_PawnPostApplyDamage(DamageInfo dinfo, float totalDamageDealt)
         {
             base.Notify_PawnPostApplyDamage(dinfo, totalDamageDealt);
-            if(Pawn.Downed) this.parent.pawn.health.RemoveHediff(parent);
+            if(Pawn.Downed)
+            {
+                SymbioteControlWeakTable.Remove(this.Pawn);
+                this.parent.pawn.health.RemoveHediff(parent);
+            }
         }
 
         public override void Notify_PawnDied(DamageInfo? dinfo, Hediff culprit = null)
@@ -57,6 +63,11 @@ namespace ExSymbiotes
         {
             thing.DeSpawn(DestroyMode.Vanish);
             this.innerContainer.TryAdd((Thing) thing, true);
+            if (SymbioteControlling.def != ExSymbiotesDefOf.ExSymbiotes_Symbiote)
+            {
+                SymbioteControlWeakTable.Remove(this.Pawn);
+                SymbioteControlWeakTable.Add(this.Pawn, this);
+            }
         }
         
         private Pawn DropPawn(Map map)
@@ -93,6 +104,8 @@ namespace ExSymbiotes
         {
             base.CompExposeData();
             Scribe_Deep.Look<ThingOwner<Thing>>(ref this.innerContainer, "innerContainer", (object) this);
+            if (Scribe.mode == LoadSaveMode.PostLoadInit && this.Pawn != null && SymbioteControlling.def != ExSymbiotesDefOf.ExSymbiotes_Symbiote) 
+                SymbioteControlWeakTable.Add(this.Pawn, this);
             if (Scribe.mode != LoadSaveMode.PostLoadInit || !this.innerContainer.removeContentsIfDestroyed)
                 return;
             this.innerContainer.removeContentsIfDestroyed = false;
