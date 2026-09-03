@@ -59,6 +59,7 @@ namespace ExSymbiotes
           Hediff hediff = subject.health.AddHediff(ExSymbiotesDefOf.ExSymbiotes_SymbioteControl);
           HediffComp_SymbioteControl comp = hediff.TryGetComp<HediffComp_SymbioteControl>();
           comp.AddThing(this.Pawn);
+          subject = null;
         }
         
         if (this.Digesting)
