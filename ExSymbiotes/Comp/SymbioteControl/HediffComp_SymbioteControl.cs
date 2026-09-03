@@ -38,13 +38,19 @@ namespace ExSymbiotes
             dinfo.SetApplyAllDamage(true);
             symbiote.TakeDamage(dinfo);
             Pawn.mindState.mentalStateHandler.Reset();
-            Messages.Message("The symbiote is leaving "+Pawn.Named("PAWN")+"'s body cause of its injuries", (LookTargets) (Thing) Pawn, MessageTypeDefOf.NegativeEvent);
+            Messages.Message("The symbiote is leaving "+Pawn.Name+"'s body cause of its injuries", (LookTargets) (Thing) Pawn, MessageTypeDefOf.NegativeEvent);
         }
 
         public override void Notify_PawnPostApplyDamage(DamageInfo dinfo, float totalDamageDealt)
         {
             base.Notify_PawnPostApplyDamage(dinfo, totalDamageDealt);
             if(Pawn.Downed) this.parent.pawn.health.RemoveHediff(parent);
+        }
+
+        public override void Notify_PawnDied(DamageInfo? dinfo, Hediff culprit = null)
+        {
+            base.Notify_PawnDied(dinfo, culprit);
+            this.parent.pawn.health.RemoveHediff(parent);
         }
 
         public void AddThing(Thing thing)
@@ -72,7 +78,7 @@ namespace ExSymbiotes
             if (lastResultingThing is Corpse corpse)
                 return corpse.InnerPawn;
             Pawn pawn = (Pawn) lastResultingThing;
-            pawn.stances.stunner.StunFor(60, (Thing) this.Pawn, false, false);
+            pawn.stances.stunner.StunFor(15, (Thing) this.Pawn, false, false);
             return pawn;
         }
         
