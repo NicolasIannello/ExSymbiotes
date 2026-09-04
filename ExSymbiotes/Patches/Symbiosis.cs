@@ -12,16 +12,13 @@ namespace ExSymbiotes
     public static class Patch_PawnRenderNodeWorker_GetMaterial
     {
         private static readonly Dictionary<(Color color, Material mat), Material> materials = new Dictionary<(Color color, Material mat), Material>();
-        private static readonly Color blue= new Color(0.118f, 0, 0.812f);
-        private static readonly Color red= new Color(0.812f, 0, 0.118f);
 
         public static void Postfix(PawnRenderNodeWorker __instance, PawnRenderNode node, PawnDrawParms parms, ref Material __result)
         {
             if (__result == null) return;
             Pawn pawn = parms.pawn;
             if (pawn == null) return;
-            if (!HediffComp_SymbioticArmor.SymbioticArmorWeakTable.TryGetValue(pawn, out HediffComp_SymbioticArmor armor) &&
-                !HediffComp_SymbioteControl.SymbioteControlWeakTable.TryGetValue(pawn, out HediffComp_SymbioteControl _)) return;
+            if (!HediffComp_SymbioteBase.SymbioteWeakTable.TryGetValue(pawn, out HediffComp_SymbioteBase symbioteBase)) return;
             if (__instance is PawnRenderNodeWorker_Eye) return;
             
             GraphicStateDef state;
@@ -30,7 +27,7 @@ namespace ExSymbiotes
             if (node.Props.flipGraphic && parms.facing.IsHorizontal) parms.facing = parms.facing.Opposite;
             Material baseMat = graphic.NodeGetMat(parms);
             Material symbioticArmorMat;
-            Color color = armor != null ? blue : red;
+            Color color = symbioteBase.color;
 
             if (!materials.TryGetValue((color, baseMat), out symbioticArmorMat))
             {

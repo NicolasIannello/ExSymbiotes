@@ -1,27 +1,27 @@
-﻿using System.Runtime.CompilerServices;
-using Verse;
+﻿using Verse;
 
 namespace ExSymbiotes
 {
-    public class HediffComp_SymbioticArmor: HediffComp
+    public class HediffComp_SymbioticArmor: HediffComp_SymbioteBase
     {
         private HediffCompProperties_SymbioticArmor Props => (HediffCompProperties_SymbioticArmor) this.props;
-        public static readonly ConditionalWeakTable<Pawn, HediffComp_SymbioticArmor> SymbioticArmorWeakTable = new ConditionalWeakTable<Pawn, HediffComp_SymbioticArmor>();
 
         public override void CompPostPostAdd(DamageInfo? dinfo)
         {
-            SymbioticArmorWeakTable.Remove(this.Pawn);
-            SymbioticArmorWeakTable.Add(this.Pawn, this);
+            color = blue;
+            ConditionalWeakTableRemove(this.Pawn);
+            ConditionalWeakTableAdd(this.Pawn);
         }
 
         public override void CompPostPostRemoved()
         {
-            SymbioticArmorWeakTable.Remove(this.Pawn);
+            ConditionalWeakTableRemove(this.Pawn);
         }
 
         public override void CompExposeData()
         {
-            if (Scribe.mode == LoadSaveMode.PostLoadInit && this.Pawn != null) SymbioticArmorWeakTable.Add(this.Pawn, this);
+            base.CompExposeData();
+            if (Scribe.mode == LoadSaveMode.PostLoadInit && this.Pawn != null) ConditionalWeakTableAdd(this.Pawn);
         }
     }
 }

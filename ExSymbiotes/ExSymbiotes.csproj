@@ -59,6 +59,7 @@
   <ItemGroup>
     <Compile Include="Comp\AbilityEffect\CompAbilityEffect_SymbiosisCost.cs" />
     <Compile Include="Comp\AbilityEffect\CompProperties_AbilitySymbiosisCost.cs" />
+    <Compile Include="Comp\HediffComp_SymbioteBase.cs" />
     <Compile Include="Comp\SymbiosisLeap\CompAbilityEffect_SymbiosisLeap.cs" />
     <Compile Include="Comp\SymbiosisLeap\CompProperties_SymbiosisLeap.cs" />
     <Compile Include="Comp\SymbiosisLeap\CompProperties_Symbiote.cs" />
