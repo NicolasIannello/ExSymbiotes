@@ -88,11 +88,16 @@ namespace ExSymbiotes.Utils
         
         public static Hediff HasSymbiosis(Pawn pawn)
         {
-            Hediff symbiosisB = pawn.health.hediffSet.GetFirstHediffOfDef(ExSymbiotesDefOf.ExSymbiotes_Symbiosis);
-            if (symbiosisB != null) return symbiosisB;
-            Hediff symbiosisR = pawn.health.hediffSet.GetFirstHediffOfDef(ExSymbiotesDefOf.ExSymbiotes_Symbiosis_Red);
-            if (symbiosisR != null) return symbiosisR;
-
+            List<Hediff> hediffs = pawn.health.hediffSet.hediffs;
+    
+            for (int i = 0; i < hediffs.Count; i++)
+            {
+                HediffDef def = hediffs[i].def;
+                if (def == ExSymbiotesDefOf.ExSymbiotes_Symbiosis || def == ExSymbiotesDefOf.ExSymbiotes_Symbiosis_Red ||
+                    def == ExSymbiotesDefOf.ExSymbiotes_SymbioteControl || def == ExSymbiotesDefOf.ExSymbiotes_SymbioteControlRed)
+                    return hediffs[i];
+            }
+            
             return null;
         }
     }
