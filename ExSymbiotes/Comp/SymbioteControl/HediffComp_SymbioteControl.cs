@@ -40,17 +40,14 @@ namespace ExSymbiotes
             dinfo.SetApplyAllDamage(true);
             symbiote.TakeDamage(dinfo);
             Pawn.mindState.mentalStateHandler.Reset();
+            SymbioteControlWeakTable.Remove(this.Pawn);
             Messages.Message("The symbiote is leaving "+Pawn.Name+"'s body cause of its injuries", (LookTargets) (Thing) Pawn, MessageTypeDefOf.NegativeEvent);
         }
 
         public override void Notify_PawnPostApplyDamage(DamageInfo dinfo, float totalDamageDealt)
         {
             base.Notify_PawnPostApplyDamage(dinfo, totalDamageDealt);
-            if(Pawn.Downed)
-            {
-                SymbioteControlWeakTable.Remove(this.Pawn);
-                this.parent.pawn.health.RemoveHediff(parent);
-            }
+            if(Pawn.Downed) this.parent.pawn.health.RemoveHediff(parent);
         }
 
         public override void Notify_PawnDied(DamageInfo? dinfo, Hediff culprit = null)
