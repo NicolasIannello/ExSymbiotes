@@ -31,7 +31,6 @@ namespace ExSymbiotes
         public int LastAttackTargetTick => this.lastAttackTargetTick;
         public LocalTargetInfo TargetCurrentlyAimingAt => this.CurrentTarget;
         public float TargetPriorityFactor => 1f;
-        public LocalTargetInfo ForcedTarget => this.forcedTarget;
 
         Thing IAttackTargetSearcher.Thing => (Thing) this.Pawn;
 
@@ -213,7 +212,7 @@ namespace ExSymbiotes
         
         private IAttackTargetSearcher TargSearcher()
         {
-            return (IAttackTargetSearcher) this;
+            return (IAttackTargetSearcher) this.Pawn;
         }
         
         private bool IsValidTarget(Thing t)
