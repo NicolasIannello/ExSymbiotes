@@ -195,7 +195,7 @@ namespace ExSymbiotes
             Faction faction = searcher.Thing.Faction;
             float range = this.AttackVerb.EffectiveRange;
             Building result;
-            if ((double) Rand.Value < 0.5 && this.AttackVerb.ProjectileFliesOverhead() && faction.HostileTo(Faction.OfPlayer) && this.Pawn.Map.listerBuildings.allBuildingsColonist.Where<Building>((Func<Building, bool>) (x =>
+            if ((double) Rand.Value < 0.5 && this.AttackVerb.ProjectileFliesOverhead() && faction.HostileTo(this.Pawn.Faction) && this.Pawn.Map.listerBuildings.allBuildingsColonist.Where<Building>((Func<Building, bool>) (x =>
                 {
                     float num = this.AttackVerb.verbProps.EffectiveMinRange((LocalTargetInfo) (Thing) x, (Thing) this.Pawn);
                     float squared = (float) x.Position.DistanceToSquared(this.Pawn.Position);
@@ -227,7 +227,7 @@ namespace ExSymbiotes
                     if (roofDef != null && roofDef.isThickRoof)
                         return false;
                 }
-                if (p.RaceProps.Animal && p.Faction == Faction.OfPlayer)
+                if (p.RaceProps.Animal && p.Faction == this.Pawn.Faction)
                     return false;
             }
             return true;
