@@ -374,6 +374,8 @@
         <hediffClass>HediffWithComps</hediffClass>
         <description>This person has been taken over by a symbiote.</description>
         <isBad>true</isBad>
+        <hairColorOverride>(31, 27, 28)</hairColorOverride>
+        <skinColorOverride>(31, 27, 28)</skinColorOverride>
         <stages>
             <li>
                 <capMods>
