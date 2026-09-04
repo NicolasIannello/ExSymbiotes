@@ -39,8 +39,8 @@ namespace ExSymbiotes
             DamageInfo dinfo = new DamageInfo(DamageDefOf.AcidBurn, (float) 50, instigator: (Thing) symbiote);
             dinfo.SetApplyAllDamage(true);
             symbiote.TakeDamage(dinfo);
-            Pawn.mindState.mentalStateHandler.Reset();
-            SymbioteControlWeakTable.Remove(this.Pawn);
+            if(!Pawn.Dead) Pawn.mindState.mentalStateHandler.Reset();
+            if(SymbioteControlWeakTable.TryGetValue(Pawn, out HediffComp_SymbioteControl _)) SymbioteControlWeakTable.Remove(this.Pawn);
             Messages.Message("The symbiote is leaving "+Pawn.Name+"'s body cause of its injuries", (LookTargets) (Thing) Pawn, MessageTypeDefOf.NegativeEvent);
         }
 
