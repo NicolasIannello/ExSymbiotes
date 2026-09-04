@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using ExSymbiotes.Utils;
 using RimWorld;
 using UnityEngine;
 using Verse;
@@ -162,6 +163,22 @@ namespace ExSymbiotes
           if (this.Pawn.Drawer.renderer.CurAnimation != AnimationDefOf.DevourerDigesting)
             this.Pawn.Drawer.renderer.SetAnimation(AnimationDefOf.DevourerDigesting);
           Find.BattleLog.Add((LogEntry) new BattleLogEntry_Event((Thing) thing, RulePackDefOf.Event_DevourerConsumeLeap, (Thing) this.Pawn));
+          
+          Hediff hediff = SymbioteUtility.HasSymbiosis(thing);
+          if (hediff != null)
+          {
+            if (hediff.def == ExSymbiotesDefOf.ExSymbiotes_Symbiosis || hediff.def == ExSymbiotesDefOf.ExSymbiotes_Symbiosis_Red)
+            {
+              AbortDigestion(this.Pawn.MapHeld);
+              DamageInfo dinfo = new DamageInfo(DamageDefOf.AcidBurn, (float) 100, instigator: (Thing) this.Pawn);
+              dinfo.SetApplyAllDamage(true);
+              this.Pawn.TakeDamage(dinfo);
+            }
+            if (hediff.def == ExSymbiotesDefOf.ExSymbiotes_Symbiosis_Red && this.Pawn.def == ExSymbiotesDefOf.ExSymbiotes_Symbiote) 
+              this.Pawn.Kill(null, hediff);
+            if (!this.Props.messageRetaliate.NullOrEmpty() && thing.Faction == Faction.OfPlayer)
+              Messages.Message((string) this.Props.messageRetaliate.Formatted(thing.Named("PAWN")), (LookTargets) (Thing) this.Pawn, MessageTypeDefOf.PositiveEvent);
+          }
         }
       }
 
