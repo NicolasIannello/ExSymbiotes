@@ -402,7 +402,7 @@
                     <li><capacity>BloodFiltration</capacity><postFactor>1.25</postFactor></li>
                     <li><capacity>Breathing</capacity><postFactor>1.25</postFactor></li>
                 </capMods>
-                <regeneration>50</regeneration>
+                <regeneration>350</regeneration>
             </li>
         </stages>
         <comps>
@@ -467,7 +467,7 @@
                     <li><capacity>BloodFiltration</capacity><postFactor>1.40</postFactor></li>
                     <li><capacity>Breathing</capacity><postFactor>1.40</postFactor></li>
                 </capMods>
-                <regeneration>50</regeneration>
+                <regeneration>350</regeneration>
             </li>
         </stages>
         <renderNodeProperties>
