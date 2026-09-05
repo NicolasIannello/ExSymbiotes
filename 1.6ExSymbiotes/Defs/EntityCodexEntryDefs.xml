@@ -22,7 +22,7 @@
 		<defName>ExSymbiotes_Symbiote_EntityCodexEntry</defName>
 		<label>symbiote</label>
 		<description>Hideous creatures composed of an unknow sustance.</description>
-		<uiIconPath>Things/Pawn/Symbiote/Symbiote</uiIconPath>
+		<uiIconPath>Things/Pawn/Symbiote/Black/Symbiote</uiIconPath>
 		<category>Advanced</category>
 		<linkedThings>
 			<li>ExSymbiotes_Symbiote</li>
