@@ -6,6 +6,7 @@
         <fixedName>Symbiotes</fixedName>
         <pawnSingular>symbiote</pawnSingular>
         <pawnsPlural>symbiotes</pawnsPlural>
+        <factionIconPath>UI/SymbioticArmor</factionIconPath>
         <requiredCountAtGameStart>1</requiredCountAtGameStart>
         <raidCommonalityFromPointsCurve>
             <points>
