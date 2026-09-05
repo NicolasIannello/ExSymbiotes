@@ -1,10 +1,10 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <Defs>
-    <RecipeDef>
+    <RecipeDef Name="ExSymbiotes_Make_Leather_Symbiotic">
         <defName>ExSymbiotes_Make_Leather_Symbiotic</defName>
-        <label>make symbiotic leather</label>
+        <label>make symbiotic leather (black)</label>
         <description>Imbue leathers with symbiotic tissue.</description>
-        <jobString>Making symbiotic leather.</jobString>
+        <jobString>Making symbiotic leather (black).</jobString>
         <workSpeedStat>GeneralLaborSpeed</workSpeedStat>
         <effectWorking>Tailor</effectWorking>
         <soundWorking>Recipe_Tailor</soundWorking>
@@ -54,11 +54,52 @@
         <displayPriority>100</displayPriority>
     </RecipeDef>
 
-    <RecipeDef>
+    <RecipeDef ParentName="ExSymbiotes_Make_Leather_Symbiotic">
+        <defName>ExSymbiotes_Make_Leather_SymbioticRed</defName>
+        <label>make symbiotic leather (red)</label>
+        <jobString>Making symbiotic leather (red).</jobString>
+        <ingredients Inherit="False">
+            <li>
+                <filter>
+                    <categories>
+                        <li>Leathers</li>
+                    </categories>
+                </filter>
+                <count>10</count>
+            </li>
+            <li>
+                <filter>
+                    <thingDefs><li>ExSymbiotes_SymbioticTissue_Red</li></thingDefs>
+                </filter>
+                <count>10</count>
+            </li>
+            <li>
+                <filter>
+                    <thingDefs><li>Bioferrite</li></thingDefs>
+                </filter>
+                <count>1</count>
+            </li>
+        </ingredients>
+        <fixedIngredientFilter Inherit="False">
+            <categories>
+                <li>Leathers</li>
+            </categories>
+            <thingDefs><li>Bioferrite</li></thingDefs>
+            <thingDefs><li>ExSymbiotes_SymbioticTissue_Red</li></thingDefs>
+            <disallowedThingDefs>
+                <li>ExSymbiotes_Leather_Symbiotic_Red</li>
+            </disallowedThingDefs>
+        </fixedIngredientFilter>
+        <products Inherit="False">
+            <ExSymbiotes_Leather_Symbiotic_Red>10</ExSymbiotes_Leather_Symbiotic_Red>
+        </products>
+    </RecipeDef>
+
+    <RecipeDef Name="ExSymbiotes_Make_Leather_SymbioticBulk">
         <defName>ExSymbiotes_Make_Leather_SymbioticBulk</defName>
-        <label>make symbiotic leather X100</label>
+        <label>make symbiotic leather (black) X100</label>
         <description>Imbue leathers with symbiotic tissue.</description>
-        <jobString>Making symbiotic leather X100.</jobString>
+        <jobString>Making symbiotic leather (black) X100.</jobString>
         <workSpeedStat>GeneralLaborSpeed</workSpeedStat>
         <effectWorking>Tailor</effectWorking>
         <soundWorking>Recipe_Tailor</soundWorking>
@@ -108,11 +149,54 @@
         <displayPriority>101</displayPriority>
     </RecipeDef>
 
-    <RecipeDef>
+    <RecipeDef ParentName="ExSymbiotes_Make_Leather_SymbioticBulk">
+        <defName>ExSymbiotes_Make_Leather_SymbioticBulkRed</defName>
+        <label>make symbiotic leather (red) X100</label>
+        <jobString>Making symbiotic leather (red) X100.</jobString>
+        <ingredients Inherit="False">
+            <li>
+                <filter>
+                    <categories>
+                        <li>Leathers</li>
+                    </categories>
+                </filter>
+                <count>100</count>
+            </li>
+            <li>
+                <filter>
+                    <thingDefs><li>ExSymbiotes_SymbioticTissue_Red</li></thingDefs>
+                </filter>
+                <count>100</count>
+            </li>
+            <li>
+                <filter>
+                    <thingDefs><li>Bioferrite</li></thingDefs>
+                </filter>
+                <count>10</count>
+            </li>
+        </ingredients>
+        <fixedIngredientFilter Inherit="False">
+            <categories>
+                <li>Leathers</li>
+            </categories>
+            <thingDefs><li>Bioferrite</li></thingDefs>
+            <thingDefs><li>ExSymbiotes_SymbioticTissue_Red</li></thingDefs>
+            <disallowedThingDefs>
+                <li>ExSymbiotes_Leather_Symbiotic_Red</li>
+            </disallowedThingDefs>
+        </fixedIngredientFilter>
+        <products Inherit="False">
+            <ExSymbiotes_Leather_Symbiotic_Red>100</ExSymbiotes_Leather_Symbiotic_Red>
+        </products>
+        <workSkill>Crafting</workSkill>
+        <displayPriority>101</displayPriority>
+    </RecipeDef>
+
+    <RecipeDef Name="ExSymbiotes_Make_SymbioticPlasteel">
         <defName>ExSymbiotes_Make_SymbioticPlasteel</defName>
-        <label>make symbiotic plasteel</label>
+        <label>make symbiotic plasteel (black)</label>
         <description>Imbue plasteel with symbiotic tissue.</description>
-        <jobString>Making symbiotic plasteel.</jobString>
+        <jobString>Making symbiotic plasteel (black).</jobString>
         <workSpeedStat>GeneralLaborSpeed</workSpeedStat>
         <effectWorking>Smith</effectWorking>
         <soundWorking>Recipe_Smith</soundWorking>
@@ -155,11 +239,45 @@
         <displayPriority>102</displayPriority>
     </RecipeDef>
 
-    <RecipeDef>
+    <RecipeDef ParentName="ExSymbiotes_Make_SymbioticPlasteel">
+        <defName>ExSymbiotes_Make_SymbioticPlasteelRed</defName>
+        <label>make symbiotic plasteel (red)</label>
+        <jobString>Making symbiotic plasteel (red).</jobString>
+        <ingredients Inherit="False">
+            <li>
+                <filter>
+                    <thingDefs><li>Plasteel</li></thingDefs>
+                </filter>
+                <count>10</count>
+            </li>
+            <li>
+                <filter>
+                    <thingDefs><li>ExSymbiotes_SymbioticTissue_Red</li></thingDefs>
+                </filter>
+                <count>10</count>
+            </li>
+            <li>
+                <filter>
+                    <thingDefs><li>Bioferrite</li></thingDefs>
+                </filter>
+                <count>1</count>
+            </li>
+        </ingredients>
+        <fixedIngredientFilter Inherit="False">
+            <thingDefs><li>Plasteel</li></thingDefs>
+            <thingDefs><li>Bioferrite</li></thingDefs>
+            <thingDefs><li>ExSymbiotes_SymbioticTissue_Red</li></thingDefs>
+        </fixedIngredientFilter>
+        <products Inherit="False">
+            <ExSymbiotes_SymbioticPlasteel_Red>10</ExSymbiotes_SymbioticPlasteel_Red>
+        </products>
+    </RecipeDef>
+    
+    <RecipeDef Name="ExSymbiotes_Make_SymbioticPlasteelBulk">
         <defName>ExSymbiotes_Make_SymbioticPlasteelBulk</defName>
-        <label>make symbiotic plasteel X100</label>
+        <label>make symbiotic plasteel (black) X100</label>
         <description>Imbue plasteel with symbiotic tissue.</description>
-        <jobString>Making symbiotic plasteel X100.</jobString>
+        <jobString>Making symbiotic plasteel (black) X100.</jobString>
         <workSpeedStat>GeneralLaborSpeed</workSpeedStat>
         <effectWorking>Smith</effectWorking>
         <soundWorking>Recipe_Smith</soundWorking>
@@ -201,5 +319,38 @@
         <workSkill>Crafting</workSkill>
         <displayPriority>103</displayPriority>
     </RecipeDef>
-    
+
+    <RecipeDef ParentName="ExSymbiotes_Make_SymbioticPlasteelBulk">
+        <defName>ExSymbiotes_Make_SymbioticPlasteelBulkRed</defName>
+        <label>make symbiotic plasteel (red) X100</label>
+        <jobString>Making symbiotic plasteel (red) X100.</jobString>
+        <ingredients Inherit="False">
+            <li>
+                <filter>
+                    <thingDefs><li>Plasteel</li></thingDefs>
+                </filter>
+                <count>100</count>
+            </li>
+            <li>
+                <filter>
+                    <thingDefs><li>ExSymbiotes_SymbioticTissue_Red</li></thingDefs>
+                </filter>
+                <count>100</count>
+            </li>
+            <li>
+                <filter>
+                    <thingDefs><li>Bioferrite</li></thingDefs>
+                </filter>
+                <count>10</count>
+            </li>
+        </ingredients>
+        <fixedIngredientFilter Inherit="False">
+            <thingDefs><li>Plasteel</li></thingDefs>
+            <thingDefs><li>Bioferrite</li></thingDefs>
+            <thingDefs><li>ExSymbiotes_SymbioticTissue_Red</li></thingDefs>
+        </fixedIngredientFilter>
+        <products Inherit="False">
+            <ExSymbiotes_SymbioticPlasteel_Red>100</ExSymbiotes_SymbioticPlasteel_Red>
+        </products>
+    </RecipeDef>
 </Defs>
