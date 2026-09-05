@@ -186,7 +186,7 @@
 					<drawOffset>(0, 0, 0.1)</drawOffset>
 				</bodyGraphicData>
 				<silhouetteGraphicData>
-					<texPath>Things/Pawn/Symbiote/Symbiote_Silhouette</texPath>
+					<texPath>Things/Pawn/Symbiote/Black/Symbiote_Silhouette</texPath>
 					<graphicClass>Graphic_Single</graphicClass>
 					<drawSize>2</drawSize>
 				</silhouetteGraphicData>
@@ -214,7 +214,7 @@
 					<drawOffset>(0, 0, 0.1)</drawOffset>
 				</bodyGraphicData>
 				<silhouetteGraphicData>
-					<texPath>Things/Pawn/Symbiote/Symbiote_Silhouette</texPath>
+					<texPath>Things/Pawn/Symbiote/Black/Symbiote_Silhouette</texPath>
 					<graphicClass>Graphic_Single</graphicClass>
 					<drawSize>2</drawSize>
 				</silhouetteGraphicData>
