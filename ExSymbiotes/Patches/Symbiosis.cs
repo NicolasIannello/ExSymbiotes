@@ -33,7 +33,7 @@ namespace ExSymbiotes
             {
                 symbioticArmorMat = new Material(baseMat);
                 symbioticArmorMat.shader = ShaderDatabase.CutoutSkin;
-                symbioticArmorMat.color = pawn.story.SkinColor;
+                symbioticArmorMat.color = symbioteBase.skin;
                 symbioticArmorMat.SetColor("_ShadowColor", color);
                 materials.Add((color, baseMat), symbioticArmorMat);
             }

@@ -19,6 +19,7 @@ namespace ExSymbiotes
             }
         }
         private Faction originalFaction;
+        public HediffCompProperties_SymbioteControl Props => (HediffCompProperties_SymbioteControl) this.props;
 
         public HediffComp_SymbioteControl()
         {
@@ -30,6 +31,8 @@ namespace ExSymbiotes
             base.CompPostPostAdd(dinfo);
             originalFaction=Pawn.Faction;
             this.Pawn.SetFaction(Find.FactionManager.FirstFactionOfDef(ExSymbiotesDefOf.ExSymbiotes_Symbiotes));
+            if (Pawn.RaceProps.Humanlike) Pawn.story.skinColorOverride = Props.color;
+            skin = Props.color;
         }
 
         public override void CompPostPostRemoved()
@@ -40,6 +43,7 @@ namespace ExSymbiotes
             dinfo.SetApplyAllDamage(true);
             symbiote.TakeDamage(dinfo);
             this.Pawn.SetFaction(originalFaction);
+            if (Pawn.RaceProps.Humanlike) Pawn.story.skinColorOverride = null;
             if(ConditionalWeakTableTryGet(this.Pawn)) ConditionalWeakTableRemove(this.Pawn);
             Messages.Message("The symbiote is leaving "+Pawn.Name+"'s body cause of its injuries", (LookTargets) (Thing) Pawn, MessageTypeDefOf.NegativeEvent);
         }

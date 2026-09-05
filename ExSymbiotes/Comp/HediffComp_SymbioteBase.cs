@@ -8,6 +8,7 @@ namespace ExSymbiotes
     {
         public static readonly ConditionalWeakTable<Pawn, HediffComp_SymbioteBase> SymbioteWeakTable = new ConditionalWeakTable<Pawn, HediffComp_SymbioteBase>();
         public Color color;
+        public Color skin;
         protected static readonly Color blue= new Color(0.118f, 0, 0.812f);
         protected static readonly Color red= new Color(0.812f, 0, 0.118f);
 

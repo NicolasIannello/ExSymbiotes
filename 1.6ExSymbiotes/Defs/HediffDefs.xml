@@ -7,7 +7,6 @@
         <description>This person has perform symbiosis with a symbiotic core.The symbiote lives inside them, guiding their actions and twisting their flesh.</description>
         <isBad>false</isBad>
         <hairColorOverride>(31, 27, 28)</hairColorOverride>
-<!--        <skinColorOverride>(31, 27, 28)</skinColorOverride>-->
         <stages>
             <li>
                 <statFactors>
@@ -374,8 +373,6 @@
         <hediffClass>HediffWithComps</hediffClass>
         <description>This person has been taken over by a symbiote.</description>
         <isBad>true</isBad>
-        <hairColorOverride>(31, 27, 28)</hairColorOverride>
-        <skinColorOverride>(31, 27, 28)</skinColorOverride>
         <stages>
             <li>
                 <capMods>
@@ -390,7 +387,9 @@
             </li>
         </stages>
         <comps>
-            <li Class="ExSymbiotes.HediffCompProperties_SymbioteControl"/>
+            <li Class="ExSymbiotes.HediffCompProperties_SymbioteControl">
+                <color>(31, 27, 28)</color>
+            </li>
         </comps>
         <renderNodeProperties>
             <li Class="PawnRenderNodeProperties_Eye">
@@ -431,8 +430,6 @@
     <HediffDef ParentName="ExSymbiotes_SymbioteControl">
         <defName>ExSymbiotes_SymbioteControlRed</defName>
         <label>symbiote control (red)</label>
-        <hairColorOverride>(156, 9, 9)</hairColorOverride>
-        <skinColorOverride>(156, 9, 9)</skinColorOverride>
         <stages Inherit="False">
             <li>
                 <statFactors>
@@ -617,7 +614,10 @@
             <solid>true</solid>
             <partEfficiency>2</partEfficiency>
         </addedPartProps>
-        <comps>
+        <comps Inherit="False">
+            <li Class="ExSymbiotes.HediffCompProperties_SymbioteControl">
+                <color>(156, 9, 9)</color>
+            </li>
             <li Class="ExSymbiotes.HediffCompProperties_SymbioticTendrils">
                 <turretGunDef>ExSymbiotes_TendrilTurret</turretGunDef>
                 <cd>4</cd>
