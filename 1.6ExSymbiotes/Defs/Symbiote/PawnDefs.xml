@@ -157,8 +157,16 @@
 			</deathAction>
 		</race>
 	</ThingDef>
+
+	<PawnKindDef Name="ExSymbiotes_Symbiote_PawnKindBase" Abstract="True">
+		<defaultFactionDef>ExSymbiotes_Symbiotes</defaultFactionDef>
+		<overrideDebugActionCategory>Entity</overrideDebugActionCategory>
+		<meleeAttackInfectionPathways>
+			<li>EntityAttacked</li>
+		</meleeAttackInfectionPathways>
+	</PawnKindDef>
 	
-	<PawnKindDef Name="ExSymbiotes_Symbiote_PawnKind" ParentName="BaseFleshbeastKind">
+	<PawnKindDef Name="ExSymbiotes_Symbiote_PawnKind" ParentName="ExSymbiotes_Symbiote_PawnKindBase">
 		<defName>ExSymbiotes_Symbiote_PawnKind</defName>
 		<label>symbiote (black)</label>
 		<race>ExSymbiotes_Symbiote</race>

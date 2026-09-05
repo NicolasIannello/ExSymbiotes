@@ -39,8 +39,8 @@ namespace ExSymbiotes
       base.SpawnSetup(map, respawningAfterLoad);
       if (respawningAfterLoad || this.BeingTransportedOnGravship)
         return;
-      if (this.Faction != Faction.OfEntities)
-        this.SetFaction(Faction.OfEntities, (Pawn) null);
+      if (this.Faction != Find.FactionManager.FirstFactionOfDef(ExSymbiotesDefOf.ExSymbiotes_Symbiotes))
+        this.SetFaction(Find.FactionManager.FirstFactionOfDef(ExSymbiotesDefOf.ExSymbiotes_Symbiotes), (Pawn) null);
       EffecterDefOf.ImpactDustCloud.Spawn(this.Position, this.Map).Cleanup();
     }
 

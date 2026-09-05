@@ -1,13 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Runtime.CompilerServices;
 using RimWorld;
 using UnityEngine;
 using Verse;
+using Verse.AI.Group;
 
 namespace ExSymbiotes
 {
-    public class HediffComp_SymbioteControl: HediffComp, IThingHolder
+    public class HediffComp_SymbioteControl: HediffComp_SymbioteBase, IThingHolder
     {
         private ThingOwner<Thing> innerContainer;
         public IThingHolder ParentHolder => this.Pawn.ParentHolder;
@@ -18,7 +18,7 @@ namespace ExSymbiotes
                 return this.innerContainer.InnerListForReading.Count <= 0 ? (Thing) null : this.innerContainer.InnerListForReading[0];
             }
         }
-        public static readonly ConditionalWeakTable<Pawn, HediffComp_SymbioteControl> SymbioteControlWeakTable = new ConditionalWeakTable<Pawn, HediffComp_SymbioteControl>();
+        private Faction originalFaction;
 
         public HediffComp_SymbioteControl()
         {
@@ -28,8 +28,8 @@ namespace ExSymbiotes
         public override void CompPostPostAdd(DamageInfo? dinfo)
         {
             base.CompPostPostAdd(dinfo);
-            Pawn.mindState.mentalStateHandler.Reset();
-            Pawn.mindState.mentalStateHandler.TryStartMentalState(MentalStateDefOf.BerserkPermanent, "A symbiote has taken control over his body", forced: true, forceWake: true);
+            originalFaction=Pawn.Faction;
+            this.Pawn.SetFaction(Find.FactionManager.FirstFactionOfDef(ExSymbiotesDefOf.ExSymbiotes_Symbiotes));
         }
 
         public override void CompPostPostRemoved()
@@ -39,8 +39,8 @@ namespace ExSymbiotes
             DamageInfo dinfo = new DamageInfo(DamageDefOf.AcidBurn, (float) 50, instigator: (Thing) symbiote);
             dinfo.SetApplyAllDamage(true);
             symbiote.TakeDamage(dinfo);
-            if(!Pawn.Dead) Pawn.mindState.mentalStateHandler.Reset();
-            if(SymbioteControlWeakTable.TryGetValue(Pawn, out HediffComp_SymbioteControl _)) SymbioteControlWeakTable.Remove(this.Pawn);
+            this.Pawn.SetFaction(originalFaction);
+            if(ConditionalWeakTableTryGet(this.Pawn)) ConditionalWeakTableRemove(this.Pawn);
             Messages.Message("The symbiote is leaving "+Pawn.Name+"'s body cause of its injuries", (LookTargets) (Thing) Pawn, MessageTypeDefOf.NegativeEvent);
         }
 
@@ -58,13 +58,18 @@ namespace ExSymbiotes
 
         public void AddThing(Thing thing)
         {
+            Lord symbioteLord = LordUtility.GetLord((Pawn)thing);
+            color = thing.def == ExSymbiotesDefOf.ExSymbiotes_Symbiote ? blue : red;
+            
             thing.DeSpawn(DestroyMode.Vanish);
             this.innerContainer.TryAdd((Thing) thing, true);
-            if (SymbioteControlling.def != ExSymbiotesDefOf.ExSymbiotes_Symbiote)
-            {
-                SymbioteControlWeakTable.Remove(this.Pawn);
-                SymbioteControlWeakTable.Add(this.Pawn, this);
-            }
+            ConditionalWeakTableRemove(this.Pawn);
+            ConditionalWeakTableAdd(this.Pawn);
+            
+            if(symbioteLord==null) 
+                this.parent.pawn.health.RemoveHediff(parent);
+            else 
+                symbioteLord.AddPawn(this.Pawn);
         }
         
         private Pawn DropPawn(Map map)
@@ -100,9 +105,9 @@ namespace ExSymbiotes
         public override void CompExposeData()
         {
             base.CompExposeData();
+            Scribe_References.Look(ref originalFaction, "originalFaction");
             Scribe_Deep.Look<ThingOwner<Thing>>(ref this.innerContainer, "innerContainer", (object) this);
-            if (Scribe.mode == LoadSaveMode.PostLoadInit && this.Pawn != null && SymbioteControlling.def != ExSymbiotesDefOf.ExSymbiotes_Symbiote) 
-                SymbioteControlWeakTable.Add(this.Pawn, this);
+            if (Scribe.mode == LoadSaveMode.PostLoadInit && this.Pawn != null) ConditionalWeakTableAdd(this.Pawn);
             if (Scribe.mode != LoadSaveMode.PostLoadInit || !this.innerContainer.removeContentsIfDestroyed)
                 return;
             this.innerContainer.removeContentsIfDestroyed = false;

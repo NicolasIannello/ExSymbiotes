@@ -37,7 +37,7 @@ namespace ExSymbiotes
         public static HediffDef ExSymbiotes_SymbioteControlRed;
         public static AbilityDef ExSymbiotes_SymbiosisLeap;
         public static JobDef ExSymbiotes_SymbioteDigest;
-        
+        public static FactionDef ExSymbiotes_Symbiotes;
         static ExSymbiotesDefOf()
         {
             DefOfHelper.EnsureInitializedInCtor(typeof(ExSymbiotesDefOf));

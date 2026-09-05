@@ -17,7 +17,7 @@ namespace ExSymbiotes.Utils
             {
                 groupKind = group,
                 tile = map.Tile,
-                faction = Faction.OfEntities,
+                faction = Find.FactionManager.FirstFactionOfDef(ExSymbiotesDefOf.ExSymbiotes_Symbiotes),
                 points = (double) points > 0.0 ? points : StorytellerUtility.DefaultThreatPointsNow((IIncidentTarget) map)
             };
             parms.points = Mathf.Max(parms.points, parms.faction.def.MinPointsToGeneratePawnGroup(parms.groupKind) * 1.05f);
@@ -44,7 +44,7 @@ namespace ExSymbiotes.Utils
             float intervalSeconds = 600.TicksToSeconds() / (float) fleshbeastsForPoints.Count;
             map.deferredSpawner.AddRequest(new SpawnRequest(source.Cast<Thing>().ToList<Thing>(), spawnPositions, 1, intervalSeconds)
             {
-                lord = LordMaker.MakeNewLord(Faction.OfEntities, (LordJob) new LordJob_FleshbeastAssault(), map)
+                lord = LordMaker.MakeNewLord(Find.FactionManager.FirstFactionOfDef(ExSymbiotesDefOf.ExSymbiotes_Symbiotes), (LordJob) new LordJob_FleshbeastAssault(), map)
             });
             SoundDefOf.Pawn_Fleshbeast_EmergeFromPitGate.PlayOneShot((SoundInfo) (Thing) mass);
             mass.TakeDamage(new DamageInfo(DamageDefOf.Blunt, 1500));
