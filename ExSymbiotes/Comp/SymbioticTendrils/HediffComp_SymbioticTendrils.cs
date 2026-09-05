@@ -212,7 +212,7 @@ namespace ExSymbiotes
         
         private IAttackTargetSearcher TargSearcher()
         {
-            return (IAttackTargetSearcher) this.Pawn;
+            return (IAttackTargetSearcher) this;
         }
         
         private bool IsValidTarget(Thing t)
@@ -230,7 +230,7 @@ namespace ExSymbiotes
                 if (p.RaceProps.Animal && p.Faction == this.Pawn.Faction)
                     return false;
             }
-            return true;
+            return !holdFire;
         }
         
         protected virtual void BeginBurst()
