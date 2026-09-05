@@ -220,13 +220,13 @@
                     <dataNorth>
                         <offset>(0.1, 0, 0.05)</offset>
                         <rotationOffset>-225</rotationOffset>
-                        <layer>71</layer>
+                        <layer>100</layer>
                         <flip>true</flip>
                     </dataNorth>
                     <dataEast>
                         <offset>(-0.1, 0, 0.05)</offset>
                         <rotationOffset>-90</rotationOffset>
-                        <layer>70</layer>
+                        <layer>90</layer>
                         <flip>true</flip>
                     </dataEast>
                     <dataWest>
@@ -261,7 +261,7 @@
                     <dataNorth>
                         <offset>(-0.1, 0, 0.05)</offset>
                         <rotationOffset>-225</rotationOffset>
-                        <layer>72</layer>
+                        <layer>101</layer>
                     </dataNorth>
                     <dataEast>
                         <offset>(-0.1, 0, 0.05)</offset>
@@ -272,7 +272,7 @@
                     <dataWest>
                         <offset>(0.1, 0, 0.05)</offset>
                         <rotationOffset>-90</rotationOffset>
-                        <layer>70</layer>
+                        <layer>90</layer>
                     </dataWest>
                 </drawData>
             </li>
@@ -300,13 +300,13 @@
                     <dataNorth>
                         <offset>(-0.05, 0, -0.05)</offset>
                         <rotationOffset>-90</rotationOffset>
-                        <layer>70</layer>
+                        <layer>100</layer>
                         <flip>true</flip>
                     </dataNorth>
                     <dataEast>
                         <offset>(-0.1, 0, -0.05)</offset>
                         <rotationOffset>-180</rotationOffset>
-                        <layer>71</layer>
+                        <layer>91</layer>
                         <flip>true</flip>
                     </dataEast>
                     <dataWest>
@@ -341,7 +341,7 @@
                     <dataNorth>
                         <offset>(0.05, 0, -0.05)</offset>
                         <rotationOffset>-90</rotationOffset>
-                        <layer>70</layer>
+                        <layer>100</layer>
                     </dataNorth>
                     <dataEast>
                         <offset>(-0.1, 0, -0.05)</offset>
@@ -352,7 +352,7 @@
                     <dataWest>
                         <offset>(0.1, 0, -0.05)</offset>
                         <rotationOffset>-180</rotationOffset>
-                        <layer>71</layer>
+                        <layer>91</layer>
                     </dataWest>
                 </drawData>
             </li>
@@ -495,13 +495,13 @@
                     <dataNorth>
                         <offset>(0.1, 0, 0.05)</offset>
                         <rotationOffset>-225</rotationOffset>
-                        <layer>71</layer>
+                        <layer>100</layer>
                         <flip>true</flip>
                     </dataNorth>
                     <dataEast>
                         <offset>(-0.1, 0, 0.05)</offset>
                         <rotationOffset>-90</rotationOffset>
-                        <layer>70</layer>
+                        <layer>90</layer>
                         <flip>true</flip>
                     </dataEast>
                     <dataWest>
@@ -536,7 +536,7 @@
                     <dataNorth>
                         <offset>(-0.1, 0, 0.05)</offset>
                         <rotationOffset>-225</rotationOffset>
-                        <layer>72</layer>
+                        <layer>101</layer>
                     </dataNorth>
                     <dataEast>
                         <offset>(-0.1, 0, 0.05)</offset>
@@ -547,7 +547,7 @@
                     <dataWest>
                         <offset>(0.1, 0, 0.05)</offset>
                         <rotationOffset>-90</rotationOffset>
-                        <layer>70</layer>
+                        <layer>90</layer>
                     </dataWest>
                 </drawData>
             </li>
@@ -575,13 +575,13 @@
                     <dataNorth>
                         <offset>(-0.05, 0, -0.05)</offset>
                         <rotationOffset>-90</rotationOffset>
-                        <layer>70</layer>
+                        <layer>100</layer>
                         <flip>true</flip>
                     </dataNorth>
                     <dataEast>
                         <offset>(-0.1, 0, -0.05)</offset>
                         <rotationOffset>-180</rotationOffset>
-                        <layer>71</layer>
+                        <layer>91</layer>
                         <flip>true</flip>
                     </dataEast>
                     <dataWest>
@@ -616,7 +616,7 @@
                     <dataNorth>
                         <offset>(0.05, 0, -0.05)</offset>
                         <rotationOffset>-90</rotationOffset>
-                        <layer>70</layer>
+                        <layer>100</layer>
                     </dataNorth>
                     <dataEast>
                         <offset>(-0.1, 0, -0.05)</offset>
@@ -627,7 +627,7 @@
                     <dataWest>
                         <offset>(0.1, 0, -0.05)</offset>
                         <rotationOffset>-180</rotationOffset>
-                        <layer>71</layer>
+                        <layer>91</layer>
                     </dataWest>
                 </drawData>
             </li>
