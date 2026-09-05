@@ -374,17 +374,25 @@
         <description>This person has been taken over by a symbiote.</description>
         <isBad>true</isBad>
         <stages>
-            <li>
-                <capMods>
-                    <li><capacity>Manipulation</capacity><postFactor>1.10</postFactor></li>
-                    <li><capacity>Sight</capacity><postFactor>1.10</postFactor></li>
-                    <li><capacity>Eating</capacity><postFactor>1.10</postFactor></li>
-                    <li><capacity>BloodPumping</capacity><postFactor>1.10</postFactor></li>
-                    <li><capacity>BloodFiltration</capacity><postFactor>1.10</postFactor></li>
-                    <li><capacity>Breathing</capacity><postFactor>1.10</postFactor></li>
-                </capMods>
-                <regeneration>25</regeneration>
-            </li>
+            <statFactors>
+                <MeleeDamageFactor>1.5</MeleeDamageFactor>
+                <MoveSpeed>1.30</MoveSpeed>
+                <ArmorRating_Sharp>1.20</ArmorRating_Sharp>
+                <ArmorRating_Blunt>1.20</ArmorRating_Blunt>
+            </statFactors>
+            <statOffsets>
+                <ArmorRating_Sharp>0.2</ArmorRating_Sharp>
+                <ArmorRating_Blunt>0.2</ArmorRating_Blunt>
+            </statOffsets>
+            <capMods>
+                <li><capacity>Manipulation</capacity><postFactor>1.25</postFactor></li>
+                <li><capacity>Sight</capacity><postFactor>1.25</postFactor></li>
+                <li><capacity>Eating</capacity><postFactor>1.25</postFactor></li>
+                <li><capacity>BloodPumping</capacity><postFactor>1.25</postFactor></li>
+                <li><capacity>BloodFiltration</capacity><postFactor>1.25</postFactor></li>
+                <li><capacity>Breathing</capacity><postFactor>1.25</postFactor></li>
+            </capMods>
+            <regeneration>50</regeneration>
         </stages>
         <comps>
             <li Class="ExSymbiotes.HediffCompProperties_SymbioteControl">
@@ -433,17 +441,17 @@
         <stages Inherit="False">
             <li>
                 <statFactors>
-                    <MeleeCooldownFactor>0.70</MeleeCooldownFactor>
-                    <ArmorRating_Sharp>1.20</ArmorRating_Sharp>
-                    <ArmorRating_Blunt>1.20</ArmorRating_Blunt>
+                    <MeleeCooldownFactor>0.60</MeleeCooldownFactor>
+                    <MeleeDamageFactor>1.8</MeleeDamageFactor>
+                    <MoveSpeed>2</MoveSpeed>
                 </statFactors>
                 <capMods>
-                    <li><capacity>Manipulation</capacity><postFactor>1.25</postFactor></li>
-                    <li><capacity>Sight</capacity><postFactor>1.25</postFactor></li>
-                    <li><capacity>Eating</capacity><postFactor>1.25</postFactor></li>
-                    <li><capacity>BloodPumping</capacity><postFactor>1.25</postFactor></li>
-                    <li><capacity>BloodFiltration</capacity><postFactor>1.25</postFactor></li>
-                    <li><capacity>Breathing</capacity><postFactor>1.25</postFactor></li>
+                    <li><capacity>Manipulation</capacity><postFactor>4</postFactor></li>
+                    <li><capacity>Sight</capacity><postFactor>1.40</postFactor></li>
+                    <li><capacity>Eating</capacity><postFactor>1.40</postFactor></li>
+                    <li><capacity>BloodPumping</capacity><postFactor>1.40</postFactor></li>
+                    <li><capacity>BloodFiltration</capacity><postFactor>1.40</postFactor></li>
+                    <li><capacity>Breathing</capacity><postFactor>1.40</postFactor></li>
                 </capMods>
                 <regeneration>50</regeneration>
             </li>
