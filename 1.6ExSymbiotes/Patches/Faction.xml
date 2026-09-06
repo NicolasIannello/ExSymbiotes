@@ -1,0 +1,22 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Patch>
+    <Operation Class="PatchOperationConditional">
+        <xpath>Defs/FactionDef[defName="Entities"]/permanentEnemyToEveryoneExcept</xpath>
+        <match Class="PatchOperationAdd">
+            <xpath>Defs/FactionDef[defName="Entities"]/permanentEnemyToEveryoneExcept</xpath>
+            <value>
+                <li>ExSymbiotes_Symbiotes</li>
+            </value>
+        </match>
+    </Operation>
+
+    <Operation Class="PatchOperationConditional">
+        <xpath>Defs/FactionDef[defName="Insect"]/permanentEnemyToEveryoneExcept</xpath>
+        <match Class="PatchOperationAdd">
+            <xpath>Defs/FactionDef[defName="Insect"]/permanentEnemyToEveryoneExcept</xpath>
+            <value>
+                <li>ExSymbiotes_Symbiotes</li>
+            </value>
+        </match>
+    </Operation>
+</Patch>

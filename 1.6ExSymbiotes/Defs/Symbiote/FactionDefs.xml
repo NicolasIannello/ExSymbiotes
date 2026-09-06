@@ -20,7 +20,10 @@
         <canUseAvoidGrid>false</canUseAvoidGrid>
         <techLevel>Animal</techLevel>
         <raidsForbidden>true</raidsForbidden>
-        <permanentEnemyToEveryoneExcept></permanentEnemyToEveryoneExcept>
+        <permanentEnemyToEveryoneExcept>
+            <li>Insect</li>
+            <li>Entities</li>
+        </permanentEnemyToEveryoneExcept>
         <hostileToFactionlessHumanlikes>true</hostileToFactionlessHumanlikes>
         <settlementTexturePath>World/WorldObjects/DefaultSettlement</settlementTexturePath>
         <allowedArrivalTemperatureRange>-300~100</allowedArrivalTemperatureRange>
