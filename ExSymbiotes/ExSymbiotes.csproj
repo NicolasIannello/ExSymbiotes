@@ -78,6 +78,8 @@
     <Compile Include="Comp\SymbioticScythe\HediffCompProperties_SymbioticScythe.cs" />
     <Compile Include="Comp\SymbioticScythe\HediffComp_SymbioticScythe.cs" />
     <Compile Include="Job\JobDriver_SymbioteDigest.cs" />
+    <Compile Include="Job\JobGiver_FindHost.cs" />
+    <Compile Include="Job\LordJob_SymbioteMass.cs" />
     <Compile Include="Patches\Symbiosis.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Render\PawnRenderNode_Symbiote.cs" />
