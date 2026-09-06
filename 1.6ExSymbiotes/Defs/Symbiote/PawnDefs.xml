@@ -173,10 +173,9 @@
 		<overrideDeathOnDownedChance>0.9</overrideDeathOnDownedChance>
 		<immuneToGameConditionEffects>true</immuneToGameConditionEffects>
 		<abilities>
-			<li>SpikeLaunch_Toughspike</li>
 			<li>ExSymbiotes_SymbiosisLeap</li>
 		</abilities>
-		<combatPower>120</combatPower>
+		<combatPower>300</combatPower>
 		<lifeStages>
 			<li>
 				<bodyGraphicData>
@@ -204,7 +203,7 @@
 		<defName>ExSymbiotes_Symbiote_PawnKindRed</defName>
 		<label>symbiote (red)</label>
 		<race>ExSymbiotes_SymbioteRed</race>
-		<combatPower>160</combatPower>
+		<combatPower>450</combatPower>
 		<lifeStages Inherit="False">
 			<li>
 				<bodyGraphicData>
