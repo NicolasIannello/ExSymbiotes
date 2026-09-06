@@ -50,7 +50,7 @@
                 <side>Right</side>
                 <drawData>
                     <defaultData>
-                        <layer>54</layer>
+                        <layer>55</layer>
                         <offset>(-0.015, 0, -0.24)</offset>
                     </defaultData>
                 </drawData>
@@ -64,7 +64,7 @@
                 <side>Left</side>
                 <drawData>
                     <defaultData>
-                        <layer>54</layer>
+                        <layer>55</layer>
                         <offset>(+0.015, 0, -0.24)</offset>
                         <flip>true</flip>
                     </defaultData>
@@ -420,7 +420,7 @@
                 <side>Right</side>
                 <drawData>
                     <defaultData>
-                        <layer>54</layer>
+                        <layer>55</layer>
                         <offset>(-0.015, 0, -0.24)</offset>
                     </defaultData>
                 </drawData>
@@ -434,7 +434,7 @@
                 <side>Left</side>
                 <drawData>
                     <defaultData>
-                        <layer>54</layer>
+                        <layer>55</layer>
                         <offset>(+0.015, 0, -0.24)</offset>
                         <flip>true</flip>
                     </defaultData>
