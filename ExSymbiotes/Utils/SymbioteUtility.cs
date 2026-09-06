@@ -6,6 +6,7 @@ using Verse;
 using Verse.AI.Group;
 using Verse.Sound;
 using RimWorld;
+using Verse.AI;
 
 namespace ExSymbiotes.Utils
 {
@@ -24,7 +25,7 @@ namespace ExSymbiotes.Utils
             return PawnGroupMakerUtility.GeneratePawns(parms).ToList<Pawn>();
         }
 
-        public static void SymbioteHorde(Map map, Building_SymbioteMass mass, bool first = false)//INCREMENT POINTS PER MISSING HEALTH
+        public static void SymbioteHorde(Map map, Building_SymbioteMass mass, bool first = false)//chimera lord job
         {
             PawnGroupKindDef group = mass.texture == 0 ? ExSymbiotesDefOf.ExSymbiotes_Symbiote_PawnGroupKind : ExSymbiotesDefOf.ExSymbiotes_Symbiote_PawnGroupKindRed;
             List<Pawn> fleshbeastsForPoints = GetSymbiotesForPoints(StorytellerUtility.DefaultThreatPointsNow(map), map, group);
@@ -44,7 +45,7 @@ namespace ExSymbiotes.Utils
             float intervalSeconds = 600.TicksToSeconds() / (float) fleshbeastsForPoints.Count;
             map.deferredSpawner.AddRequest(new SpawnRequest(source.Cast<Thing>().ToList<Thing>(), spawnPositions, 1, intervalSeconds)
             {
-                lord = LordMaker.MakeNewLord(Find.FactionManager.FirstFactionOfDef(ExSymbiotesDefOf.ExSymbiotes_Symbiotes), (LordJob) new LordJob_FleshbeastAssault(), map)
+                lord = LordMaker.MakeNewLord(Find.FactionManager.FirstFactionOfDef(ExSymbiotesDefOf.ExSymbiotes_Symbiotes), (LordJob) new LordJob_SymbioteMass(), map)
             });
             SoundDefOf.Pawn_Fleshbeast_EmergeFromPitGate.PlayOneShot((SoundInfo) (Thing) mass);
             mass.TakeDamage(new DamageInfo(DamageDefOf.Blunt, 1500));
@@ -99,6 +100,38 @@ namespace ExSymbiotes.Utils
             }
             
             return null;
+        }
+        
+        public static class TargetFinder
+        {
+            
+            public static bool CanReach(
+                Thing searcher,
+                Thing target,
+                bool canBashDoors,
+                bool canBashFences)
+            {
+                if (searcher is Pawn pawn)
+                {
+                    if (!pawn.CanReach((LocalTargetInfo) target, PathEndMode.Touch, Danger.Some, canBashDoors, canBashFences))
+                        return false;
+                }
+                else
+                {
+                    TraverseMode mode = canBashDoors ? TraverseMode.PassDoors : TraverseMode.NoPassClosedDoors;
+                    if (!searcher.Map.reachability.CanReach(searcher.Position, (LocalTargetInfo) target, PathEndMode.Touch, TraverseParms.For(mode)))
+                        return false;
+                }
+                return true;
+            }
+            
+            public static bool CanShootAtFromCurrentPosition(
+                IAttackTarget target,
+                IAttackTargetSearcher searcher,
+                Verb verb)
+            {
+                return verb != null && verb.CanHitTargetFrom(searcher.Thing.Position, (LocalTargetInfo) target.Thing);
+            }
         }
     }
 }
