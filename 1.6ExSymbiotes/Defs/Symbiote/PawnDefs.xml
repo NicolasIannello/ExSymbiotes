@@ -11,8 +11,8 @@
 		<tradeability>None</tradeability>
 		<hiddenWhileUndiscovered>true</hiddenWhileUndiscovered>
 		<race>
-			<thinkTreeMain>Devourer</thinkTreeMain>
-			<thinkTreeConstant>DevourerConstant</thinkTreeConstant>
+			<thinkTreeMain>ExSymbiotes_Symbiote</thinkTreeMain>
+			<thinkTreeConstant>ExSymbiotes_SymbioteConstant</thinkTreeConstant>
 			<renderTree>ExSymbiotes_Symbiote_PawnRenderTree</renderTree>
 			<intelligence>ToolUser</intelligence>
 			<specificMeatDef>Meat_Twisted</specificMeatDef>

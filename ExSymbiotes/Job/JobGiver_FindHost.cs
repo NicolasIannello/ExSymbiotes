@@ -1,10 +1,12 @@
-﻿using RimWorld;
+﻿using ExSymbiotes.Utils;
+using RimWorld;
 using Verse;
 using Verse.AI;
+using Verse.AI.Group;
 
 namespace ExSymbiotes
 {
-    public class JobGiver_PasiveSymbiosis : JobGiver_AIFightEnemy
+    public class JobGiver_FindHost : JobGiver_AIFightEnemy
     {
         private AbilityDef ability;
         private bool skipIfCantTargetNow = true;
@@ -13,7 +15,7 @@ namespace ExSymbiotes
         
         public override ThinkNode DeepCopy(bool resolve = true)
         {
-            JobGiver_PasiveSymbiosis giverAiAbilityFight = (JobGiver_PasiveSymbiosis) base.DeepCopy(resolve);
+            JobGiver_FindHost giverAiAbilityFight = (JobGiver_FindHost) base.DeepCopy(resolve);
             giverAiAbilityFight.ability = this.ability;
             giverAiAbilityFight.skipIfCantTargetNow = this.skipIfCantTargetNow;
             return (ThinkNode) giverAiAbilityFight;
@@ -47,7 +49,7 @@ namespace ExSymbiotes
 
         protected override bool ExtraTargetValidator(Pawn pawn, Thing target)
         {
-            return base.ExtraTargetValidator(pawn, target) && this.CanTarget(pawn, target);
+            return target is Pawn;
         }
 
         private bool CanTarget(Pawn pawn, Thing target)
@@ -59,5 +61,32 @@ namespace ExSymbiotes
                 return false;
             return !this.skipIfCantTargetNow || ability.AICanTargetNow((LocalTargetInfo) target);
         }
+        
+        protected override Thing FindAttackTarget(Pawn pawn)
+        {
+            Lord lord = LordUtility.GetLord(pawn);
+            pawn.GetLord();           
+            Verb verb = pawn.CurrentEffectiveVerb;
+
+            Thing closestPawn = GenClosest.ClosestThing_Global(pawn.Position, pawn.Map.mapPawns.AllPawns, 9999f, thing =>
+            {
+                Pawn target = thing as Pawn;
+                if (target == null) return false;
+
+                if (target.Faction == pawn.Faction) return false;
+                
+                if (lord != null && !lord.LordJob.ValidateAttackTarget(pawn, target)) return false;
+                
+                if (target.IsBurning()) return false;
+
+                bool reachable = SymbioteUtility.TargetFinder.CanReach(pawn, target, canBashDoors: false, canBashFences: false);
+                bool canShoot = SymbioteUtility.TargetFinder.CanShootAtFromCurrentPosition(target, pawn, verb);
+
+                return reachable || canShoot;
+            });
+
+            return closestPawn;
+        }
+        
     }
 }
