@@ -23,8 +23,8 @@
                 </li>
 
                 <li Class="ExSymbiotes.JobGiver_FindHost">
-                    <targetAcquireRadius>50</targetAcquireRadius>
-                    <targetKeepRadius>60</targetKeepRadius>
+                    <targetAcquireRadius>65</targetAcquireRadius>
+                    <targetKeepRadius>72</targetKeepRadius>
                     <ability>ExSymbiotes_SymbiosisLeap</ability>
                 </li>
                 

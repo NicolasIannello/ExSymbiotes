@@ -178,7 +178,7 @@
         <verbProperties>
             <verbClass>Verb_CastAbilityConsumeLeap</verbClass>
             <label>consume leap</label>
-            <range>9.9</range>
+            <range>7</range>
             <requireLineOfSight>true</requireLineOfSight>
             <warmupTime>0.10</warmupTime>
             <soundCast>Pawn_Devourer_Jump</soundCast>
