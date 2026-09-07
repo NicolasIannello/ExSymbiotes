@@ -5,6 +5,7 @@ using RimWorld;
 using UnityEngine;
 using Verse;
 using Verse.AI;
+using Verse.AI.Group;
 
 namespace ExSymbiotes
 {
@@ -232,5 +233,33 @@ namespace ExSymbiotes
           return;
         this.innerContainer.removeContentsIfDestroyed = false;
       }
+      
+      public override IEnumerable<Gizmo> CompGetGizmosExtra()
+      {
+        IEnumerable<Gizmo> compGetGizmos = base.CompGetGizmosExtra();
+        if (compGetGizmos != null) foreach (Gizmo gizmo in compGetGizmos) yield return gizmo;
+
+        if (DebugSettings.ShowDevGizmos)
+        {
+          Command_Action commandAction = new Command_Action();
+          commandAction.defaultLabel = "DEV: Switch defend/attack mode";
+          commandAction.action = (Action) (() =>
+          {
+            Lord lord = this.Pawn.GetLord();
+            if (lord == null)
+            {
+              lord = LordMaker.MakeNewLord(Find.FactionManager.FirstFactionOfDef(ExSymbiotesDefOf.ExSymbiotes_Symbiotes), (LordJob) new LordJob_SymbioteMass(), this.Pawn.Map, (IEnumerable<Pawn>) new List<Pawn>()
+              {
+                this.Pawn
+              });
+            }
+            if (!(lord.LordJob is LordJob_SymbioteMass lordJob2))
+              return;
+            lordJob2.SwitchMode();
+          });
+          yield return (Gizmo) commandAction;
+        }
+      }
+
     }
 }
