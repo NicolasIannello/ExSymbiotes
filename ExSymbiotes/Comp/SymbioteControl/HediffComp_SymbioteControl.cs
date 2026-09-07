@@ -62,7 +62,7 @@ namespace ExSymbiotes
 
         public void AddThing(Thing thing)
         {
-            Lord symbioteLord = LordUtility.GetLord((Pawn)thing);
+            Lord symbioteLord = ((Pawn)thing).GetLord();
             color = thing.def == ExSymbiotesDefOf.ExSymbiotes_Symbiote ? blue : red;
             
             thing.DeSpawn(DestroyMode.Vanish);

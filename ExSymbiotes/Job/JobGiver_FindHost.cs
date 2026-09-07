@@ -64,7 +64,7 @@ namespace ExSymbiotes
         
         protected override Thing FindAttackTarget(Pawn pawn)
         {
-            Lord lord = LordUtility.GetLord(pawn);
+            Lord lord = pawn.GetLord();
             pawn.GetLord();           
             Verb verb = pawn.CurrentEffectiveVerb;
 
