@@ -19,16 +19,16 @@ namespace ExSymbiotes.Utils
                 groupKind = group,
                 tile = map.Tile,
                 faction = Find.FactionManager.FirstFactionOfDef(ExSymbiotesDefOf.ExSymbiotes_Symbiotes),
-                points = (double) points > 0.0 ? points : StorytellerUtility.DefaultThreatPointsNow((IIncidentTarget) map)
+                points = points
             };
             parms.points = Mathf.Max(parms.points, parms.faction.def.MinPointsToGeneratePawnGroup(parms.groupKind) * 1.05f);
             return PawnGroupMakerUtility.GeneratePawns(parms).ToList<Pawn>();
         }
 
-        public static void SymbioteHorde(Map map, Building_SymbioteMass mass, bool first = false)//chimera lord job
+        public static void SymbioteHorde(Map map, Building_SymbioteMass mass, float points, string label, string text)
         {
             PawnGroupKindDef group = mass.texture == 0 ? ExSymbiotesDefOf.ExSymbiotes_Symbiote_PawnGroupKind : ExSymbiotesDefOf.ExSymbiotes_Symbiote_PawnGroupKindRed;
-            List<Pawn> fleshbeastsForPoints = GetSymbiotesForPoints(StorytellerUtility.DefaultThreatPointsNow(map), map, group);
+            List<Pawn> fleshbeastsForPoints = GetSymbiotesForPoints(points, map, group);
             List<PawnFlyer> source = new List<PawnFlyer>();
             List<IntVec3> spawnPositions = new List<IntVec3>();
             CellRect cellRect = GenAdj.OccupiedRect(mass.Position, Rot4.North, ThingDefOf.PitGate.Size).ContractedBy(2);
@@ -51,12 +51,7 @@ namespace ExSymbiotes.Utils
             mass.TakeDamage(new DamageInfo(DamageDefOf.Blunt, 1500));
             EffecterDefOf.VoidNodeDisrupted.SpawnMaintained(mass, map);
             EffecterDefOf.VoidStructureActivated.Spawn(mass, map);
-            Find.LetterStack.ReceiveLetter(
-                first ? "ExSymbiotes.LabelSymbioteHorde".Translate() : "ExSymbiotes.LabelSymbioteHorde2".Translate(),
-                first ? "ExSymbiotes.TextSymbioteHorde".Translate() : "ExSymbiotes.TextSymbioteHorde2".Translate(),
-                LetterDefOf.ThreatBig,
-                new TargetInfo(mass.Position, map)
-            );
+            Find.LetterStack.ReceiveLetter(label.Translate(), text.Translate(), LetterDefOf.ThreatBig, new TargetInfo(mass.Position, map));
         }
         
         public static void MeatSplatter(
