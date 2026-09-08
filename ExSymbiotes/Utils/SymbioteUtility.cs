@@ -43,10 +43,9 @@ namespace ExSymbiotes.Utils
                 spawnPositions.Add(randomCell);
             }
             float intervalSeconds = 600.TicksToSeconds() / (float) fleshbeastsForPoints.Count;
-            Lord lordSymbiote = GetSymbioteLord(map);
             map.deferredSpawner.AddRequest(new SpawnRequest(source.Cast<Thing>().ToList<Thing>(), spawnPositions, 1, intervalSeconds)
             {
-                lord = lordSymbiote!=null ? lordSymbiote : LordMaker.MakeNewLord(Find.FactionManager.FirstFactionOfDef(ExSymbiotesDefOf.ExSymbiotes_Symbiotes), (LordJob) new LordJob_SymbioteMass(), map)
+                lord = GetSymbioteLord(map)
             });
             SoundDefOf.Pawn_Fleshbeast_EmergeFromPitGate.PlayOneShot((SoundInfo) (Thing) mass);
             mass.TakeDamage(new DamageInfo(DamageDefOf.Blunt, 1500));
@@ -61,7 +60,7 @@ namespace ExSymbiotes.Utils
             { 
                 if (lord.LordJob is LordJob_SymbioteMass) return lord;
             }
-            return null;
+            return LordMaker.MakeNewLord(Find.FactionManager.FirstFactionOfDef(ExSymbiotesDefOf.ExSymbiotes_Symbiotes), (LordJob) new LordJob_SymbioteMass(), map);
         }
         
         public static void MeatSplatter(

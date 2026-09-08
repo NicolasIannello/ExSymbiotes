@@ -242,17 +242,13 @@ namespace ExSymbiotes
         if (DebugSettings.ShowDevGizmos)
         {
           Command_Action commandAction = new Command_Action();
-          commandAction.defaultLabel = "DEV: Switch defend/attack mode";
+          commandAction.defaultLabel = "DEV: Switch stalk/attack mode";
           commandAction.action = (Action) (() =>
           {
             Lord lord = this.Pawn.GetLord();
             if (lord == null || !(lord.LordJob is LordJob_SymbioteMass))
             {
               Lord lordSymbiote = SymbioteUtility.GetSymbioteLord(this.Pawn.Map);
-              if(lordSymbiote == null)
-              {
-                lordSymbiote = LordMaker.MakeNewLord(Find.FactionManager.FirstFactionOfDef(ExSymbiotesDefOf.ExSymbiotes_Symbiotes), (LordJob)new LordJob_SymbioteMass(), this.Pawn.Map);
-              }
               Pawn.lord.RemovePawn(this.Pawn);
               lordSymbiote.AddPawn(this.Pawn);
             }
