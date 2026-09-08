@@ -1,7 +1,11 @@
-﻿using UnityEngine;
+﻿using System;
+using System.Collections.Generic;
+using ExSymbiotes.Utils;
+using UnityEngine;
 using Verse;
 using Verse.Sound;
 using RimWorld;
+using Verse.AI.Group;
 
 namespace ExSymbiotes
 {
@@ -18,11 +22,21 @@ namespace ExSymbiotes
     private bool study = false;
     private bool red = false;
     public int texture = 0;
+    private Lord defendHeartLord;
     private Graphic CenterPartGraphic
     {
       get
       {
         return this.cachedCenterPartGraphic ?? (this.cachedCenterPartGraphic = GraphicDatabase.Get<Graphic_Multi>(texture==0 ? "Things/Buildings/SymbioteMass/SymbioteMass" : "Things/Buildings/SymbioteMass/SymbioteMassRed", ShaderDatabase.Cutout, (Vector2) Building_SymbioteMass.PartDrawSize, Color.white));
+      }
+    }
+    public Lord DefendHeartLord
+    {
+      get
+      {
+        if (this.defendHeartLord == null)
+          this.defendHeartLord = SymbioteUtility.GetSymbioteLord(this.Map);
+        return this.defendHeartLord;
       }
     }
 
@@ -32,6 +46,7 @@ namespace ExSymbiotes
       Scribe_Values.Look<int>(ref this.bpmAccel, "bpmAccel");
       Scribe_Values.Look<int>(ref this.bpm, "bpm");
       Scribe_Values.Look<int>(ref this.overloadTick, "overloadTick");
+      Scribe_References.Look<Lord>(ref this.defendHeartLord, "defendHeartLord");
     }
 
     public override void SpawnSetup(Map map, bool respawningAfterLoad)
@@ -138,6 +153,29 @@ namespace ExSymbiotes
       this.overloadTick = Find.TickManager.TicksGame + EffecterDefOf.TachycardiacArrest.maintainTicks;
       EffecterDefOf.TachycardiacArrest.SpawnMaintained(this.Position, this.Map);
       Messages.Message((string) "ExSymbiotes.MessageRedMass".Translate(), (LookTargets) (Thing) this, MessageTypeDefOf.NegativeEvent);
+    }
+    
+    public override void PostSwapMap()
+    {
+      base.PostSwapMap();
+      this.defendHeartLord = (Lord) null;
+    }
+
+    public override IEnumerable<Gizmo> GetGizmos()
+    {
+      IEnumerable<Gizmo> compGetGizmos = base.GetGizmos();
+      if (compGetGizmos != null) foreach (Gizmo gizmo in compGetGizmos) yield return gizmo;
+
+      if (DebugSettings.ShowDevGizmos)
+      {
+        Command_Action commandAction = new Command_Action();
+        commandAction.defaultLabel = "DEV: Defend";
+        commandAction.action = (Action) (() =>
+        {
+          ((LordJob_SymbioteMass)DefendHeartLord.LordJob).DefendMode(this.Position);
+        });
+        yield return (Gizmo) commandAction;
+      }
     }
   }
 }

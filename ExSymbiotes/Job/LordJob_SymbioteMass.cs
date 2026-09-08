@@ -17,7 +17,9 @@ namespace ExSymbiotes
       private const int MinTicksFleeing = 2500;
       public const string StalkToAttackMemo = "StalkToAttack";
       private const string AttackToStalkMemo = "AttackToStalk";
-
+      private const string ToDefendMemo = "ToDefend";
+      private const string DefendToAttackMemo = "DefendToAttackMemo";
+      private LordToil_DefendPoint toilChimeraDefend;
       private bool InAttackMode => this.lord.CurLordToil is LordToil_ChimeraAttack;
 
       private bool CanSwitchMode
@@ -49,6 +51,35 @@ namespace ExSymbiotes
         })));
         transition2.triggers.Add((Trigger) new Trigger_Memo(AttackToStalkMemo));
         graph.AddTransition(transition2);
+        
+        toilChimeraDefend = new LordToil_DefendPoint();
+        graph.AddToil((LordToil) toilChimeraDefend);
+        Transition transition3 = new Transition((LordToil) toilChimeraAttack, (LordToil) toilChimeraDefend);
+        transition3.AddPostAction((TransitionAction) new TransitionAction_Custom((Action) (() =>
+        {
+          this.currentModeStartedTick = Find.TickManager.TicksGame;
+          this.SendModeChangeMessage((string) "MessageChimeraDefending".Translate());
+        })));
+        transition3.triggers.Add((Trigger) new Trigger_Memo(ToDefendMemo));
+        graph.AddTransition(transition3);
+        Transition transition4 = new Transition((LordToil) toilChimeraStalk, (LordToil) toilChimeraDefend);
+        transition4.AddPostAction((TransitionAction) new TransitionAction_Custom((Action) (() =>
+        {
+          this.currentModeStartedTick = Find.TickManager.TicksGame;
+          this.SendModeChangeMessage((string) "MessageChimeraDefending".Translate());
+        })));
+        transition4.triggers.Add((Trigger) new Trigger_Memo(ToDefendMemo));
+        graph.AddTransition(transition4);
+        Transition transition5 = new Transition((LordToil) toilChimeraDefend, (LordToil) toilChimeraAttack);
+        transition5.AddPostAction((TransitionAction) new TransitionAction_Custom((Action) (() =>
+        {
+          this.currentModeStartedTick = Find.TickManager.TicksGame;
+          this.SendAttackingLetter();
+        })));
+        transition5.triggers.Add((Trigger) new Trigger_Memo(DefendToAttackMemo));
+        transition5.triggers.Add((Trigger) new LordJob_SymbioteMass.Trigger_SymbioteHarmed(requireInstigatorWithFaction: true, skipDuty: DutyDefOf.ChimeraStalkFlee, minTicks: new int?(MinTicksFleeing)));
+        graph.AddTransition(transition5);
+        
         return graph;
       }
 
@@ -86,11 +117,25 @@ namespace ExSymbiotes
           case LordToil_ChimeraAttack _:
             this.lord.ReceiveMemo(AttackToStalkMemo);
             break;
+          case LordToil_DefendPoint _:
+            this.lord.ReceiveMemo(DefendToAttackMemo);
+            break;
           default:
             Log.Error($"Symbiote lord job tried switching from a toil which is not handled {this.lord.CurLordToil}");
             break;
         }
         this.currentModeStartedTick = Find.TickManager.TicksGame;
+      }
+
+      public void DefendMode(IntVec3 defendPoint)
+      {
+        if (this.lord == null)
+          return;
+        
+        toilChimeraDefend.SetDefendPoint(defendPoint);
+        
+        if(this.lord.CurLordToil is LordToil_DefendPoint) toilChimeraDefend.UpdateAllDuties();
+        else this.lord.ReceiveMemo(ToDefendMemo);
       }
 
       public override void Notify_PawnDowned(Pawn p)
