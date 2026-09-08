@@ -23,6 +23,9 @@ namespace ExSymbiotes
     private bool red = false;
     public int texture = 0;
     private Lord defendHeartLord;
+    private float damageTaken = 0;
+    private int damageLoop = 0;
+    private int defendTick = -99999;
     private Graphic CenterPartGraphic
     {
       get
@@ -46,6 +49,7 @@ namespace ExSymbiotes
       Scribe_Values.Look<int>(ref this.bpmAccel, "bpmAccel");
       Scribe_Values.Look<int>(ref this.bpm, "bpm");
       Scribe_Values.Look<int>(ref this.overloadTick, "overloadTick");
+      Scribe_Values.Look<int>(ref this.defendTick, "defendTick");
       Scribe_References.Look<Lord>(ref this.defendHeartLord, "defendHeartLord");
     }
 
@@ -105,8 +109,34 @@ namespace ExSymbiotes
       if (this.overloadTick > 0 && Find.TickManager.TicksGame > this.overloadTick)
         this.Kill(new DamageInfo?(), (Hediff) null);
       Thing.allowDestroyNonDestroyable = false;
+
+      if (this.IsHashIntervalTick(300) && Find.TickManager.TicksGame > this.defendTick)
+      {
+        if (damageTaken > 0)
+        {
+          if (damageTaken>500 || damageLoop > 2) DefendMode();
+          damageLoop++;
+        }
+        else if (damageLoop > 0) damageLoop--;
+        damageTaken = 0;
+      }
     }
 
+    public void DefendMode()
+    {
+      ((LordJob_SymbioteMass)DefendHeartLord.LordJob).DefendMode(this.Position);
+      damageLoop = 0;
+      defendTick = Find.TickManager.TicksGame + 15000;
+    }
+
+    public override void PostApplyDamage(DamageInfo dinfo, float totalDamageDealt)
+    {
+      base.PostApplyDamage(dinfo, totalDamageDealt);
+      if (!this.Spawned)
+        return;
+      damageTaken += totalDamageDealt;
+    }
+    
     private void Beat()
     {
       this.lastBeatTick = Find.TickManager.TicksGame;
