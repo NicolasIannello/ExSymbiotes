@@ -42,7 +42,7 @@
 				<messageDigested>A symbiote swallowed {PAWN_nameDef} whole! Kill the symbiote before it takes control over {PAWN_nameDef}.</messageDigested>
 				<messageEmerged>{PAWN_nameDef} emerged from the symbiote.</messageEmerged>
 				<messageEmergedCorpse>{PAWN_nameDef} emerged from the symbiote's corpse.</messageEmergedCorpse>
-				<messageDigestionCompleted>The symbiote has regurgitated {PAWN_nameDef}.</messageDigestionCompleted>
+				<messageDigestionCompleted>The symbiote has taken control over {PAWN_nameDef}.</messageDigestionCompleted>
 				<digestingInspector>Controling {PAWN_nameDef}: {SECONDS} seconds left</digestingInspector>
 				<messageRetaliate>The symbiote inside {PAWN_nameDef} retaliates towards the controlling attemp.</messageRetaliate>
 				<digestTime>20</digestTime>
