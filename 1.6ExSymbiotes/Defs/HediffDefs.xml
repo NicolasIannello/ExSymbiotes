@@ -472,6 +472,7 @@
         </stages>
         <renderNodeProperties>
             <li Class="PawnRenderNodeProperties_Spastic">
+                <pawnType>HumanlikeOnly</pawnType>
                 <texPaths>
                     <li>Things/Pawn/Humanlike/BodyAttachments/FleshWhipLimb/FleshWhipLimbD</li>
                 </texPaths>
@@ -512,6 +513,7 @@
                 </drawData>
             </li>
             <li Class="PawnRenderNodeProperties_Spastic">
+                <pawnType>HumanlikeOnly</pawnType>
                 <texPaths>
                     <li>Things/Pawn/Humanlike/BodyAttachments/FleshWhipLimb/FleshWhipLimbD</li>
                 </texPaths>
@@ -552,6 +554,7 @@
                 </drawData>
             </li>
             <li Class="PawnRenderNodeProperties_Spastic">
+                <pawnType>HumanlikeOnly</pawnType>
                 <texPaths>
                     <li>Things/Pawn/Humanlike/BodyAttachments/FleshWhipLimb/FleshWhipLimbC</li>
                 </texPaths>
@@ -592,6 +595,7 @@
                 </drawData>
             </li>
             <li Class="PawnRenderNodeProperties_Spastic">
+                <pawnType>HumanlikeOnly</pawnType>
                 <texPaths>
                     <li>Things/Pawn/Humanlike/BodyAttachments/FleshWhipLimb/FleshWhipLimbC</li>
                 </texPaths>
@@ -599,6 +603,171 @@
                 <overrideMeshSize>1</overrideMeshSize>
                 <drawSize>2</drawSize>
                 <colorType>Skin</colorType>
+                <rotDrawMode>Fresh, Rotting</rotDrawMode>
+                <useSkinShader>true</useSkinShader>
+                <useRottenColor>true</useRottenColor>
+                <rotationRange>-15~15</rotationRange>
+                <durationTicksRange>10~35</durationTicksRange>
+                <nextSpasmTicksRange>10~50</nextSpasmTicksRange>
+                <drawData>
+                    <scaleOffsetByBodySize>true</scaleOffsetByBodySize>
+                    <dataSouth>
+                        <offset>(-0.1, 0, -0.05)</offset>
+                        <rotationOffset>-90</rotationOffset>
+                        <layer>0</layer>
+                        <flip>true</flip>
+                    </dataSouth>
+                    <dataNorth>
+                        <offset>(0.05, 0, -0.05)</offset>
+                        <rotationOffset>-90</rotationOffset>
+                        <layer>100</layer>
+                    </dataNorth>
+                    <dataEast>
+                        <offset>(-0.1, 0, -0.05)</offset>
+                        <rotationOffset>-180</rotationOffset>
+                        <layer>0</layer>
+                        <flip>true</flip>
+                    </dataEast>
+                    <dataWest>
+                        <offset>(0.1, 0, -0.05)</offset>
+                        <rotationOffset>-180</rotationOffset>
+                        <layer>91</layer>
+                    </dataWest>
+                </drawData>
+            </li>
+            <!-- non human -->
+            <li Class="PawnRenderNodeProperties_Spastic">
+                <pawnType>NonHumanlikeOnly</pawnType>
+                <scaleOffsetByBodySize>true</scaleOffsetByBodySize>
+                <texPaths>
+                    <li>Things/Pawn/Humanlike/BodyAttachments/FleshWhipLimb/FleshWhipLimbD</li>
+                </texPaths>
+                <parentTagDef>Body</parentTagDef>
+                <overrideMeshSize>1</overrideMeshSize>
+                <drawSize>2</drawSize>
+                <rotDrawMode>Fresh, Rotting</rotDrawMode>
+                <useSkinShader>true</useSkinShader>
+                <useRottenColor>true</useRottenColor>
+                <rotationRange>-15~15</rotationRange>
+                <durationTicksRange>10~35</durationTicksRange>
+                <nextSpasmTicksRange>10~50</nextSpasmTicksRange>
+                <drawData>
+                    <scaleOffsetByBodySize>true</scaleOffsetByBodySize>
+                    <dataSouth>
+                        <offset>(-0.1, 0, 0.05)</offset>
+                        <rotationOffset>-45</rotationOffset>
+                        <layer>0</layer>
+                    </dataSouth>
+                    <dataNorth>
+                        <offset>(0.1, 0, 0.05)</offset>
+                        <rotationOffset>-225</rotationOffset>
+                        <layer>100</layer>
+                        <flip>true</flip>
+                    </dataNorth>
+                    <dataEast>
+                        <offset>(-0.1, 0, 0.05)</offset>
+                        <rotationOffset>-90</rotationOffset>
+                        <layer>90</layer>
+                        <flip>true</flip>
+                    </dataEast>
+                    <dataWest>
+                        <offset>(0.1, 0, 0.05)</offset>
+                        <rotationOffset>-90</rotationOffset>
+                        <layer>0</layer>
+                    </dataWest>
+                </drawData>
+            </li>
+            <li Class="PawnRenderNodeProperties_Spastic">
+                <pawnType>NonHumanlikeOnly</pawnType>
+                <scaleOffsetByBodySize>true</scaleOffsetByBodySize>
+                <texPaths>
+                    <li>Things/Pawn/Humanlike/BodyAttachments/FleshWhipLimb/FleshWhipLimbD</li>
+                </texPaths>
+                <parentTagDef>Body</parentTagDef>
+                <overrideMeshSize>1</overrideMeshSize>
+                <drawSize>2</drawSize>
+                <rotDrawMode>Fresh, Rotting</rotDrawMode>
+                <useSkinShader>true</useSkinShader>
+                <useRottenColor>true</useRottenColor>
+                <rotationRange>-15~15</rotationRange>
+                <durationTicksRange>10~35</durationTicksRange>
+                <nextSpasmTicksRange>10~50</nextSpasmTicksRange>
+                <drawData>
+                    <scaleOffsetByBodySize>true</scaleOffsetByBodySize>
+                    <dataSouth>
+                        <offset>(0.1, 0, 0.05)</offset>
+                        <rotationOffset>-45</rotationOffset>
+                        <layer>0</layer>
+                        <flip>true</flip>
+                    </dataSouth>
+                    <dataNorth>
+                        <offset>(-0.1, 0, 0.05)</offset>
+                        <rotationOffset>-225</rotationOffset>
+                        <layer>101</layer>
+                    </dataNorth>
+                    <dataEast>
+                        <offset>(-0.1, 0, 0.05)</offset>
+                        <rotationOffset>-90</rotationOffset>
+                        <layer>0</layer>
+                        <flip>true</flip>
+                    </dataEast>
+                    <dataWest>
+                        <offset>(0.1, 0, 0.05)</offset>
+                        <rotationOffset>-90</rotationOffset>
+                        <layer>90</layer>
+                    </dataWest>
+                </drawData>
+            </li>
+            <li Class="PawnRenderNodeProperties_Spastic">
+                <pawnType>NonHumanlikeOnly</pawnType>
+                <scaleOffsetByBodySize>true</scaleOffsetByBodySize>
+                <texPaths>
+                    <li>Things/Pawn/Humanlike/BodyAttachments/FleshWhipLimb/FleshWhipLimbC</li>
+                </texPaths>
+                <parentTagDef>Body</parentTagDef>
+                <overrideMeshSize>1</overrideMeshSize>
+                <drawSize>2</drawSize>
+                <rotDrawMode>Fresh, Rotting</rotDrawMode>
+                <useSkinShader>true</useSkinShader>
+                <useRottenColor>true</useRottenColor>
+                <rotationRange>-15~15</rotationRange>
+                <durationTicksRange>10~35</durationTicksRange>
+                <nextSpasmTicksRange>10~50</nextSpasmTicksRange>
+                <drawData>
+                    <scaleOffsetByBodySize>true</scaleOffsetByBodySize>
+                    <dataSouth>
+                        <offset>(0.1, 0, -0.05)</offset>
+                        <rotationOffset>-90</rotationOffset>
+                        <layer>0</layer>
+                    </dataSouth>
+                    <dataNorth>
+                        <offset>(-0.05, 0, -0.05)</offset>
+                        <rotationOffset>-90</rotationOffset>
+                        <layer>100</layer>
+                        <flip>true</flip>
+                    </dataNorth>
+                    <dataEast>
+                        <offset>(-0.1, 0, -0.05)</offset>
+                        <rotationOffset>-180</rotationOffset>
+                        <layer>91</layer>
+                        <flip>true</flip>
+                    </dataEast>
+                    <dataWest>
+                        <offset>(0.1, 0, -0.05)</offset>
+                        <rotationOffset>-180</rotationOffset>
+                        <layer>0</layer>
+                    </dataWest>
+                </drawData>
+            </li>
+            <li Class="PawnRenderNodeProperties_Spastic">
+                <pawnType>NonHumanlikeOnly</pawnType>
+                <scaleOffsetByBodySize>true</scaleOffsetByBodySize>
+                <texPaths>
+                    <li>Things/Pawn/Humanlike/BodyAttachments/FleshWhipLimb/FleshWhipLimbC</li>
+                </texPaths>
+                <parentTagDef>Body</parentTagDef>
+                <overrideMeshSize>1</overrideMeshSize>
+                <drawSize>2</drawSize>
                 <rotDrawMode>Fresh, Rotting</rotDrawMode>
                 <useSkinShader>true</useSkinShader>
                 <useRottenColor>true</useRottenColor>
