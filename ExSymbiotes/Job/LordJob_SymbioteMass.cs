@@ -12,6 +12,7 @@ namespace ExSymbiotes
       private int currentModeStartedTick;
       private const float StalkToAttackMTBDays = 0.7f;
       private const float AttackToStalkMTBHours = 6f;
+      private const float DefendToAttackMTBHours = 10f;
       private const float ChanceToFleeOnDown = 0.0f;
       private const float MinTimeInModeTicks = 7500f;
       private const int MinTicksFleeing = 2500;
@@ -21,7 +22,7 @@ namespace ExSymbiotes
       private const string DefendToAttackMemo = "DefendToAttackMemo";
       private LordToil_DefendPoint toilChimeraDefend;
       private bool InAttackMode => this.lord.CurLordToil is LordToil_ChimeraAttack;
-
+      private bool InDefendMode => this.lord.CurLordToil is LordToil_DefendPoint;
       private bool CanSwitchMode
       {
         get => (double) (Find.TickManager.TicksGame - this.currentModeStartedTick) > MinTimeInModeTicks;
@@ -47,7 +48,7 @@ namespace ExSymbiotes
         transition2.AddPostAction((TransitionAction) new TransitionAction_Custom((Action) (() =>
         {
           this.currentModeStartedTick = Find.TickManager.TicksGame;
-          this.SendModeChangeMessage((string) "MessageChimeraWithdrawing".Translate());
+          this.SendModeChangeMessage((string) "MessageSymbioteWithdrawing".Translate());
         })));
         transition2.triggers.Add((Trigger) new Trigger_Memo(AttackToStalkMemo));
         graph.AddTransition(transition2);
@@ -58,7 +59,7 @@ namespace ExSymbiotes
         transition3.AddPostAction((TransitionAction) new TransitionAction_Custom((Action) (() =>
         {
           this.currentModeStartedTick = Find.TickManager.TicksGame;
-          this.SendModeChangeMessage((string) "MessageChimeraDefending".Translate());
+          this.SendModeChangeMessage((string) "MessageSymbioteDefending".Translate());
         })));
         transition3.triggers.Add((Trigger) new Trigger_Memo(ToDefendMemo));
         graph.AddTransition(transition3);
@@ -66,7 +67,7 @@ namespace ExSymbiotes
         transition4.AddPostAction((TransitionAction) new TransitionAction_Custom((Action) (() =>
         {
           this.currentModeStartedTick = Find.TickManager.TicksGame;
-          this.SendModeChangeMessage((string) "MessageChimeraDefending".Translate());
+          this.SendModeChangeMessage((string) "MessageSymbioteDefending".Translate());
         })));
         transition4.triggers.Add((Trigger) new Trigger_Memo(ToDefendMemo));
         graph.AddTransition(transition4);
@@ -96,6 +97,10 @@ namespace ExSymbiotes
         if (this.InAttackMode && Rand.MTBEventOccurs(AttackToStalkMTBHours, 2500f, 1f))
         {
           this.lord.ReceiveMemo(AttackToStalkMemo);
+        }
+        else if (this.InDefendMode && Rand.MTBEventOccurs(DefendToAttackMTBHours, 2500f, 1f))
+        {
+          this.lord.ReceiveMemo(DefendToAttackMemo);
         }
         else
         {
@@ -157,14 +162,14 @@ namespace ExSymbiotes
       {
         if (this.NoActivePawns())
           return;
-        Messages.Message((string) (this.lord.ownedPawns.Count > 1 ? "MessageChimeraModeChangePlural".Translate((NamedArgument) verb) : "MessageChimeraModeChangeSingular".Translate((NamedArgument) verb)), new LookTargets((IEnumerable<Pawn>) this.lord.ownedPawns), MessageTypeDefOf.NeutralEvent);
+        Messages.Message((string) (this.lord.ownedPawns.Count > 1 ? "MessageSymbioteModeChangePlural".Translate((NamedArgument) verb) : "MessageSymbioteModeChangeSingular".Translate((NamedArgument) verb)), new LookTargets((IEnumerable<Pawn>) this.lord.ownedPawns), MessageTypeDefOf.NeutralEvent);
       }
 
       private void SendAttackingLetter()
       {
         if (this.NoActivePawns())
           return;
-        Find.LetterStack.ReceiveLetter("LetterChimerasAttackingLabel".Translate(), "LetterChimerasAttacking".Translate(), LetterDefOf.ThreatBig, new LookTargets((IEnumerable<Pawn>) this.lord.ownedPawns));
+        Find.LetterStack.ReceiveLetter("LetterSymbiotesAttackingLabel".Translate(), "LetterSymbiotesAttacking".Translate(), LetterDefOf.ThreatBig, new LookTargets((IEnumerable<Pawn>) this.lord.ownedPawns));
       }
 
       private bool NoActivePawns()

@@ -12,4 +12,11 @@
     <ExSymbiotes.AbilityDisabledNoSymbiosis>{0_labelShort} does not have enough symbiosis.</ExSymbiotes.AbilityDisabledNoSymbiosis>
     <ExSymbiotes.AbilitySymbiosisCost>Symbiosis cost</ExSymbiotes.AbilitySymbiosisCost>
     <ExSymbiotes.SymbioticMassMutation>Requires {0} shards to mutate</ExSymbiotes.SymbioticMassMutation>
+
+    <MessageSymbioteModeChangeSingular>The symbiote is {0}</MessageSymbioteModeChangeSingular>
+    <MessageSymbioteModeChangePlural>The symbiotes are {0}</MessageSymbioteModeChangePlural>
+    <MessageSymbioteWithdrawing>temporarily withdrawing.</MessageSymbioteWithdrawing>
+    <LetterSymbiotesAttackingLabel>Symbiotes attacking</LetterSymbiotesAttackingLabel>
+    <LetterSymbiotesAttacking>The symbiotes have begun their attack!</LetterSymbiotesAttacking>
+    <MessageSymbioteDefending>defending the symbiote mass!</MessageSymbioteDefending>
 </LanguageData>
