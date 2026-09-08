@@ -638,7 +638,6 @@
             <!-- non human -->
             <li Class="PawnRenderNodeProperties_Spastic">
                 <pawnType>NonHumanlikeOnly</pawnType>
-                <scaleOffsetByBodySize>true</scaleOffsetByBodySize>
                 <texPaths>
                     <li>Things/Pawn/Humanlike/BodyAttachments/FleshWhipLimb/FleshWhipLimbD</li>
                 </texPaths>
@@ -679,7 +678,6 @@
             </li>
             <li Class="PawnRenderNodeProperties_Spastic">
                 <pawnType>NonHumanlikeOnly</pawnType>
-                <scaleOffsetByBodySize>true</scaleOffsetByBodySize>
                 <texPaths>
                     <li>Things/Pawn/Humanlike/BodyAttachments/FleshWhipLimb/FleshWhipLimbD</li>
                 </texPaths>
@@ -720,7 +718,6 @@
             </li>
             <li Class="PawnRenderNodeProperties_Spastic">
                 <pawnType>NonHumanlikeOnly</pawnType>
-                <scaleOffsetByBodySize>true</scaleOffsetByBodySize>
                 <texPaths>
                     <li>Things/Pawn/Humanlike/BodyAttachments/FleshWhipLimb/FleshWhipLimbC</li>
                 </texPaths>
@@ -761,7 +758,6 @@
             </li>
             <li Class="PawnRenderNodeProperties_Spastic">
                 <pawnType>NonHumanlikeOnly</pawnType>
-                <scaleOffsetByBodySize>true</scaleOffsetByBodySize>
                 <texPaths>
                     <li>Things/Pawn/Humanlike/BodyAttachments/FleshWhipLimb/FleshWhipLimbC</li>
                 </texPaths>
