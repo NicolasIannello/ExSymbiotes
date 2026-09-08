@@ -246,20 +246,20 @@ namespace ExSymbiotes
           commandAction.action = (Action) (() =>
           {
             Lord lord = this.Pawn.GetLord();
-            if (lord == null)
+            if (lord == null || !(lord.LordJob is LordJob_SymbioteMass))
             {
-              lord = LordMaker.MakeNewLord(Find.FactionManager.FirstFactionOfDef(ExSymbiotesDefOf.ExSymbiotes_Symbiotes), (LordJob) new LordJob_SymbioteMass(), this.Pawn.Map, (IEnumerable<Pawn>) new List<Pawn>()
+              Lord lordSymbiote = SymbioteUtility.GetSymbioteLord(this.Pawn.Map);
+              if(lordSymbiote == null)
               {
-                this.Pawn
-              });
+                lordSymbiote = LordMaker.MakeNewLord(Find.FactionManager.FirstFactionOfDef(ExSymbiotesDefOf.ExSymbiotes_Symbiotes), (LordJob)new LordJob_SymbioteMass(), this.Pawn.Map);
+              }
+              Pawn.lord.RemovePawn(this.Pawn);
+              lordSymbiote.AddPawn(this.Pawn);
             }
-            if (!(lord.LordJob is LordJob_SymbioteMass lordJob2))
-              return;
-            lordJob2.SwitchMode();
+            ((LordJob_SymbioteMass)this.Pawn.GetLord().LordJob).SwitchMode();
           });
           yield return (Gizmo) commandAction;
         }
       }
-
     }
 }
