@@ -67,7 +67,7 @@ namespace ExSymbiotes
           subject = null;
         }
 
-        if(this.Pawn.IsHashIntervalTick(120) && this.Pawn.IsBurning() && this.Digesting && Rand.RangeInclusive(1, 3)==1) this.AbortDigestion(this.Pawn.MapHeld);
+        if(this.Pawn.IsHashIntervalTick(120) && this.Pawn.IsBurning() && this.Digesting && Rand.RangeInclusive(1, 3)==1) this.AbortDigestion(this.Pawn.MapHeld, "Fire");
         
         if (this.Digesting)
           ++this.ticksDigesting;
@@ -79,7 +79,7 @@ namespace ExSymbiotes
       public override void PostPostApplyDamage(DamageInfo dinfo, float totalDamageDealt)
       {
         base.PostPostApplyDamage(dinfo, totalDamageDealt);
-        if(this.Digesting && dinfo.Def == DamageDefOf.EMP && Rand.RangeInclusive(1, 3)==1) this.AbortDigestion(this.Pawn.MapHeld);
+        if(this.Digesting && dinfo.Def == DamageDefOf.EMP && Rand.RangeInclusive(1, 3)==1) this.AbortDigestion(this.Pawn.MapHeld, "EMP");
       }
 
       public override string CompInspectStringExtra()
@@ -117,7 +117,7 @@ namespace ExSymbiotes
         this.Pawn.jobs.StartJob(JobMaker.MakeJob(ExSymbiotesDefOf.ExSymbiotes_SymbioteDigest), JobCondition.InterruptForced);
       }
 
-      private void AbortDigestion(Map map)
+      private void AbortDigestion(Map map, string cause=null)
       {
         if (!this.Digesting)
           return;
@@ -125,9 +125,9 @@ namespace ExSymbiotes
         Find.BattleLog.Add((LogEntry) new BattleLogEntry_Event((Thing) subject, RulePackDefOf.Event_DevourerDigestionAborted, (Thing) this.Pawn));
         if (subject.Faction == Faction.OfPlayer)
         {
-          string str = this.Pawn.Dead ? this.Props.messageEmergedCorpse : this.Props.messageEmerged;
+          string str = cause == null ? this.Pawn.Dead ? this.Props.messageEmergedCorpse : this.Props.messageEmerged : this.Props.messageEmergedCause;
           if (!str.NullOrEmpty())
-            Messages.Message((string) str.Formatted(subject.Named("PAWN")), (LookTargets) (Thing) subject, MessageTypeDefOf.NeutralEvent);
+            Messages.Message((string) str.Formatted(cause.Named("CAUSE"), subject.Named("PAWN")), (LookTargets) (Thing) subject, MessageTypeDefOf.NeutralEvent);
         }
         this.EndDigestingJob();
         this.Pawn.Drawer.renderer.SetAllGraphicsDirty();

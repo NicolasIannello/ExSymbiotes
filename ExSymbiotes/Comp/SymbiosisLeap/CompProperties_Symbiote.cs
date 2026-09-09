@@ -18,6 +18,8 @@ namespace ExSymbiotes
         public int digestTime = 30;
         [MustTranslate]
         public string messageRetaliate;
+        [MustTranslate]
+        public string messageEmergedCause;
 
         public CompProperties_Symbiote() => this.compClass = typeof (CompSymbiote);
     }

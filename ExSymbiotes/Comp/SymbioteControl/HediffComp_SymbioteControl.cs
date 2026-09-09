@@ -45,25 +45,32 @@ namespace ExSymbiotes
             this.Pawn.SetFaction(originalFaction);
             if (Pawn.RaceProps.Humanlike) Pawn.story.skinColorOverride = null;
             if(ConditionalWeakTableTryGet(this.Pawn)) ConditionalWeakTableRemove(this.Pawn);
-            Messages.Message("The symbiote is leaving "+Pawn.Name+"'s body cause of its injuries", (LookTargets) (Thing) Pawn, MessageTypeDefOf.NegativeEvent);
         }
 
         public override void CompPostTick(ref float severityAdjustment)
         {
             base.CompPostTick(ref severityAdjustment);
-            if(this.Pawn.IsHashIntervalTick(120) && this.Pawn.IsBurning() && Rand.RangeInclusive(1, 5)==1) this.parent.pawn.health.RemoveHediff(parent);
+            if(this.Pawn.IsHashIntervalTick(120) && this.Pawn.IsBurning() && Rand.RangeInclusive(1, 5)==1) this.Remove("Fire");
         }
         
         public override void Notify_PawnPostApplyDamage(DamageInfo dinfo, float totalDamageDealt)
         {
             base.Notify_PawnPostApplyDamage(dinfo, totalDamageDealt);
-            if(Pawn.Downed || (dinfo.Def == DamageDefOf.EMP && Rand.RangeInclusive(1, 5)==1)) this.parent.pawn.health.RemoveHediff(parent);
+            if(Pawn.Downed || (dinfo.Def == DamageDefOf.EMP && Rand.RangeInclusive(1, 5)==1)) this.Remove(dinfo.Def == DamageDefOf.EMP ? "EMP" : null);
+        }
+
+        private void Remove(string cause=null)
+        {
+            string str = cause == null ? this.Pawn.Dead ? this.Props.messageEmergedCorpse : this.Props.messageEmerged : this.Props.messageEmergedCause;
+            if (!str.NullOrEmpty())
+                Messages.Message((string) str.Formatted(cause.Named("CAUSE"), this.parent.pawn.Named("PAWN")), (LookTargets) (Thing) this.parent.pawn, MessageTypeDefOf.NeutralEvent);
+            this.parent.pawn.health.RemoveHediff(parent);
         }
 
         public override void Notify_PawnDied(DamageInfo? dinfo, Hediff culprit = null)
         {
             base.Notify_PawnDied(dinfo, culprit);
-            this.parent.pawn.health.RemoveHediff(parent);
+            this.Remove();
         }
 
         public void AddThing(Thing thing)
@@ -77,7 +84,7 @@ namespace ExSymbiotes
             ConditionalWeakTableAdd(this.Pawn);
             
             if(symbioteLord==null) 
-                this.parent.pawn.health.RemoveHediff(parent);
+                this.Remove();
             else 
                 symbioteLord.AddPawn(this.Pawn);
         }

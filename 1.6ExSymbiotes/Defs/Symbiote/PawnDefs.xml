@@ -41,6 +41,7 @@
 			<li Class="ExSymbiotes.CompProperties_Symbiote">
 				<messageDigested>A symbiote swallowed {PAWN_nameDef} whole! Kill the symbiote before it takes control over {PAWN_nameDef}.</messageDigested>
 				<messageEmerged>{PAWN_nameDef} emerged from the symbiote.</messageEmerged>
+				<messageEmergedCause>The {CAUSE} made the symbiote leave {PAWN_nameDef} body.</messageEmergedCause>
 				<messageEmergedCorpse>{PAWN_nameDef} emerged from the symbiote's corpse.</messageEmergedCorpse>
 				<messageDigestionCompleted>The symbiote has taken control over {PAWN_nameDef}.</messageDigestionCompleted>
 				<digestingInspector>Controling {PAWN_nameDef}: {SECONDS} seconds left</digestingInspector>

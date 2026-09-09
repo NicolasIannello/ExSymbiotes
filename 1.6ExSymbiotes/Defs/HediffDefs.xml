@@ -408,6 +408,9 @@
         <comps>
             <li Class="ExSymbiotes.HediffCompProperties_SymbioteControl">
                 <color>(31, 27, 28)</color>
+                <messageEmerged>{PAWN_nameDef} emerged from the symbiote.</messageEmerged>
+                <messageEmergedCause>The {CAUSE} made the symbiote leave {PAWN_nameDef} body.</messageEmergedCause>
+                <messageEmergedCorpse>{PAWN_nameDef} emerged from the symbiote's corpse.</messageEmergedCorpse>
             </li>
         </comps>
         <renderNodeProperties>
