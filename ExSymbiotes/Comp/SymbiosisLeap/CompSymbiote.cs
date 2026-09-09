@@ -66,12 +66,20 @@ namespace ExSymbiotes
           comp.AddThing(this.Pawn);
           subject = null;
         }
+
+        if(this.Pawn.IsHashIntervalTick(120) && this.Pawn.IsBurning() && this.Digesting && Rand.RangeInclusive(1, 3)==1) this.AbortDigestion(this.Pawn.MapHeld);
         
         if (this.Digesting)
           ++this.ticksDigesting;
         if (!this.Digesting || !this.DigestingPawn.Dead)
           return;
         this.CompleteDigestion();
+      }
+      
+      public override void PostPostApplyDamage(DamageInfo dinfo, float totalDamageDealt)
+      {
+        base.PostPostApplyDamage(dinfo, totalDamageDealt);
+        if(this.Digesting && dinfo.Def == DamageDefOf.EMP && Rand.RangeInclusive(1, 3)==1) this.AbortDigestion(this.Pawn.MapHeld);
       }
 
       public override string CompInspectStringExtra()

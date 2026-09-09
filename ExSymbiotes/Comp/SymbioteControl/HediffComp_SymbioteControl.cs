@@ -48,10 +48,16 @@ namespace ExSymbiotes
             Messages.Message("The symbiote is leaving "+Pawn.Name+"'s body cause of its injuries", (LookTargets) (Thing) Pawn, MessageTypeDefOf.NegativeEvent);
         }
 
+        public override void CompPostTick(ref float severityAdjustment)
+        {
+            base.CompPostTick(ref severityAdjustment);
+            if(this.Pawn.IsHashIntervalTick(120) && this.Pawn.IsBurning() && Rand.RangeInclusive(1, 5)==1) this.parent.pawn.health.RemoveHediff(parent);
+        }
+        
         public override void Notify_PawnPostApplyDamage(DamageInfo dinfo, float totalDamageDealt)
         {
             base.Notify_PawnPostApplyDamage(dinfo, totalDamageDealt);
-            if(Pawn.Downed) this.parent.pawn.health.RemoveHediff(parent);
+            if(Pawn.Downed || (dinfo.Def == DamageDefOf.EMP && Rand.RangeInclusive(1, 5)==1)) this.parent.pawn.health.RemoveHediff(parent);
         }
 
         public override void Notify_PawnDied(DamageInfo? dinfo, Hediff culprit = null)
