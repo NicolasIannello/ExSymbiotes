@@ -54,6 +54,24 @@ namespace ExSymbiotes.Utils
             Find.LetterStack.ReceiveLetter(label.Translate(), text.Translate(), LetterDefOf.ThreatBig, new TargetInfo(mass.Position, map));
         }
 
+        public static void SingleSymbiote(Map map, Pawn symbiote)
+        {
+            Pawn symbiotePawn = PawnGenerator.GeneratePawn(new PawnGenerationRequest(symbiote.kindDef, faction: symbiote.Faction));
+            CellRect cellRect = GenAdj.OccupiedRect(symbiote.Position, Rot4.North, ThingDefOf.PitGate.Size).ContractedBy(2);
+            IntVec3 randomCell = cellRect.RandomCell;
+            GenSpawn.Spawn((Thing) symbiotePawn, randomCell, map);
+            CellFinder.TryFindRandomCellNear(symbiote.Position, map, ThingDefOf.PitGate.size.x / 2 + 1, (Predicate<IntVec3>) (cell => !cell.Fogged(map) && cell.Walkable(map) && !cell.Impassable(map)), out IntVec3 result);
+            symbiotePawn.rotationTracker.FaceCell(result);
+            PawnFlyer source = PawnFlyer.MakeFlyer(ThingDefOf.PawnFlyer_Stun, symbiotePawn, result, (EffecterDef) null, (SoundDef) null, overrideStartVec: new Vector3?(randomCell.ToVector3() + new Vector3(0.0f, 0.0f, -1f)));
+            IntVec3 spawnPositions = randomCell;
+            
+            map.deferredSpawner.AddRequest(new SpawnRequest(new List<Thing> { source }, new List<IntVec3> { spawnPositions }, 1, 0f)
+            {
+                lord = GetSymbioteLord(map)
+            });
+            SoundDefOf.Pawn_Fleshbeast_EmergeFromPitGate.PlayOneShot((SoundInfo) (Thing) symbiote);
+        }
+
         public static Lord GetSymbioteLord(Map map)
         {
             foreach (var lord in map.lordManager.lords)

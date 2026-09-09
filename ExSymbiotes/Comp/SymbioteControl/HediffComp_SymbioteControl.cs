@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using ExSymbiotes.Utils;
 using RimWorld;
 using UnityEngine;
 using Verse;
@@ -19,6 +20,7 @@ namespace ExSymbiotes
             }
         }
         private Faction originalFaction;
+        private bool reproduce = true;
         public HediffCompProperties_SymbioteControl Props => (HediffCompProperties_SymbioteControl) this.props;
 
         public HediffComp_SymbioteControl()
@@ -51,6 +53,11 @@ namespace ExSymbiotes
         {
             base.CompPostTick(ref severityAdjustment);
             if(this.Pawn.IsHashIntervalTick(120) && this.Pawn.IsBurning() && Rand.RangeInclusive(1, 5)==1) this.Remove("Fire");
+            if (this.Pawn.IsHashIntervalTick(300) && this.reproduce && this.parent.Severity >= 1f)
+            {
+                this.reproduce = false;
+                SymbioteUtility.SingleSymbiote(this.Pawn.MapHeld, (Pawn)this.SymbioteControlling);
+            }
         }
         
         public override void Notify_PawnPostApplyDamage(DamageInfo dinfo, float totalDamageDealt)
@@ -123,6 +130,7 @@ namespace ExSymbiotes
         {
             base.CompExposeData();
             Scribe_References.Look(ref originalFaction, "originalFaction");
+            Scribe_Values.Look<bool>(ref reproduce, "reproduce");
             Scribe_Deep.Look<ThingOwner<Thing>>(ref this.innerContainer, "innerContainer", (object) this);
             if (Scribe.mode == LoadSaveMode.PostLoadInit && this.Pawn != null) ConditionalWeakTableAdd(this.Pawn);
             if (Scribe.mode != LoadSaveMode.PostLoadInit || !this.innerContainer.removeContentsIfDestroyed)

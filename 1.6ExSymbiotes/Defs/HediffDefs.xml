@@ -377,10 +377,14 @@
         <defName>ExSymbiotes_SymbioteControl</defName>
         <label>symbiote control (black)</label>
         <hediffClass>HediffWithComps</hediffClass>
-        <description>This person has been taken over by a symbiote.</description>
+        <description>This creature has been taken over by a symbiote. It will create a new symbiote in the span of a day.</description>
         <isBad>true</isBad>
+        <initialSeverity>0.001</initialSeverity>
+        <maxSeverity>1</maxSeverity>
+        <alwaysShowSeverity>true</alwaysShowSeverity>
         <stages>
             <li>
+                <minSeverity>0</minSeverity>
                 <statFactors>
                     <MeleeDamageFactor>1.5</MeleeDamageFactor>
                     <MoveSpeed>1.30</MoveSpeed>
@@ -406,6 +410,9 @@
             </li>
         </stages>
         <comps>
+            <li Class="HediffCompProperties_SeverityPerDay">
+                <severityPerDay>0.55</severityPerDay>
+            </li>
             <li Class="ExSymbiotes.HediffCompProperties_SymbioteControl">
                 <color>(31, 27, 28)</color>
                 <messageEmerged>{PAWN_nameDef} emerged from the symbiote.</messageEmerged>
