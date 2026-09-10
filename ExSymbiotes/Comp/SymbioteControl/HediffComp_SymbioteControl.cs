@@ -38,7 +38,7 @@ namespace ExSymbiotes
             this.Pawn.SetFaction(Find.FactionManager.FirstFactionOfDef(ExSymbiotesDefOf.ExSymbiotes_Symbiotes));
             if (Pawn.RaceProps.Humanlike) Pawn.story.skinColorOverride = Props.color;
             skin = Props.color;
-            if (ModsConfig.BiotechActive)
+            if (ModsConfig.BiotechActive && this.Pawn.genes!=null)
             {
                 deathlessGene = SymbioteUtility.CheckAddGene(this.Pawn, GeneDefOf.Deathless);
                 immunityGene = SymbioteUtility.CheckAddGene(this.Pawn, ExSymbiotesDefOf.PerfectImmunity);
@@ -56,7 +56,7 @@ namespace ExSymbiotes
             this.Pawn.SetFaction(originalFaction);
             if (Pawn.RaceProps.Humanlike) Pawn.story.skinColorOverride = null;
             if(ConditionalWeakTableTryGet(this.Pawn)) ConditionalWeakTableRemove(this.Pawn);
-            if (ModsConfig.BiotechActive)
+            if (ModsConfig.BiotechActive && this.Pawn.genes!=null)
             {
                 SymbioteUtility.CheckRemoveGene(this.Pawn, GeneDefOf.Deathless, this.deathlessGene);
                 SymbioteUtility.CheckRemoveGene(this.Pawn, ExSymbiotesDefOf.PerfectImmunity, this.immunityGene);
