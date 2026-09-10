@@ -38,6 +38,12 @@ namespace ExSymbiotes
         public static AbilityDef ExSymbiotes_SymbiosisLeap;
         public static JobDef ExSymbiotes_SymbioteDigest;
         public static FactionDef ExSymbiotes_Symbiotes;
+
+        [MayRequire("Ludeon.RimWorld.Odyssey,Ludeon.RimWorld.Biotech")]
+        public static GeneDef VacuumResistance_Total;
+        [MayRequireBiotech]
+        public static GeneDef PerfectImmunity;
+        
         static ExSymbiotesDefOf()
         {
             DefOfHelper.EnsureInitializedInCtor(typeof(ExSymbiotesDefOf));

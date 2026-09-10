@@ -124,6 +124,21 @@ namespace ExSymbiotes.Utils
             return null;
         }
         
+        public static bool CheckAddGene(Pawn pawn, GeneDef gene)
+        {
+            if (!pawn.genes.HasActiveGene(gene))
+            {
+                pawn.genes.AddGene(gene, false);
+                return true;
+            }
+            return false;
+        }
+        
+        public static void CheckRemoveGene(Pawn pawn, GeneDef gene, bool added)
+        {
+            if (pawn.genes.HasActiveGene(gene) && added) pawn.genes.RemoveGene(pawn.genes.GetGene(gene));
+        }
+        
         public static class TargetFinder
         {
             
