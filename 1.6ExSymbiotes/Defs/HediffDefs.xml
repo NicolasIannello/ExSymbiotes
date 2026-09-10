@@ -646,7 +646,7 @@
                 </drawData>
             </li>
             <!-- non human -->
-            <li Class="PawnRenderNodeProperties_Spastic">
+            <li Class="ExSymbiotes.PawnRenderNodeProperties_SpasticSymbiote">
                 <pawnType>NonHumanlikeOnly</pawnType>
                 <texPaths>
                     <li>Things/Pawn/Humanlike/BodyAttachments/FleshWhipLimb/FleshWhipLimbD</li>
@@ -686,7 +686,7 @@
                     </dataWest>
                 </drawData>
             </li>
-            <li Class="PawnRenderNodeProperties_Spastic">
+            <li Class="ExSymbiotes.PawnRenderNodeProperties_SpasticSymbiote">
                 <pawnType>NonHumanlikeOnly</pawnType>
                 <texPaths>
                     <li>Things/Pawn/Humanlike/BodyAttachments/FleshWhipLimb/FleshWhipLimbD</li>
@@ -726,7 +726,7 @@
                     </dataWest>
                 </drawData>
             </li>
-            <li Class="PawnRenderNodeProperties_Spastic">
+            <li Class="ExSymbiotes.PawnRenderNodeProperties_SpasticSymbiote">
                 <pawnType>NonHumanlikeOnly</pawnType>
                 <texPaths>
                     <li>Things/Pawn/Humanlike/BodyAttachments/FleshWhipLimb/FleshWhipLimbC</li>
@@ -766,7 +766,7 @@
                     </dataWest>
                 </drawData>
             </li>
-            <li Class="PawnRenderNodeProperties_Spastic">
+            <li Class="ExSymbiotes.PawnRenderNodeProperties_SpasticSymbiote">
                 <pawnType>NonHumanlikeOnly</pawnType>
                 <texPaths>
                     <li>Things/Pawn/Humanlike/BodyAttachments/FleshWhipLimb/FleshWhipLimbC</li>
