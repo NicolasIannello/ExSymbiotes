@@ -421,30 +421,30 @@
             </li>
         </comps>
         <renderNodeProperties>
-            <li Class="PawnRenderNodeProperties_Eye">
+            <li Class="ExSymbiotes.PawnRenderNodeProperties_EyeSymbiote">
                 <texPath>Things/Pawn/Symbiote/Attachments/Eye/SymbioticEye</texPath>
                 <parentTagDef>Head</parentTagDef>
                 <anchorTag>RightEye</anchorTag>
                 <rotDrawMode>Fresh, Rotting</rotDrawMode>
-                <drawSize>0.35</drawSize>
+                <drawSize>0.40</drawSize>
                 <side>Right</side>
                 <drawData>
                     <defaultData>
-                        <layer>55</layer>
+                        <layer>89</layer>
                         <offset>(-0.015, 0, -0.24)</offset>
                     </defaultData>
                 </drawData>
             </li>
-            <li Class="PawnRenderNodeProperties_Eye">
+            <li Class="ExSymbiotes.PawnRenderNodeProperties_EyeSymbiote">
                 <texPath>Things/Pawn/Symbiote/Attachments/Eye/SymbioticEye</texPath>
                 <parentTagDef>Head</parentTagDef>
                 <anchorTag>LeftEye</anchorTag>
                 <rotDrawMode>Fresh, Rotting</rotDrawMode>
-                <drawSize>0.35</drawSize>
+                <drawSize>0.40</drawSize>
                 <side>Left</side>
                 <drawData>
                     <defaultData>
-                        <layer>55</layer>
+                        <layer>89</layer>
                         <offset>(+0.015, 0, -0.24)</offset>
                         <flip>true</flip>
                     </defaultData>
