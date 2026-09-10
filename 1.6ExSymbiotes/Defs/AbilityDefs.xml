@@ -38,58 +38,6 @@
         </comps>
     </AbilityDef>
 
-    <AbilityDef ParentName="AbilityTouchBase">
-        <defName>ExSymbiotes_SymbioticCoagulate</defName>
-        <label>symbiotic coagulate</label>
-        <description>Cover wounds with symbiotic tissue to quickly tend someone's wounds.</description>
-        <iconPath>UI/Icons/Genes/Gene_Coagulate</iconPath>
-        <stunTargetWhileCasting>true</stunTargetWhileCasting>
-        <displayGizmoWhileUndrafted>true</displayGizmoWhileUndrafted>
-        <disableGizmoWhileUndrafted>false</disableGizmoWhileUndrafted>
-        <warmupMote>Mote_CoagulateStencil</warmupMote>
-        <warmupEffecter>Coagulate</warmupEffecter>
-        <warmupStartSound>Coagulate_Cast</warmupStartSound>
-        <jobDef>CastAbilityOnThingMelee</jobDef>
-        <displayOrder>400</displayOrder>
-        <hostile>false</hostile>
-        <casterMustBeCapableOfViolence>false</casterMustBeCapableOfViolence>
-        <verbProperties>
-            <verbClass>Verb_CastAbilityTouch</verbClass>
-            <drawAimPie>false</drawAimPie>
-            <range>-1</range>
-            <warmupTime>1</warmupTime>
-            <targetParams>
-                <canTargetAnimals>true</canTargetAnimals>
-                <canTargetSelf>true</canTargetSelf>
-                <canTargetBuildings>false</canTargetBuildings>
-                <canTargetMechs>false</canTargetMechs>
-                <canTargetBloodfeeders>true</canTargetBloodfeeders>
-            </targetParams>
-        </verbProperties>
-        <comps>
-            <li Class="ExSymbiotes.CompProperties_AbilitySymbiosisCost">
-                <symbiosisCost>5</symbiosisCost>
-            </li>
-            <li Class="CompProperties_AbilityCoagulate">
-                <tendQualityRange>1</tendQualityRange>
-            </li>
-            <li Class="CompProperties_AbilityRequiresCapacity">
-                <capacity>Manipulation</capacity>
-            </li>
-        </comps>
-    </AbilityDef>
-
-    <AbilityDef ParentName="LongJump">
-        <defName>ExSymbiotes_SymbioticLongjump</defName>
-        <label>symbiotic longjump</label>
-        <description>Jump to a distant location using super-strong symbiotic-powered legs.</description>
-        <comps Inherit="False">
-            <li Class="ExSymbiotes.CompProperties_AbilitySymbiosisCost">
-                <symbiosisCost>1</symbiosisCost>
-            </li>
-        </comps>
-    </AbilityDef>
-
     <AbilityDef>
         <defName>ExSymbiotes_SymbioticScythe</defName>
         <label>symbiotic scythe</label>
