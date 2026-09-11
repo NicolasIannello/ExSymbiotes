@@ -39,9 +39,9 @@
             <texPath>Things/Projectile/ExSymbiotes_Projectile_TendrilSpine</texPath>
         </graphicData>
         <projectile>
-            <damageAmountBase>20</damageAmountBase>
-            <armorPenetrationBase>1.2</armorPenetrationBase>
-            <stoppingPower>1.3</stoppingPower>
+            <damageAmountBase>10</damageAmountBase>
+            <armorPenetrationBase>1</armorPenetrationBase>
+            <stoppingPower>1.2</stoppingPower>
         </projectile>
     </ThingDef>
 </Defs>
