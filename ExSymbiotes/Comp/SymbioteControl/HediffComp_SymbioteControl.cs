@@ -50,7 +50,7 @@ namespace ExSymbiotes
         {
             base.CompPostPostRemoved();
             Thing symbiote = DropPawn(Pawn.MapHeld);
-            DamageInfo dinfo = new DamageInfo(DamageDefOf.AcidBurn, (float) 50, instigator: (Thing) symbiote);
+            DamageInfo dinfo = new DamageInfo(DamageDefOf.AcidBurn, (float) 200, instigator: (Thing) symbiote);
             dinfo.SetApplyAllDamage(true);
             symbiote.TakeDamage(dinfo);
             this.Pawn.SetFaction(originalFaction);
@@ -98,15 +98,20 @@ namespace ExSymbiotes
         public void AddThing(Thing thing)
         {
             Lord symbioteLord = ((Pawn)thing).GetLord();
+            if (this.Pawn.GetLord() == symbioteLord)
+            {
+                this.Remove("symbiote inside");
+                return;
+            }
             color = thing.def == ExSymbiotesDefOf.ExSymbiotes_Symbiote ? blue : red;
             
-            thing.DeSpawn(DestroyMode.Vanish);
+            if(thing.Spawned) thing.DeSpawn(DestroyMode.Vanish);
             this.innerContainer.TryAdd((Thing) thing, true);
             ConditionalWeakTableRemove(this.Pawn);
             ConditionalWeakTableAdd(this.Pawn);
             
             if(symbioteLord==null) 
-                this.Remove();
+                SymbioteUtility.GetSymbioteLord(this.Pawn.MapHeld).AddPawn(this.Pawn);
             else 
                 symbioteLord.AddPawn(this.Pawn);
         }

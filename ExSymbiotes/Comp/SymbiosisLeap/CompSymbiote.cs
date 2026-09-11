@@ -179,7 +179,7 @@ namespace ExSymbiotes
             if (hediff.def == ExSymbiotesDefOf.ExSymbiotes_Symbiosis || hediff.def == ExSymbiotesDefOf.ExSymbiotes_Symbiosis_Red)
             {
               AbortDigestion(this.Pawn.MapHeld);
-              DamageInfo dinfo = new DamageInfo(DamageDefOf.AcidBurn, (float) 100, instigator: (Thing) this.Pawn);
+              DamageInfo dinfo = new DamageInfo(DamageDefOf.AcidBurn, (float) 350, instigator: (Thing) this.Pawn);
               dinfo.SetApplyAllDamage(true);
               this.Pawn.TakeDamage(dinfo);
             }
