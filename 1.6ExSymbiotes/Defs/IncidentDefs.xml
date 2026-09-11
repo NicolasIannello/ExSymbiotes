@@ -31,7 +31,7 @@
 		<baseChance>2.0</baseChance>
 		<category>ThreatBig</category>
 		<pointsScaleable>true</pointsScaleable>
-		<tale>ManhunterPack</tale>
+		<tale>ExSymbiotes_SymbiotePack</tale>
 		<letterHyperlinkHediffDefs>
 			<li>ExSymbiotes_SymbioteControl</li>
 		</letterHyperlinkHediffDefs>
