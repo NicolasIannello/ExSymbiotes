@@ -49,7 +49,8 @@ namespace ExSymbiotes
         public override void CompPostPostRemoved()
         {
             base.CompPostPostRemoved();
-            Thing symbiote = DropPawn(Pawn.MapHeld);
+            Pawn symbiote = DropPawn(Pawn.MapHeld);
+            symbiote.abilities.GetAbility(ExSymbiotesDefOf.ExSymbiotes_SymbiosisLeap).StartCooldown(3000);
             DamageInfo dinfo = new DamageInfo(DamageDefOf.AcidBurn, (float) 200, instigator: (Thing) symbiote);
             dinfo.SetApplyAllDamage(true);
             symbiote.TakeDamage(dinfo);
