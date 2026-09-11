@@ -22,12 +22,11 @@ namespace ExSymbiotes
         Rot4 rot = Rot4.FromAngleFlat((target.Center - result).AngleFlat);
         
         List<Pawn> symbiotes = SymbioteUtility.GetSymbiotesForPoints(parms.points, target, groupDef);
-        List<ThingDef> animals = DefDatabase<ThingDef>.AllDefs.Where(d => d.race != null && (d.race.Animal || d.race.IsMechanoid) && !d.race.Dryad && !d.IsCorpse).ToList();
+        List<PawnKindDef> animals = DefDatabase<PawnKindDef>.AllDefs.Where(d => d.race.race != null && (d.race.race.Animal || d.race.race.IsMechanoid) && !d.race.race.Dryad && !d.race.IsCorpse && !d.isBoss).ToList();
         Lord symbioteLord = SymbioteUtility.GetSymbioteLord(target);
         for (int index = 0; index < symbiotes.Count; ++index)
         {
-          PawnKindDef animalKindDef = DefDatabase<PawnKindDef>.AllDefs.FirstOrDefault(pawnKind => pawnKind.race == animals[Rand.RangeInclusive(0,animals.Count-1)]);
-          if (animalKindDef == null) continue;
+          PawnKindDef animalKindDef = animals[Rand.RangeInclusive(0, animals.Count - 1)];
           Pawn newThing = PawnGenerator.GeneratePawn(new PawnGenerationRequest(animalKindDef));
           QuestUtility.AddQuestTag((object) GenSpawn.Spawn((Thing) newThing, CellFinder.RandomClosewalkCellNear(result, target, 10), target, rot), parms.questTag);
           Hediff hediff = newThing.health.AddHediff(symbiotes[index].def==ExSymbiotesDefOf.ExSymbiotes_Symbiote ? hediffDef : hediffDefRed);
