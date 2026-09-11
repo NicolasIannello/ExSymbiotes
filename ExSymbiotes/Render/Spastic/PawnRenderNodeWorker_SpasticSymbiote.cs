@@ -35,7 +35,6 @@ namespace ExSymbiotes
             Vector3 a = Vector3.one;
             a.x *= node.Props.drawSize.x * Mathf.Max(parms.pawn.BodySize * 0.6f, node.debugScale);
             a.z *= node.Props.drawSize.y * Mathf.Max(parms.pawn.BodySize * 0.6f, node.debugScale);
-            Log.Message(a.x+" "+a.z);
             if (!parms.flags.FlagSet(PawnRenderFlags.Portrait))
             {
                 Vector3 offset;
