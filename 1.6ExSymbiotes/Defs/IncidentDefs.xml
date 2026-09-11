@@ -9,8 +9,8 @@
 		<letterText>A mysterious symbiote mass has crashed nearby.\n\nThe symbiote mass pulsates with putrid psychic energy, gradually intensifying as it approaches some dangerous limit. You can send colonists to suppress the symbiote mass to prevent it from waking up.\n\nYou can also mark the symbiote mass for study to try to learn its purpose and perhaps make use of it.\n\nYou can always attack the symbiote mass to destroy it, but doing so may unleash unnatural and dangerous phenomena.</letterText>
 		<letterDef>NeutralEvent</letterDef>
 		<baseChance>0.4</baseChance>
-		<earliestDay>100</earliestDay>
-		<minRefireDays>120</minRefireDays>
+		<earliestDay>30</earliestDay>
+		<minRefireDays>100</minRefireDays>
 		<minAnomalyThreatLevel>2</minAnomalyThreatLevel>
 	</IncidentDef>
 	
@@ -21,4 +21,33 @@
 		<workerClass>ExSymbiotes.IncidentWorker_SymbioteMass</workerClass>
 	</IncidentDef>
 
+	<IncidentDef Name="ExSymbiotes_SymbiotePack" ParentName="AnomalyIncidentBase">
+		<defName>ExSymbiotes_SymbiotePack</defName>
+		<label>symbiote pack</label>
+		<targetTags>
+			<li>Map_PlayerHome</li>
+		</targetTags>
+		<workerClass>ExSymbiotes.IncidentWorker_SymbiotePack</workerClass>
+		<baseChance>2.0</baseChance>
+		<category>ThreatBig</category>
+		<pointsScaleable>true</pointsScaleable>
+		<tale>ManhunterPack</tale>
+		<letterHyperlinkHediffDefs>
+			<li>ExSymbiotes_SymbioteControl</li>
+		</letterHyperlinkHediffDefs>
+		<minAnomalyThreatLevel>2</minAnomalyThreatLevel>
+		<requireColonistsPresent>True</requireColonistsPresent>
+		<minThreatPoints>800</minThreatPoints>
+	</IncidentDef>
+
+	<IncidentDef ParentName="ExSymbiotes_SymbiotePack">
+		<defName>ExSymbiotes_SymbiotePackRed</defName>
+		<workerClass>ExSymbiotes.IncidentWorker_SymbiotePackRed</workerClass>
+		<baseChance>1.0</baseChance>
+		<minThreatPoints>1500</minThreatPoints>
+		<letterHyperlinkHediffDefs>
+			<li>ExSymbiotes_SymbioteControlRed</li>
+			<li>ExSymbiotes_SymbioticTendrils</li>
+		</letterHyperlinkHediffDefs>
+	</IncidentDef>
 </Defs>

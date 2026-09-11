@@ -6,6 +6,7 @@
     <ExSymbiotes.LabelSymbioteHorde2>Symbiote mass horde.</ExSymbiotes.LabelSymbioteHorde2>
     <ExSymbiotes.TextSymbioteHorde>The symbiote mass has awakened, it will spit symbiotes periodically until it consumes itself.</ExSymbiotes.TextSymbioteHorde>
     <ExSymbiotes.TextSymbioteHorde2>The symbiote mass is spitting more symbiotes. It will continue until it consumes itself.</ExSymbiotes.TextSymbioteHorde2>
+    
     <ExSymbiotes.Symbiosis>Symbiosis</ExSymbiotes.Symbiosis>
     <ExSymbiotes.SymbiosisTip>Amount of nutrients in the symbiote. Nutrients are required to use symbiote abilities, consume brains from corpses to gain nutrients.</ExSymbiotes.SymbiosisTip>
     <ExSymbiotes.AbilityDisabledNoSymbiosisHediff>{0_labelShort} is not symbiotic.</ExSymbiotes.AbilityDisabledNoSymbiosisHediff>
@@ -19,4 +20,7 @@
     <LetterSymbiotesAttackingLabel>Symbiotes attacking</LetterSymbiotesAttackingLabel>
     <LetterSymbiotesAttacking>The symbiotes have begun their attack!</LetterSymbiotesAttacking>
     <MessageSymbioteDefending>defending the symbiote mass!</MessageSymbioteDefending>
+
+    <LetterLabelSymbiotePackArrived>Symbiote pack</LetterLabelSymbiotePackArrived>
+    <SymbiotePackArrived>A pack of symbiote controlled animals have entered the area! They will roam the area, hunting for humanoid flesh.\n\nIf not kept in check they will reproduce until they take over the whole area.</SymbiotePackArrived>
 </LanguageData>

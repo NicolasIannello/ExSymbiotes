@@ -77,6 +77,8 @@
     <Compile Include="Comp\SymbioticArmor\HediffComp_SymbioticArmor.cs" />
     <Compile Include="Comp\SymbioticScythe\HediffCompProperties_SymbioticScythe.cs" />
     <Compile Include="Comp\SymbioticScythe\HediffComp_SymbioticScythe.cs" />
+    <Compile Include="Incident\IncidentWorker_SymbioteMass.cs" />
+    <Compile Include="Incident\IncidentWorker_SymbiotePack.cs" />
     <Compile Include="Job\JobDriver_SymbioteDigest.cs" />
     <Compile Include="Job\JobGiver_FindHost.cs" />
     <Compile Include="Job\LordJob_SymbioteMass.cs" />
@@ -94,7 +96,6 @@
     <Compile Include="SymbioteMass\CompProperties_SymbioticMassDeactivationInteractor.cs" />
     <Compile Include="SymbioteMass\CompSymbioteMass_Black.cs" />
     <Compile Include="SymbioteMass\CompSymbioticMassDeactivationInteractor.cs" />
-    <Compile Include="SymbioteMass\IncidentWorker_SymbioteMass.cs" />
     <Compile Include="UI\Gizmo_Symbiosis.cs" />
     <Compile Include="Utils\DeathActionWorker_VanishSymbiote.cs" />
     <Compile Include="Utils\SymbioteUtility.cs" />

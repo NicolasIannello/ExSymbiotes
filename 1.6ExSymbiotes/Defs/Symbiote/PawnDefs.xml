@@ -82,7 +82,7 @@
 	<ThingDef Name="ExSymbiotes_Symbiote" ParentName="ExSymbiotes_BaseSymbiote">
 		<defName>ExSymbiotes_Symbiote</defName>
 		<label>symbiote (black)</label>
-		<description>Inorganic, amorphous, symbiotic extraterrestrials that bond with other organisms.</description>
+		<description>Inorganic, amorphous, symbiotic extraterrestrials that bond with other organisms. Higly weak to fire or EMP</description>
 		<statBases>
 			<MoveSpeed>5</MoveSpeed>
 			<MinimumContainmentStrength>40</MinimumContainmentStrength>
@@ -140,14 +140,14 @@
 		<label>symbiote (red)</label>
 		<statBases>
 			<MoveSpeed>7</MoveSpeed>
-			<MinimumContainmentStrength>40</MinimumContainmentStrength>
+			<MinimumContainmentStrength>60</MinimumContainmentStrength>
 			<ToxicResistance>1</ToxicResistance>
 		</statBases>
 		<uiIconPath>Things/Pawn/Symbiote/Red/SymbioteRed</uiIconPath>
 		<race>
 			<body>ExSymbiotes_Body</body>
 			<baseBodySize>1</baseBodySize>
-			<baseHealthScale>4</baseHealthScale>
+			<baseHealthScale>3</baseHealthScale>
 			<bloodDef>Filth_Blood</bloodDef>
 			<bloodSmearDef>Filth_BloodSmear</bloodSmearDef>
 			<deathAction Class="DeathActionProperties_Vanish">
@@ -176,7 +176,7 @@
 		<abilities>
 			<li>ExSymbiotes_SymbiosisLeap</li>
 		</abilities>
-		<combatPower>300</combatPower>
+		<combatPower>250</combatPower>
 		<lifeStages>
 			<li>
 				<bodyGraphicData>
@@ -204,7 +204,7 @@
 		<defName>ExSymbiotes_Symbiote_PawnKindRed</defName>
 		<label>symbiote (red)</label>
 		<race>ExSymbiotes_SymbioteRed</race>
-		<combatPower>450</combatPower>
+		<combatPower>350</combatPower>
 		<lifeStages Inherit="False">
 			<li>
 				<bodyGraphicData>
@@ -229,6 +229,16 @@
 
 	<PawnGroupKindDef>
 		<defName>ExSymbiotes_Symbiote_PawnGroupKindRed</defName>
+		<workerClass>PawnGroupKindWorker_Normal</workerClass>
+	</PawnGroupKindDef>
+
+	<PawnGroupKindDef>
+		<defName>ExSymbiotes_Symbiote_PawnGroupKindBlackRed</defName>
+		<workerClass>PawnGroupKindWorker_Normal</workerClass>
+	</PawnGroupKindDef>
+
+	<PawnGroupKindDef>
+		<defName>ExSymbiotes_Symbiote_PawnGroupKindRedBlack</defName>
 		<workerClass>PawnGroupKindWorker_Normal</workerClass>
 	</PawnGroupKindDef>
 

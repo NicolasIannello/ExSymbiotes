@@ -88,6 +88,22 @@
                     <!--            MAX 20            -->
                 </options>
             </li>
+            <li>
+                <kindDef>ExSymbiotes_Symbiote_PawnGroupKindBlackRed</kindDef>
+                <commonality>100</commonality>
+                <options>
+                    <ExSymbiotes_Symbiote_PawnKind>18</ExSymbiotes_Symbiote_PawnKind>
+                    <ExSymbiotes_Symbiote_PawnKindRed>2</ExSymbiotes_Symbiote_PawnKindRed>
+                </options>
+            </li>
+            <li>
+                <kindDef>ExSymbiotes_Symbiote_PawnGroupKindRedBlack</kindDef>
+                <commonality>100</commonality>
+                <options>
+                    <ExSymbiotes_Symbiote_PawnKind>12</ExSymbiotes_Symbiote_PawnKind>
+                    <ExSymbiotes_Symbiote_PawnKindRed>8</ExSymbiotes_Symbiote_PawnKindRed>
+                </options>
+            </li>
         </pawnGroupMakers>
     </FactionDef>
 </Defs>
