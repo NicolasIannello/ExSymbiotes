@@ -158,7 +158,7 @@
                 <li>Metallic</li>
             </categories>
             <appearance>Metal</appearance>
-            <commonality>0.05</commonality>
+            <commonality>0.01</commonality>
             <constructEffect>ConstructMetal</constructEffect>
             <isAirtight>true</isAirtight>
             <color>(31, 27, 28)</color>
@@ -202,7 +202,7 @@
                 <li>Metallic</li>
             </categories>
             <appearance>Metal</appearance>
-            <commonality>0.05</commonality>
+            <commonality>0.005</commonality>
             <constructEffect>ConstructMetal</constructEffect>
             <isAirtight>true</isAirtight>
             <color>(156, 9, 9)</color>
@@ -211,7 +211,7 @@
             <soundMeleeHitBlunt>MeleeHit_Metal_Blunt</soundMeleeHitBlunt>
             <soundImpactMelee>Pawn_Melee_Punch_HitBuilding_Metal</soundImpactMelee>
             <statFactors>
-                <MaxHitPoints>3.3</MaxHitPoints>
+                <MaxHitPoints>4</MaxHitPoints>
                 <Beauty>1</Beauty>
                 <Flammability>2</Flammability>
                 <WorkToMake>2.2</WorkToMake>
