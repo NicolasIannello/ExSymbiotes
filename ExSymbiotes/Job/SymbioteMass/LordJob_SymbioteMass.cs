@@ -10,7 +10,7 @@ namespace ExSymbiotes
     public class LordJob_SymbioteMass : LordJob
     {
       private int currentModeStartedTick;
-      private const float StalkToAttackMTBDays = 0.7f;
+      private const float StalkToAttackMTBDays = 0.8f;
       private const float AttackToStalkMTBHours = 6f;
       private const float DefendToAttackMTBHours = 10f;
       private const float ChanceToFleeOnDown = 0.0f;
