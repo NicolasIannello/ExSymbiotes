@@ -8,7 +8,7 @@
 		</targetTags>
 		<letterText>A mysterious symbiote mass has crashed nearby.\n\nThe symbiote mass pulsates with putrid psychic energy, gradually intensifying as it approaches some dangerous limit. You can send colonists to suppress the symbiote mass to prevent it from waking up.\n\nYou can also mark the symbiote mass for study to try to learn its purpose and perhaps make use of it.\n\nYou can always attack the symbiote mass to destroy it, but doing so may unleash unnatural and dangerous phenomena.</letterText>
 		<letterDef>NeutralEvent</letterDef>
-		<baseChance>0.4</baseChance>
+		<baseChance>0.5</baseChance>
 		<earliestDay>30</earliestDay>
 		<minRefireDays>100</minRefireDays>
 		<minAnomalyThreatLevel>2</minAnomalyThreatLevel>
