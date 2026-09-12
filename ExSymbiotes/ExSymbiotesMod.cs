@@ -22,27 +22,27 @@ namespace ExSymbiotes
     [DefOf]
     public static class ExSymbiotesDefOf
     {
+        public static AbilityDef ExSymbiotes_SymbiosisLeap;
+        public static DutyDef ExSymbiotes_SymbioteStalkWander;
+        public static EffecterDef ExSymbiotes_TachycardiacArrest;
+        public static EffecterDef ExSymbiotes_MeatExplosion_Black;
+        public static FactionDef ExSymbiotes_Symbiotes;
+        public static HediffDef ExSymbiotes_Symbiosis;
+        public static HediffDef ExSymbiotes_Symbiosis_Red;
+        public static HediffDef ExSymbiotes_SymbioteControl;
+        public static HediffDef ExSymbiotes_SymbioteControlRed;
+        public static IncidentDef ExSymbiotes_SymbioteMass_Incident;
+        public static JobDef ExSymbiotes_SymbioteDigest;
+        public static JobDef ExSymbiotes_SymbioteSwitchToAttackMode;
+        public static PawnGroupKindDef ExSymbiotes_Symbiote_PawnGroupKind;
+        public static PawnGroupKindDef ExSymbiotes_Symbiote_PawnGroupKindRed;
+        public static PawnGroupKindDef ExSymbiotes_Symbiote_PawnGroupKindBlackRed;
+        public static PawnGroupKindDef ExSymbiotes_Symbiote_PawnGroupKindRedBlack;
         public static ThingDef ExSymbiotes_SymbioteMass_Black;
         public static ThingDef ExSymbiotes_SymbioteMass_Red;
         public static ThingDef ExSymbiotes_SymbioteMassIncoming;
         public static ThingDef ExSymbiotes_Symbiote;
         public static ThingDef ExSymbiotes_SymbioteRed;
-        public static PawnGroupKindDef ExSymbiotes_Symbiote_PawnGroupKind;
-        public static PawnGroupKindDef ExSymbiotes_Symbiote_PawnGroupKindRed;
-        public static PawnGroupKindDef ExSymbiotes_Symbiote_PawnGroupKindBlackRed;
-        public static PawnGroupKindDef ExSymbiotes_Symbiote_PawnGroupKindRedBlack;
-        public static EffecterDef ExSymbiotes_TachycardiacArrest;
-        public static EffecterDef ExSymbiotes_MeatExplosion_Black;
-        public static IncidentDef ExSymbiotes_SymbioteMass_Incident;
-        public static HediffDef ExSymbiotes_Symbiosis;
-        public static HediffDef ExSymbiotes_Symbiosis_Red;
-        public static HediffDef ExSymbiotes_SymbioteControl;
-        public static HediffDef ExSymbiotes_SymbioteControlRed;
-        public static AbilityDef ExSymbiotes_SymbiosisLeap;
-        public static DutyDef ExSymbiotes_SymbioteStalkWander;
-        public static JobDef ExSymbiotes_SymbioteDigest;
-        public static JobDef ExSymbiotes_SymbioteSwitchToAttackMode;
-        public static FactionDef ExSymbiotes_Symbiotes;
 
         [MayRequire("Ludeon.RimWorld.Odyssey,Ludeon.RimWorld.Biotech")]
         public static GeneDef VacuumResistance_Total;
