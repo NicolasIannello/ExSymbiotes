@@ -24,16 +24,14 @@ namespace ExSymbiotes
         
         public bool ConditionalWeakTableTryGet(Pawn pawn)
         {
-            if (HediffComp_SymbioteBase.SymbioteWeakTable.TryGetValue(pawn, out HediffComp_SymbioteBase res))
-                return true;
-            
-            return false;
+            return HediffComp_SymbioteBase.SymbioteWeakTable.TryGetValue(pawn, out HediffComp_SymbioteBase _);
         }
         
         public override void CompExposeData()
         {
             base.CompExposeData();
             Scribe_Values.Look<Color>(ref this.color, "color");
+            Scribe_Values.Look<Color>(ref this.skin, "skin");
         }
     }
 }
