@@ -34,6 +34,8 @@
 		<tale>ExSymbiotes_SymbiotePack</tale>
 		<letterHyperlinkHediffDefs>
 			<li>ExSymbiotes_SymbioteControl</li>
+			<li>ExSymbiotes_SymbioteControlRed</li>
+			<li>ExSymbiotes_SymbioticTendrils</li>
 		</letterHyperlinkHediffDefs>
 		<minAnomalyThreatLevel>2</minAnomalyThreatLevel>
 		<requireColonistsPresent>True</requireColonistsPresent>
@@ -45,9 +47,5 @@
 		<workerClass>ExSymbiotes.IncidentWorker_SymbiotePackRed</workerClass>
 		<baseChance>1.0</baseChance>
 		<minThreatPoints>1500</minThreatPoints>
-		<letterHyperlinkHediffDefs>
-			<li>ExSymbiotes_SymbioteControlRed</li>
-			<li>ExSymbiotes_SymbioticTendrils</li>
-		</letterHyperlinkHediffDefs>
 	</IncidentDef>
 </Defs>
