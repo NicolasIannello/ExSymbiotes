@@ -56,7 +56,7 @@ namespace ExSymbiotes
             symbiote.TakeDamage(dinfo);
             this.Pawn.SetFaction(originalFaction);
             if (Pawn.RaceProps.Humanlike) Pawn.story.skinColorOverride = null;
-            if(ConditionalWeakTableTryGet(this.Pawn)) ConditionalWeakTableRemove(this.Pawn);
+            ConditionalWeakTableRemove(this.Pawn);
             if (ModsConfig.BiotechActive && this.Pawn.genes!=null)
             {
                 SymbioteUtility.CheckRemoveGene(this.Pawn, GeneDefOf.Deathless, this.deathlessGene);
