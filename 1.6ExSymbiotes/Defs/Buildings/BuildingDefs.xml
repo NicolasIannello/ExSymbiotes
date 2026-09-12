@@ -20,7 +20,7 @@
 		<building>
 			<isEdifice>true</isEdifice>
 			<isInert>true</isInert>
-			<isTargetable>false</isTargetable>
+			<isTargetable>true</isTargetable>
 			<claimable>false</claimable>
 			<canBuildNonEdificesUnder>false</canBuildNonEdificesUnder>
 			<deconstructible>false</deconstructible>
@@ -88,7 +88,7 @@
 					<li>
 						<threshold>20</threshold>
 						<label>Symbiote mass study complete</label>
-						<text>You've completed your investigation of the symbiote mass. This lifeform can assimilate with other living things.\n\nYou believe you can use this power without losing control of your body, destroying the symbiote mass in the proccess.\n\nThe symbiote mass has become unstable, it must be suppressed. If it were to fully wake up, it would release symbiotes to take over all living things.\n\nYou can now intentionally provoke a response from the symbiote mass.</text>
+						<text>You've completed your investigation of the symbiote mass. This lifeform can assimilate with other living things.\n\nYou believe you can use this power without losing control of your body, destroying the symbiote mass in the proccess.\n\nThe symbiote mass has become unstable, it must be suppressed. If it were to fully wake up, it would release symbiotes to take over all living things.\n\nYou can now intentionally contain the symbiote mass, although they could still be other uses for it.</text>
 					</li>
 					<li>
 						<threshold>22</threshold>
@@ -168,7 +168,7 @@
 					<li>
 						<threshold>20</threshold>
 						<label>Symbiote mass study complete</label>
-						<text>You've completed your investigation of the symbiote mass. This lifeform can assimilate with other living things.\n\nYou believe you can use this power without losing control of your body, destroying the symbiote mass in the proccess.\n\nThe symbiote mass has become unstable, it must be suppressed. If it were to fully wake up, it would release symbiotes to take over all living things.\n\nYou can now intentionally provoke a response from the symbiote mass.</text>
+						<text>You've completed your investigation of the symbiote mass. This lifeform can assimilate with other living things.\n\nYou believe you can use this power without losing control of your body, destroying the symbiote mass in the proccess.\n\nThe symbiote mass has become unstable, it must be suppressed. If it were to fully wake up, it would release symbiotes to take over all living things.\n\nYou can now intentionally contain the symbiote mass.</text>
 					</li>
 				</studyNotes>
 			</li>
