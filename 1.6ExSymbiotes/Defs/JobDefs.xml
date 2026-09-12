@@ -41,7 +41,7 @@
                 <li Class="JobGiver_AIAbilityFight">
                     <targetAcquireRadius>65</targetAcquireRadius>
                     <targetKeepRadius>72</targetKeepRadius>
-                    <ability>ConsumeLeap_Devourer</ability>
+                    <ability>ExSymbiotes_SymbiosisLeap</ability>
                 </li>
                 <li Class="JobGiver_ReactToCloseMeleeThreat">
                     <maxDistance>2.9</maxDistance>
