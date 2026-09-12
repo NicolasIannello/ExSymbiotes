@@ -31,7 +31,7 @@ namespace ExSymbiotes
       public override StateGraph CreateGraph()
       {
         StateGraph graph = new StateGraph();
-        LordToil_ChimeraStalk toilChimeraStalk = new LordToil_ChimeraStalk();
+        LordToil_SymbioteStalk toilChimeraStalk = new LordToil_SymbioteStalk();
         graph.StartingToil = (LordToil) toilChimeraStalk;
         LordToil_ChimeraAttack toilChimeraAttack = new LordToil_ChimeraAttack();
         graph.AddToil((LordToil) toilChimeraAttack);
@@ -116,7 +116,7 @@ namespace ExSymbiotes
           return;
         switch (this.lord.CurLordToil)
         {
-          case LordToil_ChimeraStalk _:
+          case LordToil_SymbioteStalk _:
             this.lord.ReceiveMemo(StalkToAttackMemo);
             break;
           case LordToil_ChimeraAttack _:

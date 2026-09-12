@@ -1,6 +1,7 @@
 ﻿using HarmonyLib;
 using RimWorld;
 using Verse;
+using Verse.AI;
 
 namespace ExSymbiotes
 {
@@ -38,7 +39,9 @@ namespace ExSymbiotes
         public static HediffDef ExSymbiotes_SymbioteControl;
         public static HediffDef ExSymbiotes_SymbioteControlRed;
         public static AbilityDef ExSymbiotes_SymbiosisLeap;
+        public static DutyDef ExSymbiotes_SymbioteStalkWander;
         public static JobDef ExSymbiotes_SymbioteDigest;
+        public static JobDef ExSymbiotes_SymbioteSwitchToAttackMode;
         public static FactionDef ExSymbiotes_Symbiotes;
 
         [MayRequire("Ludeon.RimWorld.Odyssey,Ludeon.RimWorld.Biotech")]

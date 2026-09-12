@@ -81,7 +81,10 @@
     <Compile Include="Incident\IncidentWorker_SymbiotePack.cs" />
     <Compile Include="Job\JobDriver_SymbioteDigest.cs" />
     <Compile Include="Job\JobGiver_FindHost.cs" />
+    <Compile Include="Job\SymbioteMass\JobDriver_SymbioteSwitchToAttackMode.cs" />
+    <Compile Include="Job\SymbioteMass\JobGiver_SymbioteAttackNearbyHumans.cs" />
     <Compile Include="Job\SymbioteMass\LordJob_SymbioteMass.cs" />
+    <Compile Include="Job\SymbioteMass\LordToil_SymbioteStalk.cs" />
     <Compile Include="Patches\Symbiosis.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Render\PawnRenderNodeProperties_EyeSymbiote.cs" />

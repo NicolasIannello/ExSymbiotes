@@ -8,6 +8,24 @@
         <playerInterruptible>false</playerInterruptible>
     </JobDef>
 
+    <JobDef>
+        <defName>ExSymbiotes_SymbioteSwitchToAttackMode</defName>
+        <driverClass>ExSymbiotes.JobDriver_SymbioteSwitchToAttackMode</driverClass>
+        <reportString>attacking.</reportString>
+    </JobDef>
+    
+    <DutyDef>
+        <defName>ExSymbiotes_SymbioteStalkWander</defName>
+        <thinkNode Class="ThinkNode_Priority">
+            <subNodes>
+                <li Class="ExSymbiotes.JobGiver_SymbioteAttackNearbyHumans"/>
+                <li Class="JobGiver_WanderHerd">
+                    <maxDanger>Some</maxDanger>
+                </li>
+            </subNodes>
+        </thinkNode>
+    </DutyDef>
+    
     <ThinkTreeDef>
         <defName>ExSymbiotes_Symbiote</defName>
         <thinkRoot Class="ThinkNode_Priority">
