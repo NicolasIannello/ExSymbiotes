@@ -420,6 +420,9 @@
                     <li><capacity>Breathing</capacity><postFactor>1.25</postFactor></li>
                 </capMods>
                 <regeneration>350</regeneration>
+                <disablesNeeds>
+                    <li>Rest</li>
+                </disablesNeeds>
             </li>
         </stages>
         <comps>
@@ -496,6 +499,9 @@
                     <li><capacity>Breathing</capacity><postFactor>1.40</postFactor></li>
                 </capMods>
                 <regeneration>350</regeneration>
+                <disablesNeeds>
+                    <li>Rest</li>
+                </disablesNeeds>
             </li>
         </stages>
         <renderNodeProperties>
