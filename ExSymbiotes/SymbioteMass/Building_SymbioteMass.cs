@@ -134,7 +134,7 @@ namespace ExSymbiotes
       base.PostApplyDamage(dinfo, totalDamageDealt);
       if (!this.Spawned)
         return;
-      damageTaken += totalDamageDealt;
+      if(dinfo.Instigator!=null) damageTaken += totalDamageDealt;
     }
     
     private void Beat()
