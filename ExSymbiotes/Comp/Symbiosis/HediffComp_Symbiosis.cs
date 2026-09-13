@@ -75,7 +75,7 @@ namespace ExSymbiotes
             Scribe_Values.Look<bool>(ref this.immunityGene, "immunityGene");
         }
         
-        public void AddSymbiosis(int amount) => this.energy = (energy + amount)>10 ? 10 : energy + amount;
+        public void AddSymbiosis(int amount) => this.energy = (energy + amount)>EnergyMax ? EnergyMax : energy + amount;
         
         public void RemoveSymbiosis(int amount) => this.energy = (energy - amount)<0 ? 0 : energy - amount;
     }
