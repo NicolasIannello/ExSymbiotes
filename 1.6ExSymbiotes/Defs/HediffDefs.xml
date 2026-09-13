@@ -3,7 +3,7 @@
     <HediffDef Name="ExSymbiotes_Symbiosis">
         <defName>ExSymbiotes_Symbiosis</defName>
         <label>symbiosis (Black)</label>
-        <hediffClass>HediffWithComps</hediffClass>
+        <hediffClass>ExSymbiotes.HediffWithComps_Symbiosis</hediffClass>
         <description>This person has perform symbiosis with a symbiotic core.The symbiote lives inside them, guiding their actions and twisting their flesh.</description>
         <isBad>false</isBad>
         <hairColorOverride>(31, 27, 28)</hairColorOverride>
