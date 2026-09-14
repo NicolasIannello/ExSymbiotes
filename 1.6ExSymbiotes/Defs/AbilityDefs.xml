@@ -139,4 +139,82 @@
             <li Class="ExSymbiotes.CompProperties_SymbiosisLeap"/>
         </comps>
     </AbilityDef>
+
+    <AbilityDef ParentName="AbilityTouchBase">
+        <defName>ExSymbiotes_SymbioticResurrect</defName>
+        <label>symbiotic resurrect</label>
+        <description>A super-dose of symbiote tissue tuned to resurrect the dead. Administered to a corpse, symbiote tissue repairs broken-down tissues and kickstart the body back to life. Unfortunately, the resurrected sometimes come back with brain damage, blindness, or progressive psychosis. Outcomes are better when the symbiote tissue is administered to a fresher body. If a body is preserved, it can even be resurrected long after death.\n\nThe resurrected also experience limited retrograde amnesia, forgetting some recent memories and social interactions.</description>
+        <iconPath>UI/SymbioticResurrect</iconPath>
+        <cooldownTicksRange>1800000</cooldownTicksRange>
+        <stunTargetWhileCasting>true</stunTargetWhileCasting>
+        <displayGizmoWhileUndrafted>true</displayGizmoWhileUndrafted>
+        <disableGizmoWhileUndrafted>false</disableGizmoWhileUndrafted>
+        <warmupMote>Mote_ResurrectAbility</warmupMote>
+        <warmupStartSound>Resurrect_Cast</warmupStartSound>
+        <displayOrder>400</displayOrder>
+        <hostile>false</hostile>
+        <casterMustBeCapableOfViolence>false</casterMustBeCapableOfViolence>
+        <verbProperties>
+            <verbClass>Verb_CastAbilityTouch</verbClass>
+            <drawAimPie>false</drawAimPie>
+            <range>-1</range>
+            <warmupTime>5</warmupTime>
+            <soundCast>Resurrect_Resolve</soundCast>
+            <targetParams>
+                <canTargetPawns>false</canTargetPawns>
+                <canTargetBuildings>false</canTargetBuildings>
+                <canTargetCorpses>true</canTargetCorpses>
+                <canTargetMechs>false</canTargetMechs>
+            </targetParams>
+        </verbProperties>
+        <comps>
+            <li Class="ExSymbiotes.CompProperties_AbilitySymbiosisCost">
+                <symbiosisCost>18</symbiosisCost>
+            </li>
+            <li Class="CompProperties_Resurrect"/>
+            <li Class="CompProperties_AbilityRequiresCapacity">
+                <capacity>Manipulation</capacity>
+            </li>
+        </comps>
+    </AbilityDef>
+
+    <AbilityDef ParentName="AbilityTouchBase">
+        <defName>ExSymbiotes_SymbioticHealer</defName>
+        <label>symbiotic healer</label>
+        <description>A super-dose of symbiote tissue tuned to heal health conditions. The symbiote tissue will target and heal the single worst health condition affecting someone at any given time. Works even on health conditions that would otherwise be incurable. The symbiote tissue can even transmute themselves into organic matter, forming new limbs or organs as needed.</description>
+        <iconPath>UI/SymbioticHealer</iconPath>
+        <stunTargetWhileCasting>true</stunTargetWhileCasting>
+        <displayGizmoWhileUndrafted>true</displayGizmoWhileUndrafted>
+        <disableGizmoWhileUndrafted>false</disableGizmoWhileUndrafted>
+        <warmupMote>Mote_ResurrectAbility</warmupMote>
+        <warmupEffecter>Coagulate</warmupEffecter>
+        <warmupStartSound>Coagulate_Cast</warmupStartSound>
+        <jobDef>CastAbilityOnThingMelee</jobDef>
+        <displayOrder>400</displayOrder>
+        <hostile>false</hostile>
+        <casterMustBeCapableOfViolence>false</casterMustBeCapableOfViolence>
+        <verbProperties>
+            <verbClass>Verb_CastAbilityTouch</verbClass>
+            <drawAimPie>false</drawAimPie>
+            <range>-1</range>
+            <warmupTime>5</warmupTime>
+            <soundCast>Resurrect_Resolve</soundCast>
+            <targetParams>
+                <canTargetAnimals>true</canTargetAnimals>
+                <canTargetSelf>true</canTargetSelf>
+                <canTargetBuildings>false</canTargetBuildings>
+                <canTargetMechs>false</canTargetMechs>
+                <canTargetBloodfeeders>true</canTargetBloodfeeders>
+            </targetParams>
+        </verbProperties>
+        <comps>
+            <li Class="ExSymbiotes.CompProperties_AbilitySymbiosisCost">
+                <symbiosisCost>10</symbiosisCost>
+            </li>
+            <li Class="CompProperties_AbilityFixWorstHealthCondition"/>
+            <li Class="CompProperties_AbilityRequiresCapacity">
+                <capacity>Manipulation</capacity>
+            </li>
+        </comps>
+    </AbilityDef>
 </Defs>

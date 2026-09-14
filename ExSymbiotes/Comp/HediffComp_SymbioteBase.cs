@@ -11,6 +11,7 @@ namespace ExSymbiotes
         public Color skin;
         protected static readonly Color blue= new Color(0.118f, 0, 0.812f);
         protected static readonly Color red= new Color(0.812f, 0, 0.118f);
+        protected static readonly Color white= new Color(0.118f, 0.001f, 0.812f);
 
         public void ConditionalWeakTableAdd(Pawn pawn)
         {
