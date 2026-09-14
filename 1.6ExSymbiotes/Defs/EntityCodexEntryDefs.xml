@@ -8,6 +8,9 @@
 		<category>Advanced</category>
 		<linkedThings>
 			<li>ExSymbiotes_SymbioteMass_Black</li>
+			<li>ExSymbiotes_SymbioticCore</li>
+			<li>ExSymbiotes_SymbioteMass_Red</li>
+			<li>ExSymbiotes_SymbioticCore_Red</li>
 		</linkedThings>
 		<provocationIncidents>
 			<li>ExSymbiotes_SymbioteMass_Incident</li>
@@ -15,6 +18,7 @@
 		<orderInCategory>1441</orderInCategory>
 		<discoveredResearchProjects>
 			<li>ExSymbiotes_SymbioticMassResearch</li>
+			<li>ExSymbiotes_SymbioticCoreResearch</li>
 		</discoveredResearchProjects>
 	</EntityCodexEntryDef>
 
@@ -27,6 +31,8 @@
 		<linkedThings>
 			<li>ExSymbiotes_Symbiote</li>
 			<li>ExSymbiotes_SymbioticTissue</li>
+			<li>ExSymbiotes_SymbioteRed</li>
+			<li>ExSymbiotes_SymbioticTissue_Red</li>
 		</linkedThings>
 		<provocationIncidents>
 			<li>ExSymbiotes_SymbioteMass_Incident</li>
@@ -34,6 +40,7 @@
 		<orderInCategory>1442</orderInCategory>
 		<discoveredResearchProjects>
 			<li>ExSymbiotes_SymbioticTissueResearch</li>
+			<li>ExSymbiotes_SymbioticCoreResearch</li>
 		</discoveredResearchProjects>
 	</EntityCodexEntryDef>
 </Defs>

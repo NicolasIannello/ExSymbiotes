@@ -278,9 +278,6 @@
                 <useLabel>Use {0_label}</useLabel>
                 <useJob>Ingest</useJob>
                 <showUseGizmo>true</showUseGizmo>
-                <allowedMutants>
-                    <li>Ghoul</li>
-                </allowedMutants>
             </li>
             <li Class="CompProperties_Serum" />
             <li Class="CompProperties_UseEffectAddHediff">
@@ -310,9 +307,6 @@
                 <useLabel>Use {0_label}</useLabel>
                 <useJob>Ingest</useJob>
                 <showUseGizmo>true</showUseGizmo>
-                <allowedMutants>
-                    <li>Ghoul</li>
-                </allowedMutants>
             </li>
             <li Class="CompProperties_Serum" />
             <li Class="CompProperties_UseEffectAddHediff">
@@ -324,7 +318,54 @@
             </li>
         </comps>
     </ThingDef>
-    
+
+    <ThingDef ParentName="ExSymbiotes_SymbioticCore">
+        <defName>ExSymbiotes_SymbioticCore_White</defName>
+        <label>symbiotic core (White)</label>
+        <description>Artificial symbiotic core manufactured from a symbiote core at a serum centrifuge.</description>
+        <hiddenWhileUndiscovered>false</hiddenWhileUndiscovered>
+        <graphicData>
+            <texPath>Things/Item/SymbioticCoreWhite</texPath>
+            <graphicClass>Graphic_Single</graphicClass>
+            <drawSize>0.8</drawSize>
+        </graphicData>
+        <comps Inherit="False">
+            <li Class="CompProperties_Drug">
+                <listOrder>1200</listOrder>
+                <teetotalerCanConsume>false</teetotalerCanConsume>
+            </li>
+            <li Class="CompProperties_Usable">
+                <useLabel>Use {0_label}</useLabel>
+                <useJob>Ingest</useJob>
+                <showUseGizmo>true</showUseGizmo>
+            </li>
+            <li Class="CompProperties_Serum" />
+            <li Class="CompProperties_UseEffectAddHediff">
+                <hediffDef>ExSymbiotes_Symbiosis_White</hediffDef>
+                <allowRepeatedUse>false</allowRepeatedUse>
+            </li>
+            <li Class="CompProperties_UseEffectPlaySound">
+                <soundOnUsed>MechSerumUsed</soundOnUsed>
+            </li>
+        </comps>
+        <costList>
+            <ExSymbiotes_SymbioticCore>1</ExSymbiotes_SymbioticCore>
+            <ExSymbiotes_SymbioticTissue>10</ExSymbiotes_SymbioticTissue>
+            <Shard>1</Shard>
+            <MechSerumResurrector>1</MechSerumResurrector>
+        </costList>
+        <recipeMaker>
+            <productCount>1</productCount>
+            <workSpeedStat>DrugSynthesisSpeed</workSpeedStat>
+            <workSkill>Crafting</workSkill>
+            <recipeUsers>
+                <li>SerumCentrifuge</li>
+            </recipeUsers>
+            <workAmount>720</workAmount>
+            <researchPrerequisite>ExSymbiotes_SymbioticCoreResearch</researchPrerequisite>
+        </recipeMaker>
+    </ThingDef>
+
     <!--        WEAPONS     -->
     <ThingDef ParentName="ResourceVerbBase">
         <defName>ExSymbiotes_SymbioteScythe</defName>

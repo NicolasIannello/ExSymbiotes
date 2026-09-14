@@ -38,4 +38,19 @@
         <researchViewY>3.40</researchViewY>
     </ResearchProjectDef>
 
+    <ResearchProjectDef>
+        <defName>ExSymbiotes_SymbioticCoreResearch</defName>
+        <label>symbiotic core</label>
+        <description>Mutate symbiotic cores to create new ones with new abilities.</description>
+        <tab>ExSymbiotes_Tab</tab>
+        <prerequisites>
+            <li>ExSymbiotes_SymbioticTissueResearch</li>
+            <li>ExSymbiotes_SymbioticMassResearch</li>
+            <li>SerumSynthesis</li>
+        </prerequisites>
+        <knowledgeCost>20</knowledgeCost>
+        <knowledgeCategory>Advanced</knowledgeCategory>
+        <researchViewX>2.00</researchViewX>
+        <researchViewY>1.70</researchViewY>
+    </ResearchProjectDef>
 </Defs>
