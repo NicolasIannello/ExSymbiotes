@@ -77,7 +77,7 @@
         </comps>
     </AbilityDef>
 
-    <AbilityDef>
+    <AbilityDef Name="ExSymbiotes_SymbioticTendrilsAbilityDef">
         <defName>ExSymbiotes_SymbioticTendrils</defName>
         <label>symbiotic tendrils</label>
         <description>Four symbiotic tendrils protude from the back of the user shooting enemies that get too close.</description>
@@ -115,6 +115,22 @@
         </comps>
     </AbilityDef>
 
+    <AbilityDef ParentName="ExSymbiotes_SymbioticTendrilsAbilityDef">
+        <defName>ExSymbiotes_SymbioticTendrilsWeak</defName>
+        <comps Inherit="False">
+            <li Class="ExSymbiotes.CompProperties_AbilitySymbiosisCost">
+                <symbiosisCost>4</symbiosisCost>
+            </li>
+            <li Class="CompProperties_AbilityGiveHediff">
+                <compClass>CompAbilityEffect_GiveHediff</compClass>
+                <hediffDef>ExSymbiotes_SymbioticTendrilsWeak</hediffDef>
+            </li>
+            <li Class="CompProperties_AbilityFleckOnTarget">
+                <fleckDef>BloodSplash</fleckDef>
+            </li>
+        </comps>
+    </AbilityDef>
+    
     <AbilityDef>
         <defName>ExSymbiotes_SymbiosisLeap</defName>
         <label>consume leap</label>

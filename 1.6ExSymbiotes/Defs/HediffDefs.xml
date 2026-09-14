@@ -45,6 +45,7 @@
             <li Class="HediffCompProperties_GiveAbility">
                 <abilityDefs>
                     <li>ExSymbiotes_SymbioticArmor</li>
+                    <li>ExSymbiotes_SymbioticTendrilsWeak</li>
                     <li MayRequire="Ludeon.RimWorld.Biotech">ExSymbiotes_SymbioticCoagulate</li>
                     <li MayRequire="Ludeon.RimWorld.Biotech">ExSymbiotes_SymbioticLongjump</li>
                 </abilityDefs>
@@ -181,7 +182,7 @@
                     <li MayRequire="Ludeon.RimWorld.Biotech">ExSymbiotes_SymbioticCoagulate</li>
                     <li>ExSymbiotes_SymbioticHealer</li>
                     <li>ExSymbiotes_SymbioticResurrect</li>
-                    <li>ExSymbiotes_SymbioticTendrils</li>
+                    <li>ExSymbiotes_SymbioticTendrilsWeak</li>
                     <li MayRequire="Ludeon.RimWorld.Biotech">ExSymbiotes_SymbioticLongjump</li>
                 </abilityDefs>
             </li>
@@ -239,7 +240,7 @@
         </comps>
     </HediffDef>
 
-    <HediffDef>
+    <HediffDef Name="ExSymbiotes_SymbioticTendrilsHediffDef">
         <defName>ExSymbiotes_SymbioticTendrils</defName>
         <label>symbiotic tendrils</label>
         <hediffClass>HediffWithComps</hediffClass>
@@ -425,7 +426,31 @@
         <comps>
             <li Class="ExSymbiotes.HediffCompProperties_SymbioticTendrils">
                 <turretGunDef>ExSymbiotes_TendrilTurret</turretGunDef>
-                <cd>2.5</cd>
+                <cd>2</cd>
+            </li>
+            <li Class="HediffCompProperties_Disappears">
+                <showRemainingTime>True</showRemainingTime>
+            </li>
+            <li Class="HediffCompProperties_DisappearsOnDeath"/>
+        </comps>
+    </HediffDef>
+
+    <HediffDef ParentName="ExSymbiotes_SymbioticTendrilsHediffDef">
+        <defName>ExSymbiotes_SymbioticTendrilsWeak</defName>
+        <stages Inherit="False">
+            <li>
+                <statFactors>
+                    <WorkSpeedGlobal>4.0</WorkSpeedGlobal>
+                </statFactors>
+                <capMods>
+                    <li><capacity>Manipulation</capacity><postFactor>2</postFactor></li>
+                </capMods>
+            </li>
+        </stages>
+        <comps Inherit="False">
+            <li Class="ExSymbiotes.HediffCompProperties_SymbioticTendrils">
+                <turretGunDef>ExSymbiotes_TendrilTurret</turretGunDef>
+                <cd>4</cd>
             </li>
             <li Class="HediffCompProperties_Disappears">
                 <showRemainingTime>True</showRemainingTime>
