@@ -96,7 +96,7 @@ namespace ExSymbiotes
             this.Remove();
         }
 
-        public void AddThing(Thing thing)
+        public void AddThing(Thing thing, bool reverse = true)
         {
             Lord symbioteLord = ((Pawn)thing).GetLord();
             if (this.Pawn.GetLord() == symbioteLord)
@@ -111,10 +111,10 @@ namespace ExSymbiotes
             ConditionalWeakTableRemove(this.Pawn);
             ConditionalWeakTableAdd(this.Pawn);
             
-            if(symbioteLord==null) 
-                SymbioteUtility.GetSymbioteLord(this.Pawn.MapHeld).AddPawn(this.Pawn);
-            else 
-                symbioteLord.AddPawn(this.Pawn);
+            if(symbioteLord==null) symbioteLord = SymbioteUtility.GetSymbioteLord(this.Pawn.MapHeld);
+            if(reverse) symbioteLord.ownedPawns.Reverse();
+            symbioteLord.AddPawn(this.Pawn);
+            if(reverse) symbioteLord.ownedPawns.Reverse();
         }
         
         private Pawn DropPawn(Map map)

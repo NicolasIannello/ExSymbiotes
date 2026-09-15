@@ -34,9 +34,10 @@ namespace ExSymbiotes
           
           GenSpawn.Spawn((Thing)symbiotes[index], CellFinder.RandomClosewalkCellNear(result, target, 10), target, rot);
           symbioteLord.AddPawn(symbiotes[index]);
-          comp.AddThing(symbiotes[index]);
+          bool flag = index == symbiotes.Count - 1;
+          comp.AddThing(symbiotes[index], flag);
         }
-        this.SendStandardLetter("LetterLabelSymbiotePackArrived".Translate(), "SymbiotePackArrived".Translate(), LetterDefOf.ThreatBig, parms, (LookTargets) new TargetInfo(result, target));
+        this.SendStandardLetter("LetterLabelSymbiotePackArrived".Translate(), "SymbiotePackArrived".Translate(), LetterDefOf.ThreatBig, parms, new LookTargets((IEnumerable<Pawn>) symbioteLord.ownedPawns));
         Find.TickManager.slower.SignalForceNormalSpeedShort();
         return true;
       }
