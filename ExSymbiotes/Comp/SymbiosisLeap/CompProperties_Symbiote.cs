@@ -15,7 +15,8 @@ namespace ExSymbiotes
         public string messageDigestionCompleted;
         [MustTranslate]
         public string digestingInspector;
-        public int digestTime = 30;
+        public int digestTime = 20;
+        public int digestTimeNonHumanlike = 5;
         [MustTranslate]
         public string messageRetaliate;
         [MustTranslate]

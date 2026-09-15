@@ -47,6 +47,7 @@
 				<digestingInspector>Controling {PAWN_nameDef}: {SECONDS} seconds left</digestingInspector>
 				<messageRetaliate>The symbiote inside {PAWN_nameDef} retaliates towards the controlling attemp.</messageRetaliate>
 				<digestTime>20</digestTime>
+				<digestTimeNonHumanlike>5</digestTimeNonHumanlike>
 			</li>
 			<li Class="CompProperties_AttachPoints">
 				<points>

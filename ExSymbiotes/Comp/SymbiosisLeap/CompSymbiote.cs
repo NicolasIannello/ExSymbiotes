@@ -220,7 +220,7 @@ namespace ExSymbiotes
 
       public int GetDigestionTicks()
       {
-        return this.DigestingThing == null ? 0 : this.Props.digestTime * 60;
+        return this.DigestingThing == null ? 0 : (this.DigestingThing.def.race!=null && this.DigestingThing.def.race.Humanlike) ? this.Props.digestTime * 60 : this.Props.digestTimeNonHumanlike * 60;
       }
 
       private void EndDigestingJob()
