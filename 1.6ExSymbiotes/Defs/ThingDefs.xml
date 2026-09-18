@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Defs>
-    <ThingDef ParentName="BaseWeaponTurret">
+    <ThingDef Name="ExSymbiotes_TendrilTurret" ParentName="BaseWeaponTurret">
         <defName>ExSymbiotes_TendrilTurret</defName>
         <label>symbiote tendrils</label>
         <description>symbiote tendrils.</description>
@@ -32,7 +32,23 @@
         </verbs>
     </ThingDef>
 
-    <ThingDef ParentName="SpikeBase">
+    <ThingDef ParentName="ExSymbiotes_TendrilTurret">
+        <defName>ExSymbiotes_TendrilTurretBlack</defName>
+        <verbs Inherit="False">
+            <li>
+                <verbClass>Verb_Shoot</verbClass>
+                <defaultProjectile>ExSymbiotes_TendrilSpineBlack</defaultProjectile>
+                <warmupTime>0</warmupTime>
+                <range>20</range>
+                <ticksBetweenBurstShots>4</ticksBetweenBurstShots>
+                <burstShotCount>4</burstShotCount>
+                <soundCast>Ability_SpineLaunch</soundCast>
+                <soundCastTail>GunTail_Light</soundCastTail>
+            </li>
+        </verbs>
+    </ThingDef>
+    
+    <ThingDef Name="ExSymbiotes_TendrilSpine" ParentName="SpikeBase">
         <defName>ExSymbiotes_TendrilSpine</defName>
         <label>symbiote tendril spine</label>
         <graphicData>
@@ -43,6 +59,13 @@
             <armorPenetrationBase>1</armorPenetrationBase>
             <stoppingPower>1.2</stoppingPower>
         </projectile>
+    </ThingDef>
+
+    <ThingDef ParentName="ExSymbiotes_TendrilSpine">
+        <defName>ExSymbiotes_TendrilSpineBlack</defName>
+        <graphicData>
+            <texPath>Things/Projectile/ExSymbiotes_Projectile_TendrilSpineBlack</texPath>
+        </graphicData>
     </ThingDef>
 
     <TaleDef>

@@ -449,7 +449,7 @@
         </stages>
         <comps Inherit="False">
             <li Class="ExSymbiotes.HediffCompProperties_SymbioticTendrils">
-                <turretGunDef>ExSymbiotes_TendrilTurret</turretGunDef>
+                <turretGunDef>ExSymbiotes_TendrilTurretBlack</turretGunDef>
                 <cd>4</cd>
             </li>
             <li Class="HediffCompProperties_Disappears">
