@@ -1,5 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <Defs>
+    <!--    LEATHER   -->
     <RecipeDef Name="ExSymbiotes_Make_Leather_Symbiotic">
         <defName>ExSymbiotes_Make_Leather_Symbiotic</defName>
         <label>make symbiotic leather (black)</label>
@@ -191,7 +192,7 @@
         <workSkill>Crafting</workSkill>
         <displayPriority>101</displayPriority>
     </RecipeDef>
-
+    <!--    PLASTEEL   -->
     <RecipeDef Name="ExSymbiotes_Make_SymbioticPlasteel">
         <defName>ExSymbiotes_Make_SymbioticPlasteel</defName>
         <label>make symbiotic plasteel (black)</label>
@@ -353,4 +354,65 @@
             <ExSymbiotes_SymbioticPlasteel_Red>100</ExSymbiotes_SymbioticPlasteel_Red>
         </products>
     </RecipeDef>
+    <!--    SURGERIES   -->
+    <RecipeDef Name="ExSymbiotes_Recipe_RemoveSymbiosis" ParentName="SurgeryFlesh" Abstract="True">
+        <label>remove symbiote</label>
+        <description>Remove symbiote.</description>
+        <workerClass>Recipe_RemoveHediff</workerClass>
+        <workAmount>2500</workAmount>
+        <isViolation>true</isViolation>
+        <jobString>Removing symbiote.</jobString>
+        <successfullyRemovedHediffMessage>{0} has successfully removed the symbiote from {1}.</successfullyRemovedHediffMessage>
+        <targetsBodyPart>false</targetsBodyPart>
+        <skillRequirements>
+            <Medicine>10</Medicine>
+        </skillRequirements>
+        <recipeUsers>
+            <li>Human</li>
+            <li MayRequire="Ludeon.RimWorld.Anomaly">CreepJoiner</li>
+        </recipeUsers>
+        <ingredients>
+            <li>
+                <filter><categories><li>Medicine</li></categories></filter>
+                <count>1</count>
+            </li>
+            <li>
+                <filter><thingDefs><li>Shard</li></thingDefs></filter>
+                <count>1</count>
+            </li>
+        </ingredients>
+        <fixedIngredientFilter>
+            <categories>
+                <li>Medicine</li>
+            </categories>
+        </fixedIngredientFilter>
+    </RecipeDef>
+    
+    <RecipeDef ParentName="ExSymbiotes_Recipe_RemoveSymbiosis">
+        <defName>ExSymbiotes_Recipe_RemoveSymbiosisBlack</defName>
+        <descriptionHyperlinks>
+            <ThingDef>ExSymbiotes_SymbioticCore</ThingDef>
+            <HediffDef>ExSymbiotes_Symbiosis</HediffDef>
+        </descriptionHyperlinks>
+        <removesHediff>ExSymbiotes_Symbiosis</removesHediff>
+    </RecipeDef>
+    
+    <RecipeDef ParentName="ExSymbiotes_Recipe_RemoveSymbiosis">
+        <defName>ExSymbiotes_Recipe_RemoveSymbiosisRed</defName>
+        <descriptionHyperlinks>
+            <ThingDef>ExSymbiotes_SymbioticCore_Red</ThingDef>
+            <HediffDef>ExSymbiotes_Symbiosis_Red</HediffDef>
+        </descriptionHyperlinks>
+        <removesHediff>ExSymbiotes_Symbiosis_Red</removesHediff>
+    </RecipeDef>
+    
+    <RecipeDef ParentName="ExSymbiotes_Recipe_RemoveSymbiosis">
+        <defName>ExSymbiotes_Recipe_RemoveSymbiosisWhite</defName>
+        <descriptionHyperlinks>
+            <ThingDef>ExSymbiotes_SymbioticCore_White</ThingDef>
+            <HediffDef>ExSymbiotes_Symbiosis_White</HediffDef>
+        </descriptionHyperlinks>
+        <removesHediff>ExSymbiotes_Symbiosis_White</removesHediff>
+    </RecipeDef>
+    
 </Defs>
