@@ -9,7 +9,7 @@ namespace ExSymbiotes
 
         public override void CompPostPostAdd(DamageInfo? dinfo)
         {
-            color = Pawn.story.SkinColor == new Color(0.122f, 0.106f, 0.110f) ? blue : white;
+            color = blue;
             skin = Pawn.story.SkinColor;
             ConditionalWeakTableRemove(this.Pawn);
             ConditionalWeakTableAdd(this.Pawn);

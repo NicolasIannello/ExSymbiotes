@@ -27,15 +27,14 @@ namespace ExSymbiotes
             if (node.Props.flipGraphic && parms.facing.IsHorizontal) parms.facing = parms.facing.Opposite;
             Material baseMat = graphic.NodeGetMat(parms);
             Material symbioticArmorMat;
-            Color color = symbioteBase.color;
 
-            if (!materials.TryGetValue((color, baseMat), out symbioticArmorMat))
+            if (!materials.TryGetValue((symbioteBase.skin, baseMat), out symbioticArmorMat))
             {
                 symbioticArmorMat = new Material(baseMat);
                 symbioticArmorMat.shader = ShaderDatabase.CutoutSkin;
                 symbioticArmorMat.color = symbioteBase.skin;
-                symbioticArmorMat.SetColor("_ShadowColor", color);
-                materials.Add((color, baseMat), symbioticArmorMat);
+                symbioticArmorMat.SetColor("_ShadowColor", symbioteBase.color);
+                materials.Add((symbioteBase.skin, baseMat), symbioticArmorMat);
             }
             
             __result = symbioticArmorMat;
