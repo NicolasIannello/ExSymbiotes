@@ -282,7 +282,7 @@
             <li Class="CompProperties_Serum" />
             <li Class="CompProperties_UseEffectAddHediff">
                 <hediffDef>ExSymbiotes_Symbiosis</hediffDef>
-                <allowRepeatedUse>false</allowRepeatedUse>
+                <allowRepeatedUse>true</allowRepeatedUse>
             </li>
             <li Class="CompProperties_UseEffectPlaySound">
                 <soundOnUsed>MechSerumUsed</soundOnUsed>
@@ -311,7 +311,7 @@
             <li Class="CompProperties_Serum" />
             <li Class="CompProperties_UseEffectAddHediff">
                 <hediffDef>ExSymbiotes_Symbiosis_Red</hediffDef>
-                <allowRepeatedUse>false</allowRepeatedUse>
+                <allowRepeatedUse>true</allowRepeatedUse>
             </li>
             <li Class="CompProperties_UseEffectPlaySound">
                 <soundOnUsed>MechSerumUsed</soundOnUsed>
@@ -342,7 +342,7 @@
             <li Class="CompProperties_Serum" />
             <li Class="CompProperties_UseEffectAddHediff">
                 <hediffDef>ExSymbiotes_Symbiosis_White</hediffDef>
-                <allowRepeatedUse>false</allowRepeatedUse>
+                <allowRepeatedUse>true</allowRepeatedUse>
             </li>
             <li Class="CompProperties_UseEffectPlaySound">
                 <soundOnUsed>MechSerumUsed</soundOnUsed>
