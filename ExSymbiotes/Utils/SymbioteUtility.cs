@@ -109,7 +109,7 @@ namespace ExSymbiotes.Utils
             }
         }
         
-        public static Hediff HasSymbiosis(Pawn pawn)//check CompAbilityEffect_SymbiosisLeap / CompSymbiote StartDigesting
+        public static Hediff HasSymbiosis(Pawn pawn, bool all = true)//check CompAbilityEffect_SymbiosisLeap / CompSymbiote StartDigesting
         {
             List<Hediff> hediffs = pawn.health.hediffSet.hediffs;
     
@@ -117,9 +117,8 @@ namespace ExSymbiotes.Utils
             {
                 HediffDef def = hediffs[i].def;
                 if (def == ExSymbiotesDefOf.ExSymbiotes_Symbiosis || def == ExSymbiotesDefOf.ExSymbiotes_Symbiosis_Red ||
-                    def == ExSymbiotesDefOf.ExSymbiotes_Symbiosis_White ||
-                    def == ExSymbiotesDefOf.ExSymbiotes_SymbioteControl || def == ExSymbiotesDefOf.ExSymbiotes_SymbioteControlRed)
-                    return hediffs[i];
+                    def == ExSymbiotesDefOf.ExSymbiotes_Symbiosis_White) return hediffs[i];
+                if (all && (def == ExSymbiotesDefOf.ExSymbiotes_SymbioteControl || def == ExSymbiotesDefOf.ExSymbiotes_SymbioteControlRed)) return hediffs[i];
             }
             
             return null;
