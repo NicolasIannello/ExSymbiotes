@@ -51,11 +51,15 @@ namespace ExSymbiotes
             base.CompPostPostRemoved();
             Pawn symbiote = DropPawn(Pawn.MapHeld);
             symbiote.abilities.GetAbility(ExSymbiotesDefOf.ExSymbiotes_SymbiosisLeap).StartCooldown(3000);
-            DamageInfo dinfo = new DamageInfo(DamageDefOf.AcidBurn, (float) 200, instigator: (Thing) symbiote);
+            DamageInfo dinfo = new DamageInfo(DamageDefOf.AcidBurn, (float) 150, instigator: (Thing) symbiote);
             dinfo.SetApplyAllDamage(true);
             symbiote.TakeDamage(dinfo);
             this.Pawn.SetFaction(originalFaction);
-            if (Pawn.RaceProps.Humanlike) Pawn.story.skinColorOverride = null;
+            if (Pawn.RaceProps.Humanlike)
+            {
+                Pawn.story.skinColorOverride = null;
+                if(!Pawn.Dead) Pawn.needs.mood.thoughts.memories.TryGainMemory(ExSymbiotesDefOf.ExSymbiotes_SymbioteControlledAfter);
+            }
             ConditionalWeakTableRemove(this.Pawn);
             if (ModsConfig.BiotechActive && this.Pawn.genes!=null)
             {

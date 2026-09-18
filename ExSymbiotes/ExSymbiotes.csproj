@@ -65,6 +65,7 @@
     <Compile Include="Comp\SymbiosisLeap\CompProperties_Symbiote.cs" />
     <Compile Include="Comp\SymbiosisLeap\CompSymbiote.cs" />
     <Compile Include="Comp\Symbiosis\HediffWithComps_Symbiosis.cs" />
+    <Compile Include="Comp\Symbiosis\ThoughtWorker_Symbiosis.cs" />
     <Compile Include="Comp\SymbioteControl\HediffCompProperties_SymbioteControl.cs" />
     <Compile Include="Comp\SymbioteControl\HediffComp_SymbioteControl.cs" />
     <Compile Include="Comp\SymbioticTendrils\HediffCompProperties_SymbioticTendrils.cs" />

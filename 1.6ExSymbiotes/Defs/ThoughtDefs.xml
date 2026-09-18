@@ -1,0 +1,88 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+    <ThoughtDef ParentName="LostMemory">
+        <defName>ExSymbiotes_BondedSymbioteLost</defName>
+        <showBubble>true</showBubble>
+        <durationDays>30</durationDays>
+        <stackLimit>5</stackLimit>
+        <stages>
+            <li>
+                <label>bonded symbiote</label>
+                <description>They took away my symbiote. I will never forget it!</description>
+                <baseMoodEffect>-15</baseMoodEffect>
+            </li>
+        </stages>
+    </ThoughtDef>
+
+    <ThoughtDef Name="ExSymbiotes_SymbioteControlledThoughtDef">
+        <defName>ExSymbiotes_SymbioteControlled</defName>
+        <workerClass>ThoughtWorker_Hediff</workerClass>
+        <hediff>ExSymbiotes_SymbioteControl</hediff>
+        <showBubble>false</showBubble>
+        <stackLimit>1</stackLimit>
+        <stackedEffectMultiplier>1</stackedEffectMultiplier>
+        <developmentalStageFilter>Baby, Child, Adult</developmentalStageFilter>
+        <stages>
+            <li>
+                <label>symbiote controlled</label>
+                <description>The thoughts of this person don't matter to the symbiote.</description>
+                <baseMoodEffect>99</baseMoodEffect>
+            </li>
+        </stages>
+    </ThoughtDef>
+
+    <ThoughtDef ParentName="ExSymbiotes_SymbioteControlledThoughtDef">
+        <defName>ExSymbiotes_SymbioteControlledRed</defName>
+        <hediff>ExSymbiotes_SymbioteControlRed</hediff>
+    </ThoughtDef>
+    
+    <ThoughtDef>
+        <defName>ExSymbiotes_SymbioteControlledAfter</defName>
+        <showBubble>false</showBubble>
+        <stackLimit>1</stackLimit>
+        <durationDays>10</durationDays>
+        <stackedEffectMultiplier>1</stackedEffectMultiplier>
+        <developmentalStageFilter>Baby, Child, Adult</developmentalStageFilter>
+        <stages>
+            <li>
+                <label>symbiote controlled</label>
+                <description>I lost control over my own body, the symbiote forced me to do atrocious thing against my will!</description>
+                <baseMoodEffect>-30</baseMoodEffect>
+            </li>
+        </stages>
+    </ThoughtDef>
+    
+    <ThoughtDef>
+        <defName>ExSymbiotes_SymbiosisBond</defName>
+        <workerClass>ExSymbiotes.ThoughtWorker_Symbiosis</workerClass>
+        <validWhileDespawned>true</validWhileDespawned>
+        <developmentalStageFilter>Baby, Child, Adult</developmentalStageFilter>
+        <stages>
+            <li>
+                <label>symbiosis bond great</label>
+                <description>We are one!</description>
+                <baseMoodEffect>10</baseMoodEffect>
+            </li>
+            <li>
+                <label>symbiosis bond good</label>
+                <description>I like this symbiote.</description>
+                <baseMoodEffect>5</baseMoodEffect>
+            </li>
+            <li>
+                <label>symbiosis bond neutral</label>
+                <description>I don't mind this symbiote.</description>
+                <baseMoodEffect>0</baseMoodEffect>
+            </li>
+            <li>
+                <label>symbiosis bond bad</label>
+                <description>I don't like this symbiote.</description>
+                <baseMoodEffect>-5</baseMoodEffect>
+            </li>
+            <li>
+                <label>symbiosis bond awfull</label>
+                <description>I can't stand it!</description>
+                <baseMoodEffect>-10</baseMoodEffect>
+            </li>
+        </stages>
+    </ThoughtDef>
+</Defs>

@@ -44,6 +44,8 @@ namespace ExSymbiotes
         public static ThingDef ExSymbiotes_SymbioteMassIncoming;
         public static ThingDef ExSymbiotes_Symbiote;
         public static ThingDef ExSymbiotes_SymbioteRed;
+        public static ThoughtDef ExSymbiotes_SymbioteControlledAfter;
+        public static ThoughtDef ExSymbiotes_BondedSymbioteLost;
 
         [MayRequire("Ludeon.RimWorld.Odyssey,Ludeon.RimWorld.Biotech")]
         public static GeneDef VacuumResistance_Total;
