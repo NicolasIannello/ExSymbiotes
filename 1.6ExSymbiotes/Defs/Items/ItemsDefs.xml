@@ -73,6 +73,7 @@
             <categories>
                 <li>Fabric</li>
             </categories>
+            <commonality>0.01</commonality>
             <color>(31, 27, 28)</color>
             <isAirtight>true</isAirtight>
             <statFactors>
@@ -109,6 +110,7 @@
             <categories>
                 <li>Fabric</li>
             </categories>
+            <commonality>0.005</commonality>
             <color>(156, 9, 9)</color>
             <isAirtight>true</isAirtight>
             <statFactors>
@@ -148,9 +150,6 @@
         <thingCategories>
             <li>ResourcesRaw</li>
         </thingCategories>
-        <deepCommonality>1</deepCommonality>
-        <deepCountPerPortion>10</deepCountPerPortion>
-        <deepLumpSizeRange>2~10</deepLumpSizeRange>
         <burnableByRecipe>false</burnableByRecipe>
         <smeltable>true</smeltable>
         <stuffProps>
