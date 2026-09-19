@@ -319,6 +319,35 @@
     </ThingDef>
 
     <ThingDef ParentName="ExSymbiotes_SymbioticCore">
+        <defName>ExSymbiotes_SymbioticCore_Yellow</defName>
+        <label>symbiotic core (Yellow)</label>
+        <graphicData>
+            <texPath>Things/Item/SymbioticCoreYellow</texPath>
+            <graphicClass>Graphic_Single</graphicClass>
+            <drawSize>0.8</drawSize>
+        </graphicData>
+        <comps Inherit="False">
+            <li Class="CompProperties_Drug">
+                <listOrder>1200</listOrder>
+                <teetotalerCanConsume>false</teetotalerCanConsume>
+            </li>
+            <li Class="CompProperties_Usable">
+                <useLabel>Use {0_label}</useLabel>
+                <useJob>Ingest</useJob>
+                <showUseGizmo>true</showUseGizmo>
+            </li>
+            <li Class="CompProperties_Serum" />
+            <li Class="CompProperties_UseEffectAddHediff">
+                <hediffDef>ExSymbiotes_Symbiosis_Yellow</hediffDef>
+                <allowRepeatedUse>false</allowRepeatedUse>
+            </li>
+            <li Class="CompProperties_UseEffectPlaySound">
+                <soundOnUsed>MechSerumUsed</soundOnUsed>
+            </li>
+        </comps>
+    </ThingDef>
+
+    <ThingDef ParentName="ExSymbiotes_SymbioticCore">
         <defName>ExSymbiotes_SymbioticCore_White</defName>
         <label>symbiotic core (White)</label>
         <description>Artificial symbiotic core manufactured from a symbiote core at a serum centrifuge.</description>
