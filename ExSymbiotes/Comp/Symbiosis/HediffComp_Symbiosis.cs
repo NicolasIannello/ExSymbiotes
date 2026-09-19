@@ -87,6 +87,7 @@ namespace ExSymbiotes
                 if (Pawn.story.traits.HasTrait(TraitDefOf.Psychopath)) modifier += 2;
                 if (Pawn.story.traits.HasTrait(TraitDefOf.Bloodlust)) modifier += 2;
                 if (this.parent.def == ExSymbiotesDefOf.ExSymbiotes_Symbiosis) modifier = 2 + modifier*-1;
+                if (this.parent.def == ExSymbiotesDefOf.ExSymbiotes_Symbiosis_Yellow) modifier /= 2;
                 if (Pawn.story.traits.HasTrait(TraitDefOf.Kind)) modifier += this.parent.def == ExSymbiotesDefOf.ExSymbiotes_Symbiosis_Red ? -2 : 1;
             }
             if (Pawn.story.traits.HasTrait(TraitDefOf.VoidFascination)) modifier += 1;

@@ -50,7 +50,7 @@ namespace ExSymbiotes.Utils
             SoundDefOf.Pawn_Fleshbeast_EmergeFromPitGate.PlayOneShot((SoundInfo) (Thing) mass);
             mass.TakeDamage(new DamageInfo(DamageDefOf.Blunt, 1500));
             EffecterDefOf.VoidNodeDisrupted.SpawnMaintained(mass, map);
-            EffecterDefOf.VoidStructureActivated.Spawn(mass, map);
+            EffecterDefOf.VoidStructureActivated.SpawnMaintained(mass, map);
             Find.LetterStack.ReceiveLetter(label.Translate(), text.Translate(), LetterDefOf.ThreatBig, new TargetInfo(mass.Position, map));
         }
 
@@ -117,7 +117,7 @@ namespace ExSymbiotes.Utils
             {
                 HediffDef def = hediffs[i].def;
                 if (def == ExSymbiotesDefOf.ExSymbiotes_Symbiosis || def == ExSymbiotesDefOf.ExSymbiotes_Symbiosis_Red ||
-                    def == ExSymbiotesDefOf.ExSymbiotes_Symbiosis_White) return hediffs[i];
+                    def == ExSymbiotesDefOf.ExSymbiotes_Symbiosis_White || def == ExSymbiotesDefOf.ExSymbiotes_Symbiosis_Yellow) return hediffs[i];
                 if (all && (def == ExSymbiotesDefOf.ExSymbiotes_SymbioteControl || def == ExSymbiotesDefOf.ExSymbiotes_SymbioteControlRed)) return hediffs[i];
             }
             
