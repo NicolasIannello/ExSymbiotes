@@ -104,4 +104,18 @@
             </rulesStrings>
         </rulePack>
     </TaleDef>
+
+    <DamageDef ParentName="StunBase">
+        <defName>ExSymbiotes_SymbioticStun</defName>
+        <label>symbiote tendrils stunned</label>
+        <workerClass>ExSymbiotes.DamageWorker_SymbioticStun</workerClass>
+        <externalViolence>true</externalViolence>
+        <deathMessage>{0} has been stunned to death.</deathMessage>
+        <defaultDamage>5</defaultDamage>
+        <combatLogRules>Damage_Stun</combatLogRules>
+        <causeStun>true</causeStun>
+        <constantStunDurationTicks>300</constantStunDurationTicks>
+        <explosionCellFleck>BlastDry</explosionCellFleck>
+        <soundExplosion>Explosion_Stun</soundExplosion>
+    </DamageDef>
 </Defs>

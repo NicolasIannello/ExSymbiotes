@@ -23,6 +23,7 @@ namespace ExSymbiotes
     public static class ExSymbiotesDefOf
     {
         public static AbilityDef ExSymbiotes_SymbiosisLeap;
+        public static DamageDef ExSymbiotes_SymbioticStun;
         public static DutyDef ExSymbiotes_SymbioteStalkWander;
         public static EffecterDef ExSymbiotes_TachycardiacArrest;
         public static EffecterDef ExSymbiotes_MeatExplosion_Black;

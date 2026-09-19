@@ -13,7 +13,7 @@ namespace ExSymbiotes
         {
             EffecterDefOf.ChimeraRage.SpawnAttached(Pawn, Pawn.Map).Cleanup();
             ExSymbiotesDefOf.ExSymbiotes_VoidStructureActivated.SpawnMaintained(Pawn, Pawn);
-            GenExplosion.DoExplosion(Pawn.Position, Pawn.Map, this.Props2.radius, DamageDefOf.Stun, Pawn, doVisualEffects:false, doSoundEffects:false, screenShakeFactor:0f, excludeRadius:1f);
+            GenExplosion.DoExplosion(Pawn.Position, Pawn.Map, this.Props2.radius, ExSymbiotesDefOf.ExSymbiotes_SymbioticStun, Pawn, doVisualEffects:false, doSoundEffects:false, screenShakeFactor:0f, excludeRadius:1f);
             base.Apply(target, dest);
         }
 

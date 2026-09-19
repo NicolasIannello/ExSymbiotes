@@ -70,6 +70,7 @@
     <Compile Include="Comp\SymbioteControl\HediffComp_SymbioteControl.cs" />
     <Compile Include="Comp\SymbioticStun\CompAbilityEffect_SymbioticStun.cs" />
     <Compile Include="Comp\SymbioticStun\CompProperties_AbilitySymbioticStun.cs" />
+    <Compile Include="Comp\SymbioticStun\DamageWorker_SymbioticStun.cs" />
     <Compile Include="Comp\SymbioticTendrils\HediffCompProperties_SymbioticTendrils.cs" />
     <Compile Include="Comp\SymbioticTendrils\HediffComp_SymbioticTendrils.cs" />
     <Compile Include="Comp\Weapon\CompProperties_SymbioticWeapon.cs" />
