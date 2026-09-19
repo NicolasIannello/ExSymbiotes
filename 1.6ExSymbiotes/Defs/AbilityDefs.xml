@@ -166,7 +166,7 @@
         <displayGizmoWhileUndrafted>true</displayGizmoWhileUndrafted>
         <disableGizmoWhileUndrafted>false</disableGizmoWhileUndrafted>
         <warmupMote>Mote_ResurrectAbility</warmupMote>
-        <warmupStartSound>Resurrect_Cast</warmupStartSound>
+        <warmupStartSound MayRequire="Ludeon.RimWorld.Biotech">Resurrect_Cast</warmupStartSound>
         <displayOrder>400</displayOrder>
         <hostile>false</hostile>
         <casterMustBeCapableOfViolence>false</casterMustBeCapableOfViolence>
@@ -175,7 +175,7 @@
             <drawAimPie>false</drawAimPie>
             <range>-1</range>
             <warmupTime>5</warmupTime>
-            <soundCast>Resurrect_Resolve</soundCast>
+            <soundCast MayRequire="Ludeon.RimWorld.Biotech">Resurrect_Resolve</soundCast>
             <targetParams>
                 <canTargetPawns>false</canTargetPawns>
                 <canTargetBuildings>false</canTargetBuildings>
@@ -203,8 +203,8 @@
         <displayGizmoWhileUndrafted>true</displayGizmoWhileUndrafted>
         <disableGizmoWhileUndrafted>false</disableGizmoWhileUndrafted>
         <warmupMote>Mote_ResurrectAbility</warmupMote>
-        <warmupEffecter>Coagulate</warmupEffecter>
-        <warmupStartSound>Coagulate_Cast</warmupStartSound>
+        <warmupEffecter MayRequire="Ludeon.RimWorld.Biotech">Coagulate</warmupEffecter>
+        <warmupStartSound MayRequire="Ludeon.RimWorld.Biotech">Coagulate_Cast</warmupStartSound>
         <jobDef>CastAbilityOnThingMelee</jobDef>
         <displayOrder>400</displayOrder>
         <hostile>false</hostile>
@@ -214,7 +214,7 @@
             <drawAimPie>false</drawAimPie>
             <range>-1</range>
             <warmupTime>5</warmupTime>
-            <soundCast>Resurrect_Resolve</soundCast>
+            <soundCast MayRequire="Ludeon.RimWorld.Biotech">Resurrect_Resolve</soundCast>
             <targetParams>
                 <canTargetAnimals>true</canTargetAnimals>
                 <canTargetSelf>true</canTargetSelf>
