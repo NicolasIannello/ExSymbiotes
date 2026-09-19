@@ -57,8 +57,8 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Comp\AbilityEffect\CompAbilityEffect_SymbiosisCost.cs" />
-    <Compile Include="Comp\AbilityEffect\CompProperties_AbilitySymbiosisCost.cs" />
+    <Compile Include="Comp\SymbiosisCost\CompAbilityEffect_SymbiosisCost.cs" />
+    <Compile Include="Comp\SymbiosisCost\CompProperties_AbilitySymbiosisCost.cs" />
     <Compile Include="Comp\HediffComp_SymbioteBase.cs" />
     <Compile Include="Comp\SymbiosisLeap\CompAbilityEffect_SymbiosisLeap.cs" />
     <Compile Include="Comp\SymbiosisLeap\CompProperties_SymbiosisLeap.cs" />
@@ -68,6 +68,8 @@
     <Compile Include="Comp\Symbiosis\ThoughtWorker_Symbiosis.cs" />
     <Compile Include="Comp\SymbioteControl\HediffCompProperties_SymbioteControl.cs" />
     <Compile Include="Comp\SymbioteControl\HediffComp_SymbioteControl.cs" />
+    <Compile Include="Comp\SymbioticStun\CompAbilityEffect_SymbioticStun.cs" />
+    <Compile Include="Comp\SymbioticStun\CompProperties_AbilitySymbioticStun.cs" />
     <Compile Include="Comp\SymbioticTendrils\HediffCompProperties_SymbioticTendrils.cs" />
     <Compile Include="Comp\SymbioticTendrils\HediffComp_SymbioticTendrils.cs" />
     <Compile Include="Comp\Weapon\CompProperties_SymbioticWeapon.cs" />

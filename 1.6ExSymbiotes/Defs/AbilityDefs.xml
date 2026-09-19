@@ -233,4 +233,35 @@
             </li>
         </comps>
     </AbilityDef>
+
+    <AbilityDef>
+        <defName>ExSymbiotes_SymbioticStun</defName>
+        <label>symbiotic stun</label>
+        <description>The symbiote lashes tendrils outwards stunning everything.</description>
+        <iconPath>UI/SymbioticStun</iconPath>
+        <cooldownTicksRange>300</cooldownTicksRange>
+        <writeCombatLog>True</writeCombatLog>
+        <targetRequired>false</targetRequired>
+        <casterMustBeCapableOfViolence>false</casterMustBeCapableOfViolence>
+        <verbProperties>
+            <verbClass>Verb_CastAbility</verbClass>
+            <warmupEffecter>ExSymbiotes_Bloodfeed_Warmup</warmupEffecter>
+            <warmupTime>1.5</warmupTime>
+            <requireLineOfSight>false</requireLineOfSight>
+            <range>3.5</range>
+            <drawAimPie>false</drawAimPie>
+            <nonInterruptingSelfCast>true</nonInterruptingSelfCast>
+            <targetParams>
+                <canTargetSelf>True</canTargetSelf>
+            </targetParams>
+        </verbProperties>
+        <comps>
+            <li Class="ExSymbiotes.CompProperties_AbilitySymbiosisCost">
+                <symbiosisCost>7</symbiosisCost>
+            </li>
+            <li Class="ExSymbiotes.CompProperties_AbilitySymbioticStun">
+                <radius>3.5</radius>
+            </li>
+        </comps>
+    </AbilityDef>
 </Defs>

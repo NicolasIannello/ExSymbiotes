@@ -189,4 +189,64 @@
             </li>
         </children>
     </EffecterDef>
+
+    <EffecterDef>
+        <defName>ExSymbiotes_Bloodfeed_Warmup</defName>
+        <children>
+            <li>
+                <subEffecterClass>SubEffecter_SprayerContinuous</subEffecterClass>
+                <positionRadius>0.05</positionRadius>
+                <positionOffset>(0, -0.25, 0)</positionOffset>
+                <ticksBetweenMotes>25</ticksBetweenMotes>
+                <fleckDef>BloodFeedSplash</fleckDef>
+                <burstCount>4</burstCount>
+                <color>(210, 50, 0)</color>
+                <speed>-1.5</speed>
+                <rotateTowardsTargetCenter>True</rotateTowardsTargetCenter>
+                <fleckUsesAngleForVelocity>true</fleckUsesAngleForVelocity>
+                <spawnLocType>RandomDrawPosOnTarget</spawnLocType>
+                <attachToSpawnThing>true</attachToSpawnThing>
+            </li>
+        </children>
+    </EffecterDef>
+    
+    <EffecterDef>
+        <defName>ExSymbiotes_VoidStructureActivated</defName>
+        <children>
+            <li>
+                <subEffecterClass>SubEffecter_SprayerTriggered</subEffecterClass>
+                <fleckDef>ExSymbiotes_HoraxianField_LongDecay</fleckDef>
+                <scale>.8~1.2</scale>
+                <burstCount>20~25</burstCount>
+                <angle>0</angle>
+                <rotateTowardsTargetCenter>true</rotateTowardsTargetCenter>
+                <fleckUsesAngleForVelocity>true</fleckUsesAngleForVelocity>
+                <positionRadius>0</positionRadius>
+                <positionRadiusMin>0</positionRadiusMin>
+                <rotationRate>-10~10</rotationRate>
+                <speed>0</speed>
+                <spawnLocType>OnSource</spawnLocType>
+            </li>
+        </children>
+    </EffecterDef>
+
+    <FleckDef ParentName="FleckBase_Thrown">
+        <defName>ExSymbiotes_HoraxianField_LongDecay</defName>
+        <altitudeLayer>LowPlant</altitudeLayer>
+        <fadeInTime>0.01</fadeInTime>
+        <solidTime>2</solidTime>
+        <fadeOutTime>0.1</fadeOutTime>
+        <growthRate>-2</growthRate>
+        <useAttachLink>true</useAttachLink>
+        <graphicData>
+            <graphicClass>Graphic_FleckPulse</graphicClass>
+            <texPath>Things/Mote/SymbioteGeoCrookedFinal</texPath>
+            <shaderType>Mote</shaderType>
+            <renderInstanced>true</renderInstanced>
+            <shaderParameters>
+                <_brightnessMultiplier>0.0</_brightnessMultiplier>
+            </shaderParameters>
+            <drawSize>8</drawSize>
+        </graphicData>
+    </FleckDef>
 </Defs>

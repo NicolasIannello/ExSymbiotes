@@ -26,12 +26,14 @@ namespace ExSymbiotes
         public static DutyDef ExSymbiotes_SymbioteStalkWander;
         public static EffecterDef ExSymbiotes_TachycardiacArrest;
         public static EffecterDef ExSymbiotes_MeatExplosion_Black;
+        public static EffecterDef ExSymbiotes_VoidStructureActivated;
         public static FactionDef ExSymbiotes_Symbiotes;
         public static HediffDef ExSymbiotes_Symbiosis;
         public static HediffDef ExSymbiotes_Symbiosis_Red;
         public static HediffDef ExSymbiotes_SymbioteControl;
         public static HediffDef ExSymbiotes_SymbioteControlRed;
         public static HediffDef ExSymbiotes_Symbiosis_White;
+        public static HediffDef ExSymbiotes_Symbiosis_Yellow;
         public static IncidentDef ExSymbiotes_SymbioteMass_Incident;
         public static JobDef ExSymbiotes_SymbioteDigest;
         public static JobDef ExSymbiotes_SymbioteSwitchToAttackMode;

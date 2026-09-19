@@ -232,6 +232,7 @@
                     <li>ExSymbiotes_SymbioticTendrils</li>
                     <li>ExSymbiotes_SymbioticScythe</li>
                     <li MayRequire="Ludeon.RimWorld.Biotech">ExSymbiotes_SymbioticLongjump</li>
+                    <li>ExSymbiotes_SymbioticStun</li>
                 </abilityDefs>
             </li>
         </comps>
