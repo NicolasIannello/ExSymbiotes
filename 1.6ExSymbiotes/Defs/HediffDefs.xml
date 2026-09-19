@@ -11,7 +11,7 @@
             <li>
                 <statFactors>
                     <MeleeDamageFactor>1.5</MeleeDamageFactor>
-                    <MoveSpeed>1.30</MoveSpeed>
+                    <MoveSpeed>1.50</MoveSpeed>
                     <WorkSpeedGlobal>2.0</WorkSpeedGlobal>
                     <IncomingDamageFactor>0.5</IncomingDamageFactor>
                 </statFactors>
@@ -25,15 +25,15 @@
                     <ComfyTemperatureMin>-200</ComfyTemperatureMin>
                 </statOffsets>
                 <capMods>
-                    <li><capacity>Consciousness</capacity><postFactor>1.25</postFactor></li>
-                    <li><capacity>Hearing</capacity><postFactor>1.25</postFactor></li>
-                    <li><capacity>Talking</capacity><postFactor>1.25</postFactor></li>
-                    <li><capacity>Manipulation</capacity><postFactor>1.25</postFactor></li>
-                    <li><capacity>Sight</capacity><postFactor>1.25</postFactor></li>
-                    <li><capacity>Eating</capacity><postFactor>1.25</postFactor></li>
-                    <li><capacity>BloodPumping</capacity><postFactor>1.25</postFactor></li>
-                    <li><capacity>BloodFiltration</capacity><postFactor>1.25</postFactor></li>
-                    <li><capacity>Breathing</capacity><postFactor>1.25</postFactor></li>
+                    <li><capacity>Consciousness</capacity><postFactor>1.50</postFactor></li>
+                    <li><capacity>Hearing</capacity><postFactor>1.50</postFactor></li>
+                    <li><capacity>Talking</capacity><postFactor>1.50</postFactor></li>
+                    <li><capacity>Manipulation</capacity><postFactor>1.50</postFactor></li>
+                    <li><capacity>Sight</capacity><postFactor>1.50</postFactor></li>
+                    <li><capacity>Eating</capacity><postFactor>1.50</postFactor></li>
+                    <li><capacity>BloodPumping</capacity><postFactor>1.50</postFactor></li>
+                    <li><capacity>BloodFiltration</capacity><postFactor>1.50</postFactor></li>
+                    <li><capacity>Breathing</capacity><postFactor>1.50</postFactor></li>
                 </capMods>
                 <regeneration>50</regeneration>
             </li>
@@ -100,8 +100,8 @@
         <stages Inherit="False">
             <li>
                 <statFactors>
-                    <MeleeDamageFactor>1.8</MeleeDamageFactor>
-                    <MoveSpeed>1.50</MoveSpeed>
+                    <MeleeDamageFactor>2</MeleeDamageFactor>
+                    <MoveSpeed>1.75</MoveSpeed>
                     <WorkSpeedGlobal>2.0</WorkSpeedGlobal>
                 </statFactors>
                 <damageFactors>
@@ -114,15 +114,15 @@
                     <ComfyTemperatureMin>-200</ComfyTemperatureMin>
                 </statOffsets>
                 <capMods>
-                    <li><capacity>Consciousness</capacity><postFactor>1.40</postFactor></li>
-                    <li><capacity>Hearing</capacity><postFactor>1.40</postFactor></li>
-                    <li><capacity>Talking</capacity><postFactor>1.40</postFactor></li>
-                    <li><capacity>Manipulation</capacity><postFactor>1.40</postFactor></li>
-                    <li><capacity>Sight</capacity><postFactor>1.40</postFactor></li>
-                    <li><capacity>Eating</capacity><postFactor>1.40</postFactor></li>
-                    <li><capacity>BloodPumping</capacity><postFactor>1.40</postFactor></li>
-                    <li><capacity>BloodFiltration</capacity><postFactor>1.40</postFactor></li>
-                    <li><capacity>Breathing</capacity><postFactor>1.40</postFactor></li>
+                    <li><capacity>Consciousness</capacity><postFactor>1.50</postFactor></li>
+                    <li><capacity>Hearing</capacity><postFactor>1.50</postFactor></li>
+                    <li><capacity>Talking</capacity><postFactor>1.50</postFactor></li>
+                    <li><capacity>Manipulation</capacity><postFactor>1.50</postFactor></li>
+                    <li><capacity>Sight</capacity><postFactor>1.50</postFactor></li>
+                    <li><capacity>Eating</capacity><postFactor>1.50</postFactor></li>
+                    <li><capacity>BloodPumping</capacity><postFactor>1.50</postFactor></li>
+                    <li><capacity>BloodFiltration</capacity><postFactor>1.50</postFactor></li>
+                    <li><capacity>Breathing</capacity><postFactor>1.50</postFactor></li>
                 </capMods>
                 <regeneration>50</regeneration>
             </li>
@@ -149,7 +149,7 @@
             <li>
                 <statFactors>
                     <MeleeDamageFactor>1.5</MeleeDamageFactor>
-                    <MoveSpeed>1.40</MoveSpeed>
+                    <MoveSpeed>1.50</MoveSpeed>
                     <WorkSpeedGlobal>2.0</WorkSpeedGlobal>
                     <IncomingDamageFactor>0.5</IncomingDamageFactor>
                 </statFactors>
@@ -159,15 +159,15 @@
                     <ComfyTemperatureMin>-200</ComfyTemperatureMin>
                 </statOffsets>
                 <capMods>
-                    <li><capacity>Consciousness</capacity><postFactor>1.40</postFactor></li>
-                    <li><capacity>Hearing</capacity><postFactor>1.40</postFactor></li>
-                    <li><capacity>Talking</capacity><postFactor>1.40</postFactor></li>
-                    <li><capacity>Manipulation</capacity><postFactor>1.40</postFactor></li>
-                    <li><capacity>Sight</capacity><postFactor>1.40</postFactor></li>
-                    <li><capacity>Eating</capacity><postFactor>1.40</postFactor></li>
-                    <li><capacity>BloodPumping</capacity><postFactor>1.40</postFactor></li>
-                    <li><capacity>BloodFiltration</capacity><postFactor>1.40</postFactor></li>
-                    <li><capacity>Breathing</capacity><postFactor>1.40</postFactor></li>
+                    <li><capacity>Consciousness</capacity><postFactor>1.50</postFactor></li>
+                    <li><capacity>Hearing</capacity><postFactor>1.50</postFactor></li>
+                    <li><capacity>Talking</capacity><postFactor>1.50</postFactor></li>
+                    <li><capacity>Manipulation</capacity><postFactor>1.50</postFactor></li>
+                    <li><capacity>Sight</capacity><postFactor>1.50</postFactor></li>
+                    <li><capacity>Eating</capacity><postFactor>1.50</postFactor></li>
+                    <li><capacity>BloodPumping</capacity><postFactor>1.50</postFactor></li>
+                    <li><capacity>BloodFiltration</capacity><postFactor>1.50</postFactor></li>
+                    <li><capacity>Breathing</capacity><postFactor>1.50</postFactor></li>
                 </capMods>
                 <regeneration>200</regeneration>
             </li>
@@ -183,6 +183,54 @@
                     <li>ExSymbiotes_SymbioticHealer</li>
                     <li>ExSymbiotes_SymbioticResurrect</li>
                     <li>ExSymbiotes_SymbioticTendrilsWeak</li>
+                    <li MayRequire="Ludeon.RimWorld.Biotech">ExSymbiotes_SymbioticLongjump</li>
+                </abilityDefs>
+            </li>
+        </comps>
+    </HediffDef>
+
+    <HediffDef ParentName="ExSymbiotes_Symbiosis">
+        <defName>ExSymbiotes_Symbiosis_Yellow</defName>
+        <label>symbiosis (Yellow)</label>
+        <hairColorOverride>(156, 9, 9)</hairColorOverride>
+        <stages Inherit="False">
+            <li>
+                <statFactors>
+                    <MeleeDamageFactor>2</MeleeDamageFactor>
+                    <MoveSpeed>1.75</MoveSpeed>
+                    <WorkSpeedGlobal>2.0</WorkSpeedGlobal>
+                </statFactors>
+                <damageFactors>
+                    <Flame>3</Flame>
+                    <Burn>3</Burn>
+                </damageFactors>
+                <statOffsets>
+                    <ToxicResistance>1</ToxicResistance>
+                    <ComfyTemperatureMax>100</ComfyTemperatureMax>
+                    <ComfyTemperatureMin>-200</ComfyTemperatureMin>
+                </statOffsets>
+                <capMods>
+                    <li><capacity>Consciousness</capacity><postFactor>1.50</postFactor></li>
+                    <li><capacity>Hearing</capacity><postFactor>1.50</postFactor></li>
+                    <li><capacity>Talking</capacity><postFactor>1.50</postFactor></li>
+                    <li><capacity>Manipulation</capacity><postFactor>1.50</postFactor></li>
+                    <li><capacity>Sight</capacity><postFactor>1.50</postFactor></li>
+                    <li><capacity>Eating</capacity><postFactor>1.50</postFactor></li>
+                    <li><capacity>BloodPumping</capacity><postFactor>1.50</postFactor></li>
+                    <li><capacity>BloodFiltration</capacity><postFactor>1.50</postFactor></li>
+                    <li><capacity>Breathing</capacity><postFactor>1.50</postFactor></li>
+                </capMods>
+                <regeneration>50</regeneration>
+            </li>
+        </stages>
+        <comps Inherit="False">
+            <li Class="ExSymbiotes.HediffCompProperties_Symbiosis">
+                <color>(255, 215, 0)</color>
+            </li>
+            <li Class="HediffCompProperties_GiveAbility">
+                <abilityDefs>
+                    <li>ExSymbiotes_SymbioticTendrils</li>
+                    <li>ExSymbiotes_SymbioticScythe</li>
                     <li MayRequire="Ludeon.RimWorld.Biotech">ExSymbiotes_SymbioticLongjump</li>
                 </abilityDefs>
             </li>
@@ -473,7 +521,7 @@
                 <minSeverity>0</minSeverity>
                 <statFactors>
                     <MeleeDamageFactor>1.5</MeleeDamageFactor>
-                    <MoveSpeed>1.30</MoveSpeed>
+                    <MoveSpeed>1.50</MoveSpeed>
                     <ArmorRating_Sharp>1.20</ArmorRating_Sharp>
                     <ArmorRating_Blunt>1.20</ArmorRating_Blunt>
                 </statFactors>
@@ -485,15 +533,15 @@
                     <ComfyTemperatureMin>-200</ComfyTemperatureMin>
                 </statOffsets>
                 <capMods>
-                    <li><capacity>Consciousness</capacity><postFactor>1.25</postFactor></li>
-                    <li><capacity>Hearing</capacity><postFactor>1.25</postFactor></li>
-                    <li><capacity>Talking</capacity><postFactor>1.25</postFactor></li>
-                    <li><capacity>Manipulation</capacity><postFactor>1.25</postFactor></li>
-                    <li><capacity>Sight</capacity><postFactor>1.25</postFactor></li>
-                    <li><capacity>Eating</capacity><postFactor>1.25</postFactor></li>
-                    <li><capacity>BloodPumping</capacity><postFactor>1.25</postFactor></li>
-                    <li><capacity>BloodFiltration</capacity><postFactor>1.25</postFactor></li>
-                    <li><capacity>Breathing</capacity><postFactor>1.25</postFactor></li>
+                    <li><capacity>Consciousness</capacity><postFactor>1.50</postFactor></li>
+                    <li><capacity>Hearing</capacity><postFactor>1.50</postFactor></li>
+                    <li><capacity>Talking</capacity><postFactor>1.50</postFactor></li>
+                    <li><capacity>Manipulation</capacity><postFactor>1.50</postFactor></li>
+                    <li><capacity>Sight</capacity><postFactor>1.50</postFactor></li>
+                    <li><capacity>Eating</capacity><postFactor>1.50</postFactor></li>
+                    <li><capacity>BloodPumping</capacity><postFactor>1.50</postFactor></li>
+                    <li><capacity>BloodFiltration</capacity><postFactor>1.50</postFactor></li>
+                    <li><capacity>Breathing</capacity><postFactor>1.50</postFactor></li>
                 </capMods>
                 <regeneration>350</regeneration>
                 <disablesNeeds>
@@ -555,8 +603,8 @@
             <li>
                 <statFactors>
                     <MeleeCooldownFactor>0.60</MeleeCooldownFactor>
-                    <MeleeDamageFactor>1.8</MeleeDamageFactor>
-                    <MoveSpeed>2</MoveSpeed>
+                    <MeleeDamageFactor>2</MeleeDamageFactor>
+                    <MoveSpeed>1.75</MoveSpeed>
                 </statFactors>
                 <statOffsets>
                     <ToxicResistance>1</ToxicResistance>
@@ -564,15 +612,15 @@
                     <ComfyTemperatureMin>-200</ComfyTemperatureMin>
                 </statOffsets>
                 <capMods>
-                    <li><capacity>Consciousness</capacity><postFactor>1.40</postFactor></li>
-                    <li><capacity>Hearing</capacity><postFactor>1.40</postFactor></li>
-                    <li><capacity>Talking</capacity><postFactor>1.40</postFactor></li>
-                    <li><capacity>Manipulation</capacity><postFactor>4</postFactor></li>
-                    <li><capacity>Sight</capacity><postFactor>1.40</postFactor></li>
-                    <li><capacity>Eating</capacity><postFactor>1.40</postFactor></li>
-                    <li><capacity>BloodPumping</capacity><postFactor>1.40</postFactor></li>
-                    <li><capacity>BloodFiltration</capacity><postFactor>1.40</postFactor></li>
-                    <li><capacity>Breathing</capacity><postFactor>1.40</postFactor></li>
+                    <li><capacity>Consciousness</capacity><postFactor>1.50</postFactor></li>
+                    <li><capacity>Hearing</capacity><postFactor>1.50</postFactor></li>
+                    <li><capacity>Talking</capacity><postFactor>1.50</postFactor></li>
+                    <li><capacity>Manipulation</capacity><postFactor>1.50</postFactor></li>
+                    <li><capacity>Sight</capacity><postFactor>1.50</postFactor></li>
+                    <li><capacity>Eating</capacity><postFactor>1.50</postFactor></li>
+                    <li><capacity>BloodPumping</capacity><postFactor>1.50</postFactor></li>
+                    <li><capacity>BloodFiltration</capacity><postFactor>1.50</postFactor></li>
+                    <li><capacity>Breathing</capacity><postFactor>1.50</postFactor></li>
                 </capMods>
                 <regeneration>350</regeneration>
                 <disablesNeeds>
