@@ -1,0 +1,43 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Patch>
+    <Operation Class="PatchOperationConditional">
+        <xpath>Defs/AbilityDef[defName="ExSymbiotes_SymbioticResurrect"]</xpath>
+        <match Class="PatchOperationAdd">
+            <xpath>Defs/AbilityDef[defName="ExSymbiotes_SymbioticResurrect"]</xpath>
+            <value>
+                <warmupStartSound>Resurrect_Cast</warmupStartSound>
+            </value>
+        </match>
+    </Operation>
+
+    <Operation Class="PatchOperationConditional">
+        <xpath>Defs/AbilityDef[defName="ExSymbiotes_SymbioticResurrect"]/verbProperties</xpath>
+        <match Class="PatchOperationAdd">
+            <xpath>Defs/AbilityDef[defName="ExSymbiotes_SymbioticResurrect"]/verbProperties</xpath>
+            <value>
+                <soundCast>Resurrect_Resolve</soundCast>
+            </value>
+        </match>
+    </Operation>
+
+    <Operation Class="PatchOperationConditional">
+        <xpath>Defs/AbilityDef[defName="ExSymbiotes_SymbioticHealer"]</xpath>
+        <match Class="PatchOperationAdd">
+            <xpath>Defs/AbilityDef[defName="ExSymbiotes_SymbioticHealer"]</xpath>
+            <value>
+                <warmupEffecter>Coagulate</warmupEffecter>
+                <warmupStartSound>Coagulate_Cast</warmupStartSound>
+            </value>
+        </match>
+    </Operation>
+
+    <Operation Class="PatchOperationConditional">
+        <xpath>Defs/AbilityDef[defName="ExSymbiotes_SymbioticHealer"]/verbProperties</xpath>
+        <match Class="PatchOperationAdd">
+            <xpath>Defs/AbilityDef[defName="ExSymbiotes_SymbioticHealer"]/verbProperties</xpath>
+            <value>
+                <soundCast>Resurrect_Resolve</soundCast>
+            </value>
+        </match>
+    </Operation>
+</Patch>
