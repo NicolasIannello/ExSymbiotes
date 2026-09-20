@@ -67,7 +67,7 @@
         <category>Projectile</category>
         <tickerType>Normal</tickerType>
         <altitudeLayer>Projectile</altitudeLayer>
-        <thingClass>Bullet</thingClass>
+        <thingClass>ExSymbiotes.SymbioticWhip</thingClass>
         <useHitPoints>False</useHitPoints>
         <neverMultiSelect>True</neverMultiSelect>
         <graphicData>
