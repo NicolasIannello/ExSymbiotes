@@ -265,7 +265,7 @@
         <label>symbiotic whip</label>
         <description>The symbiote lashes out a tendril to bring a objetive closer.</description>
         <iconPath>UI/SymbioticStun</iconPath>
-        <cooldownTicksRange>10</cooldownTicksRange>
+        <cooldownTicksRange>30</cooldownTicksRange>
         <writeCombatLog>True</writeCombatLog>
         <targetRequired>true</targetRequired>
         <casterMustBeCapableOfViolence>true</casterMustBeCapableOfViolence>
