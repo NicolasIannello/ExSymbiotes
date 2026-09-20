@@ -47,6 +47,7 @@ namespace ExSymbiotes
         public static ThingDef ExSymbiotes_SymbioteMassIncoming;
         public static ThingDef ExSymbiotes_Symbiote;
         public static ThingDef ExSymbiotes_SymbioteRed;
+        public static ThingDef ExSymbiotes_Mote_HarbingerTreeRoots;
         public static ThoughtDef ExSymbiotes_SymbioteControlledAfter;
         public static ThoughtDef ExSymbiotes_BondedSymbioteLost;
 

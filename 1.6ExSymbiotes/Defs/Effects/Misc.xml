@@ -30,6 +30,26 @@
         </randomGraphics>
     </FleckDef>
 
+    <FleckDef ParentName="FleckBase_Thrown">
+        <defName>ExSymbiotes_HoraxianField_LongDecay</defName>
+        <altitudeLayer>PawnRope</altitudeLayer>
+        <fadeInTime>0.01</fadeInTime>
+        <solidTime>2</solidTime>
+        <fadeOutTime>0.1</fadeOutTime>
+        <growthRate>-2</growthRate>
+        <useAttachLink>true</useAttachLink>
+        <graphicData>
+            <graphicClass>Graphic_FleckPulse</graphicClass>
+            <texPath>Things/Mote/SymbioteGeoCrookedFinal</texPath>
+            <shaderType>Mote</shaderType>
+            <renderInstanced>true</renderInstanced>
+            <shaderParameters>
+                <_brightnessMultiplier>0.0</_brightnessMultiplier>
+            </shaderParameters>
+            <drawSize>8</drawSize>
+        </graphicData>
+    </FleckDef>
+
     <ThingDef ParentName="MoteCocoonBreakingBase">
         <defName>ExSymbiotes_Mote_MeatExplosionMist_Black</defName>
         <mote>
@@ -113,8 +133,22 @@
             <color>(31, 27, 28, 170)</color>
         </graphicData>
     </ThingDef>
-    <!--
-        Black             
-        <color>(31, 27, 28, 170)</color>
-    -->
+
+    <ThingDef ParentName="MoteBase">
+        <defName>ExSymbiotes_Mote_HarbingerTreeRoots</defName>
+        <thingClass>MoteAttached</thingClass>
+        <altitudeLayer>Pawn</altitudeLayer>
+        <mote>
+            <fadeInTime>0</fadeInTime>
+            <solidTime>5</solidTime>
+            <fadeOutTime>0</fadeOutTime>
+            <needsMaintenance>false</needsMaintenance>
+        </mote>
+        <graphicData>
+            <graphicClass>Graphic_Mote</graphicClass>
+            <shaderType>Mote</shaderType>
+            <texPath>Things/Mote/SymbioteHarbingerConsumeRoots</texPath>
+            <drawSize>(1, 1)</drawSize>
+        </graphicData>
+    </ThingDef>
 </Defs>

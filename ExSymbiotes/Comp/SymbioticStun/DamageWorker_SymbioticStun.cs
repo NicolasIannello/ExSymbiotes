@@ -1,4 +1,6 @@
-﻿using Verse;
+﻿using RimWorld;
+using UnityEngine;
+using Verse;
 
 namespace ExSymbiotes
 {
@@ -9,7 +11,8 @@ namespace ExSymbiotes
             DamageWorker.DamageResult damageResult = base.Apply(dinfo, victim);
             if (victim is Pawn pawn)
             {
-                pawn.stances.stunner.StunFor((int)dinfo.Def.constantStunDurationTicks, dinfo.Instigator);
+                pawn.stances.stunner.StunFor((int)dinfo.Def.constantStunDurationTicks, dinfo.Instigator, showMote:false);
+                MoteMaker.MakeAttachedOverlay(pawn, ExSymbiotesDefOf.ExSymbiotes_Mote_HarbingerTreeRoots, new Vector3(), pawn.BodySize, (float)dinfo.Def.constantStunDurationTicks/60);
             }
             damageResult.stunned = true;
             return damageResult;
