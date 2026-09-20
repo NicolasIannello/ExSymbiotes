@@ -230,23 +230,4 @@
         </children>
     </EffecterDef>
 
-    <FleckDef ParentName="FleckBase_Thrown">
-        <defName>ExSymbiotes_HoraxianField_LongDecay</defName>
-        <altitudeLayer>PawnRope</altitudeLayer>
-        <fadeInTime>0.01</fadeInTime>
-        <solidTime>2</solidTime>
-        <fadeOutTime>0.1</fadeOutTime>
-        <growthRate>-2</growthRate>
-        <useAttachLink>true</useAttachLink>
-        <graphicData>
-            <graphicClass>Graphic_FleckPulse</graphicClass>
-            <texPath>Things/Mote/SymbioteGeoCrookedFinal</texPath>
-            <shaderType>Mote</shaderType>
-            <renderInstanced>true</renderInstanced>
-            <shaderParameters>
-                <_brightnessMultiplier>0.0</_brightnessMultiplier>
-            </shaderParameters>
-            <drawSize>8</drawSize>
-        </graphicData>
-    </FleckDef>
 </Defs>
