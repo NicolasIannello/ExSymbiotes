@@ -73,6 +73,9 @@
     <Compile Include="Comp\SymbioticStun\DamageWorker_SymbioticStun.cs" />
     <Compile Include="Comp\SymbioticTendrils\HediffCompProperties_SymbioticTendrils.cs" />
     <Compile Include="Comp\SymbioticTendrils\HediffComp_SymbioticTendrils.cs" />
+    <Compile Include="Comp\SymbioticWhip\CompProperties_ProjectileFleck.cs" />
+    <Compile Include="Comp\SymbioticWhip\Comp_ProjectileFleck.cs" />
+    <Compile Include="Comp\SymbioticWhip\DamageWorker_SymbioticWhip.cs" />
     <Compile Include="Comp\Weapon\CompProperties_SymbioticWeapon.cs" />
     <Compile Include="Comp\Weapon\CompSymbioticWeapon.cs" />
     <Compile Include="ExSymbiotesMod.cs" />

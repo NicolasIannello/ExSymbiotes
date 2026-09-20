@@ -61,6 +61,32 @@
         </projectile>
     </ThingDef>
 
+    <ThingDef>
+        <defName>ExSymbiotes_TendrilWhip</defName>
+        <label>tendril whip</label>
+        <category>Projectile</category>
+        <tickerType>Normal</tickerType>
+        <altitudeLayer>Projectile</altitudeLayer>
+        <thingClass>Bullet</thingClass>
+        <useHitPoints>False</useHitPoints>
+        <neverMultiSelect>True</neverMultiSelect>
+        <graphicData>
+            <graphicClass>Graphic_Single</graphicClass>
+            <texPath>Things/Mote/Empty</texPath>
+        </graphicData>
+        <projectile>
+            <shadowSize>0</shadowSize>
+            <damageDef>ExSymbiotes_SymbioticWhip</damageDef>
+            <speed>50</speed>
+            <flyOverhead>false</flyOverhead>
+        </projectile>
+        <comps>
+            <li Class="ExSymbiotes.CompProperties_ProjectileFleck">
+                <fleckDef>ExSymbiotes_PsycastPsychicLine</fleckDef>
+            </li>
+        </comps>
+    </ThingDef>
+
     <ThingDef ParentName="ExSymbiotes_TendrilSpine">
         <defName>ExSymbiotes_TendrilSpineBlack</defName>
         <graphicData>
@@ -105,7 +131,7 @@
         </rulePack>
     </TaleDef>
 
-    <DamageDef ParentName="StunBase">
+    <DamageDef Name="ExSymbiotes_SymbioticStun" ParentName="StunBase">
         <defName>ExSymbiotes_SymbioticStun</defName>
         <label>symbiote tendrils stunned</label>
         <workerClass>ExSymbiotes.DamageWorker_SymbioticStun</workerClass>
@@ -117,5 +143,12 @@
         <constantStunDurationTicks>300</constantStunDurationTicks>
         <explosionCellFleck>BlastDry</explosionCellFleck>
         <soundExplosion>Explosion_Stun</soundExplosion>
+    </DamageDef>
+
+    <DamageDef ParentName="ExSymbiotes_SymbioticStun">
+        <defName>ExSymbiotes_SymbioticWhip</defName>
+        <workerClass>ExSymbiotes.DamageWorker_SymbioticWhip</workerClass>
+        <defaultDamage>1</defaultDamage>
+        <constantStunDurationTicks>300</constantStunDurationTicks>
     </DamageDef>
 </Defs>

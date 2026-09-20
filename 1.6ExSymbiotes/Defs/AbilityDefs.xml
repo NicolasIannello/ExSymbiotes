@@ -259,4 +259,40 @@
             </li>
         </comps>
     </AbilityDef>
+    
+    <AbilityDef>
+        <defName>ExSymbiotes_SymbioticWhip</defName>
+        <label>symbiotic whip</label>
+        <description>The symbiote lashes out a tendril to bring a objetive closer.</description>
+        <iconPath>UI/SymbioticStun</iconPath>
+        <cooldownTicksRange>10</cooldownTicksRange>
+        <writeCombatLog>True</writeCombatLog>
+        <targetRequired>true</targetRequired>
+        <casterMustBeCapableOfViolence>true</casterMustBeCapableOfViolence>
+        <verbProperties>
+            <verbClass>Verb_CastAbility</verbClass>
+            <warmupTime>0.5</warmupTime>
+            <drawAimPie>true</drawAimPie>
+            <soundCast>Longjump_Land</soundCast>
+            <requireLineOfSight>true</requireLineOfSight>
+            <ai_IsWeapon>false</ai_IsWeapon>
+            <accuracyTouch>1.0</accuracyTouch>
+            <accuracyShort>1.0</accuracyShort>
+            <accuracyMedium>1.0</accuracyMedium>
+            <accuracyLong>1.0</accuracyLong>
+            <forcedMissRadius>0</forcedMissRadius>
+            <range>30</range>
+            <targetParams>
+                <canTargetPawns>true</canTargetPawns>
+            </targetParams>
+        </verbProperties>
+        <comps>
+            <li Class="ExSymbiotes.CompProperties_AbilitySymbiosisCost">
+                <symbiosisCost>4</symbiosisCost>
+            </li>
+            <li Class="CompProperties_AbilityLaunchProjectile">
+                <projectileDef>ExSymbiotes_TendrilWhip</projectileDef>
+            </li>
+        </comps>
+    </AbilityDef>
 </Defs>
