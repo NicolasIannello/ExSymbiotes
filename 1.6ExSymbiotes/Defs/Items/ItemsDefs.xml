@@ -321,6 +321,8 @@
     <ThingDef ParentName="ExSymbiotes_SymbioticCore">
         <defName>ExSymbiotes_SymbioticCore_Yellow</defName>
         <label>symbiotic core (Yellow)</label>
+        <description>Artificial symbiotic core manufactured from a symbiote core at a serum centrifuge.</description>
+        <hiddenWhileUndiscovered>false</hiddenWhileUndiscovered>
         <graphicData>
             <texPath>Things/Item/SymbioticCoreYellow</texPath>
             <graphicClass>Graphic_Single</graphicClass>
@@ -345,6 +347,22 @@
                 <soundOnUsed>MechSerumUsed</soundOnUsed>
             </li>
         </comps>
+        <costList>
+            <ExSymbiotes_SymbioticCore>1</ExSymbiotes_SymbioticCore>
+            <ExSymbiotes_SymbioticTissue>10</ExSymbiotes_SymbioticTissue>
+            <Shard>1</Shard>
+            <JuggernautSerum>1</JuggernautSerum>
+        </costList>
+        <recipeMaker>
+            <productCount>1</productCount>
+            <workSpeedStat>DrugSynthesisSpeed</workSpeedStat>
+            <workSkill>Crafting</workSkill>
+            <recipeUsers>
+                <li>SerumCentrifuge</li>
+            </recipeUsers>
+            <workAmount>720</workAmount>
+            <researchPrerequisite>ExSymbiotes_SymbioticCoreResearch</researchPrerequisite>
+        </recipeMaker>
     </ThingDef>
 
     <ThingDef ParentName="ExSymbiotes_SymbioticCore">
