@@ -264,7 +264,7 @@
         <defName>ExSymbiotes_SymbioticWhip</defName>
         <label>symbiotic whip</label>
         <description>The symbiote lashes out a tendril to bring a objetive closer.</description>
-        <iconPath>UI/SymbioticStun</iconPath>
+        <iconPath>UI/SymbioticWhip</iconPath>
         <cooldownTicksRange>30</cooldownTicksRange>
         <writeCombatLog>True</writeCombatLog>
         <targetRequired>true</targetRequired>
