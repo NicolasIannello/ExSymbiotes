@@ -27,6 +27,9 @@ namespace ExSymbiotes
                 color.a *= alpha;
             }
             Vector3 scale = drawData.scale;
+            int growthRate = 50;
+            float offset = growthRate * drawData.ageSecs * this.data.drawSize.x * 0.5f;
+            drawData.pos -= Quaternion.AngleAxis(drawData.rotation, Vector3.up) * Vector3.right * offset;
             scale.x *= this.data.drawSize.x;
             scale.z = this.data.drawSize.y;
             Mesh mesh = MeshPool.plane10;
