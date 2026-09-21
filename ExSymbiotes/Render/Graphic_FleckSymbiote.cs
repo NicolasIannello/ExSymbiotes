@@ -31,14 +31,14 @@ namespace ExSymbiotes
             scale.z = this.data.drawSize.y;
             Mesh mesh = MeshPool.plane10;
             float rotation = drawData.rotation;
-            if ((double) scale.x < 0.0 && (double) scale.y >= 0.0)
+            if ((double) scale.x < 0.0 && (double) scale.z >= 0.0)
             {
                 scale.x = -scale.x;
                 mesh = MeshPool.plane10Flip;
             }
-            else if ((double) scale.x >= 0.0 && (double) scale.y < 0.0)
+            else if ((double) scale.x >= 0.0 && (double) scale.z < 0.0)
             {
-                scale.y = -scale.y;
+                scale.z = -scale.z;
                 mesh = MeshPool.plane10Flip;
                 rotation += 180f;
             }

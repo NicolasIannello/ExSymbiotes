@@ -29,6 +29,7 @@ namespace ExSymbiotes
         public static EffecterDef ExSymbiotes_MeatExplosion_Black;
         public static EffecterDef ExSymbiotes_VoidStructureActivated;
         public static FactionDef ExSymbiotes_Symbiotes;
+        public static FleckDef ExSymbiotes_PsycastPsychicLineBack;
         public static HediffDef ExSymbiotes_Symbiosis;
         public static HediffDef ExSymbiotes_Symbiosis_Red;
         public static HediffDef ExSymbiotes_SymbioteControl;
