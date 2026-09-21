@@ -53,11 +53,24 @@
     <FleckDef ParentName="FleckBase_Thrown">
         <defName>ExSymbiotes_PsycastPsychicLine</defName>
         <altitudeLayer>MoteOverhead</altitudeLayer>
-        <fadeInTime>0.04</fadeInTime>
-        <fadeOutTime>0.1</fadeOutTime>
-        <solidTime>0</solidTime>
+        <fadeInTime>0</fadeInTime>
+        <fadeOutTime>0</fadeOutTime>
+        <solidTime>0.01</solidTime>
         <graphicData>
-            <texPath>Things/Mote/SymbioteGeoCrookedFinal</texPath>
+            <texPath>Things/Mote/SymbioteYellowWhip</texPath>
+        </graphicData>
+    </FleckDef>
+
+    <FleckDef ParentName="FleckBase_Thrown">
+        <defName>ExSymbiotes_PsycastPsychicLineBack</defName>
+        <altitudeLayer>MoteOverhead</altitudeLayer>
+        <fadeInTime>0</fadeInTime>
+        <fadeOutTime>0</fadeOutTime>
+        <solidTime>1</solidTime>
+        <growthRate>-50</growthRate>
+        <graphicData>
+            <graphicClass>ExSymbiotes.Graphic_FleckSymbiote</graphicClass>
+            <texPath>Things/Mote/SymbioteYellowWhip</texPath>
         </graphicData>
     </FleckDef>
     
