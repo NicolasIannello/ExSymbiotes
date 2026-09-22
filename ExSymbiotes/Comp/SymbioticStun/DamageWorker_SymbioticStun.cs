@@ -4,7 +4,7 @@ using Verse;
 
 namespace ExSymbiotes
 {
-    public class DamageWorker_SymbioticStun : DamageWorker
+    public class DamageWorker_SymbioticStun : DamageWorker_Blunt
     {
         public override DamageWorker.DamageResult Apply(DamageInfo dinfo, Thing victim)
         {

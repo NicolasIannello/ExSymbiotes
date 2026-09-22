@@ -131,10 +131,24 @@
         </rulePack>
     </TaleDef>
 
-    <DamageDef Name="ExSymbiotes_SymbioticStun" ParentName="StunBase">
+    <DamageDef Name="ExSymbiotes_SymbioticStun" ParentName="BluntBase">
         <defName>ExSymbiotes_SymbioticStun</defName>
         <label>symbiote tendrils stunned</label>
         <workerClass>ExSymbiotes.DamageWorker_SymbioticStun</workerClass>
+        <externalViolence>true</externalViolence>
+        <deathMessage>{0} has been stunned to death.</deathMessage>
+        <defaultDamage>10</defaultDamage>
+        <combatLogRules>Damage_Stun</combatLogRules>
+        <causeStun>true</causeStun>
+        <constantStunDurationTicks>300</constantStunDurationTicks>
+        <explosionCellFleck>BlastDry</explosionCellFleck>
+        <soundExplosion>Explosion_Stun</soundExplosion>
+    </DamageDef>
+
+    <DamageDef ParentName="StunBase">
+        <defName>ExSymbiotes_SymbioticWhip</defName>
+        <workerClass>ExSymbiotes.DamageWorker_SymbioticWhip</workerClass>
+        <defaultDamage>0</defaultDamage>
         <externalViolence>true</externalViolence>
         <deathMessage>{0} has been stunned to death.</deathMessage>
         <defaultDamage>5</defaultDamage>
@@ -143,12 +157,5 @@
         <constantStunDurationTicks>300</constantStunDurationTicks>
         <explosionCellFleck>BlastDry</explosionCellFleck>
         <soundExplosion>Explosion_Stun</soundExplosion>
-    </DamageDef>
-
-    <DamageDef ParentName="ExSymbiotes_SymbioticStun">
-        <defName>ExSymbiotes_SymbioticWhip</defName>
-        <workerClass>ExSymbiotes.DamageWorker_SymbioticWhip</workerClass>
-        <defaultDamage>1</defaultDamage>
-        <constantStunDurationTicks>300</constantStunDurationTicks>
     </DamageDef>
 </Defs>
