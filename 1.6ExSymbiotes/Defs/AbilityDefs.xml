@@ -160,10 +160,11 @@
         <defName>ExSymbiotes_VenomLeap</defName>
         <label>symbiotic leap</label>
         <description>Jump to a position stunning everyone and dealing damage.</description>
+        <iconPath>UI/VenomLeap</iconPath>
         <cooldownTicksRange>30</cooldownTicksRange>
         <jobDef>CastJump</jobDef>
         <verbProperties>
-            <verbClass>Verb_CastAbilityConsumeLeap</verbClass>
+            <verbClass>ExSymbiotes.Verb_CastAbilityVenomLeap</verbClass>
             <label>symbiotic leap</label>
             <range>15</range>
             <requireLineOfSight>true</requireLineOfSight>
@@ -180,7 +181,8 @@
                 <symbiosisCost>10</symbiosisCost>
             </li>
             <li Class="ExSymbiotes.CompProperties_VenomLeap">
-                <radius>4</radius>
+                <radius>2.5</radius>
+                <filth>Filth_RevenantBloodPool</filth>
             </li>
         </comps>
     </AbilityDef>
