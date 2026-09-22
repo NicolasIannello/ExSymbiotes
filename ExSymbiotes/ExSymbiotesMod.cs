@@ -24,6 +24,7 @@ namespace ExSymbiotes
     {
         public static AbilityDef ExSymbiotes_SymbiosisLeap;
         public static DamageDef ExSymbiotes_SymbioticStun;
+        public static DamageDef ExSymbiotes_VenomLeap;
         public static DutyDef ExSymbiotes_SymbioteStalkWander;
         public static EffecterDef ExSymbiotes_TachycardiacArrest;
         public static EffecterDef ExSymbiotes_MeatExplosion_Black;
@@ -49,6 +50,7 @@ namespace ExSymbiotes
         public static ThingDef ExSymbiotes_Symbiote;
         public static ThingDef ExSymbiotes_SymbioteRed;
         public static ThingDef ExSymbiotes_Mote_HarbingerTreeRoots;
+        public static ThingDef ExSymbiotes_Mote_HarbingerTreeRootsBlack;
         public static ThoughtDef ExSymbiotes_SymbioteControlledAfter;
         public static ThoughtDef ExSymbiotes_BondedSymbioteLost;
 

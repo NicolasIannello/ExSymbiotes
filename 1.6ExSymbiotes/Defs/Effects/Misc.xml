@@ -158,7 +158,7 @@
         </graphicData>
     </ThingDef>
 
-    <ThingDef ParentName="MoteBase">
+    <ThingDef Name="ExSymbiotes_Mote_HarbingerTreeRoots" ParentName="MoteBase">
         <defName>ExSymbiotes_Mote_HarbingerTreeRoots</defName>
         <thingClass>MoteAttached</thingClass>
         <altitudeLayer>MoteOverhead</altitudeLayer>
@@ -172,6 +172,22 @@
             <graphicClass>Graphic_Mote</graphicClass>
             <shaderType>Mote</shaderType>
             <texPath>Things/Mote/SymbioteHarbingerConsumeRoots</texPath>
+            <drawSize>(1, 1)</drawSize>
+        </graphicData>
+    </ThingDef>
+
+    <ThingDef ParentName="ExSymbiotes_Mote_HarbingerTreeRoots">
+        <defName>ExSymbiotes_Mote_HarbingerTreeRootsBlack</defName>
+        <mote Inherit="False">
+            <fadeInTime>0</fadeInTime>
+            <solidTime>2.5</solidTime>
+            <fadeOutTime>0</fadeOutTime>
+            <needsMaintenance>false</needsMaintenance>
+        </mote>
+        <graphicData Inherit="False">
+            <graphicClass>Graphic_Mote</graphicClass>
+            <shaderType>Mote</shaderType>
+            <texPath>Things/Mote/SymbioteHarbingerConsumeRootsBlack</texPath>
             <drawSize>(1, 1)</drawSize>
         </graphicData>
     </ThingDef>

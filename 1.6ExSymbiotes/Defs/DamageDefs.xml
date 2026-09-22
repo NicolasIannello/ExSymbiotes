@@ -14,6 +14,15 @@
         <soundExplosion>Explosion_Stun</soundExplosion>
     </DamageDef>
 
+    <DamageDef ParentName="ExSymbiotes_SymbioticStun">
+        <defName>ExSymbiotes_VenomLeap</defName>
+        <label>symbiote leap crushed</label>
+        <workerClass>ExSymbiotes.DamageWorker_VenomLeap</workerClass>
+        <deathMessage>{0} has been crushed to death.</deathMessage>
+        <defaultDamage>30</defaultDamage>
+        <constantStunDurationTicks>150</constantStunDurationTicks>
+    </DamageDef>
+    
     <DamageDef ParentName="StunBase">
         <defName>ExSymbiotes_SymbioticWhip</defName>
         <workerClass>ExSymbiotes.DamageWorker_SymbioticWhip</workerClass>

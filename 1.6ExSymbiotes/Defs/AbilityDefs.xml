@@ -156,6 +156,35 @@
         </comps>
     </AbilityDef>
 
+    <AbilityDef>
+        <defName>ExSymbiotes_VenomLeap</defName>
+        <label>symbiotic leap</label>
+        <description>Jump to a position stunning everyone and dealing damage.</description>
+        <cooldownTicksRange>30</cooldownTicksRange>
+        <jobDef>CastJump</jobDef>
+        <verbProperties>
+            <verbClass>Verb_CastAbilityConsumeLeap</verbClass>
+            <label>symbiotic leap</label>
+            <range>15</range>
+            <requireLineOfSight>true</requireLineOfSight>
+            <warmupTime>0.10</warmupTime>
+            <soundCast>Pawn_Devourer_Jump</soundCast>
+            <soundLanding>Pawn_Devourer_Land</soundLanding>
+            <targetParams>
+                <canTargetLocations>true</canTargetLocations>
+                <canTargetBuildings>false</canTargetBuildings>
+            </targetParams>
+        </verbProperties>
+        <comps>
+            <li Class="ExSymbiotes.CompProperties_AbilitySymbiosisCost">
+                <symbiosisCost>10</symbiosisCost>
+            </li>
+            <li Class="ExSymbiotes.CompProperties_VenomLeap">
+                <radius>4</radius>
+            </li>
+        </comps>
+    </AbilityDef>
+
     <AbilityDef ParentName="AbilityTouchBase">
         <defName>ExSymbiotes_SymbioticResurrect</defName>
         <label>symbiotic resurrect</label>
