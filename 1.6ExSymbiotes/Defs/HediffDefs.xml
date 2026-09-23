@@ -1,56 +1,9 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Defs>
-    <HediffDef Name="ExSymbiotes_Symbiosis">
-        <defName>ExSymbiotes_Symbiosis</defName>
-        <label>symbiosis (Black)</label>
+    <HediffDef Name="ExSymbiotes_SymbiosisBase" Abstract="True">
         <hediffClass>ExSymbiotes.HediffWithComps_Symbiosis</hediffClass>
         <description>This person has perform symbiosis with a symbiotic core.The symbiote lives inside them, guiding their actions and twisting their flesh.</description>
         <isBad>false</isBad>
-        <hairColorOverride>(31, 27, 28)</hairColorOverride>
-        <stages>
-            <li>
-                <statFactors>
-                    <MeleeDamageFactor>1.5</MeleeDamageFactor>
-                    <MoveSpeed>1.50</MoveSpeed>
-                    <WorkSpeedGlobal>2.0</WorkSpeedGlobal>
-                    <IncomingDamageFactor>0.5</IncomingDamageFactor>
-                </statFactors>
-                <damageFactors>
-                    <Flame>5</Flame>
-                    <Burn>5</Burn>
-                </damageFactors>
-                <statOffsets>
-                    <ToxicResistance>1</ToxicResistance>
-                    <ComfyTemperatureMax>100</ComfyTemperatureMax>
-                    <ComfyTemperatureMin>-200</ComfyTemperatureMin>
-                </statOffsets>
-                <capMods>
-                    <li><capacity>Consciousness</capacity><postFactor>1.50</postFactor></li>
-                    <li><capacity>Hearing</capacity><postFactor>1.50</postFactor></li>
-                    <li><capacity>Talking</capacity><postFactor>1.50</postFactor></li>
-                    <li><capacity>Manipulation</capacity><postFactor>1.50</postFactor></li>
-                    <li><capacity>Sight</capacity><postFactor>1.50</postFactor></li>
-                    <li><capacity>Eating</capacity><postFactor>1.50</postFactor></li>
-                    <li><capacity>BloodPumping</capacity><postFactor>1.50</postFactor></li>
-                    <li><capacity>BloodFiltration</capacity><postFactor>1.50</postFactor></li>
-                    <li><capacity>Breathing</capacity><postFactor>1.50</postFactor></li>
-                </capMods>
-                <regeneration>50</regeneration>
-            </li>
-        </stages>
-        <comps>
-            <li Class="ExSymbiotes.HediffCompProperties_Symbiosis">
-                <color>(31, 27, 28)</color>        
-            </li>
-            <li Class="HediffCompProperties_GiveAbility">
-                <abilityDefs>
-                    <li>ExSymbiotes_SymbioticArmor</li>
-                    <li>ExSymbiotes_SymbioticTendrilsWeak</li>
-                    <li MayRequire="Ludeon.RimWorld.Biotech">ExSymbiotes_SymbioticCoagulate</li>
-                    <li MayRequire="Ludeon.RimWorld.Biotech">ExSymbiotes_SymbioticLongjump</li>
-                </abilityDefs>
-            </li>
-        </comps>
         <renderNodeProperties>
             <li Class="PawnRenderNodeProperties_Eye">
                 <texPath>Things/Pawn/Symbiote/Attachments/Eye/SymbioticEye</texPath>
@@ -92,12 +45,97 @@
             <li>ExSymbiotes_SymbiosisTag</li>
         </removeWithTags>
     </HediffDef>
+    
+    <HediffDef ParentName="ExSymbiotes_SymbiosisBase">
+        <defName>ExSymbiotes_Symbiosis</defName>
+        <label>symbiosis (Black)</label>
+        <hairColorOverride>(31, 27, 28)</hairColorOverride>
+        <stages>
+            <li>
+                <statFactors>
+                    <MeleeDamageFactor>1.5</MeleeDamageFactor>
+                    <MoveSpeed>1.50</MoveSpeed>
+                    <WorkSpeedGlobal>2.0</WorkSpeedGlobal>
+                    <IncomingDamageFactor>0.5</IncomingDamageFactor>
+                </statFactors>
+                <damageFactors>
+                    <Flame>5</Flame>
+                    <Burn>5</Burn>
+                </damageFactors>
+                <statOffsets>
+                    <ToxicResistance>1</ToxicResistance>
+                    <ComfyTemperatureMax>100</ComfyTemperatureMax>
+                    <ComfyTemperatureMin>-200</ComfyTemperatureMin>
+                </statOffsets>
+                <capMods>
+                    <li><capacity>Consciousness</capacity><postFactor>1.50</postFactor></li>
+                    <li><capacity>Hearing</capacity><postFactor>1.50</postFactor></li>
+                    <li><capacity>Talking</capacity><postFactor>1.50</postFactor></li>
+                    <li><capacity>Manipulation</capacity><postFactor>1.50</postFactor></li>
+                    <li><capacity>Sight</capacity><postFactor>1.50</postFactor></li>
+                    <li><capacity>Eating</capacity><postFactor>1.50</postFactor></li>
+                    <li><capacity>BloodPumping</capacity><postFactor>1.50</postFactor></li>
+                    <li><capacity>BloodFiltration</capacity><postFactor>1.50</postFactor></li>
+                    <li><capacity>Breathing</capacity><postFactor>1.50</postFactor></li>
+                </capMods>
+                <regeneration>50</regeneration>
+            </li>
+        </stages>
+        <comps>
+            <li Class="ExSymbiotes.HediffCompProperties_Symbiosis">
+                <color>(31, 27, 28)</color>        
+            </li>
+            <li Class="HediffCompProperties_GiveAbility">
+                <abilityDefs>
+                    <li>ExSymbiotes_SymbioticArmor</li>
+                    <li>ExSymbiotes_SymbioticTendrilsWeak</li>
+                    <li>ExSymbiotes_VenomLeap</li>
+                    <li MayRequire="Ludeon.RimWorld.Biotech">ExSymbiotes_SymbioticCoagulate</li>
+                    <li MayRequire="Ludeon.RimWorld.Biotech">ExSymbiotes_SymbioticLongjump</li>
+                </abilityDefs>
+            </li>
+            <li Class="ExSymbiotes.HediffCompProperties_VenomLeap"/>
+        </comps>
+        <renderNodeProperties>
+            <li>
+                <nodeClass>ExSymbiotes.PawnRenderNode_VenomLeap</nodeClass>
+                <workerClass>ExSymbiotes.PawnRenderNodeWorker_VenomLeap</workerClass>
+                <texPaths>
+                    <li>Things/Pawn/Symbiote/VenomLeap/VenomLeap</li>
+                </texPaths>
+                <parentTagDef>Body</parentTagDef>
+                <overrideMeshSize>1</overrideMeshSize>
+                <drawSize>4</drawSize>
+                <rotDrawMode>Fresh, Rotting</rotDrawMode>
+                <useSkinShader>true</useSkinShader>
+                <useRottenColor>true</useRottenColor>
+                <drawData>
+                    <scaleOffsetByBodySize>true</scaleOffsetByBodySize>
+                    <defaultData>
+                        <layer>100</layer>
+                    </defaultData>
+                    <dataSouth>
+                        <offset>(0, 0, 0)</offset>
+                    </dataSouth>
+                    <dataNorth>
+                        <offset>(0, 0, 0)</offset>
+                    </dataNorth>
+                    <dataEast>
+                        <offset>(0, 0, 0)</offset>
+                    </dataEast>
+                    <dataWest>
+                        <offset>(0, 0, 0)</offset>
+                    </dataWest>
+                </drawData>
+            </li>
+        </renderNodeProperties>
+    </HediffDef>
 
-    <HediffDef ParentName="ExSymbiotes_Symbiosis">
+    <HediffDef ParentName="ExSymbiotes_SymbiosisBase">
         <defName>ExSymbiotes_Symbiosis_Red</defName>
         <label>symbiosis (Red)</label>
         <hairColorOverride>(156, 9, 9)</hairColorOverride>
-        <stages Inherit="False">
+        <stages>
             <li>
                 <statFactors>
                     <MeleeDamageFactor>2</MeleeDamageFactor>
@@ -127,7 +165,7 @@
                 <regeneration>50</regeneration>
             </li>
         </stages>
-        <comps Inherit="False">
+        <comps>
             <li Class="ExSymbiotes.HediffCompProperties_Symbiosis">
                 <color>(156, 9, 9)</color>
             </li>
@@ -141,11 +179,11 @@
         </comps>
     </HediffDef>
 
-    <HediffDef ParentName="ExSymbiotes_Symbiosis">
+    <HediffDef ParentName="ExSymbiotes_SymbiosisBase">
         <defName>ExSymbiotes_Symbiosis_White</defName>
         <label>symbiosis (White)</label>
         <hairColorOverride>(31, 27, 28)</hairColorOverride>
-        <stages Inherit="False">
+        <stages>
             <li>
                 <statFactors>
                     <MeleeDamageFactor>1.5</MeleeDamageFactor>
@@ -172,7 +210,7 @@
                 <regeneration>200</regeneration>
             </li>
         </stages>
-        <comps Inherit="False">
+        <comps>
             <li Class="ExSymbiotes.HediffCompProperties_Symbiosis">
                 <color>(240, 240, 240)</color>
             </li>
@@ -189,11 +227,11 @@
         </comps>
     </HediffDef>
 
-    <HediffDef ParentName="ExSymbiotes_Symbiosis">
+    <HediffDef ParentName="ExSymbiotes_SymbiosisBase">
         <defName>ExSymbiotes_Symbiosis_Yellow</defName>
         <label>symbiosis (Yellow)</label>
         <hairColorOverride>(156, 9, 9)</hairColorOverride>
-        <stages Inherit="False">
+        <stages>
             <li>
                 <statFactors>
                     <MeleeDamageFactor>2</MeleeDamageFactor>
@@ -223,7 +261,7 @@
                 <regeneration>50</regeneration>
             </li>
         </stages>
-        <comps Inherit="False">
+        <comps>
             <li Class="ExSymbiotes.HediffCompProperties_Symbiosis">
                 <color>(255, 215, 0)</color>
             </li>
