@@ -9,7 +9,7 @@ namespace ExSymbiotes
             HediffComp_VenomLeap comp;
             if (!node.hediff.TryGetComp<HediffComp_VenomLeap>(out comp))
                 return false;
-            return base.CanDrawNow(node, parms) && comp.GetStage();
+            return base.CanDrawNow(node, parms) && comp.Leap || comp.Landing;
         }
     }
 }

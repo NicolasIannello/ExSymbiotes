@@ -82,6 +82,7 @@
     <Compile Include="Comp\VenomLeap\DamageWorker_VenomLeap.cs" />
     <Compile Include="Comp\VenomLeap\HediffCompProperties_VenomLeap.cs" />
     <Compile Include="Comp\VenomLeap\HediffComp_VenomLeap.cs" />
+    <Compile Include="Comp\VenomLeap\Verb_CastAbilityVenomLeap.cs" />
     <Compile Include="Comp\Weapon\CompProperties_SymbioticWeapon.cs" />
     <Compile Include="Comp\Weapon\CompSymbioticWeapon.cs" />
     <Compile Include="ExSymbiotesMod.cs" />
@@ -103,11 +104,12 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Render\Graphic_FleckSymbiote.cs" />
     <Compile Include="Render\PawnRenderNodeProperties_EyeSymbiote.cs" />
-    <Compile Include="Render\PawnRenderNodeWorker_VenomLeap.cs" />
     <Compile Include="Render\PawnRenderNode_Symbiote.cs" />
     <Compile Include="Render\Spastic\PawnRenderNodeProperties_SpasticSymbiote.cs" />
     <Compile Include="Render\Spastic\PawnRenderNodeWorker_SpasticSymbiote.cs" />
     <Compile Include="Render\Spastic\PawnRenderNode_SpasticSymbiote.cs" />
+    <Compile Include="Render\VenomLeap\PawnRenderNodeWorker_VenomLeap.cs" />
+    <Compile Include="Render\VenomLeap\PawnRenderNode_VenomLeap.cs" />
     <Compile Include="Ritual\PsychicRitualDef_SummonSymbioticMass.cs" />
     <Compile Include="Ritual\PsychicRitualToil_SummonSymbioticMass.cs" />
     <Compile Include="SymbioteMass\Building_SymbioteMass.cs" />

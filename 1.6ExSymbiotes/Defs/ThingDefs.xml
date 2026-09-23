@@ -94,6 +94,22 @@
         </graphicData>
     </ThingDef>
 
+    <ThingDef ParentName="PawnFlyerBase">
+        <defName>ExSymbiotes_PawnFlyer_VenomLeap</defName>
+        <pawnFlyer>
+<!--            <flightDurationMin>0.5</flightDurationMin> &lt;!&ndash; CompAbilityEffect_VenomLeap&ndash;&gt;-->
+<!--            <flightSpeed>12</flightSpeed> &lt;!&ndash; CompAbilityEffect_VenomLeap&ndash;&gt;-->
+            <heightFactor>6</heightFactor>
+            <progressCurve>
+                <points>
+                    <li>(0, 0)</li>
+                    <li>(0.5, 0.70)</li>
+                    <li>(1, 1)</li>
+                </points>
+            </progressCurve>
+        </pawnFlyer>
+    </ThingDef>
+
     <TaleDef>
         <defName>ExSymbiotes_SymbiotePack</defName>
         <label>symbiote pack</label>
