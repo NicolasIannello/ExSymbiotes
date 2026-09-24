@@ -6,6 +6,7 @@ namespace ExSymbiotes
     public class HediffCompProperties_Symbiosis : HediffCompProperties
     {
         public Color color;
+        public Color hair;
         public float minDrawSize = 1.2f;
         public float maxDrawSize = 1.55f;
         

@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using ExSymbiotes.Utils;
 using RimWorld;
+using UnityEngine;
 using Verse;
 
 namespace ExSymbiotes
@@ -16,10 +17,18 @@ namespace ExSymbiotes
         private bool vacuumGene = false;
         private bool immunityGene = false;
         protected int bond = 2;
+        protected Color originalHair;
+        protected Color? originalSkin;
+
+        public override void CompPostMake()
+        {
+            originalHair = Pawn.story.HairColor;
+            originalSkin = Pawn.story.skinColorOverride;
+        }
         
         public override void CompPostPostAdd(DamageInfo? dinfo)
         {
-            Pawn.story.skinColorOverride = this.Props.color;
+            ChangeVisual(false);
             if (ModsConfig.BiotechActive && this.Pawn.genes!=null)
             {
                 deathlessGene = SymbioteUtility.CheckAddGene(this.Pawn, GeneDefOf.Deathless);
@@ -31,7 +40,9 @@ namespace ExSymbiotes
 
         public override void CompPostPostRemoved()
         {
-            Pawn.story.skinColorOverride = null;
+            Pawn.story.HairColor = this.originalHair;
+            Pawn.story.skinColorOverride = this.originalSkin;
+            Pawn.Drawer.renderer.SetAllGraphicsDirty();
             if (ModsConfig.BiotechActive && this.Pawn.genes!=null)
             {
                 SymbioteUtility.CheckRemoveGene(this.Pawn, GeneDefOf.Deathless, this.deathlessGene);
@@ -77,6 +88,8 @@ namespace ExSymbiotes
             Scribe_Values.Look<bool>(ref this.deathlessGene, "deathlessGene");
             Scribe_Values.Look<bool>(ref this.vacuumGene, "vacuumGene");
             Scribe_Values.Look<bool>(ref this.immunityGene, "immunityGene");
+            Scribe_Values.Look<Color>(ref this.originalHair, "originalHair");
+            Scribe_Values.Look<Color?>(ref this.originalSkin, "originalSkin");
         }
 
         private void RollBond()
@@ -106,5 +119,19 @@ namespace ExSymbiotes
         public void RemoveSymbiosis(int amount) => this.energy = (energy - amount)<0 ? 0 : energy - amount;
         
         public int GetStage() => this.bond;
+        
+        public void HairChanged(Color nuevo) => this.originalHair = nuevo!=this.Props.hair ? nuevo : this.originalHair;
+
+        public void SkinChanged(Color? nuevo) => this.originalSkin = nuevo!=this.Props.color ? nuevo : this.originalSkin;
+
+        public void ChangeVisual(bool invert=true)
+        {
+            bool drafted = Pawn.Drafted;
+            if (invert) drafted = !drafted; 
+            bool flag = (ExSymbiotesMod.Visual == SymbiosisVisual.Always || (drafted && ExSymbiotesMod.Visual == SymbiosisVisual.Drafted));
+            Pawn.story.HairColor = flag ? this.Props.hair : this.originalHair;
+            Pawn.story.skinColorOverride = flag ? this.Props.color : this.originalSkin;
+            Pawn.Drawer.renderer.SetAllGraphicsDirty();
+        }
     }
 }

@@ -1,24 +1,65 @@
-﻿using HarmonyLib;
+﻿using System;
+using System.Collections.Generic;
+using HarmonyLib;
 using RimWorld;
+using UnityEngine;
 using Verse;
 using Verse.AI;
 
 namespace ExSymbiotes
 {
+    public enum SymbiosisVisual { Always, Drafted, Never }
+    
     public class ExSymbiotesMod : Mod
     {
         public static ExSymbiotesMod Instance;
         public static Harmony Harmony;
-
+        public ExSymbiotesSettings Settings;
+        
         public ExSymbiotesMod(ModContentPack content) : base(content)
         {
             Harmony = new Harmony("com.eximeisty.ExSymbiotes");
             Harmony.PatchAll();
             Instance = this;
+            Settings = GetSettings<ExSymbiotesSettings>();
         }
 
+        public static SymbiosisVisual Visual => Instance.Settings.Visual;
+
+        public override string SettingsCategory() => "ExSymbiotes";
+
+        public override void DoSettingsWindowContents(Rect inRect)
+        {
+            base.DoSettingsWindowContents(inRect);
+            var listing = new Listing_Standard();
+            listing.Begin(inRect);
+
+            listing.Label("ExSymbiotes.SymbiosisSetting".Translate());
+            if (listing.ButtonText(Settings.Visual.ToString()))
+            {
+                List<FloatMenuOption> options = new List<FloatMenuOption>();
+                foreach (SymbiosisVisual visual in Enum.GetValues(typeof(SymbiosisVisual)))
+                {
+                    options.Add(new FloatMenuOption(("ExSymbiotes.SymbiosisSetting"+visual).Translate(), () => Settings.Visual = visual));
+                }
+                Find.WindowStack.Add(new FloatMenu(options));
+            }
+            
+            listing.End();
+        }
     }
 
+    public class ExSymbiotesSettings : ModSettings
+    {
+        public SymbiosisVisual Visual = SymbiosisVisual.Always;
+
+        public override void ExposeData()
+        {
+            base.ExposeData();
+            Scribe_Values.Look(ref Visual, nameof(Visual), SymbiosisVisual.Always);
+        }
+    }
+    
     [DefOf]
     public static class ExSymbiotesDefOf
     {

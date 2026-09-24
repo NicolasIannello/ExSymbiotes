@@ -6,6 +6,7 @@
         <isBad>false</isBad>
         <renderNodeProperties>
             <li Class="PawnRenderNodeProperties_Eye">
+                <workerClass>ExSymbiotes.PawnRenderNodeWorker_EyeSymbiote</workerClass>
                 <texPath>Things/Pawn/Symbiote/Attachments/Eye/SymbioticEye</texPath>
                 <parentTagDef>Head</parentTagDef>
                 <anchorTag>RightEye</anchorTag>
@@ -20,6 +21,7 @@
                 </drawData>
             </li>
             <li Class="PawnRenderNodeProperties_Eye">
+                <workerClass>ExSymbiotes.PawnRenderNodeWorker_EyeSymbiote</workerClass>
                 <texPath>Things/Pawn/Symbiote/Attachments/Eye/SymbioticEye</texPath>
                 <parentTagDef>Head</parentTagDef>
                 <anchorTag>LeftEye</anchorTag>
@@ -49,7 +51,6 @@
     <HediffDef ParentName="ExSymbiotes_SymbiosisBase">
         <defName>ExSymbiotes_Symbiosis</defName>
         <label>symbiosis (Black)</label>
-        <hairColorOverride>(31, 27, 28)</hairColorOverride>
         <stages>
             <li>
                 <statFactors>
@@ -83,7 +84,8 @@
         </stages>
         <comps>
             <li Class="ExSymbiotes.HediffCompProperties_Symbiosis">
-                <color>(31, 27, 28)</color>        
+                <color>(31, 27, 28)</color>
+                <hair>(31, 27, 28)</hair>
             </li>
             <li Class="HediffCompProperties_GiveAbility">
                 <abilityDefs>
@@ -134,7 +136,6 @@
     <HediffDef ParentName="ExSymbiotes_SymbiosisBase">
         <defName>ExSymbiotes_Symbiosis_Red</defName>
         <label>symbiosis (Red)</label>
-        <hairColorOverride>(156, 9, 9)</hairColorOverride>
         <stages>
             <li>
                 <statFactors>
@@ -168,6 +169,7 @@
         <comps>
             <li Class="ExSymbiotes.HediffCompProperties_Symbiosis">
                 <color>(156, 9, 9)</color>
+                <hair>(156, 9, 9)</hair>
             </li>
             <li Class="HediffCompProperties_GiveAbility">
                 <abilityDefs>
@@ -182,7 +184,6 @@
     <HediffDef ParentName="ExSymbiotes_SymbiosisBase">
         <defName>ExSymbiotes_Symbiosis_White</defName>
         <label>symbiosis (White)</label>
-        <hairColorOverride>(31, 27, 28)</hairColorOverride>
         <stages>
             <li>
                 <statFactors>
@@ -213,6 +214,7 @@
         <comps>
             <li Class="ExSymbiotes.HediffCompProperties_Symbiosis">
                 <color>(240, 240, 240)</color>
+                <hair>(31, 27, 28)</hair>
             </li>
             <li Class="HediffCompProperties_GiveAbility">
                 <abilityDefs>
@@ -230,7 +232,6 @@
     <HediffDef ParentName="ExSymbiotes_SymbiosisBase">
         <defName>ExSymbiotes_Symbiosis_Yellow</defName>
         <label>symbiosis (Yellow)</label>
-        <hairColorOverride>(156, 9, 9)</hairColorOverride>
         <stages>
             <li>
                 <statFactors>
@@ -264,6 +265,7 @@
         <comps>
             <li Class="ExSymbiotes.HediffCompProperties_Symbiosis">
                 <color>(255, 215, 0)</color>
+                <hair>(156, 9, 9)</hair>
             </li>
             <li Class="HediffCompProperties_GiveAbility">
                 <abilityDefs>
