@@ -80,4 +80,34 @@ namespace ExSymbiotes
             }
         }
     }
+    
+    [HarmonyPatch(typeof(Pawn_StoryTracker), nameof(Pawn_StoryTracker.HairColor), MethodType.Setter)]
+    public static class Patch_Pawn_StoryTracker_HairColorSetter
+    {
+        public static void Postfix(Pawn_StoryTracker __instance, Pawn ___pawn)
+        {
+            Hediff hediff = SymbioteUtility.HasSymbiosis(___pawn, false);
+            if (hediff != null) hediff.TryGetComp<HediffComp_Symbiosis>().HairChanged(__instance.HairColor);
+        }
+    }
+    
+    [HarmonyPatch(typeof(Pawn_GeneTracker), "Notify_GenesChanged")]
+    public static class Patch_Pawn_GeneTracker_Notify_GenesChanged
+    {
+        public static void Postfix(Pawn_GeneTracker __instance)
+        {
+            Hediff hediff = SymbioteUtility.HasSymbiosis(__instance.pawn, false);
+            if (hediff != null) hediff.TryGetComp<HediffComp_Symbiosis>().SkinChanged(__instance.pawn.story.skinColorOverride);
+        }
+    }
+    
+    [HarmonyPatch(typeof(Pawn_DraftController), nameof(Pawn_DraftController.Drafted), MethodType.Setter)]
+    public static class Patch_Pawn_DraftController_DraftedSetter
+    {
+        public static void Prefix(Pawn_DraftController __instance)
+        {
+            Hediff hediff = SymbioteUtility.HasSymbiosis(__instance.pawn, false);
+            if (hediff != null) hediff.TryGetComp<HediffComp_Symbiosis>().ChangeVisual();
+        }
+    }
 }
