@@ -176,15 +176,15 @@ namespace ExSymbiotes
           Hediff hediff = SymbioteUtility.HasSymbiosis(thing);
           if (hediff != null)
           {
-            if (hediff.def == ExSymbiotesDefOf.ExSymbiotes_Symbiosis || hediff.def == ExSymbiotesDefOf.ExSymbiotes_Symbiosis_Red)
+            if (hediff.def == ExSymbiotesDefOf.ExSymbiotes_Symbiosis_Red || hediff.def == ExSymbiotesDefOf.ExSymbiotes_Symbiosis_White) 
+              this.Pawn.Kill(null, hediff);
+            else
             {
               AbortDigestion(this.Pawn.MapHeld);
               DamageInfo dinfo = new DamageInfo(DamageDefOf.AcidBurn, (float) 350, instigator: (Thing) this.Pawn);
               dinfo.SetApplyAllDamage(true);
               this.Pawn.TakeDamage(dinfo);
             }
-            if ((hediff.def == ExSymbiotesDefOf.ExSymbiotes_Symbiosis_Red && this.Pawn.def == ExSymbiotesDefOf.ExSymbiotes_Symbiote) || hediff.def == ExSymbiotesDefOf.ExSymbiotes_Symbiosis_White) 
-              this.Pawn.Kill(null, hediff);
             if (!this.Props.messageRetaliate.NullOrEmpty() && thing.Faction == Faction.OfPlayer)
               Messages.Message((string) this.Props.messageRetaliate.Formatted(thing.Named("PAWN")), (LookTargets) (Thing) this.Pawn, MessageTypeDefOf.PositiveEvent);
           }
