@@ -19,7 +19,7 @@
         <label>symbiote leap crushed</label>
         <workerClass>ExSymbiotes.DamageWorker_VenomLeap</workerClass>
         <deathMessage>{0} has been crushed to death.</deathMessage>
-        <defaultDamage>30</defaultDamage>
+        <defaultDamage>70</defaultDamage>
         <constantStunDurationTicks>150</constantStunDurationTicks>
     </DamageDef>
     
