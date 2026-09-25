@@ -1,9 +1,10 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <LanguageData>
-    <ExSymbiotes.SymbiosisSetting>Symbiosis visual effects</ExSymbiotes.SymbiosisSetting>
+    <ExSymbiotes.SymbiosisSetting>Symbiosis visual effects:</ExSymbiotes.SymbiosisSetting>
     <ExSymbiotes.SymbiosisSettingAlways>Always</ExSymbiotes.SymbiosisSettingAlways>
     <ExSymbiotes.SymbiosisSettingDrafted>Drafted</ExSymbiotes.SymbiosisSettingDrafted>
     <ExSymbiotes.SymbiosisSettingNever>Never</ExSymbiotes.SymbiosisSettingNever>
+    <ExSymbiotes.HairSetting>Show hair:</ExSymbiotes.HairSetting>
 
     <ExSymbiotes.MessageHeartAttack>The symbiote mass is convulsing!</ExSymbiotes.MessageHeartAttack>
     <ExSymbiotes.MessageRedMass>The symbiote mass is mutating!</ExSymbiotes.MessageRedMass>

@@ -25,6 +25,7 @@ namespace ExSymbiotes
         }
 
         public static SymbiosisVisual Visual => Instance.Settings.Visual;
+        public static bool Hair => Instance.Settings.Hair;
 
         public override string SettingsCategory() => "ExSymbiotes";
 
@@ -44,7 +45,10 @@ namespace ExSymbiotes
                 }
                 Find.WindowStack.Add(new FloatMenu(options));
             }
+            listing.Gap();
             
+            listing.CheckboxLabeled("ExSymbiotes.HairSetting".Translate(), ref Settings.Hair);
+
             listing.End();
         }
     }
@@ -52,11 +56,13 @@ namespace ExSymbiotes
     public class ExSymbiotesSettings : ModSettings
     {
         public SymbiosisVisual Visual = SymbiosisVisual.Always;
+        public bool Hair = true;
 
         public override void ExposeData()
         {
             base.ExposeData();
             Scribe_Values.Look(ref Visual, nameof(Visual), SymbiosisVisual.Always);
+            Scribe_Values.Look(ref Hair, nameof(Hair), true);
         }
     }
     

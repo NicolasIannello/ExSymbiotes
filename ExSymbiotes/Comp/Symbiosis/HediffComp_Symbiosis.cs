@@ -129,6 +129,7 @@ namespace ExSymbiotes
             bool drafted = Pawn.Drafted;
             if (invert) drafted = !drafted; 
             bool flag = (ExSymbiotesMod.Visual == SymbiosisVisual.Always || (drafted && ExSymbiotesMod.Visual == SymbiosisVisual.Drafted));
+            this.Props.hair.a = (!ExSymbiotesMod.Hair && flag) ? 0 : 1; 
             Pawn.story.HairColor = flag ? this.Props.hair : this.originalHair;
             Pawn.story.skinColorOverride = flag ? this.Props.color : this.originalSkin;
             Pawn.Drawer.renderer.SetAllGraphicsDirty();
