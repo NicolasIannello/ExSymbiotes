@@ -106,6 +106,8 @@ namespace ExSymbiotes
         public static GeneDef VacuumResistance_Total;
         [MayRequireBiotech]
         public static GeneDef PerfectImmunity;
+        [MayRequireBiotech]
+        public static HediffDef ExSymbiotes_Symbiosis_Purple;
         
         static ExSymbiotesDefOf()
         {

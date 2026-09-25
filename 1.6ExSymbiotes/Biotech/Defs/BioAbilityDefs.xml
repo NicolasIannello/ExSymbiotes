@@ -51,4 +51,20 @@
             </li>
         </comps>
     </AbilityDef>
+
+    <AbilityDef ParentName="ExSymbiotes_SymbioticTendrilsAbilityDef">
+        <defName>ExSymbiotes_SymbioticTendrilsPurple</defName>
+        <comps Inherit="False">
+            <li Class="ExSymbiotes.CompProperties_AbilitySymbiosisCost">
+                <symbiosisCost>4</symbiosisCost>
+            </li>
+            <li Class="CompProperties_AbilityGiveHediff">
+                <compClass>CompAbilityEffect_GiveHediff</compClass>
+                <hediffDef>ExSymbiotes_SymbioticTendrilsPurple</hediffDef>
+            </li>
+            <li Class="CompProperties_AbilityFleckOnTarget">
+                <fleckDef>BloodSplash</fleckDef>
+            </li>
+        </comps>
+    </AbilityDef>
 </Defs>

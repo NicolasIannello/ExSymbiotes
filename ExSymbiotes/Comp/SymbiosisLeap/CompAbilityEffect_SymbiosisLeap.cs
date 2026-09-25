@@ -30,7 +30,11 @@ namespace ExSymbiotes
             Hediff hediff = SymbioteUtility.HasSymbiosis(pawn);
             if(hediff==null) return true;
                 
-            if (hediff.def == ExSymbiotesDefOf.ExSymbiotes_Symbiosis || hediff.def == ExSymbiotesDefOf.ExSymbiotes_Symbiosis_Red || hediff.def == ExSymbiotesDefOf.ExSymbiotes_Symbiosis_White)
+            if (hediff.def == ExSymbiotesDefOf.ExSymbiotes_Symbiosis || 
+                hediff.def == ExSymbiotesDefOf.ExSymbiotes_Symbiosis_Red || 
+                hediff.def == ExSymbiotesDefOf.ExSymbiotes_Symbiosis_White || 
+                hediff.def == ExSymbiotesDefOf.ExSymbiotes_Symbiosis_Yellow || 
+                hediff.def == ExSymbiotesDefOf.ExSymbiotes_Symbiosis_Purple)
             {
                 int chance = Rand.RangeInclusive(1, 10);
                 return chance <= 2;

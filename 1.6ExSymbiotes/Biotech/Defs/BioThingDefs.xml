@@ -1,0 +1,85 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+    <ThingDef ParentName="ExSymbiotes_TendrilTurret">
+        <defName>ExSymbiotes_TendrilTurretPurple</defName>
+        <verbs Inherit="False">
+            <li>
+                <verbClass>Verb_Shoot</verbClass>
+                <defaultProjectile>ExSymbiotes_Bullet_ChargeLance</defaultProjectile>
+                <warmupTime>0</warmupTime>
+                <range>25</range>
+                <ticksBetweenBurstShots>4</ticksBetweenBurstShots>
+                <burstShotCount>6</burstShotCount>
+                <soundCast>Shot_ChargeRifle</soundCast>
+                <soundCastTail>GunTail_Heavy</soundCastTail>
+                <muzzleFlashScale>9</muzzleFlashScale>
+            </li>
+        </verbs>
+    </ThingDef>
+
+    <ThingDef ParentName="BaseBullet">
+        <defName>ExSymbiotes_Bullet_ChargeLance</defName>
+        <label>charge symbiote shot</label>
+        <graphicData>
+            <texPath>Things/Projectile/ChargeLanceShot</texPath>
+            <graphicClass>Graphic_Single</graphicClass>
+            <shaderType>TransparentPostLight</shaderType>
+            <drawSize>1.5</drawSize>
+        </graphicData>
+        <projectile>
+            <damageDef>Bullet</damageDef>
+            <damageAmountBase>20</damageAmountBase>
+            <armorPenetrationBase>1</armorPenetrationBase>
+            <stoppingPower>1.5</stoppingPower>
+            <speed>120</speed>
+        </projectile>
+    </ThingDef>
+
+    <ThingDef ParentName="ExSymbiotes_SymbioticCore">
+        <defName>ExSymbiotes_SymbioticCore_Purple</defName>
+        <label>symbiotic core (Purple)</label>
+        <description>Artificial symbiotic core manufactured from a symbiote core at a Subcore encoder.</description>
+        <hiddenWhileUndiscovered>false</hiddenWhileUndiscovered>
+        <graphicData>
+            <texPath>Things/Item/SymbioticCorePurple</texPath>
+            <graphicClass>Graphic_Single</graphicClass>
+            <drawSize>0.8</drawSize>
+        </graphicData>
+        <comps Inherit="False">
+            <li Class="CompProperties_Drug">
+                <listOrder>1200</listOrder>
+                <teetotalerCanConsume>false</teetotalerCanConsume>
+            </li>
+            <li Class="CompProperties_Usable">
+                <useLabel>Use {0_label}</useLabel>
+                <useJob>Ingest</useJob>
+                <showUseGizmo>true</showUseGizmo>
+            </li>
+            <li Class="CompProperties_Serum" />
+            <li Class="CompProperties_UseEffectAddHediff">
+                <hediffDef>ExSymbiotes_Symbiosis_Purple</hediffDef>
+                <allowRepeatedUse>false</allowRepeatedUse>
+            </li>
+            <li Class="CompProperties_UseEffectPlaySound">
+                <soundOnUsed>MechSerumUsed</soundOnUsed>
+            </li>
+        </comps>
+        <costList>
+            <ExSymbiotes_SymbioticCore_Red>1</ExSymbiotes_SymbioticCore_Red>
+            <ExSymbiotes_SymbioticTissue_Red>10</ExSymbiotes_SymbioticTissue_Red>
+            <ComponentSpacer>1</ComponentSpacer>
+            <SubcoreRegular>1</SubcoreRegular>
+        </costList>
+        <recipeMaker>
+            <productCount>1</productCount>
+            <workSpeedStat>SubcoreEncodingSpeed</workSpeedStat>
+            <workSkill>Crafting</workSkill>
+            <recipeUsers>
+                <li>SubcoreEncoder</li>
+            </recipeUsers>
+            <workAmount>720</workAmount>
+            <researchPrerequisite>ExSymbiotes_SymbioticCoreResearch</researchPrerequisite>
+            <soundWorking>SubcoreEncoder_Working</soundWorking>
+        </recipeMaker>
+    </ThingDef>
+</Defs>

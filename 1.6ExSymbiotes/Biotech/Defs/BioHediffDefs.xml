@@ -1,0 +1,80 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+    <HediffDef ParentName="ExSymbiotes_SymbiosisBase">
+        <defName>ExSymbiotes_Symbiosis_Purple</defName>
+        <label>symbiosis (Purple)</label>
+        <stages>
+            <li>
+                <statFactors>
+                    <MeleeDamageFactor>1.25</MeleeDamageFactor>
+                    <MoveSpeed>1.50</MoveSpeed>
+                    <WorkSpeedGlobal>2.0</WorkSpeedGlobal>
+                </statFactors>
+                <damageFactors>
+                    <Flame>3</Flame>
+                    <Burn>3</Burn>
+                </damageFactors>
+                <statOffsets>
+                    <ToxicResistance>1</ToxicResistance>
+                    <ComfyTemperatureMax>100</ComfyTemperatureMax>
+                    <ComfyTemperatureMin>-200</ComfyTemperatureMin>
+                    <AimingDelayFactor>-0.50</AimingDelayFactor>
+                    <ShootingAccuracyPawn>+0.40</ShootingAccuracyPawn>
+                    <RangedCooldownFactor>-0.25</RangedCooldownFactor>
+                    <MechControlGroups>1</MechControlGroups>
+                    <WorkSpeedGlobalOffsetMech>0.25</WorkSpeedGlobalOffsetMech>
+                    <MechRepairSpeed>1.5</MechRepairSpeed>
+                    <MechBandwidth>10</MechBandwidth>
+                </statOffsets>
+                <capMods>
+                    <li><capacity>Consciousness</capacity><postFactor>1.50</postFactor></li>
+                    <li><capacity>Hearing</capacity><postFactor>1.50</postFactor></li>
+                    <li><capacity>Talking</capacity><postFactor>1.50</postFactor></li>
+                    <li><capacity>Manipulation</capacity><postFactor>2.5</postFactor></li>
+                    <li><capacity>Sight</capacity><postFactor>2</postFactor></li>
+                    <li><capacity>Eating</capacity><postFactor>1.50</postFactor></li>
+                    <li><capacity>BloodPumping</capacity><postFactor>1.50</postFactor></li>
+                    <li><capacity>BloodFiltration</capacity><postFactor>1.50</postFactor></li>
+                    <li><capacity>Breathing</capacity><postFactor>1.50</postFactor></li>
+                </capMods>
+                <regeneration>50</regeneration>
+            </li>
+        </stages>
+        <comps>
+            <li Class="ExSymbiotes.HediffCompProperties_Symbiosis">
+                <color>(187, 66, 199)</color>
+                <hair>(187, 66, 199)</hair>
+            </li>
+            <li Class="HediffCompProperties_GiveAbility">
+                <abilityDefs>
+                    <li>ExSymbiotes_SymbioticTendrilsPurple</li>
+                    <li MayRequire="Ludeon.RimWorld.Biotech">ExSymbiotes_SymbioticLongjump</li>
+                </abilityDefs>
+            </li>
+        </comps>
+    </HediffDef>
+
+    <HediffDef ParentName="ExSymbiotes_SymbioticTendrilsHediffDef">
+        <defName>ExSymbiotes_SymbioticTendrilsPurple</defName>
+        <stages Inherit="False">
+            <li>
+                <statFactors>
+                    <WorkSpeedGlobal>4.0</WorkSpeedGlobal>
+                </statFactors>
+                <capMods>
+                    <li><capacity>Manipulation</capacity><postFactor>2</postFactor></li>
+                </capMods>
+            </li>
+        </stages>
+        <comps Inherit="False">
+            <li Class="ExSymbiotes.HediffCompProperties_SymbioticTendrils">
+                <turretGunDef>ExSymbiotes_TendrilTurretPurple</turretGunDef>
+                <cd>2.5</cd>
+            </li>
+            <li Class="HediffCompProperties_Disappears">
+                <showRemainingTime>True</showRemainingTime>
+            </li>
+            <li Class="HediffCompProperties_DisappearsOnDeath"/>
+        </comps>
+    </HediffDef>
+</Defs>

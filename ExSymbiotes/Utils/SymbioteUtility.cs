@@ -109,15 +109,19 @@ namespace ExSymbiotes.Utils
             }
         }
         
-        public static Hediff HasSymbiosis(Pawn pawn, bool all = true)//check CompAbilityEffect_SymbiosisLeap / CompSymbiote StartDigesting
+        public static Hediff HasSymbiosis(Pawn pawn, bool all = true)//check CompAbilityEffect_SymbiosisLeap
         {
             List<Hediff> hediffs = pawn.health.hediffSet.hediffs;
     
             for (int i = 0; i < hediffs.Count; i++)
             {
                 HediffDef def = hediffs[i].def;
-                if (def == ExSymbiotesDefOf.ExSymbiotes_Symbiosis || def == ExSymbiotesDefOf.ExSymbiotes_Symbiosis_Red ||
-                    def == ExSymbiotesDefOf.ExSymbiotes_Symbiosis_White || def == ExSymbiotesDefOf.ExSymbiotes_Symbiosis_Yellow) return hediffs[i];
+                if (def == ExSymbiotesDefOf.ExSymbiotes_Symbiosis || 
+                    def == ExSymbiotesDefOf.ExSymbiotes_Symbiosis_Red ||
+                    def == ExSymbiotesDefOf.ExSymbiotes_Symbiosis_White || 
+                    def == ExSymbiotesDefOf.ExSymbiotes_Symbiosis_Yellow ||
+                    def == ExSymbiotesDefOf.ExSymbiotes_Symbiosis_Purple) 
+                    return hediffs[i];
                 if (all && (def == ExSymbiotesDefOf.ExSymbiotes_SymbioteControl || def == ExSymbiotesDefOf.ExSymbiotes_SymbioteControlRed)) return hediffs[i];
             }
             
