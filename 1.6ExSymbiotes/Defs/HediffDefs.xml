@@ -120,13 +120,13 @@
                         <offset>(0, 0, 0)</offset>
                     </dataSouth>
                     <dataNorth>
-                        <offset>(0, 0, 0)</offset>
+                        <offset>(0, 0, -0.25)</offset>
                     </dataNorth>
                     <dataEast>
-                        <offset>(0, 0, 0)</offset>
+                        <offset>(-0.4, 0, 0)</offset>
                     </dataEast>
                     <dataWest>
-                        <offset>(0, 0, 0)</offset>
+                        <offset>(0.4, 0, 0)</offset>
                     </dataWest>
                 </drawData>
             </li>
