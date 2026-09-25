@@ -169,7 +169,7 @@ namespace ExSymbiotes
         
         public void TryStartShootSomething(bool canBeginBurstImmediately)
         {
-            if (!this.Pawn.Spawned || this.holdFire && this.CanToggleHoldFire && !this.AttackVerb.Available())
+            if (!this.Pawn.Spawned || this.holdFire || this.Pawn.Downed || this.Pawn.stances.stunner.Stunned || this.Pawn.stances.stagger.Staggered && this.CanToggleHoldFire && !this.AttackVerb.Available())
             {
                 this.ResetCurrentTarget();
             }
