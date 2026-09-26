@@ -109,7 +109,8 @@ namespace ExSymbiotes.Utils
             }
         }
         
-        public static Hediff HasSymbiosis(Pawn pawn, bool all = true)//check CompAbilityEffect_SymbiosisLeap
+        //check CompAbilityEffect_SymbiosisLeap / ExSymbiotes_Recipe_RemoveSymbiosis
+        public static Hediff HasSymbiosis(Pawn pawn, bool all = true)
         {
             List<Hediff> hediffs = pawn.health.hediffSet.hediffs;
     
