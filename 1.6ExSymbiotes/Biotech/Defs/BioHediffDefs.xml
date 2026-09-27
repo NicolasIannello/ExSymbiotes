@@ -50,6 +50,7 @@
                 <abilityDefs>
                     <li>ExSymbiotes_SymbioticTendrilsPurple</li>
                     <li>ExSymbiotes_SymbioticShield</li>
+                    <li>ExSymbiotes_SymbioticCannon</li>
                     <li MayRequire="Ludeon.RimWorld.Biotech">ExSymbiotes_SymbioticLongjump</li>
                 </abilityDefs>
             </li>
@@ -79,4 +80,65 @@
             <li Class="HediffCompProperties_DisappearsOnDeath"/>
         </comps>
     </HediffDef>
+
+    <HediffDef>
+        <defName>ExSymbiotes_SymbioticCannon</defName>
+        <label>symbiotic cannon</label>
+        <hediffClass>HediffWithComps</hediffClass>
+        <description>The symbiote build a plasma cannon from the shoulder.</description>
+        <isBad>false</isBad>
+        <renderNodeProperties>
+            <li Class="PawnRenderNodeProperties_Spastic">
+                <texPaths>
+                    <li>Things/Pawn/SymbioticCannon</li>
+                </texPaths>
+                <parentTagDef>Body</parentTagDef>
+                <overrideMeshSize>1</overrideMeshSize>
+                <drawSize>0.75</drawSize>
+                <colorType>Custom</colorType>
+                <rotDrawMode>Fresh, Rotting</rotDrawMode>
+                <useSkinShader>false</useSkinShader>
+                <useRottenColor>false</useRottenColor>
+                <rotationRange>-5~5</rotationRange>
+                <durationTicksRange>10~35</durationTicksRange>
+                <nextSpasmTicksRange>10~50</nextSpasmTicksRange>
+                <drawData>
+                    <scaleOffsetByBodySize>true</scaleOffsetByBodySize>
+                    <dataSouth>
+                        <offset>(-0.30, 0, 0.2)</offset>
+                        <rotationOffset>-90</rotationOffset>
+                        <layer>60</layer>
+                    </dataSouth>
+                    <dataNorth>
+                        <offset>(0.25, 0, 0.2)</offset>
+                        <rotationOffset>-90</rotationOffset>
+                        <layer>100</layer>
+                        <flip>true</flip>
+                    </dataNorth>
+                    <dataEast>
+                        <offset>(-0.15, 0, 0.1)</offset>
+                        <rotationOffset>-90</rotationOffset>
+                        <layer>90</layer>
+                        <flip>true</flip>
+                    </dataEast>
+                    <dataWest>
+                        <offset>(0.1, 0, 0.15)</offset>
+                        <rotationOffset>-90</rotationOffset>
+                        <layer>0</layer>
+                    </dataWest>
+                </drawData>
+            </li>
+        </renderNodeProperties>
+        <comps>
+            <li Class="ExSymbiotes.HediffCompProperties_SymbioticCannon">
+                <turretGunDef>ExSymbiotes_TendrilTurretCannon</turretGunDef>
+                <cd>3</cd>
+            </li>
+            <li Class="HediffCompProperties_Disappears">
+                <showRemainingTime>True</showRemainingTime>
+            </li>
+            <li Class="HediffCompProperties_DisappearsOnDeath"/>
+        </comps>
+    </HediffDef>
+
 </Defs>

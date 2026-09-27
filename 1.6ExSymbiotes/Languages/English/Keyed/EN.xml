@@ -31,4 +31,6 @@
     <ExSymbiotes.SymbiotePackArrived>A pack of symbiote controlled animals have entered the area! They will roam the area, hunting for humanoid flesh.\n\nIf not kept in check they will reproduce until they take over the whole area.</ExSymbiotes.SymbiotePackArrived>
 
     <ExSymbiotes.ShieldSymbiotic>Symbiotic shield</ExSymbiotes.ShieldSymbiotic>
+    <ExSymbiotes.CommandSetForceAttackTarget>Set cannon forced target</ExSymbiotes.CommandSetForceAttackTarget>
+    <ExSymbiotes.CommandStopForceAttack>Stop cannon forced attack</ExSymbiotes.CommandStopForceAttack>
 </LanguageData>

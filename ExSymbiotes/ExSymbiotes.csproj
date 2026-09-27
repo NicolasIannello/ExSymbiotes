@@ -68,6 +68,8 @@
     <Compile Include="Comp\Symbiosis\ThoughtWorker_Symbiosis.cs" />
     <Compile Include="Comp\SymbioteControl\HediffCompProperties_SymbioteControl.cs" />
     <Compile Include="Comp\SymbioteControl\HediffComp_SymbioteControl.cs" />
+    <Compile Include="Comp\SymbioticCannon\HediffCompProperties_SymbioticCannon.cs" />
+    <Compile Include="Comp\SymbioticCannon\HediffComp_SymbioticCannon.cs" />
     <Compile Include="Comp\SymbioticShield\CompPropertiesSymbioticInterceptor.cs" />
     <Compile Include="Comp\SymbioticShield\CompSymbioticInterceptor.cs" />
     <Compile Include="Comp\SymbioticShield\HediffCompProperties_SymbioticShield.cs" />
@@ -77,6 +79,7 @@
     <Compile Include="Comp\SymbioticStun\DamageWorker_SymbioticStun.cs" />
     <Compile Include="Comp\SymbioticTendrils\HediffCompProperties_SymbioticTendrils.cs" />
     <Compile Include="Comp\SymbioticTendrils\HediffComp_SymbioticTendrils.cs" />
+    <Compile Include="Comp\SymbioticCannon.cs" />
     <Compile Include="Comp\SymbioticWhip\CompProperties_ProjectileFleck.cs" />
     <Compile Include="Comp\SymbioticWhip\Comp_ProjectileFleck.cs" />
     <Compile Include="Comp\SymbioticWhip\DamageWorker_SymbioticWhip.cs" />

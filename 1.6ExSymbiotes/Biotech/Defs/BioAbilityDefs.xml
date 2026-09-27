@@ -100,4 +100,41 @@
             </comps>
     </AbilityDef>
 
+    <AbilityDef>
+        <defName>ExSymbiotes_SymbioticCannon</defName>
+        <label>symbiotic cannon</label>
+        <description>The symbiote build a plasma cannon from the shoulder.</description>
+        <iconPath>Things/Pawn/SymbioticCannon</iconPath>
+        <cooldownTicksRange>6000</cooldownTicksRange>
+        <writeCombatLog>True</writeCombatLog>
+        <targetRequired>false</targetRequired>
+        <casterMustBeCapableOfViolence>true</casterMustBeCapableOfViolence>
+        <statBases>
+            <Ability_Duration>15</Ability_Duration>
+        </statBases>
+        <verbProperties>
+            <verbClass>Verb_CastAbility</verbClass>
+            <drawAimPie>false</drawAimPie>
+            <requireLineOfSight>false</requireLineOfSight>
+            <nonInterruptingSelfCast>true</nonInterruptingSelfCast>
+            <warmupTime>1</warmupTime>
+            <range>19.9</range>
+            <targetable>false</targetable>
+            <targetParams>
+                <canTargetSelf>True</canTargetSelf>
+            </targetParams>
+        </verbProperties>
+        <comps>
+            <li Class="ExSymbiotes.CompProperties_AbilitySymbiosisCost">
+                <symbiosisCost>12</symbiosisCost>
+            </li>
+            <li Class="CompProperties_AbilityGiveHediff">
+                <compClass>CompAbilityEffect_GiveHediff</compClass>
+                <hediffDef>ExSymbiotes_SymbioticCannon</hediffDef>
+            </li>
+            <li Class="CompProperties_AbilityFleckOnTarget">
+                <fleckDef>UnnaturalHealing</fleckDef>
+            </li>
+        </comps>
+    </AbilityDef>
 </Defs>
