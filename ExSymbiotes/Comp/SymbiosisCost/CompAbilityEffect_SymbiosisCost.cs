@@ -69,7 +69,9 @@ namespace ExSymbiotes
         else
         {
           Ability ability = verbToUse1.ability;
-          num1 = ability != null ? ability.CompOfType<CompAbilityEffect_SymbiosisCost>().Props2.symbiosisCost : 0.0;
+          num1 = 0.0;
+          if (ability?.CompOfType<CompAbilityEffect_SymbiosisCost>()!=null) 
+            num1 = ability.CompOfType<CompAbilityEffect_SymbiosisCost>().Props2.symbiosisCost;
         }
         float num2 = (float) num1;
         if (this.parent.pawn.jobs != null)
@@ -80,7 +82,9 @@ namespace ExSymbiotes
             {
               double num3 = (double) num2;
               Ability ability = verbToUse2.ability;
-              double num4 = ability != null ? ability.CompOfType<CompAbilityEffect_SymbiosisCost>().Props2.symbiosisCost : 0.0;
+              double num4 = 0.0;
+              if (ability?.CompOfType<CompAbilityEffect_SymbiosisCost>()!=null) 
+                num4 = ability.CompOfType<CompAbilityEffect_SymbiosisCost>().Props2.symbiosisCost;
               num2 = (float) (num3 + num4);
             }
           }
