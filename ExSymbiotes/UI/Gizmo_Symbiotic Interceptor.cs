@@ -10,7 +10,7 @@ namespace ExSymbiotes
       public CompSymbioticInterceptor interceptor;
       private static readonly Texture2D FullBarTex = SolidColorMaterials.NewSolidColorTexture(new Color(0.2f, 0.2f, 0.24f));
       private static readonly Texture2D EmptyBarTex = SolidColorMaterials.NewSolidColorTexture(Color.clear);
-      private const float Width = 140f;
+      private const float Width = 160f;
       public const int InRectPadding = 6;
 
       public Gizmo_Symbiotic_Interceptor() => this.Order = -100f;
@@ -23,13 +23,16 @@ namespace ExSymbiotes
         Rect rect2 = rect1.ContractedBy(InRectPadding);
         Widgets.DrawWindowBackground(rect1);
         int num = this.interceptor.ChargingTicksLeft > 0 ? 1 : 0;
-        TaggedString label1 = $"{"ExSymbiotes.ShieldSymbiotic".Translate()} - {(this.interceptor.RemainingTicks / 60).ToString()}s";
+        TaggedString label1 = $"{"ExSymbiotes.ShieldSymbiotic".Translate()}";
         float fillPercent = num == 0 ? (float) this.interceptor.currentHitPoints / (float) this.interceptor.HitPointsMax : (float) this.interceptor.ChargingTicksLeft / (float) this.interceptor.Props.chargeDurationTicks;
         string label2 = num == 0 ? $"{this.interceptor.currentHitPoints.ToString()} / {this.interceptor.HitPointsMax.ToString()}" : this.interceptor.ChargingTicksLeft.ToStringTicksToPeriod();
         Text.Font = GameFont.Small;
         Text.Anchor = TextAnchor.UpperLeft;
         Rect rect3 = new Rect(rect2.x, rect2.y - 2f, rect2.width, rect2.height / 2f);
         Widgets.Label(rect3, label1);
+        TaggedString labelTime = $"{(this.interceptor.RemainingTicks / 60).ToString()}s";
+        Rect rectTime = new Rect(rect2.x+rect2.width-25f, rect2.y - 2f, rect2.width, rect2.height / 2f);
+        Widgets.Label(rectTime, labelTime);
         Rect rect4 = new Rect(rect2.x, rect3.yMax, rect2.width, rect2.height / 2f);
         Widgets.FillableBar(rect4, fillPercent, Gizmo_Symbiotic_Interceptor.FullBarTex, Gizmo_Symbiotic_Interceptor.EmptyBarTex, false);
         Text.Font = GameFont.Small;

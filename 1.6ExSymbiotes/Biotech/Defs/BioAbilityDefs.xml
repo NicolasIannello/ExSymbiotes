@@ -72,7 +72,7 @@
         <defName>ExSymbiotes_SymbioticShield</defName>
         <label>symbiotic shield</label>
         <description>The symbiote builds a projectile-repulsion device over the user.</description>
-        <iconPath>UI/Gizmos/ShieldMech</iconPath>
+        <iconPath>UI/SymbioticShield</iconPath>
         <jobDef>ExSymbiotes_ShieldMech</jobDef>
         <targetRequired>false</targetRequired>
         <cooldownTicksRange>300</cooldownTicksRange>
