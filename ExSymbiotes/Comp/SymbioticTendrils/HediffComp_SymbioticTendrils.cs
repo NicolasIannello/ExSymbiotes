@@ -262,6 +262,10 @@ namespace ExSymbiotes
             if (this.CanSetForcedTarget)
             {
                 Command_Action gizmo = new Command_Action();
+                gizmo.onHover = () =>
+                {
+                    GenDraw.DrawRadiusRing(this.Pawn.Position, this.AttackVerb.EffectiveRange, Color.white);
+                };
                 gizmo.defaultLabel = (string) "CommandSetForceAttackTarget".Translate();
                 gizmo.defaultDesc = (string) "CommandSetForceAttackTargetDesc".Translate();
                 gizmo.icon = (Texture) ContentFinder<Texture2D>.Get("UI/Commands/Attack");
@@ -269,10 +273,14 @@ namespace ExSymbiotes
                 gizmo.action = delegate
                 {
                     TargetingParameters targetParams = this.AttackVerb.targetParams ?? TargetingParameters.ForAttackAny();
-                    Find.Targeter.BeginTargeting(targetParams, delegate(LocalTargetInfo target)
+                    Find.Targeter.BeginTargeting(targetParams:targetParams, action: delegate(LocalTargetInfo target)
                     {
                         this.OrderAttack(target);
-                    }, this.Pawn);
+                    }, highlightAction: delegate(LocalTargetInfo target)
+                    {
+                        this.AttackVerb.DrawHighlight(target);
+                        GenDraw.DrawRadiusRing(this.Pawn.Position, this.AttackVerb.EffectiveRange, Color.white);
+                    }, null, caster: this.Pawn);
                 };
                 if (this.Pawn.Spawned)
                 {
