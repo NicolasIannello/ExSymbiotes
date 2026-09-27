@@ -37,7 +37,7 @@ namespace ExSymbiotes
           bool flag = index == symbiotes.Count - 1;
           comp.AddThing(symbiotes[index], flag);
         }
-        this.SendStandardLetter("LetterLabelSymbiotePackArrived".Translate(), "SymbiotePackArrived".Translate(), LetterDefOf.ThreatBig, parms, new LookTargets((IEnumerable<Pawn>) symbioteLord.ownedPawns));
+        this.SendStandardLetter("ExSymbiotes.LetterLabelSymbiotePackArrived".Translate(), "ExSymbiotes.SymbiotePackArrived".Translate(), LetterDefOf.ThreatBig, parms, new LookTargets((IEnumerable<Pawn>) symbioteLord.ownedPawns));
         Find.TickManager.slower.SignalForceNormalSpeedShort();
         return true;
       }

@@ -20,15 +20,15 @@
     <ExSymbiotes.AbilitySymbiosisCost>Symbiosis cost</ExSymbiotes.AbilitySymbiosisCost>
     <ExSymbiotes.SymbioticMassMutation>Requires {0} shards to mutate</ExSymbiotes.SymbioticMassMutation>
 
-    <MessageSymbioteModeChangeSingular>The symbiote is {0}</MessageSymbioteModeChangeSingular>
-    <MessageSymbioteModeChangePlural>The symbiotes are {0}</MessageSymbioteModeChangePlural>
-    <MessageSymbioteWithdrawing>temporarily withdrawing.</MessageSymbioteWithdrawing>
-    <LetterSymbiotesAttackingLabel>Symbiotes attacking</LetterSymbiotesAttackingLabel>
-    <LetterSymbiotesAttacking>The symbiotes have begun their attack!</LetterSymbiotesAttacking>
-    <MessageSymbioteDefending>defending the symbiote mass!</MessageSymbioteDefending>
+    <ExSymbiotes.MessageSymbioteModeChangeSingular>The symbiote is {0}</ExSymbiotes.MessageSymbioteModeChangeSingular>
+    <ExSymbiotes.MessageSymbioteModeChangePlural>The symbiotes are {0}</ExSymbiotes.MessageSymbioteModeChangePlural>
+    <ExSymbiotes.MessageSymbioteWithdrawing>temporarily withdrawing.</ExSymbiotes.MessageSymbioteWithdrawing>
+    <ExSymbiotes.LetterSymbiotesAttackingLabel>Symbiotes attacking</ExSymbiotes.LetterSymbiotesAttackingLabel>
+    <ExSymbiotes.LetterSymbiotesAttacking>The symbiotes have begun their attack!</ExSymbiotes.LetterSymbiotesAttacking>
+    <ExSymbiotes.MessageSymbioteDefending>defending the symbiote mass!</ExSymbiotes.MessageSymbioteDefending>
 
-    <LetterLabelSymbiotePackArrived>Symbiote pack</LetterLabelSymbiotePackArrived>
-    <SymbiotePackArrived>A pack of symbiote controlled animals have entered the area! They will roam the area, hunting for humanoid flesh.\n\nIf not kept in check they will reproduce until they take over the whole area.</SymbiotePackArrived>
+    <ExSymbiotes.LetterLabelSymbiotePackArrived>Symbiote pack</ExSymbiotes.LetterLabelSymbiotePackArrived>
+    <ExSymbiotes.SymbiotePackArrived>A pack of symbiote controlled animals have entered the area! They will roam the area, hunting for humanoid flesh.\n\nIf not kept in check they will reproduce until they take over the whole area.</ExSymbiotes.SymbiotePackArrived>
 
     <ExSymbiotes.ShieldSymbiotic>Symbiotic shield</ExSymbiotes.ShieldSymbiotic>
 </LanguageData>

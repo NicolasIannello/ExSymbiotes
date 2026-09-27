@@ -48,7 +48,7 @@ namespace ExSymbiotes
         transition2.AddPostAction((TransitionAction) new TransitionAction_Custom((Action) (() =>
         {
           this.currentModeStartedTick = Find.TickManager.TicksGame;
-          this.SendModeChangeMessage((string) "MessageSymbioteWithdrawing".Translate());
+          this.SendModeChangeMessage((string) "ExSymbiotes.MessageSymbioteWithdrawing".Translate());
         })));
         transition2.triggers.Add((Trigger) new Trigger_Memo(AttackToStalkMemo));
         graph.AddTransition(transition2);
@@ -59,7 +59,7 @@ namespace ExSymbiotes
         transition3.AddPostAction((TransitionAction) new TransitionAction_Custom((Action) (() =>
         {
           this.currentModeStartedTick = Find.TickManager.TicksGame;
-          this.SendModeChangeMessage((string) "MessageSymbioteDefending".Translate());
+          this.SendModeChangeMessage((string) "ExSymbiotes.MessageSymbioteDefending".Translate());
         })));
         transition3.triggers.Add((Trigger) new Trigger_Memo(ToDefendMemo));
         graph.AddTransition(transition3);
@@ -67,7 +67,7 @@ namespace ExSymbiotes
         transition4.AddPostAction((TransitionAction) new TransitionAction_Custom((Action) (() =>
         {
           this.currentModeStartedTick = Find.TickManager.TicksGame;
-          this.SendModeChangeMessage((string) "MessageSymbioteDefending".Translate());
+          this.SendModeChangeMessage((string) "ExSymbiotes.MessageSymbioteDefending".Translate());
         })));
         transition4.triggers.Add((Trigger) new Trigger_Memo(ToDefendMemo));
         graph.AddTransition(transition4);
@@ -162,14 +162,14 @@ namespace ExSymbiotes
       {
         if (this.NoActivePawns())
           return;
-        Messages.Message((string) (this.lord.ownedPawns.Count > 1 ? "MessageSymbioteModeChangePlural".Translate((NamedArgument) verb) : "MessageSymbioteModeChangeSingular".Translate((NamedArgument) verb)), new LookTargets((IEnumerable<Pawn>) this.lord.ownedPawns), MessageTypeDefOf.NeutralEvent);
+        Messages.Message((string) (this.lord.ownedPawns.Count > 1 ? "ExSymbiotes.MessageSymbioteModeChangePlural".Translate((NamedArgument) verb) : "ExSymbiotes.MessageSymbioteModeChangeSingular".Translate((NamedArgument) verb)), new LookTargets((IEnumerable<Pawn>) this.lord.ownedPawns), MessageTypeDefOf.NeutralEvent);
       }
 
       private void SendAttackingLetter()
       {
         if (this.NoActivePawns())
           return;
-        Find.LetterStack.ReceiveLetter("LetterSymbiotesAttackingLabel".Translate(), "LetterSymbiotesAttacking".Translate(), LetterDefOf.ThreatBig, new LookTargets((IEnumerable<Pawn>) this.lord.ownedPawns));
+        Find.LetterStack.ReceiveLetter("ExSymbiotes.LetterSymbiotesAttackingLabel".Translate(), "ExSymbiotes.LetterSymbiotesAttacking".Translate(), LetterDefOf.ThreatBig, new LookTargets((IEnumerable<Pawn>) this.lord.ownedPawns));
       }
 
       private bool NoActivePawns()
