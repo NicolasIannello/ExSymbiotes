@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using ExSymbiotes.Utils;
+using UnityEngine;
 using Verse;
 
 namespace ExSymbiotes
@@ -52,6 +53,53 @@ namespace ExSymbiotes
       protected virtual int GetNextSpasmDurationTicks()
       {
         return this.props is PawnRenderNodeProperties_SpasticSymbiote props ? props.durationTicksRange.RandomInRange : 0;
+      }
+      
+      public override Color ColorFor(Pawn pawn)
+      {
+        Color color1;
+        Hediff symbiosis = SymbioteUtility.HasSymbiosis(pawn, false);
+        if (pawn.RaceProps.Humanlike && symbiosis != null)
+        {
+          color1 = pawn.health.GetOrAddHediff(symbiosis.def).TryGetComp<HediffComp_Symbiosis>().Props.color;
+        }
+        else
+        {
+          switch (this.props.colorType)
+          {
+            case PawnRenderNodeProperties.AttachmentColorType.Hair:
+              if (pawn.story == null)
+              {
+                Log.ErrorOnce($"Trying to set render node color to hair for {pawn.LabelShort} without pawn story. Defaulting to white.", Gen.HashCombine<int>(pawn.thingIDNumber, 828310001));
+                color1 = Color.white;
+                break;
+              }
+              color1 = pawn.story.HairColor;
+              break;
+            case PawnRenderNodeProperties.AttachmentColorType.Skin:
+              Color? statueColor = pawn.Drawer.renderer.StatueColor;
+              if (statueColor.HasValue)
+              {
+                color1 = statueColor.Value;
+                break;
+              }
+              if (pawn.story == null)
+              {
+                Log.ErrorOnce($"Trying to set render node color to skin for {pawn.LabelShort} without pawn story. Defaulting to white.", Gen.HashCombine<int>(pawn.thingIDNumber, 228340903));
+                color1 = Color.white;
+                break;
+              }
+              color1 = pawn.story.SkinColor;
+              break;
+            default:
+              color1 = this.props.color ?? Color.white;
+              break;
+          }
+        }
+        Color color2 = color1 * this.props.colorRGBPostFactor;
+        if (this.props.useRottenColor && pawn.Drawer.renderer.CurRotDrawMode == RotDrawMode.Rotting)
+          color2 = PawnRenderUtility.GetRottenColor(color2);
+        return color2;
       }
 
       public class SpasmData
