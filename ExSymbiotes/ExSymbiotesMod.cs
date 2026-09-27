@@ -99,6 +99,7 @@ namespace ExSymbiotes
         public static ThingDef ExSymbiotes_Mote_HarbingerTreeRoots;
         public static ThingDef ExSymbiotes_Mote_HarbingerTreeRootsBlack;
         public static ThingDef ExSymbiotes_PawnFlyer_VenomLeap;
+        public static ThingDef ExSymbiotes_MechShield;
         public static ThoughtDef ExSymbiotes_SymbioteControlledAfter;
         public static ThoughtDef ExSymbiotes_BondedSymbioteLost;
 

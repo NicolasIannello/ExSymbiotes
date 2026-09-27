@@ -67,4 +67,37 @@
             </li>
         </comps>
     </AbilityDef>
+
+    <AbilityDef>
+        <defName>ExSymbiotes_SymbioticShield</defName>
+        <label>symbiotic shield</label>
+        <description>The symbiote builds a projectile-repulsion device over the user.</description>
+        <iconPath>UI/Gizmos/ShieldMech</iconPath>
+        <jobDef>ExSymbiotes_ShieldMech</jobDef>
+        <targetRequired>false</targetRequired>
+        <cooldownTicksRange>300</cooldownTicksRange>
+        <waitForJobEnd>true</waitForJobEnd>
+        <casterMustBeCapableOfViolence>false</casterMustBeCapableOfViolence>
+        <stunTargetWhileCasting>True</stunTargetWhileCasting>
+        <verbProperties>
+            <verbClass>Verb_CastAbility</verbClass>
+            <range>7.9</range>
+            <drawAimPie>false</drawAimPie>
+            <requireLineOfSight>false</requireLineOfSight>
+            <warmupTime>1</warmupTime>
+            <targetable>false</targetable>
+            <targetParams>
+                <canTargetSelf>true</canTargetSelf>
+            </targetParams>
+        </verbProperties>
+            <comps>
+                <li Class="ExSymbiotes.CompProperties_AbilitySymbiosisCost">
+                    <symbiosisCost>5</symbiosisCost>
+                </li>
+                <li Class="CompProperties_AbilityFleckOnTarget">
+                    <fleckDef>UnnaturalHealing</fleckDef>
+                </li>
+            </comps>
+    </AbilityDef>
+
 </Defs>

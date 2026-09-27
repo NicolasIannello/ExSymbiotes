@@ -68,6 +68,10 @@
     <Compile Include="Comp\Symbiosis\ThoughtWorker_Symbiosis.cs" />
     <Compile Include="Comp\SymbioteControl\HediffCompProperties_SymbioteControl.cs" />
     <Compile Include="Comp\SymbioteControl\HediffComp_SymbioteControl.cs" />
+    <Compile Include="Comp\SymbioticShield\CompPropertiesSymbioticInterceptor.cs" />
+    <Compile Include="Comp\SymbioticShield\CompSymbioticInterceptor.cs" />
+    <Compile Include="Comp\SymbioticShield\HediffCompProperties_SymbioticShield.cs" />
+    <Compile Include="Comp\SymbioticShield\HediffComp_SymbioticShield.cs" />
     <Compile Include="Comp\SymbioticStun\CompAbilityEffect_SymbioticStun.cs" />
     <Compile Include="Comp\SymbioticStun\CompProperties_AbilitySymbioticStun.cs" />
     <Compile Include="Comp\SymbioticStun\DamageWorker_SymbioticStun.cs" />
@@ -95,6 +99,7 @@
     <Compile Include="Incident\IncidentWorker_SymbioteMass.cs" />
     <Compile Include="Incident\IncidentWorker_SymbiotePack.cs" />
     <Compile Include="Job\JobDriver_SymbioteDigest.cs" />
+    <Compile Include="Job\JobDriver_SymbioticShield.cs" />
     <Compile Include="Job\JobGiver_FindHost.cs" />
     <Compile Include="Job\SymbioteMass\JobDriver_SymbioteSwitchToAttackMode.cs" />
     <Compile Include="Job\SymbioteMass\JobGiver_SymbioteAttackNearbyHumans.cs" />
@@ -119,6 +124,7 @@
     <Compile Include="SymbioteMass\CompSymbioteMass_Black.cs" />
     <Compile Include="SymbioteMass\CompSymbioticMassDeactivationInteractor.cs" />
     <Compile Include="UI\Gizmo_Symbiosis.cs" />
+    <Compile Include="UI\Gizmo_Symbiotic Interceptor.cs" />
     <Compile Include="Utils\DeathActionWorker_VanishSymbiote.cs" />
     <Compile Include="Utils\SymbioteUtility.cs" />
   </ItemGroup>

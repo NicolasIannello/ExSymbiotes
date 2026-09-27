@@ -41,6 +41,7 @@
             </li>
         </stages>
         <comps>
+            <li Class="ExSymbiotes.HediffCompProperties_SymbioticShield"/>
             <li Class="ExSymbiotes.HediffCompProperties_Symbiosis">
                 <color>(187, 66, 199)</color>
                 <hair>(187, 66, 199)</hair>
@@ -48,6 +49,7 @@
             <li Class="HediffCompProperties_GiveAbility">
                 <abilityDefs>
                     <li>ExSymbiotes_SymbioticTendrilsPurple</li>
+                    <li>ExSymbiotes_SymbioticShield</li>
                     <li MayRequire="Ludeon.RimWorld.Biotech">ExSymbiotes_SymbioticLongjump</li>
                 </abilityDefs>
             </li>

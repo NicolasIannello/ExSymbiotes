@@ -29,4 +29,6 @@
 
     <LetterLabelSymbiotePackArrived>Symbiote pack</LetterLabelSymbiotePackArrived>
     <SymbiotePackArrived>A pack of symbiote controlled animals have entered the area! They will roam the area, hunting for humanoid flesh.\n\nIf not kept in check they will reproduce until they take over the whole area.</SymbiotePackArrived>
+
+    <ExSymbiotes.ShieldSymbiotic>Symbiotic shield</ExSymbiotes.ShieldSymbiotic>
 </LanguageData>

@@ -82,4 +82,31 @@
             <soundWorking>SubcoreEncoder_Working</soundWorking>
         </recipeMaker>
     </ThingDef>
+
+    <ThingDef>
+        <defName>ExSymbiotes_MechShield</defName>
+        <label>symbiote shield</label>
+        <thingClass>MechShield</thingClass>
+        <tickerType>Normal</tickerType>
+        <drawerType>RealtimeOnly</drawerType>
+        <drawOffscreen>true</drawOffscreen>
+        <useHitPoints>false</useHitPoints>
+        <comps>
+            <li Class="ExSymbiotes.CompPropertiesSymbioticInterceptor">
+                <radius>1</radius>
+                <interceptGroundProjectiles>true</interceptGroundProjectiles>
+                <interceptNonHostileProjectiles>true</interceptNonHostileProjectiles>
+                <color>(0.9, 0.4, 0.9)</color>
+                <reactivateEffect>BulletShieldGenerator_Reactivate</reactivateEffect>
+                <activeSound>BulletShield_Ambience</activeSound>
+                <hitPoints>26</hitPoints><!-- ~ the same strength as a poor shieldbelt -->
+                <minAlpha>0.5</minAlpha>
+                <interceptOutgoingProjectiles>false</interceptOutgoingProjectiles>
+                <disarmedByEmpForTicks>3200</disarmedByEmpForTicks>
+                <gizmoTipKey>RemoteMechShieldTip</gizmoTipKey>
+                <alwaysShowHitpointsGizmo>true</alwaysShowHitpointsGizmo>
+                <activeDuration>900</activeDuration>
+            </li>
+        </comps>
+    </ThingDef>
 </Defs>
