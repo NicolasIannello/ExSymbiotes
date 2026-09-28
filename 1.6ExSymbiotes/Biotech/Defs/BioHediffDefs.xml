@@ -8,7 +8,7 @@
                 <statFactors>
                     <MeleeDamageFactor>1.25</MeleeDamageFactor>
                     <MoveSpeed>1.50</MoveSpeed>
-                    <WorkSpeedGlobal>2.0</WorkSpeedGlobal>
+                    <WorkSpeedGlobal>4.0</WorkSpeedGlobal>
                 </statFactors>
                 <damageFactors>
                     <Flame>3</Flame>
@@ -18,20 +18,16 @@
                     <ToxicResistance>1</ToxicResistance>
                     <ComfyTemperatureMax>100</ComfyTemperatureMax>
                     <ComfyTemperatureMin>-200</ComfyTemperatureMin>
-                    <AimingDelayFactor>-0.50</AimingDelayFactor>
-                    <ShootingAccuracyPawn>+0.40</ShootingAccuracyPawn>
-                    <RangedCooldownFactor>-0.25</RangedCooldownFactor>
                     <MechControlGroups>1</MechControlGroups>
-                    <WorkSpeedGlobalOffsetMech>0.25</WorkSpeedGlobalOffsetMech>
-                    <MechRepairSpeed>1.5</MechRepairSpeed>
+                    <MechRepairSpeed>2</MechRepairSpeed>
                     <MechBandwidth>10</MechBandwidth>
                 </statOffsets>
                 <capMods>
                     <li><capacity>Consciousness</capacity><postFactor>1.50</postFactor></li>
                     <li><capacity>Hearing</capacity><postFactor>1.50</postFactor></li>
                     <li><capacity>Talking</capacity><postFactor>1.50</postFactor></li>
-                    <li><capacity>Manipulation</capacity><postFactor>2.5</postFactor></li>
-                    <li><capacity>Sight</capacity><postFactor>2</postFactor></li>
+                    <li><capacity>Manipulation</capacity><postFactor>1.50</postFactor></li>
+                    <li><capacity>Sight</capacity><postFactor>1.50</postFactor></li>
                     <li><capacity>Eating</capacity><postFactor>1.50</postFactor></li>
                     <li><capacity>BloodPumping</capacity><postFactor>1.50</postFactor></li>
                     <li><capacity>BloodFiltration</capacity><postFactor>1.50</postFactor></li>
@@ -132,7 +128,6 @@
         <comps>
             <li Class="ExSymbiotes.HediffCompProperties_SymbioticCannon">
                 <turretGunDef>ExSymbiotes_TendrilTurretCannon</turretGunDef>
-                <cd>3</cd>
             </li>
             <li Class="HediffCompProperties_Disappears">
                 <showRemainingTime>True</showRemainingTime>
