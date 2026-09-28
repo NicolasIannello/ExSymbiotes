@@ -14,11 +14,6 @@ namespace ExSymbiotes
         private int lastAttackTargetTick;
         protected LocalTargetInfo forcedTarget = LocalTargetInfo.Invalid;
         public string GetUniqueLoadID() => "ExSymbiotes_HediffComp_SymbioticCannon" + this.Pawn.ThingID;
-        public Verb CurrentEffectiveVerb => this.AttackVerb;
-        public LocalTargetInfo LastAttackedTarget => this.lastAttackedTarget;
-        public int LastAttackTargetTick => this.lastAttackTargetTick;
-        public LocalTargetInfo TargetCurrentlyAimingAt => this.CurrentTarget;
-        public float TargetPriorityFactor => 1f;
         
         public override void CompPostTick(ref float severityAdjustment)
         {
@@ -164,8 +159,10 @@ namespace ExSymbiotes
         
         protected virtual void BeginBurst()
         {
-            this.BurstComplete();
-            this.AttackVerb.TryStartCastOn(this.CurrentTarget);
+            this.burstWarmupTicksLeft = (int)this.AttackVerb.WarmupTime;
+            // Vector3 edge = this.Pawn.Position.ToVector3() + (this.CurrentTarget.Cell - this.Pawn.Position).ToVector3().normalized * this.AttackVerb.EffectiveRange;
+            // IntVec3 edgeCell = new IntVec3(Mathf.RoundToInt(edge.x), this.Pawn.Position.y, Mathf.RoundToInt(edge.z));
+            this.AttackVerb.TryStartCastOn(CurrentTarget);
             this.OnAttackedTarget(this.CurrentTarget);
         }
         
@@ -176,7 +173,7 @@ namespace ExSymbiotes
         
         protected virtual float BurstCooldownTime()
         {
-            return this.Props.cd;
+            return 30;
         }
 
         public override IEnumerable<Gizmo> CompGetGizmos()
@@ -260,6 +257,7 @@ namespace ExSymbiotes
             {
                 Verb verb = allVerbs[index];
                 verb.caster = (Thing) this.Pawn;
+                verb.castCompleteCallback = new Action(this.BurstComplete);
             }
         }
     }
