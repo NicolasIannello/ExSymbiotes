@@ -20,17 +20,21 @@ namespace ExSymbiotes
       private HashSet<IntVec3> pathCells = new HashSet<IntVec3>();
       private HashSet<IntVec3> tmpPathCells = new HashSet<IntVec3>();
       private HashSet<IntVec3> tmpHighlightCells = new HashSet<IntVec3>();
-      private HashSet<IntVec3> tmpSecondaryHighlightCells = new HashSet<IntVec3>();
-      protected LocalTargetInfo newCurrentTarget;
+      // private HashSet<IntVec3> tmpSecondaryHighlightCells = new HashSet<IntVec3>();
+      // protected LocalTargetInfo newCurrentTarget;
       // private HashSet<IntVec3> hitCells = new HashSet<IntVec3>();
       protected override int ShotsPerBurst => this.BurstShotCount;
+      private Vector3 casterPos => this.caster.Position.ToVector3Shifted().Yto0();
+      private Vector3 beamPos; 
+      private Vector3 newBeamPos => (currentTarget.CenterVector3.Yto0() - casterPos).normalized; 
+      private float rotationSpeed = 2f;
       public Vector3 InterpolatedPosition
       {
         get
         {
-          Vector3 casterPos = this.caster.Position.ToVector3Shifted().Yto0();
-          Vector3 direction = (this.CurrentTarget.CenterVector3.Yto0() - casterPos).normalized;
-          return casterPos + direction * (this.EffectiveRange);
+          //Vector3 casterPos = this.caster.Position.ToVector3Shifted().Yto0();
+          //Vector3 direction = (this.CurrentTarget.CenterVector3.Yto0() - casterPos).normalized;
+          return casterPos + beamPos * (this.EffectiveRange);
         }
       }
       // public override float? AimAngleOverride
@@ -53,17 +57,17 @@ namespace ExSymbiotes
           if ((!this.verbProps.stopBurstWithoutLos || shootLineFromTo) && this.TryGetHitCell(resultingLine.Source, tmpPathCell, out hitCell))
           {
             this.tmpHighlightCells.Add(hitCell);
-            if (this.verbProps.beamHitsNeighborCells)
-            {
-              foreach (IntVec3 hitNeighbourCell in this.GetBeamHitNeighbourCells(resultingLine.Source, hitCell))
-              {
-                if (!this.tmpHighlightCells.Contains(hitNeighbourCell))
-                  this.tmpSecondaryHighlightCells.Add(hitNeighbourCell);
-              }
-            }
+            // if (this.verbProps.beamHitsNeighborCells)
+            // {
+            //   foreach (IntVec3 hitNeighbourCell in this.GetBeamHitNeighbourCells(resultingLine.Source, hitCell))
+            //   {
+            //     if (!this.tmpHighlightCells.Contains(hitNeighbourCell))
+            //       this.tmpSecondaryHighlightCells.Add(hitNeighbourCell);
+            //   }
+            // }
           }
         }
-        this.tmpSecondaryHighlightCells.RemoveWhere((Predicate<IntVec3>) (x => this.tmpHighlightCells.Contains(x)));
+        // this.tmpSecondaryHighlightCells.RemoveWhere((Predicate<IntVec3>) (x => this.tmpHighlightCells.Contains(x)));
         Color? nullable;
         if (this.tmpHighlightCells.Any<IntVec3>())
         {
@@ -73,16 +77,16 @@ namespace ExSymbiotes
           float? altOffset = new float?();
           GenDraw.DrawFieldEdges(list, color, altOffset);
         }
-        if (this.tmpSecondaryHighlightCells.Any<IntVec3>())
-        {
-          List<IntVec3> list = this.tmpSecondaryHighlightCells.ToList<IntVec3>();
-          nullable = this.verbProps.secondaryHighlightColor;
-          Color color = nullable ?? Color.white;
-          float? altOffset = new float?();
-          GenDraw.DrawFieldEdges(list, color, altOffset);
-        }
+        // if (this.tmpSecondaryHighlightCells.Any<IntVec3>())
+        // {
+        //   List<IntVec3> list = this.tmpSecondaryHighlightCells.ToList<IntVec3>();
+        //   nullable = this.verbProps.secondaryHighlightColor;
+        //   Color color = nullable ?? Color.white;
+        //   float? altOffset = new float?();
+        //   GenDraw.DrawFieldEdges(list, color, altOffset);
+        // }
         this.tmpHighlightCells.Clear();
-        this.tmpSecondaryHighlightCells.Clear();
+        // this.tmpSecondaryHighlightCells.Clear();
       }
       
       protected override bool TryCastShot()
@@ -90,7 +94,8 @@ namespace ExSymbiotes
         if (this.currentTarget.HasThing && this.currentTarget.Thing.Map != this.caster.Map)
           return false;
         ShootLine resultingLine;
-        bool shootLineFromTo = this.TryFindShootLineFromTo(this.caster.Position, InterpolatedPosition.ToIntVec3(), out resultingLine);
+        //bool shootLineFromTo = 
+        this.TryFindShootLineFromTo(this.caster.Position, InterpolatedPosition.ToIntVec3(), out resultingLine);
         //Log.Message($"shootLineFromTo {shootLineFromTo}");
         // if (this.verbProps.stopBurstWithoutLos && !shootLineFromTo)
         //   return false;
@@ -152,18 +157,18 @@ namespace ExSymbiotes
       //   return hitCell;
       // }
 
-      protected IEnumerable<IntVec3> GetBeamHitNeighbourCells(IntVec3 source, IntVec3 pos)
-      {
-        if (this.verbProps.beamHitsNeighborCells)
-        {
-          for (int i = 0; i < 4; ++i)
-          {
-            IntVec3 hitNeighbourCell = pos + GenAdj.CardinalDirections[i];
-            if (hitNeighbourCell.InBounds(this.Caster.Map) && (!this.verbProps.beamHitsNeighborCellsRequiresLOS ? 1 : (GenSight.LineOfSight(source, hitNeighbourCell, this.caster.Map) ? 1 : 0)) != 0)
-              yield return hitNeighbourCell;
-          }
-        }
-      }
+      // protected IEnumerable<IntVec3> GetBeamHitNeighbourCells(IntVec3 source, IntVec3 pos)
+      // {
+      //   if (this.verbProps.beamHitsNeighborCells)
+      //   {
+      //     for (int i = 0; i < 4; ++i)
+      //     {
+      //       IntVec3 hitNeighbourCell = pos + GenAdj.CardinalDirections[i];
+      //       if (hitNeighbourCell.InBounds(this.Caster.Map) && (!this.verbProps.beamHitsNeighborCellsRequiresLOS ? 1 : (GenSight.LineOfSight(source, hitNeighbourCell, this.caster.Map) ? 1 : 0)) != 0)
+      //         yield return hitNeighbourCell;
+      //     }
+      //   }
+      // }
 
       public override bool TryStartCastOn(
         LocalTargetInfo castTarg,
@@ -178,6 +183,7 @@ namespace ExSymbiotes
 
       public override void BurstingTick()
       {
+        this.beamPos = Vector3.RotateTowards(this.beamPos, this.newBeamPos, this.rotationSpeed * Mathf.Deg2Rad, 0f);
         // Log.Message($"this.ticksToNextPathStep {this.ticksToNextPathStep}");
         // --this.ticksToNextPathStep;
         Vector3 vector3_1 = this.InterpolatedPosition;
@@ -248,6 +254,9 @@ namespace ExSymbiotes
       {
         this.burstShotsLeft = this.ShotsPerBurst;
         this.state = VerbState.Bursting;
+        // Vector3 casterPos = this.caster.Position.ToVector3Shifted().Yto0(); 
+        this.beamPos = (this.currentTarget.CenterVector3.Yto0() - casterPos).normalized;
+        // this.newBeamPos = this.beamPos;
         // this.initialTargetPosition = this.currentTarget.CenterVector3;
         this.CalculatePath(this.currentTarget.CenterVector3, this.path, this.pathCells);
         // this.hitCells.Clear();
@@ -264,7 +273,7 @@ namespace ExSymbiotes
       private void CalculatePath(Vector3 target, List<Vector3> pathList, HashSet<IntVec3> pathCellsList, bool addRandomOffset = true)
       {
         pathList.Clear();
-        Vector3 casterPos = this.caster.Position.ToVector3Shifted().Yto0();
+        // Vector3 casterPos = this.caster.Position.ToVector3Shifted().Yto0();
         Vector3 direction = (target.Yto0() - casterPos).normalized;
         for (int index = 0; index < EffectiveRange; ++index)
         {
@@ -301,6 +310,7 @@ namespace ExSymbiotes
           return;
         float angleFlat = (this.currentTarget.Cell - this.caster.Position).AngleFlat;
         BattleLogEntry_RangedImpact log = new BattleLogEntry_RangedImpact(this.caster, thing, this.currentTarget.Thing, this.EquipmentSource.def, (ThingDef) null, (ThingDef) null);
+        if (!(thing is Pawn)) damageFactor += 3f;
         DamageInfo dinfo = new DamageInfo(this.verbProps.beamDamageDef, this.verbProps.beamTotalDamage * damageFactor, this.verbProps.beamDamageDef.defaultArmorPenetration, angleFlat, this.caster, weapon: this.EquipmentSource.def, intendedTarget: this.currentTarget.Thing);
         thing.TakeDamage(dinfo).AssociateWithLog((LogEntry_DamageResult) log);
         if (thing.CanEverAttachFire())
@@ -317,12 +327,21 @@ namespace ExSymbiotes
         }
       }
 
+      public void ChangeTarget(LocalTargetInfo target)
+      {
+        this.currentTarget = target; 
+        // Vector3 casterPos = this.caster.Position.ToVector3Shifted().Yto0(); 
+        // this.newBeamPos = (target.CenterVector3.Yto0() - casterPos).normalized;
+      }
+      
       public override void ExposeData()
       {
         base.ExposeData();
         Scribe_Collections.Look<Vector3>(ref this.path, "path", LookMode.Value);
         // Scribe_Values.Look<int>(ref this.ticksToNextPathStep, "ticksToNextPathStep");
         // Scribe_Values.Look<Vector3>(ref this.initialTargetPosition, "initialTargetPosition");
+        Scribe_Values.Look<Vector3>(ref this.beamPos, "beamPos");
+        // Scribe_Values.Look<Vector3>(ref this.newBeamPos, "newBeamPos");
         if (Scribe.mode != LoadSaveMode.PostLoadInit || this.path != null)
           return;
         this.path = new List<Vector3>();

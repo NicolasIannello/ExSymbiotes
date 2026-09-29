@@ -128,7 +128,9 @@ namespace ExSymbiotes
                         if (this.forcedTarget != targ)
                         {
                             this.forcedTarget = targ;
-                            if (this.burstCooldownTicksLeft <= 0)
+                            if (this.AttackVerb.state == VerbState.Bursting)
+                                ((Verb_SymbioticCannon)this.AttackVerb).ChangeTarget(targ);
+                            else if (this.burstCooldownTicksLeft <= 0)
                                 this.TryStartShootSomething(false);
                         }
                     }
@@ -221,6 +223,7 @@ namespace ExSymbiotes
                 gizmo.action = (Action) (() =>
                 {
                   this.ResetForcedTarget();
+                  this.AttackVerb.Reset();
                   SoundDefOf.Tick_Low.PlayOneShotOnCamera();
                 });
                 if (!this.forcedTarget.IsValid)
