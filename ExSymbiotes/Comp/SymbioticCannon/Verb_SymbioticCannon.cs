@@ -12,8 +12,8 @@ namespace ExSymbiotes
     {
       private List<Vector3> path = new List<Vector3>();
       private List<Vector3> tmpPath = new List<Vector3>();
-      private int ticksToNextPathStep;
-      private Vector3 initialTargetPosition;
+      // private int ticksToNextPathStep;
+      // private Vector3 initialTargetPosition;
       private MoteDualAttached mote;
       private Effecter endEffecter;
       private Sustainer sustainer;
@@ -21,7 +21,8 @@ namespace ExSymbiotes
       private HashSet<IntVec3> tmpPathCells = new HashSet<IntVec3>();
       private HashSet<IntVec3> tmpHighlightCells = new HashSet<IntVec3>();
       private HashSet<IntVec3> tmpSecondaryHighlightCells = new HashSet<IntVec3>();
-      private HashSet<IntVec3> hitCells = new HashSet<IntVec3>();
+      protected LocalTargetInfo newCurrentTarget;
+      // private HashSet<IntVec3> hitCells = new HashSet<IntVec3>();
       protected override int ShotsPerBurst => this.BurstShotCount;
       public Vector3 InterpolatedPosition
       {
@@ -32,13 +33,13 @@ namespace ExSymbiotes
           return casterPos + direction * (this.EffectiveRange);
         }
       }
-      public override float? AimAngleOverride
-      {
-        get
-        {
-          return this.state != VerbState.Bursting ? new float?() : new float?((this.InterpolatedPosition - this.caster.DrawPos).AngleFlat());
-        }
-      }
+      // public override float? AimAngleOverride
+      // {
+      //   get
+      //   {
+      //     return this.state != VerbState.Bursting ? new float?() : new float?((this.InterpolatedPosition - this.caster.DrawPos).AngleFlat());
+      //   }
+      // }
       
       public override void DrawHighlight(LocalTargetInfo target)
       {
@@ -90,15 +91,16 @@ namespace ExSymbiotes
           return false;
         ShootLine resultingLine;
         bool shootLineFromTo = this.TryFindShootLineFromTo(this.caster.Position, InterpolatedPosition.ToIntVec3(), out resultingLine);
-        if (this.verbProps.stopBurstWithoutLos && !shootLineFromTo)
-          return false;
+        //Log.Message($"shootLineFromTo {shootLineFromTo}");
+        // if (this.verbProps.stopBurstWithoutLos && !shootLineFromTo)
+        //   return false;
         if (this.EquipmentSource != null)
         {
           this.EquipmentSource.GetComp<CompChangeableProjectile>()?.Notify_ProjectileLaunched();
           this.EquipmentSource.GetComp<CompApparelReloadable>()?.UsedOnce();
         }
         this.lastShotTick = Find.TickManager.TicksGame;
-        this.ticksToNextPathStep = this.TicksBetweenBurstShots;
+        // this.ticksToNextPathStep = this.TicksBetweenBurstShots;
         List<IntVec3> points = resultingLine.Points().ToList();
         for (int i = 0; i < points.Count(); i++)
         {
@@ -176,7 +178,8 @@ namespace ExSymbiotes
 
       public override void BurstingTick()
       {
-        --this.ticksToNextPathStep;
+        // Log.Message($"this.ticksToNextPathStep {this.ticksToNextPathStep}");
+        // --this.ticksToNextPathStep;
         Vector3 vector3_1 = this.InterpolatedPosition;
         IntVec3 intVec3_1 = vector3_1.ToIntVec3();
         Vector3 vector3_2 = this.InterpolatedPosition - this.caster.Position.ToVector3Shifted();
@@ -200,6 +203,20 @@ namespace ExSymbiotes
         {
           this.mote.UpdateTargets(new TargetInfo(this.caster.Position, this.caster.Map), new TargetInfo(intVec3_1, this.caster.Map), offsetA, vector3_3);
           this.mote.Maintain();
+        }
+        if (this.verbProps.beamGroundFleckDef != null)
+        {
+          ShootLine resultingLine;
+          this.TryFindShootLineFromTo(this.caster.Position, InterpolatedPosition.ToIntVec3(), out resultingLine);
+          List<IntVec3> points = resultingLine.Points().ToList();
+          for (int i = 0; i < points.Count(); i++)
+          {
+            if(Rand.Chance(this.verbProps.beamFleckChancePerTick))
+              if (GenSight.LineOfSight(this.caster.Position, points[i], this.caster.Map))
+                FleckMaker.Static(points[i], this.caster.Map, this.verbProps.beamGroundFleckDef, 3f);
+              else
+                break;
+          }
         }
         if (this.verbProps.beamGroundFleckDef != null && Rand.Chance(this.verbProps.beamFleckChancePerTick))
           FleckMaker.Static(vector3_1, this.caster.Map, this.verbProps.beamGroundFleckDef);
@@ -231,13 +248,13 @@ namespace ExSymbiotes
       {
         this.burstShotsLeft = this.ShotsPerBurst;
         this.state = VerbState.Bursting;
-        this.initialTargetPosition = this.currentTarget.CenterVector3;
+        // this.initialTargetPosition = this.currentTarget.CenterVector3;
         this.CalculatePath(this.currentTarget.CenterVector3, this.path, this.pathCells);
-        this.hitCells.Clear();
+        // this.hitCells.Clear();
         if (this.verbProps.beamMoteDef != null)
           this.mote = MoteMaker.MakeInteractionOverlay(this.verbProps.beamMoteDef, (TargetInfo) this.caster, new TargetInfo(this.path[0].ToIntVec3(), this.caster.Map));
         this.TryCastNextBurstShot();
-        this.ticksToNextPathStep = this.TicksBetweenBurstShots;
+        // this.ticksToNextPathStep = this.TicksBetweenBurstShots;
         this.endEffecter?.Cleanup();
         if (this.verbProps.soundCastBeam == null)
           return;
@@ -284,10 +301,7 @@ namespace ExSymbiotes
           return;
         float angleFlat = (this.currentTarget.Cell - this.caster.Position).AngleFlat;
         BattleLogEntry_RangedImpact log = new BattleLogEntry_RangedImpact(this.caster, thing, this.currentTarget.Thing, this.EquipmentSource.def, (ThingDef) null, (ThingDef) null);
-        Log.Message($"def {this.verbProps.beamDamageDef.defaultDamage * damageFactor} - custom {this.verbProps.beamTotalDamage * damageFactor}");
-        DamageInfo dinfo = (double) this.verbProps.beamTotalDamage <= 0.0 ? 
-          new DamageInfo(this.verbProps.beamDamageDef, (float) this.verbProps.beamDamageDef.defaultDamage * damageFactor, this.verbProps.beamDamageDef.defaultArmorPenetration, angleFlat, this.caster, weapon: this.EquipmentSource.def, intendedTarget: this.currentTarget.Thing) : 
-          new DamageInfo(this.verbProps.beamDamageDef, this.verbProps.beamTotalDamage * damageFactor, this.verbProps.beamDamageDef.defaultArmorPenetration, angleFlat, this.caster, weapon: this.EquipmentSource.def, intendedTarget: this.currentTarget.Thing);
+        DamageInfo dinfo = new DamageInfo(this.verbProps.beamDamageDef, this.verbProps.beamTotalDamage * damageFactor, this.verbProps.beamDamageDef.defaultArmorPenetration, angleFlat, this.caster, weapon: this.EquipmentSource.def, intendedTarget: this.currentTarget.Thing);
         thing.TakeDamage(dinfo).AssociateWithLog((LogEntry_DamageResult) log);
         if (thing.CanEverAttachFire())
         {
@@ -307,8 +321,8 @@ namespace ExSymbiotes
       {
         base.ExposeData();
         Scribe_Collections.Look<Vector3>(ref this.path, "path", LookMode.Value);
-        Scribe_Values.Look<int>(ref this.ticksToNextPathStep, "ticksToNextPathStep");
-        Scribe_Values.Look<Vector3>(ref this.initialTargetPosition, "initialTargetPosition");
+        // Scribe_Values.Look<int>(ref this.ticksToNextPathStep, "ticksToNextPathStep");
+        // Scribe_Values.Look<Vector3>(ref this.initialTargetPosition, "initialTargetPosition");
         if (Scribe.mode != LoadSaveMode.PostLoadInit || this.path != null)
           return;
         this.path = new List<Vector3>();
