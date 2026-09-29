@@ -22,24 +22,16 @@ namespace ExSymbiotes
       private HashSet<IntVec3> tmpHighlightCells = new HashSet<IntVec3>();
       private HashSet<IntVec3> tmpSecondaryHighlightCells = new HashSet<IntVec3>();
       private HashSet<IntVec3> hitCells = new HashSet<IntVec3>();
-      private const int NumSubdivisionsPerUnitLength = 1;
-
       protected override int ShotsPerBurst => this.BurstShotCount;
-
-      public float ShotProgress
-      {
-        get => (float) this.ticksToNextPathStep / (float) this.TicksBetweenBurstShots;
-      }
-
       public Vector3 InterpolatedPosition
       {
         get
         {
-          Vector3 vector3 = this.CurrentTarget.CenterVector3 - this.initialTargetPosition;
-          return Vector3.Lerp(this.path[this.burstShotsLeft], this.path[Mathf.Min(this.burstShotsLeft + 1, this.path.Count - 1)], this.ShotProgress) + vector3;
+          Vector3 casterPos = this.caster.Position.ToVector3Shifted().Yto0();
+          Vector3 direction = (this.CurrentTarget.CenterVector3.Yto0() - casterPos).normalized;
+          return casterPos + direction * (this.EffectiveRange);
         }
       }
-
       public override float? AimAngleOverride
       {
         get
@@ -97,7 +89,7 @@ namespace ExSymbiotes
         if (this.currentTarget.HasThing && this.currentTarget.Thing.Map != this.caster.Map)
           return false;
         ShootLine resultingLine;
-        bool shootLineFromTo = this.TryFindShootLineFromTo(this.caster.Position, this.currentTarget, out resultingLine);
+        bool shootLineFromTo = this.TryFindShootLineFromTo(this.caster.Position, InterpolatedPosition.ToIntVec3(), out resultingLine);
         if (this.verbProps.stopBurstWithoutLos && !shootLineFromTo)
           return false;
         if (this.EquipmentSource != null)
@@ -107,24 +99,35 @@ namespace ExSymbiotes
         }
         this.lastShotTick = Find.TickManager.TicksGame;
         this.ticksToNextPathStep = this.TicksBetweenBurstShots;
-        IntVec3 intVec3 = this.InterpolatedPosition.Yto0().ToIntVec3();
-        IntVec3 hitCell;
-        if (!this.TryGetHitCell(resultingLine.Source, intVec3, out hitCell))
-          return true;
-        this.HitCell(hitCell, resultingLine.Source);
-        if (this.verbProps.beamHitsNeighborCells)
+        List<IntVec3> points = resultingLine.Points().ToList();
+        for (int i = 0; i < points.Count(); i++)
         {
-          this.hitCells.Add(hitCell);
-          foreach (IntVec3 hitNeighbourCell in this.GetBeamHitNeighbourCells(resultingLine.Source, hitCell))
+          IntVec3 hitCell;
+          if (this.TryGetHitCell(resultingLine.Source, points[i], out hitCell))
           {
-            if (!this.hitCells.Contains(hitNeighbourCell))
-            {
-              float damageFactor = this.pathCells.Contains(hitNeighbourCell) ? 1f : 0.5f;
-              this.HitCell(hitNeighbourCell, resultingLine.Source, damageFactor);
-              this.hitCells.Add(hitNeighbourCell);
-            }
+            this.HitCell(hitCell, resultingLine.Source);
           }
         }
+        
+        //IntVec3 intVec3 = this.InterpolatedPosition.Yto0().ToIntVec3();
+        // IntVec3 hitCell;
+        // //loop hit all cells
+        // if (!this.TryGetHitCell(resultingLine.Source, intVec3, out hitCell))
+        //   return true;
+        // this.HitCell(hitCell, resultingLine.Source);
+        // if (this.verbProps.beamHitsNeighborCells)//maybe remove
+        // {
+        //   this.hitCells.Add(hitCell);
+        //   foreach (IntVec3 hitNeighbourCell in this.GetBeamHitNeighbourCells(resultingLine.Source, hitCell))
+        //   {
+        //     if (!this.hitCells.Contains(hitNeighbourCell))
+        //     {
+        //       float damageFactor = this.pathCells.Contains(hitNeighbourCell) ? 1f : 0.5f;
+        //       this.HitCell(hitNeighbourCell, resultingLine.Source, damageFactor);
+        //       this.hitCells.Add(hitNeighbourCell);
+        //     }
+        //   }
+        // }
         return true;
       }
 
@@ -140,12 +143,12 @@ namespace ExSymbiotes
         return a.IsValid;
       }
 
-      protected IntVec3 GetHitCell(IntVec3 source, IntVec3 targetCell)
-      {
-        IntVec3 hitCell;
-        this.TryGetHitCell(source, targetCell, out hitCell);
-        return hitCell;
-      }
+      // protected IntVec3 GetHitCell(IntVec3 source, IntVec3 targetCell)
+      // {
+      //   IntVec3 hitCell;
+      //   this.TryGetHitCell(source, targetCell, out hitCell);
+      //   return hitCell;
+      // }
 
       protected IEnumerable<IntVec3> GetBeamHitNeighbourCells(IntVec3 source, IntVec3 pos)
       {
@@ -241,11 +244,7 @@ namespace ExSymbiotes
         this.sustainer = this.verbProps.soundCastBeam.TrySpawnSustainer(SoundInfo.InMap((TargetInfo) this.caster, MaintenanceType.PerTick));
       }
 
-      private void CalculatePath(
-        Vector3 target,
-        List<Vector3> pathList,
-        HashSet<IntVec3> pathCellsList,
-        bool addRandomOffset = true)
+      private void CalculatePath(Vector3 target, List<Vector3> pathList, HashSet<IntVec3> pathCellsList, bool addRandomOffset = true)
       {
         pathList.Clear();
         Vector3 casterPos = this.caster.Position.ToVector3Shifted().Yto0();
@@ -285,7 +284,10 @@ namespace ExSymbiotes
           return;
         float angleFlat = (this.currentTarget.Cell - this.caster.Position).AngleFlat;
         BattleLogEntry_RangedImpact log = new BattleLogEntry_RangedImpact(this.caster, thing, this.currentTarget.Thing, this.EquipmentSource.def, (ThingDef) null, (ThingDef) null);
-        DamageInfo dinfo = (double) this.verbProps.beamTotalDamage <= 0.0 ? new DamageInfo(this.verbProps.beamDamageDef, (float) this.verbProps.beamDamageDef.defaultDamage * damageFactor, this.verbProps.beamDamageDef.defaultArmorPenetration, angleFlat, this.caster, weapon: this.EquipmentSource.def, intendedTarget: this.currentTarget.Thing) : new DamageInfo(this.verbProps.beamDamageDef, this.verbProps.beamTotalDamage / (float) this.pathCells.Count * damageFactor, this.verbProps.beamDamageDef.defaultArmorPenetration, angleFlat, this.caster, weapon: this.EquipmentSource.def, intendedTarget: this.currentTarget.Thing);
+        Log.Message($"def {this.verbProps.beamDamageDef.defaultDamage * damageFactor} - custom {this.verbProps.beamTotalDamage * damageFactor}");
+        DamageInfo dinfo = (double) this.verbProps.beamTotalDamage <= 0.0 ? 
+          new DamageInfo(this.verbProps.beamDamageDef, (float) this.verbProps.beamDamageDef.defaultDamage * damageFactor, this.verbProps.beamDamageDef.defaultArmorPenetration, angleFlat, this.caster, weapon: this.EquipmentSource.def, intendedTarget: this.currentTarget.Thing) : 
+          new DamageInfo(this.verbProps.beamDamageDef, this.verbProps.beamTotalDamage * damageFactor, this.verbProps.beamDamageDef.defaultArmorPenetration, angleFlat, this.caster, weapon: this.EquipmentSource.def, intendedTarget: this.currentTarget.Thing);
         thing.TakeDamage(dinfo).AssociateWithLog((LogEntry_DamageResult) log);
         if (thing.CanEverAttachFire())
         {
