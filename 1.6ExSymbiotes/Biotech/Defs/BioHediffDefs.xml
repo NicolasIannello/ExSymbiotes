@@ -39,8 +39,8 @@
         <comps>
             <li Class="ExSymbiotes.HediffCompProperties_SymbioticShield"/>
             <li Class="ExSymbiotes.HediffCompProperties_Symbiosis">
-                <color>(187, 66, 199)</color>
-                <hair>(187, 66, 199)</hair>
+                <color>(188, 120, 194)</color>
+                <hair>(188, 120, 194)</hair>
             </li>
             <li Class="HediffCompProperties_GiveAbility">
                 <abilityDefs>
