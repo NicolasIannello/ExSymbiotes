@@ -18,7 +18,7 @@ namespace ExSymbiotes
         public override void CompPostTick(ref float severityAdjustment)
         {
             base.CompPostTick(ref severityAdjustment);
-            Log.Message($"Active {Active} burstWarmupTicksLeft {burstWarmupTicksLeft} burstCooldownTicksLeft {burstCooldownTicksLeft}");
+            
             if (!this.Active && this.Pawn.Spawned)
             {
                 this.GunCompEq.verbTracker.VerbsTick();
@@ -160,8 +160,6 @@ namespace ExSymbiotes
         protected virtual void BeginBurst()
         {
             this.burstWarmupTicksLeft = (int)this.AttackVerb.WarmupTime*60;
-            // Vector3 edge = this.Pawn.Position.ToVector3() + (this.CurrentTarget.Cell - this.Pawn.Position).ToVector3().normalized * this.AttackVerb.EffectiveRange;
-            // IntVec3 edgeCell = new IntVec3(Mathf.RoundToInt(edge.x), this.Pawn.Position.y, Mathf.RoundToInt(edge.z));
             this.AttackVerb.TryStartCastOn(CurrentTarget);
             this.OnAttackedTarget(this.CurrentTarget);
         }
