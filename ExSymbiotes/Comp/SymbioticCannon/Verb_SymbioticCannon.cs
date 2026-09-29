@@ -53,8 +53,6 @@ namespace ExSymbiotes
       
       protected override bool TryCastShot()
       {
-        if (this.currentTarget.HasThing && this.currentTarget.Thing.Map != this.caster.Map)
-          return false;
         ShootLine resultingLine;
         this.TryFindShootLineFromTo(this.caster.Position, InterpolatedPosition.ToIntVec3(), out resultingLine);
         if (this.EquipmentSource != null)
