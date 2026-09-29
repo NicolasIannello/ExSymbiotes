@@ -91,7 +91,7 @@ namespace ExSymbiotes
         public override void CompPostMake()
         {
             base.CompPostMake();
-            this.burstCooldownTicksLeft = 30;
+            this.burstCooldownTicksLeft = 0;
             this.MakeGun();
         }
 
@@ -173,7 +173,7 @@ namespace ExSymbiotes
         
         protected virtual float BurstCooldownTime()
         {
-            return 1.5f;
+            return 0f;
         }
 
         public override IEnumerable<Gizmo> CompGetGizmos()
