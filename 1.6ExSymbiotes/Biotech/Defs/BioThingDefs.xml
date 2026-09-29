@@ -7,7 +7,7 @@
                 <verbClass>Verb_Shoot</verbClass>
                 <defaultProjectile>ExSymbiotes_Bullet_ChargeLance</defaultProjectile>
                 <warmupTime>0</warmupTime>
-                <range>25</range>
+                <range>20</range>
                 <ticksBetweenBurstShots>4</ticksBetweenBurstShots>
                 <burstShotCount>6</burstShotCount>
                 <soundCast>Shot_ChargeRifle</soundCast>
@@ -112,12 +112,14 @@
 
     <ThingDef ParentName="ExSymbiotes_TendrilTurret">
         <defName>ExSymbiotes_TendrilTurretCannon</defName>
+        <label>symbiote cannon</label>
+        <description>symbiote cannon.</description>
         <verbs Inherit="False">
             <li>
                 <verbClass>ExSymbiotes.Verb_SymbioticCannon</verbClass>
                 <hasStandardCommand>true</hasStandardCommand>
                 <warmupTime>2</warmupTime>
-                <range>10</range>
+                <range>15</range>
                 <beamTotalDamage>50</beamTotalDamage>
                 <burstShotCount>100</burstShotCount>
                 <showBurstShotStats>false</showBurstShotStats>
@@ -128,7 +130,7 @@
                 <soundCastBeam>BeamGraser_Shooting</soundCastBeam>
                 <beamGroundFleckDef>Fleck_BeamBurn</beamGroundFleckDef>
                 <beamFleckChancePerTick>0.32</beamFleckChancePerTick>
-                <beamMoteDef>Mote_GraserBeamBase</beamMoteDef>
+                <beamMoteDef>ExSymbiotes_Mote_GraserBeamBase</beamMoteDef>
                 <beamEndEffecterDef>GraserBeam_End</beamEndEffecterDef>
                 <beamChanceToStartFire>0.85</beamChanceToStartFire>
                 <beamChanceToAttachFire>0.85</beamChanceToAttachFire>

@@ -23,7 +23,7 @@
                 <verbClass>Verb_Shoot</verbClass>
                 <defaultProjectile>ExSymbiotes_TendrilSpine</defaultProjectile>
                 <warmupTime>0</warmupTime>
-                <range>20</range>
+                <range>10</range>
                 <ticksBetweenBurstShots>4</ticksBetweenBurstShots>
                 <burstShotCount>4</burstShotCount>
                 <soundCast>Ability_SpineLaunch</soundCast>
