@@ -126,7 +126,7 @@
         </verbProperties>
         <comps>
             <li Class="ExSymbiotes.CompProperties_AbilitySymbiosisCost">
-                <symbiosisCost>12</symbiosisCost>
+                <symbiosisCost>15</symbiosisCost>
             </li>
             <li Class="CompProperties_AbilityGiveHediff">
                 <compClass>CompAbilityEffect_GiveHediff</compClass>
