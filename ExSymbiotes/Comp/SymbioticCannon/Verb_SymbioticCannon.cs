@@ -12,38 +12,18 @@ namespace ExSymbiotes
     {
       private List<Vector3> path = new List<Vector3>();
       private List<Vector3> tmpPath = new List<Vector3>();
-      // private int ticksToNextPathStep;
-      // private Vector3 initialTargetPosition;
       private MoteDualAttached mote;
       private Effecter endEffecter;
       private Sustainer sustainer;
       private HashSet<IntVec3> pathCells = new HashSet<IntVec3>();
       private HashSet<IntVec3> tmpPathCells = new HashSet<IntVec3>();
       private HashSet<IntVec3> tmpHighlightCells = new HashSet<IntVec3>();
-      // private HashSet<IntVec3> tmpSecondaryHighlightCells = new HashSet<IntVec3>();
-      // protected LocalTargetInfo newCurrentTarget;
-      // private HashSet<IntVec3> hitCells = new HashSet<IntVec3>();
       protected override int ShotsPerBurst => this.BurstShotCount;
       private Vector3 casterPos => this.caster.Position.ToVector3Shifted().Yto0();
       private Vector3 beamPos; 
       private Vector3 newBeamPos => (currentTarget.CenterVector3.Yto0() - casterPos).normalized; 
       private float rotationSpeed = 2f;
-      public Vector3 InterpolatedPosition
-      {
-        get
-        {
-          //Vector3 casterPos = this.caster.Position.ToVector3Shifted().Yto0();
-          //Vector3 direction = (this.CurrentTarget.CenterVector3.Yto0() - casterPos).normalized;
-          return casterPos + beamPos * (this.EffectiveRange);
-        }
-      }
-      // public override float? AimAngleOverride
-      // {
-      //   get
-      //   {
-      //     return this.state != VerbState.Bursting ? new float?() : new float?((this.InterpolatedPosition - this.caster.DrawPos).AngleFlat());
-      //   }
-      // }
+      public Vector3 InterpolatedPosition => casterPos + beamPos * (this.EffectiveRange);
       
       public override void DrawHighlight(LocalTargetInfo target)
       {
@@ -57,17 +37,8 @@ namespace ExSymbiotes
           if ((!this.verbProps.stopBurstWithoutLos || shootLineFromTo) && this.TryGetHitCell(resultingLine.Source, tmpPathCell, out hitCell))
           {
             this.tmpHighlightCells.Add(hitCell);
-            // if (this.verbProps.beamHitsNeighborCells)
-            // {
-            //   foreach (IntVec3 hitNeighbourCell in this.GetBeamHitNeighbourCells(resultingLine.Source, hitCell))
-            //   {
-            //     if (!this.tmpHighlightCells.Contains(hitNeighbourCell))
-            //       this.tmpSecondaryHighlightCells.Add(hitNeighbourCell);
-            //   }
-            // }
           }
         }
-        // this.tmpSecondaryHighlightCells.RemoveWhere((Predicate<IntVec3>) (x => this.tmpHighlightCells.Contains(x)));
         Color? nullable;
         if (this.tmpHighlightCells.Any<IntVec3>())
         {
@@ -77,16 +48,7 @@ namespace ExSymbiotes
           float? altOffset = new float?();
           GenDraw.DrawFieldEdges(list, color, altOffset);
         }
-        // if (this.tmpSecondaryHighlightCells.Any<IntVec3>())
-        // {
-        //   List<IntVec3> list = this.tmpSecondaryHighlightCells.ToList<IntVec3>();
-        //   nullable = this.verbProps.secondaryHighlightColor;
-        //   Color color = nullable ?? Color.white;
-        //   float? altOffset = new float?();
-        //   GenDraw.DrawFieldEdges(list, color, altOffset);
-        // }
         this.tmpHighlightCells.Clear();
-        // this.tmpSecondaryHighlightCells.Clear();
       }
       
       protected override bool TryCastShot()
@@ -94,18 +56,13 @@ namespace ExSymbiotes
         if (this.currentTarget.HasThing && this.currentTarget.Thing.Map != this.caster.Map)
           return false;
         ShootLine resultingLine;
-        //bool shootLineFromTo = 
         this.TryFindShootLineFromTo(this.caster.Position, InterpolatedPosition.ToIntVec3(), out resultingLine);
-        //Log.Message($"shootLineFromTo {shootLineFromTo}");
-        // if (this.verbProps.stopBurstWithoutLos && !shootLineFromTo)
-        //   return false;
         if (this.EquipmentSource != null)
         {
           this.EquipmentSource.GetComp<CompChangeableProjectile>()?.Notify_ProjectileLaunched();
           this.EquipmentSource.GetComp<CompApparelReloadable>()?.UsedOnce();
         }
         this.lastShotTick = Find.TickManager.TicksGame;
-        // this.ticksToNextPathStep = this.TicksBetweenBurstShots;
         List<IntVec3> points = resultingLine.Points().ToList();
         for (int i = 0; i < points.Count(); i++)
         {
@@ -115,26 +72,6 @@ namespace ExSymbiotes
             this.HitCell(hitCell, resultingLine.Source);
           }
         }
-        
-        //IntVec3 intVec3 = this.InterpolatedPosition.Yto0().ToIntVec3();
-        // IntVec3 hitCell;
-        // //loop hit all cells
-        // if (!this.TryGetHitCell(resultingLine.Source, intVec3, out hitCell))
-        //   return true;
-        // this.HitCell(hitCell, resultingLine.Source);
-        // if (this.verbProps.beamHitsNeighborCells)//maybe remove
-        // {
-        //   this.hitCells.Add(hitCell);
-        //   foreach (IntVec3 hitNeighbourCell in this.GetBeamHitNeighbourCells(resultingLine.Source, hitCell))
-        //   {
-        //     if (!this.hitCells.Contains(hitNeighbourCell))
-        //     {
-        //       float damageFactor = this.pathCells.Contains(hitNeighbourCell) ? 1f : 0.5f;
-        //       this.HitCell(hitNeighbourCell, resultingLine.Source, damageFactor);
-        //       this.hitCells.Add(hitNeighbourCell);
-        //     }
-        //   }
-        // }
         return true;
       }
 
@@ -150,26 +87,6 @@ namespace ExSymbiotes
         return a.IsValid;
       }
 
-      // protected IntVec3 GetHitCell(IntVec3 source, IntVec3 targetCell)
-      // {
-      //   IntVec3 hitCell;
-      //   this.TryGetHitCell(source, targetCell, out hitCell);
-      //   return hitCell;
-      // }
-
-      // protected IEnumerable<IntVec3> GetBeamHitNeighbourCells(IntVec3 source, IntVec3 pos)
-      // {
-      //   if (this.verbProps.beamHitsNeighborCells)
-      //   {
-      //     for (int i = 0; i < 4; ++i)
-      //     {
-      //       IntVec3 hitNeighbourCell = pos + GenAdj.CardinalDirections[i];
-      //       if (hitNeighbourCell.InBounds(this.Caster.Map) && (!this.verbProps.beamHitsNeighborCellsRequiresLOS ? 1 : (GenSight.LineOfSight(source, hitNeighbourCell, this.caster.Map) ? 1 : 0)) != 0)
-      //         yield return hitNeighbourCell;
-      //     }
-      //   }
-      // }
-
       public override bool TryStartCastOn(
         LocalTargetInfo castTarg,
         LocalTargetInfo destTarg,
@@ -184,8 +101,6 @@ namespace ExSymbiotes
       public override void BurstingTick()
       {
         this.beamPos = Vector3.RotateTowards(this.beamPos, this.newBeamPos, this.rotationSpeed * Mathf.Deg2Rad, 0f);
-        // Log.Message($"this.ticksToNextPathStep {this.ticksToNextPathStep}");
-        // --this.ticksToNextPathStep;
         Vector3 vector3_1 = this.InterpolatedPosition;
         IntVec3 intVec3_1 = vector3_1.ToIntVec3();
         Vector3 vector3_2 = this.InterpolatedPosition - this.caster.Position.ToVector3Shifted();
@@ -254,16 +169,11 @@ namespace ExSymbiotes
       {
         this.burstShotsLeft = this.ShotsPerBurst;
         this.state = VerbState.Bursting;
-        // Vector3 casterPos = this.caster.Position.ToVector3Shifted().Yto0(); 
         this.beamPos = (this.currentTarget.CenterVector3.Yto0() - casterPos).normalized;
-        // this.newBeamPos = this.beamPos;
-        // this.initialTargetPosition = this.currentTarget.CenterVector3;
         this.CalculatePath(this.currentTarget.CenterVector3, this.path, this.pathCells);
-        // this.hitCells.Clear();
         if (this.verbProps.beamMoteDef != null)
           this.mote = MoteMaker.MakeInteractionOverlay(this.verbProps.beamMoteDef, (TargetInfo) this.caster, new TargetInfo(this.path[0].ToIntVec3(), this.caster.Map));
         this.TryCastNextBurstShot();
-        // this.ticksToNextPathStep = this.TicksBetweenBurstShots;
         this.endEffecter?.Cleanup();
         if (this.verbProps.soundCastBeam == null)
           return;
@@ -273,7 +183,6 @@ namespace ExSymbiotes
       private void CalculatePath(Vector3 target, List<Vector3> pathList, HashSet<IntVec3> pathCellsList, bool addRandomOffset = true)
       {
         pathList.Clear();
-        // Vector3 casterPos = this.caster.Position.ToVector3Shifted().Yto0();
         Vector3 direction = (target.Yto0() - casterPos).normalized;
         for (int index = 0; index < EffectiveRange; ++index)
         {
@@ -330,18 +239,13 @@ namespace ExSymbiotes
       public void ChangeTarget(LocalTargetInfo target)
       {
         this.currentTarget = target; 
-        // Vector3 casterPos = this.caster.Position.ToVector3Shifted().Yto0(); 
-        // this.newBeamPos = (target.CenterVector3.Yto0() - casterPos).normalized;
       }
       
       public override void ExposeData()
       {
         base.ExposeData();
         Scribe_Collections.Look<Vector3>(ref this.path, "path", LookMode.Value);
-        // Scribe_Values.Look<int>(ref this.ticksToNextPathStep, "ticksToNextPathStep");
-        // Scribe_Values.Look<Vector3>(ref this.initialTargetPosition, "initialTargetPosition");
         Scribe_Values.Look<Vector3>(ref this.beamPos, "beamPos");
-        // Scribe_Values.Look<Vector3>(ref this.newBeamPos, "newBeamPos");
         if (Scribe.mode != LoadSaveMode.PostLoadInit || this.path != null)
           return;
         this.path = new List<Vector3>();
