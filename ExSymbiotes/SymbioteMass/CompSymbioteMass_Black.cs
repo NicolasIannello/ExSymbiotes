@@ -9,6 +9,7 @@ namespace ExSymbiotes
     public Building_SymbioteMass Heart => this.parent as Building_SymbioteMass;
     public int nextTick = -99999;
     private float scale = 1.25f;
+    private bool incident = true;
     
     public override void Initialize(CompProperties props)
     {
@@ -37,6 +38,17 @@ namespace ExSymbiotes
         this.nextTick = Find.TickManager.TicksGame + 60000 + 15000;
         this.scale += 0.25f;
       }
+      if (Heart.IsHashIntervalTick(2500) && incident && StudyLevel>=1)
+      {
+        float points = StorytellerUtility.DefaultThreatPointsNow((IIncidentTarget) Heart.Map);
+        incident = false;
+        Find.Storyteller.incidentQueue.Add(ExSymbiotesDefOf.ExSymbiotes_SymbiotePack, Find.TickManager.TicksGame, new IncidentParms()
+        {
+          target = (IIncidentTarget) Heart.Map,
+          forced = true, 
+          points = points<500 ? points+250 : points
+        });
+      }
     }
     
     public override void PostExposeData()
@@ -44,6 +56,7 @@ namespace ExSymbiotes
       base.PostExposeData();
       Scribe_Values.Look<int>(ref this.nextTick, "nextTick");
       Scribe_Values.Look<float>(ref this.scale, "scale");
+      Scribe_Values.Look<bool>(ref this.incident, "incident");
     }
 
     public void SpawnRedMass()
