@@ -22,7 +22,7 @@ namespace ExSymbiotes
             if (!this.Active && this.Pawn.Spawned)
             {
                 this.GunCompEq.verbTracker.VerbsTick();
-                if (this.AttackVerb.state == VerbState.Bursting)
+                if (this.AttackVerb.state == VerbState.Bursting || this.Pawn.Downed)
                     return;
                 this.burstActivated = false;
                 if (this.WarmingUp)

@@ -53,6 +53,7 @@ namespace ExSymbiotes
       
       protected override bool TryCastShot()
       {
+        if (this.CasterIsPawn && ((Pawn)this.caster).Downed) return false;
         ShootLine resultingLine;
         this.TryFindShootLineFromTo(this.caster.Position, InterpolatedPosition.ToIntVec3(), out resultingLine);
         if (this.EquipmentSource != null)
