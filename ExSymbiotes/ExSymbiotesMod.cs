@@ -85,6 +85,7 @@ namespace ExSymbiotes
         public static HediffDef ExSymbiotes_Symbiosis_White;
         public static HediffDef ExSymbiotes_Symbiosis_Yellow;
         public static IncidentDef ExSymbiotes_SymbioteMass_Incident;
+        public static IncidentDef ExSymbiotes_SymbiotePack;
         public static JobDef ExSymbiotes_SymbioteDigest;
         public static JobDef ExSymbiotes_SymbioteSwitchToAttackMode;
         public static PawnGroupKindDef ExSymbiotes_Symbiote_PawnGroupKind;
