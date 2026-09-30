@@ -22,8 +22,6 @@ namespace ExSymbiotes
         {
             foreach (string blockingIssue in base.BlockingIssues(assignments, map))
                 yield return blockingIssue;
-            if (map.listerThings.ThingsOfDef(ExSymbiotesDefOf.ExSymbiotes_SymbioteMass_Black).Count > 0 || map.listerThings.ThingsOfDef(ExSymbiotesDefOf.ExSymbiotes_SymbioteMassIncoming).Count > 0)
-                yield return (string) "PitGateAlreadyExists".Translate();
         }
     }
 }
