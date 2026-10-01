@@ -60,8 +60,8 @@
                     <IncomingDamageFactor>0.5</IncomingDamageFactor>
                 </statFactors>
                 <damageFactors>
-                    <Flame>5</Flame>
-                    <Burn>5</Burn>
+                    <Flame>3</Flame>
+                    <Burn>3</Burn>
                 </damageFactors>
                 <statOffsets>
                     <ToxicResistance>1</ToxicResistance>
