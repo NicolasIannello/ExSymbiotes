@@ -41,7 +41,7 @@ namespace ExSymbiotes
         public override void CompPostPostRemoved()
         {
             Pawn.story.HairColor = this.originalHair;
-            Pawn.story.skinColorOverride = this.originalSkin;
+            Pawn.story.skinColorOverride = this.originalSkin ?? this.Pawn.story.SkinColorBase;
             Pawn.Drawer.renderer.SetAllGraphicsDirty();
             if (ModsConfig.BiotechActive && this.Pawn.genes!=null)
             {
@@ -131,7 +131,7 @@ namespace ExSymbiotes
             bool flag = (ExSymbiotesMod.Visual == SymbiosisVisual.Always || (drafted && ExSymbiotesMod.Visual == SymbiosisVisual.Drafted));
             this.Props.hair.a = (!ExSymbiotesMod.Hair && flag) ? 0 : 1; 
             Pawn.story.HairColor = flag ? this.Props.hair : this.originalHair;
-            Pawn.story.skinColorOverride = flag ? this.Props.color : this.originalSkin;
+            Pawn.story.skinColorOverride = flag ? this.Props.color : this.originalSkin ?? this.Pawn.story.SkinColorBase;
             Pawn.Drawer.renderer.SetAllGraphicsDirty();
         }
     }
