@@ -155,4 +155,13 @@
             </li>
         </verbs>
     </ThingDef>
+
+    <RecipeDef ParentName="ExSymbiotes_Recipe_RemoveSymbiosis">
+        <defName>ExSymbiotes_Recipe_RemoveSymbiosisPurple</defName>
+        <descriptionHyperlinks>
+            <ThingDef>ExSymbiotes_SymbioticCore_Purple</ThingDef>
+            <HediffDef>ExSymbiotes_Symbiosis_Purple</HediffDef>
+        </descriptionHyperlinks>
+        <removesHediff>ExSymbiotes_Symbiosis_Purple</removesHediff>
+    </RecipeDef>
 </Defs>
