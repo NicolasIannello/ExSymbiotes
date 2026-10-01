@@ -161,7 +161,7 @@ namespace ExSymbiotes
         
         protected virtual void BeginBurst()
         {
-            this.burstWarmupTicksLeft = (int)this.AttackVerb.WarmupTime*60;
+            this.burstWarmupTicksLeft = ((int)this.AttackVerb.WarmupTime+2)*60;
             this.AttackVerb.TryStartCastOn(CurrentTarget);
             this.OnAttackedTarget(this.CurrentTarget);
         }
