@@ -27,8 +27,7 @@ namespace ExSymbiotes
                 this.burstActivated = false;
                 if (this.WarmingUp)
                 {
-                    --this.burstWarmupTicksLeft;
-                    if (this.burstWarmupTicksLeft <= 0)
+                    if (!this.burstWarmupTicksLeft)
                         this.BeginBurst();
                 }
                 else
@@ -53,7 +52,7 @@ namespace ExSymbiotes
             Scribe_Values.Look<int>(ref this.lastAttackTargetTick, "lastAttackTargetTick");
             
             Scribe_Values.Look<int>(ref this.burstCooldownTicksLeft, "burstCooldownTicksLeft");
-            Scribe_Values.Look<int>(ref this.burstWarmupTicksLeft, "burstWarmupTicksLeft");
+            Scribe_Values.Look<bool>(ref this.burstWarmupTicksLeft, "burstWarmupTicksLeft");
             Scribe_TargetInfo.Look(ref this.currentTargetInt, "currentTarget");
             Scribe_Values.Look<bool>(ref this.burstActivated, "burstActivated");
             Scribe_Deep.Look<Thing>(ref this.gun, "gun");
@@ -76,14 +75,14 @@ namespace ExSymbiotes
         }
         
         protected int burstCooldownTicksLeft;
-        protected int burstWarmupTicksLeft;
+        protected bool burstWarmupTicksLeft;
         protected LocalTargetInfo currentTargetInt = LocalTargetInfo.Invalid;
         private bool burstActivated;
         public Thing gun;
         public bool Active => this.burstActivated;
         public CompEquippable GunCompEq => this.gun.TryGetComp<CompEquippable>();
         public LocalTargetInfo CurrentTarget => this.currentTargetInt;
-        private bool WarmingUp => this.burstWarmupTicksLeft > 0;
+        private bool WarmingUp => this.burstWarmupTicksLeft;
         public Verb AttackVerb => this.GunCompEq.PrimaryVerb;
         private bool PlayerControlled => this.Pawn.Faction == Faction.OfPlayer && !this.Pawn.Downed;
         protected virtual bool CanSetForcedTarget => this.PlayerControlled;
@@ -152,7 +151,7 @@ namespace ExSymbiotes
                     if (canBeginBurstImmediately)
                         this.BeginBurst();
                     else
-                        this.burstWarmupTicksLeft = 1;
+                        this.burstWarmupTicksLeft = false;
                 }
                 else
                     this.ResetCurrentTarget();
@@ -161,7 +160,7 @@ namespace ExSymbiotes
         
         protected virtual void BeginBurst()
         {
-            this.burstWarmupTicksLeft = ((int)this.AttackVerb.WarmupTime+2)*60;
+            this.burstWarmupTicksLeft = true;
             this.AttackVerb.TryStartCastOn(CurrentTarget);
             this.OnAttackedTarget(this.CurrentTarget);
         }
@@ -235,14 +234,14 @@ namespace ExSymbiotes
         private void ResetForcedTarget()
         {
             this.forcedTarget = null;
-            this.burstWarmupTicksLeft = 0;
+            this.burstWarmupTicksLeft = false;
             this.ResetCurrentTarget();
         }
         
         private void ResetCurrentTarget()
         {
             this.currentTargetInt = null;
-            this.burstWarmupTicksLeft = 0;
+            this.burstWarmupTicksLeft = false;
         }
         
         public void MakeGun()
