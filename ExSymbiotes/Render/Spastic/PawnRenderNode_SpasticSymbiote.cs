@@ -61,7 +61,7 @@ namespace ExSymbiotes
         Hediff symbiosis = SymbioteUtility.HasSymbiosis(pawn, false);
         if (pawn.RaceProps.Humanlike && symbiosis != null)
         {
-          color1 = pawn.health.GetOrAddHediff(symbiosis.def).TryGetComp<HediffComp_Symbiosis>().Props.color;
+          color1 = pawn.health.hediffSet.GetFirstHediffOfDef(symbiosis.def).TryGetComp<HediffComp_Symbiosis>().Props.color;
         }
         else
         {
