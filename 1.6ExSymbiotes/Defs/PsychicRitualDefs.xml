@@ -23,4 +23,46 @@
         <cooldownHours>540</cooldownHours>
         <chanterRole>ChanterAdvanced</chanterRole>
     </ExSymbiotes.PsychicRitualDef_SummonSymbioticMass>
+
+    <ExSymbiotes.PsychicRitualRoleDef_HivemindConnectionTarget>
+        <defName>ExSymbiotes_HivemindConnectionTarget</defName>
+        <label>target</label>
+        <allowedCount>1</allowedCount>
+        <allowedConditions>Default, Sleeping, IdeoUnwilling</allowedConditions>
+        <psychicRitualLeaveReason_ExSymbiotesConnected>{PAWN_labelShort} is already connected to the hivemind</psychicRitualLeaveReason_ExSymbiotesConnected>
+        <psychicRitualLeaveReason_ExSymbiotesSymbiosis>{PAWN_labelShort} lacks a symbiote</psychicRitualLeaveReason_ExSymbiotesSymbiosis>
+        <applyPowerOffset>false</applyPowerOffset>
+    </ExSymbiotes.PsychicRitualRoleDef_HivemindConnectionTarget>
+
+    <ExSymbiotes.PsychicRitualRoleDef_HivemindConnectionInvoker>
+        <defName>ExSymbiotes_HivemindConnectionInvoker</defName>
+        <label>invoker</label>
+        <allowedCount>1</allowedCount>
+        <canHandleOfferings>true</canHandleOfferings>
+        <showInvocationVfx>true</showInvocationVfx>
+        <allowedConditions>DefaultInvoker</allowedConditions>
+        <psychicRitualLeaveReason_ExSymbiotesVoid>{PAWN_labelShort} is not void touched</psychicRitualLeaveReason_ExSymbiotesVoid>
+    </ExSymbiotes.PsychicRitualRoleDef_HivemindConnectionInvoker>
+
+    <ExSymbiotes.PsychicRitualDef_HivemindConnection>
+        <defName>ExSymbiotes_HivemindConnection</defName>
+        <label>hivemind connection</label>
+        <description>Link the target's symbiote with the distant hivemind that will grant the user new powers. This process is not without side-effects.</description>
+        <researchPrerequisite>ExSymbiotes_HivemindConnectionResearch</researchPrerequisite>
+        <outcomeDescription>The target's symbiote will establish a connection to the hivemind.</outcomeDescription>
+        <hoursUntilOutcome>6</hoursUntilOutcome>
+        <invokerRole>ExSymbiotes_HivemindConnectionInvoker</invokerRole>
+        <targetRole>ExSymbiotes_HivemindConnectionTarget</targetRole>
+        <requiredOffering>
+            <filter>
+                <thingDefs>
+                    <li>Shard</li>
+                </thingDefs>
+            </filter>
+            <count>1</count>
+        </requiredOffering>
+        <cooldownHours>780</cooldownHours>
+        <chanterRole>ChanterAdvanced</chanterRole>
+        <iconPath>UI/HivemindConnection</iconPath>
+    </ExSymbiotes.PsychicRitualDef_HivemindConnection>
 </Defs>

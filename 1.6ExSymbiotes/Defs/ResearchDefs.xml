@@ -53,4 +53,18 @@
         <researchViewX>2.00</researchViewX>
         <researchViewY>1.70</researchViewY>
     </ResearchProjectDef>
+
+    <ResearchProjectDef>
+        <defName>ExSymbiotes_HivemindConnectionResearch</defName>
+        <label>hivemind connection</label>
+        <description>Establish a connection to the hivemind with a symbiote.</description>
+        <tab>ExSymbiotes_Tab</tab>
+        <prerequisites>
+            <li>ExSymbiotes_SymbioticMassResearch</li>
+        </prerequisites>
+        <knowledgeCost>10</knowledgeCost>
+        <knowledgeCategory>Advanced</knowledgeCategory>
+        <researchViewX>2.00</researchViewX>
+        <researchViewY>0.00</researchViewY>
+    </ResearchProjectDef>
 </Defs>

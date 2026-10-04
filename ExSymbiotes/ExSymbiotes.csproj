@@ -115,6 +115,10 @@
     <Compile Include="Render\Spastic\PawnRenderNode_SpasticSymbiote.cs" />
     <Compile Include="Render\VenomLeap\PawnRenderNodeWorker_VenomLeap.cs" />
     <Compile Include="Render\VenomLeap\PawnRenderNode_VenomLeap.cs" />
+    <Compile Include="Ritual\HivemindConnection\PsychicRitualDef_HivemindConnection.cs" />
+    <Compile Include="Ritual\HivemindConnection\PsychicRitualRoleDef_HivemindConnectionInvoker.cs" />
+    <Compile Include="Ritual\HivemindConnection\PsychicRitualRoleDef_HivemindConnectionTarget.cs" />
+    <Compile Include="Ritual\HivemindConnection\PsychicRitualToil_HivemindConnection.cs" />
     <Compile Include="Ritual\PsychicRitualDef_SummonSymbioticMass.cs" />
     <Compile Include="Ritual\PsychicRitualToil_SummonSymbioticMass.cs" />
     <Compile Include="SymbioteMass\Building_SymbioteMass.cs" />
