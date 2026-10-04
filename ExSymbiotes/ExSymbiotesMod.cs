@@ -84,6 +84,7 @@ namespace ExSymbiotes
         public static HediffDef ExSymbiotes_SymbioteControlRed;
         public static HediffDef ExSymbiotes_Symbiosis_White;
         public static HediffDef ExSymbiotes_Symbiosis_Yellow;
+        public static HediffDef ExSymbiotes_HivemindConnection;
         public static IncidentDef ExSymbiotes_SymbioteMass_Incident;
         public static IncidentDef ExSymbiotes_SymbiotePack;
         public static JobDef ExSymbiotes_SymbioteDigest;

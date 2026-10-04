@@ -26,7 +26,7 @@ namespace ExSymbiotes
                 return false;
             }
         
-            Hediff spiral = pawn.health.hediffSet.GetFirstHediffOfDef(ExSymbiotesDefOf.ExSymbiotes_Symbiosis_Red);//change
+            Hediff spiral = pawn.health.hediffSet.GetFirstHediffOfDef(ExSymbiotesDefOf.ExSymbiotes_HivemindConnection);
             if (spiral == null)
                 return true;
             reason = AnyEnum.FromEnum<HivemindConnectionTargetReason>(HivemindConnectionTargetReason.Connected);

@@ -1,6 +1,4 @@
-﻿using System.Collections.Generic;
-using RimWorld;
-using UnityEngine;
+﻿using RimWorld;
 using Verse;
 using Verse.AI.Group;
 
@@ -21,7 +19,7 @@ namespace ExSymbiotes
 
     public override void Start(PsychicRitual psychicRitual, PsychicRitualGraph graph)
     {
-      PsychicRitualDef_Psychophagy def = (PsychicRitualDef_Psychophagy) psychicRitual.def;
+      PsychicRitualDef_HivemindConnection def = (PsychicRitualDef_HivemindConnection) psychicRitual.def;
       Pawn invoker = psychicRitual.assignments.FirstAssignedPawn(this.invokerRole);
       Pawn target = psychicRitual.assignments.FirstAssignedPawn(this.targetRole);
       if (invoker == null || target == null) return;
@@ -30,14 +28,12 @@ namespace ExSymbiotes
 
     private void ApplyOutcome(PsychicRitual psychicRitual, Pawn pawn)
     {
-      // Hediff_DeathRefusal hediffDeathRefusal =
-        // (Hediff_DeathRefusal)HediffMaker.MakeHediff(HediffDefOf.DeathRefusal, pawn);
-      // pawn.health.AddHediff((Hediff)hediffDeathRefusal);
+      pawn.health.AddHediff(ExSymbiotesDefOf.ExSymbiotes_HivemindConnection);
 
       if (!PawnUtility.ShouldSendNotificationAbout(pawn))
         return;
       Find.LetterStack.ReceiveLetter("PsychicRitualCompleteLabel".Translate((NamedArgument)psychicRitual.def.label),
-        "ImbueDeathRefuralCompleteText".Translate((NamedArgument)(Thing)pawn),//customn
+        "ExSymbiotes.HivemindConnectionCompleteText".Translate((NamedArgument)(Thing)pawn),
         LetterDefOf.NeutralEvent, (LookTargets)(Thing)pawn);
     }
 
