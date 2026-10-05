@@ -20,7 +20,9 @@ namespace ExSymbiotes
             }
         }
         private Faction originalFaction;
-        private bool reproduce = true;
+        private Lord originalLord;
+        protected bool reproduce = true;
+        protected bool thrall = false;
         public HediffCompProperties_SymbioteControl Props => (HediffCompProperties_SymbioteControl) this.props;
 
         public HediffComp_SymbioteControl()
@@ -35,8 +37,8 @@ namespace ExSymbiotes
         {
             base.CompPostPostAdd(dinfo);
             originalFaction=Pawn.Faction;
+            originalLord = Pawn.GetLord();
             this.Pawn.SetFaction(Find.FactionManager.FirstFactionOfDef(ExSymbiotesDefOf.ExSymbiotes_Symbiotes));
-            if (Pawn.RaceProps.Humanlike) Pawn.story.skinColorOverride = Props.color;
             skin = Props.color;
             if (ModsConfig.BiotechActive && this.Pawn.genes!=null)
             {
@@ -49,17 +51,18 @@ namespace ExSymbiotes
         public override void CompPostPostRemoved()
         {
             base.CompPostPostRemoved();
-            Pawn symbiote = DropPawn(Pawn.MapHeld);
-            symbiote.abilities.GetAbility(ExSymbiotesDefOf.ExSymbiotes_SymbiosisLeap).StartCooldown(3000);
-            DamageInfo dinfo = new DamageInfo(DamageDefOf.AcidBurn, (float) 150, instigator: (Thing) symbiote);
-            dinfo.SetApplyAllDamage(true);
-            symbiote.TakeDamage(dinfo);
-            this.Pawn.SetFaction(originalFaction);
-            if (Pawn.RaceProps.Humanlike)
-            {
-                Pawn.story.skinColorOverride = null;
-                if(!Pawn.Dead) Pawn.needs.mood.thoughts.memories.TryGainMemory(ExSymbiotesDefOf.ExSymbiotes_SymbioteControlledAfter);
+            if(!thrall){
+                Pawn symbiote = DropPawn(Pawn.MapHeld);
+                symbiote.abilities.GetAbility(ExSymbiotesDefOf.ExSymbiotes_SymbiosisLeap).StartCooldown(3000);
+                DamageInfo dinfo = new DamageInfo(DamageDefOf.AcidBurn, (float)150, instigator: (Thing)symbiote);
+                dinfo.SetApplyAllDamage(true);
+                symbiote.TakeDamage(dinfo);
             }
+            this.Pawn.SetFaction(originalFaction);
+            if(originalLord!=null) 
+                originalLord.AddPawn(this.Pawn);
+            if(Pawn.RaceProps.Humanlike && !Pawn.Dead) 
+                Pawn.needs.mood.thoughts.memories.TryGainMemory(ExSymbiotesDefOf.ExSymbiotes_SymbioteControlledAfter);
             ConditionalWeakTableRemove(this.Pawn);
             if (ModsConfig.BiotechActive && this.Pawn.genes!=null)
             {
@@ -155,6 +158,7 @@ namespace ExSymbiotes
         {
             base.CompExposeData();
             Scribe_References.Look(ref originalFaction, "originalFaction");
+            Scribe_References.Look(ref originalLord, "originalLord");
             Scribe_Values.Look<bool>(ref reproduce, "reproduce");
             Scribe_Deep.Look<ThingOwner<Thing>>(ref this.innerContainer, "innerContainer", (object) this);
             Scribe_Values.Look<bool>(ref this.deathlessGene, "deathlessGene");
