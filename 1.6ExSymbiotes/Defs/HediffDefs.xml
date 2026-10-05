@@ -1,5 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Defs>
+<!--    SYMBIOSIS   -->
     <HediffDef Name="ExSymbiotes_SymbiosisBase" Abstract="True">
         <hediffClass>ExSymbiotes.HediffWithComps_Symbiosis</hediffClass>
         <description>This person has perform symbiosis with a symbiotic core.The symbiote lives inside them, guiding their actions and twisting their flesh.</description>
@@ -278,6 +279,7 @@
         </comps>
     </HediffDef>
 
+<!--    ABILITIES   -->
     <HediffDef>
         <defName>ExSymbiotes_SymbioticArmor</defName>
         <label>symbiotic armor</label>
@@ -548,6 +550,7 @@
         </comps>
     </HediffDef>
 
+<!--    CONTROLLED  -->
     <HediffDef Name="ExSymbiotes_SymbioteControl">
         <defName>ExSymbiotes_SymbioteControl</defName>
         <label>symbiote control (black)</label>
@@ -586,6 +589,7 @@
                 </capMods>
                 <regeneration>350</regeneration>
                 <disablesNeeds>
+                    <li>Food</li>
                     <li>Rest</li>
                 </disablesNeeds>
             </li>
@@ -1013,6 +1017,75 @@
             <li Class="ExSymbiotes.HediffCompProperties_SymbioticTendrils">
                 <turretGunDef>ExSymbiotes_TendrilTurret</turretGunDef>
                 <cd>4</cd>
+            </li>
+        </comps>
+    </HediffDef>
+    
+<!--    HIVEMIND    -->
+    <HediffDef>
+        <defName>ExSymbiotes_HivemindConnection</defName>
+        <label>hivemind connection</label>
+        <hediffClass>HediffWithComps</hediffClass>
+        <description>This symbiote is connected to the hivemind.</description>
+        <isBad>false</isBad>
+        <initialSeverity>0.1</initialSeverity>
+        <maxSeverity>1</maxSeverity>
+        <alwaysShowSeverity>true</alwaysShowSeverity>
+        <renderNodeProperties>
+            <li Class="PawnRenderNodeProperties_Eye">
+                <workerClass>ExSymbiotes.PawnRenderNodeWorker_EyeSymbiote</workerClass>
+                <texPath>Things/Pawn/Symbiote/Attachments/SymbioteSpiral</texPath>
+                <parentTagDef>Head</parentTagDef>
+                <anchorTag>Head</anchorTag>
+                <rotDrawMode>Fresh, Rotting</rotDrawMode>
+                <drawSize>0.25</drawSize>
+                <side>Right</side>
+                <drawData>
+                    <defaultData>
+                        <layer>55</layer>
+                        <offset>(0, 0, 0.07)</offset>
+                    </defaultData>
+                </drawData>
+            </li>
+        </renderNodeProperties>
+        <comps>
+            <li Class="HediffCompProperties_GiveAbility">
+                <abilityDefs>
+                    <li>ExSymbiotes_SymbioticEnthrall</li>
+                </abilityDefs>
+            </li>
+        </comps>
+    </HediffDef>
+
+    <HediffDef ParentName="ExSymbiotes_SymbioteControl">
+        <defName>ExSymbiotes_Thrall</defName>
+        <label>symbiote thrall</label>
+        <description>This symbiote is under the control of another symbiote.</description>
+        <renderNodeProperties>
+            <li Class="ExSymbiotes.PawnRenderNodeProperties_EyeSymbiote">
+                <texPath>Things/Pawn/Symbiote/Attachments/SymbioteSpiral</texPath>
+                <parentTagDef>Head</parentTagDef>
+                <anchorTag>Head</anchorTag>
+                <rotDrawMode>Fresh, Rotting</rotDrawMode>
+                <drawSize>0.25</drawSize>
+                <side>Right</side>
+                <drawData>
+                    <defaultData>
+                        <layer>55</layer>
+                        <offset>(0, 0, 0.07)</offset>
+                    </defaultData>
+                </drawData>
+            </li>
+        </renderNodeProperties>
+        <comps Inherit="false">
+            <li Class="HediffCompProperties_SeverityPerDay">
+                <severityPerDay>0.10</severityPerDay>
+            </li>
+            <li Class="ExSymbiotes.HediffCompProperties_SymbioteThrall">
+                <color>(133, 58, 58)</color>
+                <messageEmerged>{PAWN_nameDef} emerged from the symbiote.</messageEmerged>
+                <messageEmergedCause>The {CAUSE} made the symbiote leave {PAWN_nameDef} body.</messageEmergedCause>
+                <messageEmergedCorpse>{PAWN_nameDef} emerged from the symbiote's corpse.</messageEmergedCorpse>
             </li>
         </comps>
     </HediffDef>
