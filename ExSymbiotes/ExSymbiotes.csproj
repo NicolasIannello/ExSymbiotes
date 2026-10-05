@@ -69,9 +69,13 @@
     <Compile Include="Comp\SymbiosisLeap\CompSymbiote.cs" />
     <Compile Include="Comp\Symbiosis\HediffWithComps_Symbiosis.cs" />
     <Compile Include="Comp\SymbioteControl\HediffCompProperties_SymbioteControl.cs" />
+    <Compile Include="Comp\SymbioteControl\HediffCompProperties_SymbioteThrall.cs" />
     <Compile Include="Comp\SymbioteControl\HediffComp_SymbioteControl.cs" />
+    <Compile Include="Comp\SymbioteControl\HediffComp_SymbioteThrall.cs" />
     <Compile Include="Comp\SymbioticCannon\HediffCompProperties_SymbioticCannon.cs" />
     <Compile Include="Comp\SymbioticCannon\HediffComp_SymbioticCannon.cs" />
+    <Compile Include="Comp\SymbioticEnthrall\CompAbilityEffect_SymbioticEnthrall.cs" />
+    <Compile Include="Comp\SymbioticEnthrall\CompProperties_AbilitySymbioticEnthrall.cs" />
     <Compile Include="Comp\SymbioticShield\CompPropertiesSymbioticInterceptor.cs" />
     <Compile Include="Comp\SymbioticShield\CompSymbioticInterceptor.cs" />
     <Compile Include="Comp\SymbioticShield\HediffCompProperties_SymbioticShield.cs" />
