@@ -35,6 +35,11 @@
         <defName>ExSymbiotes_SymbioteControlledRed</defName>
         <hediff>ExSymbiotes_SymbioteControlRed</hediff>
     </ThoughtDef>
+
+    <ThoughtDef ParentName="ExSymbiotes_SymbioteControlledThoughtDef">
+        <defName>ExSymbiotes_SymbioteThrall</defName>
+        <hediff>ExSymbiotes_Thrall</hediff>
+    </ThoughtDef>
     
     <ThoughtDef>
         <defName>ExSymbiotes_SymbioteControlledAfter</defName>
