@@ -8,7 +8,7 @@ namespace ExSymbiotes
         public override void Notify_IngestedThing(Thing thing, int amount)
         {
             base.Notify_IngestedThing(thing, amount);
-            if(thing.def == ThingDefOf.Chocolate) this.TryGetComp<HediffComp_Symbiosis>().AddSymbiosis(4);
+            if(thing.def == ThingDefOf.Chocolate) this.TryGetComp<HediffComp_Symbiosis>().AddSymbiosis(1);
         }
     }
 }

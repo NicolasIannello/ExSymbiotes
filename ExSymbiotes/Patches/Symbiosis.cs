@@ -76,7 +76,7 @@ namespace ExSymbiotes
                 }
                 
                 HediffComp_Symbiosis comp = symbiosis.TryGetComp<HediffComp_Symbiosis>();
-                comp.AddSymbiosis(2);
+                comp.AddSymbiosis(4);
             }
         }
     }
