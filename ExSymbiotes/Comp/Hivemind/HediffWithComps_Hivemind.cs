@@ -18,7 +18,7 @@ namespace ExSymbiotes
             Command_Action gizmoTarget = new Command_Action
             {
                 defaultLabel = (string) "ExSymbiotes.ThrallAttack".Translate(),
-                icon = (Texture) ContentFinder<Texture2D>.Get("UI/Commands/Attack"),
+                icon = (Texture) ContentFinder<Texture2D>.Get("UI/ExSymbiotesThrallAttack"),
                 action = delegate
                 {
                     Find.Targeter.BeginTargeting(targetParams: TargetingParameters.ForAttackAny(), action: this.OrderAttack);
@@ -29,7 +29,7 @@ namespace ExSymbiotes
             Command_Action gizmoCancel = new Command_Action
             {
                 defaultLabel = (string) "ExSymbiotes.ThrallCancel".Translate(),
-                icon = (Texture) ContentFinder<Texture2D>.Get("UI/Commands/Attack"),
+                icon = (Texture) ContentFinder<Texture2D>.Get("UI/ExSymbiotesThrallCancel"),
                 action = this.CancelJob
             };
             yield return (Gizmo) gizmoCancel;
@@ -37,7 +37,7 @@ namespace ExSymbiotes
             Command_Action gizmoMove = new Command_Action
             {
                 defaultLabel = (string) "ExSymbiotes.ThrallMove".Translate(),
-                icon = (Texture) ContentFinder<Texture2D>.Get("UI/Commands/Attack"),
+                icon = (Texture) ContentFinder<Texture2D>.Get("UI/ExSymbiotesThrallMove"),
                 action = delegate
                 {
                     Find.Targeter.BeginTargeting(targetParams: TargetingParameters.ForCell(), action: this.OrderMove);
