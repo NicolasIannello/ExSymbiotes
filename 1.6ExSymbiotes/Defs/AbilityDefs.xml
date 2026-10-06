@@ -332,7 +332,7 @@
         <defName>ExSymbiotes_SymbioticEnthrall</defName>
         <label>symbiotic enthrall</label>
         <description>Enthrall a creature to serve under your command. The symbiote controlling the creature will consume the host until nothing but bones remain.</description>
-        <iconPath>UI/HivemindConnection</iconPath>
+        <iconPath>UI/ExSymbiotesHivemind</iconPath>
         <stunTargetWhileCasting>true</stunTargetWhileCasting>
         <displayGizmoWhileUndrafted>true</displayGizmoWhileUndrafted>
         <disableGizmoWhileUndrafted>false</disableGizmoWhileUndrafted>

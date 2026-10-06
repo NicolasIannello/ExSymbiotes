@@ -63,6 +63,6 @@
         </requiredOffering>
         <cooldownHours>780</cooldownHours>
         <chanterRole>ChanterAdvanced</chanterRole>
-        <iconPath>UI/HivemindConnection</iconPath>
+        <iconPath>UI/ExSymbiotesHivemind</iconPath>
     </ExSymbiotes.PsychicRitualDef_HivemindConnection>
 </Defs>
