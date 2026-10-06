@@ -218,7 +218,7 @@
                 <regeneration>200</regeneration>
             </li>
         </stages>
-        <comps>
+        <comps Inherit="False">
             <li Class="ExSymbiotes.HediffCompProperties_Symbiosis">
                 <color>(240, 240, 240)</color>
                 <hair>(31, 27, 28)</hair>
