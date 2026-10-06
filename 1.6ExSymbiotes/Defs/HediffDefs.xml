@@ -1034,17 +1034,25 @@
         <renderNodeProperties>
             <li Class="PawnRenderNodeProperties_Eye">
                 <workerClass>ExSymbiotes.PawnRenderNodeWorker_EyeSymbiote</workerClass>
-                <texPath>Things/Pawn/Symbiote/Attachments/SymbioteSpiral</texPath>
+                <texPath>Things/Pawn/Symbiote/Attachments/SymbioteSpiral/SymbioteSpiral</texPath>
                 <parentTagDef>Head</parentTagDef>
                 <anchorTag>Head</anchorTag>
                 <rotDrawMode>Fresh, Rotting</rotDrawMode>
                 <drawSize>0.25</drawSize>
-                <side>Right</side>
                 <drawData>
                     <defaultData>
                         <layer>55</layer>
-                        <offset>(0, 0, 0.07)</offset>
                     </defaultData>
+                    <dataSouth>
+                        <offset>(0, 0, 0.07)</offset>
+                    </dataSouth>
+                    <dataEast>
+                        <offset>(0.18, 0, 0.07)</offset>
+                    </dataEast>
+                    <dataWest>
+                        <offset>(-0.18, 0, 0.07)</offset>
+                        <flip>true</flip>
+                    </dataWest>
                 </drawData>
             </li>
         </renderNodeProperties>
@@ -1064,17 +1072,25 @@
         <lethalSeverity>1</lethalSeverity>
         <renderNodeProperties>
             <li Class="ExSymbiotes.PawnRenderNodeProperties_EyeSymbiote">
-                <texPath>Things/Pawn/Symbiote/Attachments/SymbioteSpiral</texPath>
+                <texPath>Things/Pawn/Symbiote/Attachments/SymbioteSpiral/SymbioteSpiral</texPath>
                 <parentTagDef>Head</parentTagDef>
                 <anchorTag>Head</anchorTag>
                 <rotDrawMode>Fresh, Rotting</rotDrawMode>
                 <drawSize>0.25</drawSize>
-                <side>Right</side>
                 <drawData>
                     <defaultData>
                         <layer>89</layer>
-                        <offset>(0, 0, 0.07)</offset>
                     </defaultData>
+                    <dataSouth>
+                        <offset>(0, 0, 0.07)</offset>
+                    </dataSouth>
+                    <dataEast>
+                        <offset>(0.18, 0, 0.07)</offset>
+                    </dataEast>
+                    <dataWest>
+                        <offset>(-0.18, 0, 0.07)</offset>
+                        <flip>true</flip>
+                    </dataWest>
                 </drawData>
             </li>
         </renderNodeProperties>
