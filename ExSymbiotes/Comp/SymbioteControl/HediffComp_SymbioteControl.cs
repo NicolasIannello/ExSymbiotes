@@ -160,6 +160,7 @@ namespace ExSymbiotes
             Scribe_References.Look(ref originalFaction, "originalFaction");
             Scribe_References.Look(ref originalLord, "originalLord");
             Scribe_Values.Look<bool>(ref reproduce, "reproduce");
+            Scribe_Values.Look<bool>(ref thrall, "thrall");
             Scribe_Deep.Look<ThingOwner<Thing>>(ref this.innerContainer, "innerContainer", (object) this);
             Scribe_Values.Look<bool>(ref this.deathlessGene, "deathlessGene");
             Scribe_Values.Look<bool>(ref this.vacuumGene, "vacuumGene");

@@ -1061,6 +1061,7 @@
         <defName>ExSymbiotes_Thrall</defName>
         <label>symbiote thrall</label>
         <description>This symbiote is under the control of another symbiote.</description>
+        <lethalSeverity>1</lethalSeverity>
         <renderNodeProperties>
             <li Class="ExSymbiotes.PawnRenderNodeProperties_EyeSymbiote">
                 <texPath>Things/Pawn/Symbiote/Attachments/SymbioteSpiral</texPath>
@@ -1071,7 +1072,7 @@
                 <side>Right</side>
                 <drawData>
                     <defaultData>
-                        <layer>55</layer>
+                        <layer>89</layer>
                         <offset>(0, 0, 0.07)</offset>
                     </defaultData>
                 </drawData>
@@ -1082,7 +1083,7 @@
                 <severityPerDay>0.10</severityPerDay>
             </li>
             <li Class="ExSymbiotes.HediffCompProperties_SymbioteThrall">
-                <color>(133, 58, 58)</color>
+                <color>(25, 25, 25)</color>
                 <messageEmerged>{PAWN_nameDef} emerged from the symbiote.</messageEmerged>
                 <messageEmergedCause>The {CAUSE} made the symbiote leave {PAWN_nameDef} body.</messageEmergedCause>
                 <messageEmergedCorpse>{PAWN_nameDef} emerged from the symbiote's corpse.</messageEmergedCorpse>
