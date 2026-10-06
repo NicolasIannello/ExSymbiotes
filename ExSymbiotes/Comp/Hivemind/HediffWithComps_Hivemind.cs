@@ -17,7 +17,7 @@ namespace ExSymbiotes
             
             Command_Action gizmoTarget = new Command_Action
             {
-                defaultLabel = (string) "Hive attack",
+                defaultLabel = (string) "ExSymbiotes.ThrallAttack".Translate(),
                 icon = (Texture) ContentFinder<Texture2D>.Get("UI/Commands/Attack"),
                 action = delegate
                 {
@@ -28,7 +28,7 @@ namespace ExSymbiotes
             
             Command_Action gizmoCancel = new Command_Action
             {
-                defaultLabel = (string) "Hive cancel",
+                defaultLabel = (string) "ExSymbiotes.ThrallCancel".Translate(),
                 icon = (Texture) ContentFinder<Texture2D>.Get("UI/Commands/Attack"),
                 action = this.CancelJob
             };
@@ -36,7 +36,7 @@ namespace ExSymbiotes
 
             Command_Action gizmoMove = new Command_Action
             {
-                defaultLabel = (string) "Hive move",
+                defaultLabel = (string) "ExSymbiotes.ThrallMove".Translate(),
                 icon = (Texture) ContentFinder<Texture2D>.Get("UI/Commands/Attack"),
                 action = delegate
                 {
