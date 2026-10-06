@@ -94,18 +94,32 @@ namespace ExSymbiotes
 
         private void RollBond()
         {
+            List<Trait> traits = this.Pawn.story.traits.allTraits;
+            bool Psychopath=false, Bloodlust=false, Kind=false, VoidFascination=false, Pyromaniac=false, BodyPurist=false, Transhumanist=false;
+            for (int index = 0; index < traits.Count; ++index)
+            {
+                if (traits[index].def == TraitDefOf.Psychopath && !traits[index].Suppressed) Psychopath = true;
+                if (traits[index].def == TraitDefOf.Bloodlust && !traits[index].Suppressed) Bloodlust = true;
+                if (traits[index].def == TraitDefOf.Kind && !traits[index].Suppressed) Kind = true;
+                if (traits[index].def == TraitDefOf.VoidFascination && !traits[index].Suppressed) VoidFascination = true;
+                if (traits[index].def == TraitDefOf.Pyromaniac && !traits[index].Suppressed) Pyromaniac = true;
+                if (traits[index].def == TraitDefOf.BodyPurist && !traits[index].Suppressed) BodyPurist = true;
+                if (traits[index].def == TraitDefOf.Transhumanist && !traits[index].Suppressed) Transhumanist = true;
+            }
+            
             int modifier = 0;
             if (this.parent.def != ExSymbiotesDefOf.ExSymbiotes_Symbiosis_White)
             {
-                if (Pawn.story.traits.HasTrait(TraitDefOf.Psychopath)) modifier += 2;
-                if (Pawn.story.traits.HasTrait(TraitDefOf.Bloodlust)) modifier += 2;
+                if (Psychopath) modifier += 2;
+                if (Bloodlust) modifier += 2;
                 if (this.parent.def == ExSymbiotesDefOf.ExSymbiotes_Symbiosis) modifier = 2 + modifier*-1;
                 if (this.parent.def == ExSymbiotesDefOf.ExSymbiotes_Symbiosis_Yellow) modifier /= 2;
-                if (Pawn.story.traits.HasTrait(TraitDefOf.Kind)) modifier += this.parent.def == ExSymbiotesDefOf.ExSymbiotes_Symbiosis_Red ? -2 : 1;
+                if (Kind) modifier += this.parent.def == ExSymbiotesDefOf.ExSymbiotes_Symbiosis_Red ? -2 : 1;
             }
-            if (Pawn.story.traits.HasTrait(TraitDefOf.VoidFascination)) modifier += 1;
-            if (Pawn.story.traits.HasTrait(TraitDefOf.Pyromaniac)) modifier -= 2;
-            if (Pawn.story.traits.HasTrait(TraitDefOf.BodyPurist)) modifier -= 1;
+            if (VoidFascination) modifier += 1;
+            if (Pyromaniac) modifier -= 2;
+            if (BodyPurist) modifier -= 1;
+            if (Transhumanist && this.parent.def == ExSymbiotesDefOf.ExSymbiotes_Symbiosis_Purple) modifier += 2;
             int chance = Rand.RangeInclusive(0, 10)+modifier;
             //0 1   2 3 4   5   6 7 8   9 10
             if (chance >= 9) this.bond = 0;
