@@ -47,6 +47,12 @@
         <removeWithTags>
             <li>ExSymbiotes_SymbiosisTag</li>
         </removeWithTags>
+        <comps>
+            <li Class="ExSymbiotes.HediffCompProperties_ReactOnDamageStack">
+                <damageDefIncoming>EMP</damageDefIncoming>
+                <createHediff>ExSymbiotes_Shock</createHediff>
+            </li>
+        </comps>
     </HediffDef>
     
     <HediffDef ParentName="ExSymbiotes_SymbiosisBase">
@@ -604,6 +610,10 @@
                 <messageEmergedCause>The {CAUSE} made the symbiote leave {PAWN_nameDef} body.</messageEmergedCause>
                 <messageEmergedCorpse>{PAWN_nameDef} emerged from the symbiote's corpse.</messageEmergedCorpse>
             </li>
+            <li Class="ExSymbiotes.HediffCompProperties_ReactOnDamageStack">
+                <damageDefIncoming>EMP</damageDefIncoming>
+                <createHediff>ExSymbiotes_Shock</createHediff>
+            </li>
         </comps>
         <renderNodeProperties>
             <li Class="ExSymbiotes.PawnRenderNodeProperties_EyeSymbiote">
@@ -1018,6 +1028,10 @@
                 <turretGunDef>ExSymbiotes_TendrilTurret</turretGunDef>
                 <cd>4</cd>
             </li>
+            <li Class="ExSymbiotes.HediffCompProperties_ReactOnDamageStack">
+                <damageDefIncoming>EMP</damageDefIncoming>
+                <createHediff>ExSymbiotes_Shock</createHediff>
+            </li>
         </comps>
     </HediffDef>
     
@@ -1104,6 +1118,73 @@
                 <messageEmergedCause>The {CAUSE} made the symbiote leave {PAWN_nameDef} body.</messageEmergedCause>
                 <messageEmergedCorpse>{PAWN_nameDef} emerged from the symbiote's corpse.</messageEmergedCorpse>
             </li>
+            <li Class="ExSymbiotes.HediffCompProperties_ReactOnDamageStack">
+                <damageDefIncoming>EMP</damageDefIncoming>
+                <createHediff>ExSymbiotes_Shock</createHediff>
+            </li>
         </comps>
+    </HediffDef>
+    
+<!--    MISC    -->
+    <HediffDef>
+        <defName>ExSymbiotes_Shock</defName>
+        <label>symbiote shock</label>
+        <labelNoun>a symbiote shock</labelNoun>
+        <description>After-effects of an electrical shock to the symbiote.</description>
+        <hediffClass>HediffWithComps</hediffClass>
+        <alwaysShowSeverity>true</alwaysShowSeverity>
+        <initialSeverity>0.1</initialSeverity>
+        <comps>
+            <li Class="HediffCompProperties_Disappears">
+                <disappearsAfterTicks>900~1200</disappearsAfterTicks>
+            </li>
+        </comps>
+        <stages>
+            <li>
+                <minSeverity>0</minSeverity>
+                <capMods>
+                    <li>
+                        <capacity>Consciousness</capacity>
+                        <postFactor>0.5</postFactor>
+                    </li>
+                </capMods>
+            </li>
+            <li>
+                <minSeverity>0.25</minSeverity>
+                <capMods>
+                    <li>
+                        <capacity>Consciousness</capacity>
+                        <postFactor>0.4</postFactor>
+                    </li>
+                </capMods>
+            </li>
+            <li>
+                <minSeverity>0.5</minSeverity>
+                <capMods>
+                    <li>
+                        <capacity>Consciousness</capacity>
+                        <postFactor>0.3</postFactor>
+                    </li>
+                </capMods>
+            </li>
+            <li>
+                <minSeverity>0.75</minSeverity>
+                <capMods>
+                    <li>
+                        <capacity>Consciousness</capacity>
+                        <postFactor>0.2</postFactor>
+                    </li>
+                </capMods>
+            </li>
+            <li>
+                <minSeverity>1</minSeverity>
+                <capMods>
+                    <li>
+                        <capacity>Consciousness</capacity>
+                        <setMax>0.1</setMax>
+                    </li>
+                </capMods>
+            </li>
+        </stages>
     </HediffDef>
 </Defs>
