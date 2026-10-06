@@ -60,6 +60,7 @@
     <Compile Include="Combat\Projectile\SymbioticWhip.cs" />
     <Compile Include="Combat\Verb\Verb_CastAbilityVenomLeap.cs" />
     <Compile Include="Combat\Verb\Verb_SymbioticCannon.cs" />
+    <Compile Include="Comp\Hivemind\HediffWithComps_Hivemind.cs" />
     <Compile Include="Comp\ReactOnDamageStack\HediffCompProperties_ReactOnDamageStack.cs" />
     <Compile Include="Comp\ReactOnDamageStack\HediffComp_ReactOnDamageStack.cs" />
     <Compile Include="Comp\SymbiosisCost\CompAbilityEffect_SymbiosisCost.cs" />

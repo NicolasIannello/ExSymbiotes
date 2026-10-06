@@ -1039,7 +1039,7 @@
     <HediffDef>
         <defName>ExSymbiotes_HivemindConnection</defName>
         <label>hivemind connection</label>
-        <hediffClass>HediffWithComps</hediffClass>
+        <hediffClass>ExSymbiotes.HediffWithComps_Hivemind</hediffClass>
         <description>This symbiote is connected to the hivemind.</description>
         <isBad>false</isBad>
         <initialSeverity>0.1</initialSeverity>
