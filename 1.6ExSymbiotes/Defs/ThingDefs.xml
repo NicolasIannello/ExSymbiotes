@@ -72,7 +72,7 @@
         <neverMultiSelect>True</neverMultiSelect>
         <graphicData>
             <graphicClass>Graphic_Single</graphicClass>
-            <texPath>Things/Mote/Empty</texPath>
+            <texPath>Things/Mote/ExSymbiotesEmpty</texPath>
         </graphicData>
         <projectile>
             <shadowSize>0</shadowSize>
