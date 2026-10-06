@@ -12,7 +12,11 @@ namespace ExSymbiotes
 
         public override void Apply(LocalTargetInfo target, LocalTargetInfo dest)
         {
-            target.Pawn.health.AddHediff(ExSymbiotesDefOf.ExSymbiotes_Thrall);
+            target.Pawn.health.AddHediff(ExSymbiotesDefOf.ExSymbiotes_Thrall).
+                TryGetComp<HediffComp_SymbioteThrall>().hivemind=this.parent.pawn;
+
+            ((HediffWithComps_Hivemind)this.parent.pawn.health.hediffSet.
+                GetFirstHediffOfDef(ExSymbiotesDefOf.ExSymbiotes_HivemindConnection)).controlledPawns.Add(target.Pawn);
         }
     }
 }

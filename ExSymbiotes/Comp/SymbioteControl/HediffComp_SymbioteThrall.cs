@@ -5,6 +5,8 @@ namespace ExSymbiotes
 {
     public class HediffComp_SymbioteThrall: HediffComp_SymbioteControl
     {
+        public Pawn hivemind;
+        
         public override void CompPostPostAdd(DamageInfo? dinfo)
         {
             base.CompPostPostAdd(dinfo);
@@ -30,7 +32,15 @@ namespace ExSymbiotes
                         rotComp.RotProgress = rotComp.PropsRot.TicksToDessicated;
                 }
             }
+            ((HediffWithComps_Hivemind)hivemind.health.hediffSet.
+                GetFirstHediffOfDef(ExSymbiotesDefOf.ExSymbiotes_HivemindConnection)).controlledPawns.Remove(this.Pawn);
             FilthMaker.TryMakeFilth(this.parent.pawn.PositionHeld, this.parent.pawn.MapHeld, ThingDefOf.Filth_RevenantBloodPool);
+        }
+        
+        public override void CompExposeData()
+        {
+            base.CompExposeData();
+            Scribe_References.Look(ref hivemind, "hivemind");
         }
     }
 }
