@@ -77,6 +77,8 @@
     <Compile Include="Comp\SymbioteControl\HediffComp_SymbioteThrall.cs" />
     <Compile Include="Comp\SymbioticCannon\HediffCompProperties_SymbioticCannon.cs" />
     <Compile Include="Comp\SymbioticCannon\HediffComp_SymbioticCannon.cs" />
+    <Compile Include="Comp\SymbioticConsume\CompAbilityEffect_SymbioticConsume.cs" />
+    <Compile Include="Comp\SymbioticConsume\CompProperties_AbilitySymbioticConsume.cs" />
     <Compile Include="Comp\SymbioticEnthrall\CompAbilityEffect_SymbioticEnthrall.cs" />
     <Compile Include="Comp\SymbioticEnthrall\CompProperties_AbilitySymbioticEnthrall.cs" />
     <Compile Include="Comp\SymbioticShield\CompPropertiesSymbioticInterceptor.cs" />

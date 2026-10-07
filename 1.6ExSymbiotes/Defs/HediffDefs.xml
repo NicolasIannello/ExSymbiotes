@@ -1042,9 +1042,64 @@
         <hediffClass>ExSymbiotes.HediffWithComps_Hivemind</hediffClass>
         <description>This symbiote is connected to the hivemind.</description>
         <isBad>false</isBad>
-        <initialSeverity>0.1</initialSeverity>
+        <initialSeverity>0.05</initialSeverity>
         <maxSeverity>1</maxSeverity>
         <alwaysShowSeverity>true</alwaysShowSeverity>
+        <stages>
+            <li>
+                <minSeverity>0.1</minSeverity>
+            </li>
+            <li>
+                <minSeverity>0.2</minSeverity>
+                <statFactors>
+                    <IncomingDamageFactor>0.8</IncomingDamageFactor>
+                </statFactors>
+                <capMods>
+                    <li><capacity>Consciousness</capacity><postFactor>1.25</postFactor></li>
+                </capMods>
+                <regeneration>25</regeneration>
+            </li>
+            <li>
+                <minSeverity>0.4</minSeverity>
+                <statFactors>
+                    <IncomingDamageFactor>0.6</IncomingDamageFactor>
+                </statFactors>
+                <capMods>
+                    <li><capacity>Consciousness</capacity><postFactor>1.50</postFactor></li>
+                </capMods>
+                <regeneration>50</regeneration>
+            </li>
+            <li>
+                <minSeverity>0.6</minSeverity>
+                <statFactors>
+                    <IncomingDamageFactor>0.5</IncomingDamageFactor>
+                </statFactors>
+                <capMods>
+                    <li><capacity>Consciousness</capacity><postFactor>1.75</postFactor></li>
+                </capMods>
+                <regeneration>100</regeneration>
+            </li>
+            <li>
+                <minSeverity>0.8</minSeverity>
+                <statFactors>
+                    <IncomingDamageFactor>0.4</IncomingDamageFactor>
+                </statFactors>
+                <capMods>
+                    <li><capacity>Consciousness</capacity><postFactor>1.75</postFactor></li>
+                </capMods>
+                <regeneration>150</regeneration>
+            </li>
+            <li>
+                <minSeverity>1</minSeverity>
+                <statFactors>
+                    <IncomingDamageFactor>0.3</IncomingDamageFactor>
+                </statFactors>
+                <capMods>
+                    <li><capacity>Consciousness</capacity><postFactor>2</postFactor></li>
+                </capMods>
+                <regeneration>200</regeneration>
+            </li>
+        </stages>
         <renderNodeProperties>
             <li Class="PawnRenderNodeProperties_Eye">
                 <workerClass>ExSymbiotes.PawnRenderNodeWorker_EyeSymbiote</workerClass>
@@ -1074,6 +1129,7 @@
             <li Class="HediffCompProperties_GiveAbility">
                 <abilityDefs>
                     <li>ExSymbiotes_SymbioticEnthrall</li>
+                    <li>ExSymbiotes_SymbioticConsume</li>
                 </abilityDefs>
             </li>
         </comps>
