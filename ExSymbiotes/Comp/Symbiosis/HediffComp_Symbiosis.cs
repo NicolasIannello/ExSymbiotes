@@ -126,6 +126,9 @@ namespace ExSymbiotes
             else if (chance >= 6) this.bond = 1;
             else if (chance < 5 && chance >= 2) this.bond = 3;
             else if (chance <= 1) this.bond = 4;
+
+            string path = this.bond <= 2 ? "Things/Mote/ThoughtSymbol/GenericGood" : "Things/Mote/ThoughtSymbol/GenericBad";
+            MoteMaker.MakeThoughtBubble(this.parent.pawn, path);
         }
         
         public void AddSymbiosis(int amount) => this.energy = (energy + amount)>EnergyMax ? EnergyMax : energy + amount;
