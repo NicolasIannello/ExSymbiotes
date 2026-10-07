@@ -336,7 +336,7 @@
         <stunTargetWhileCasting>true</stunTargetWhileCasting>
         <displayGizmoWhileUndrafted>true</displayGizmoWhileUndrafted>
         <disableGizmoWhileUndrafted>false</disableGizmoWhileUndrafted>
-        <warmupMote>Mote_ResurrectAbility</warmupMote>
+        <warmupMote>ExSymbiotes_Mote_ResurrectAbility</warmupMote>
         <jobDef>CastAbilityOnThingMelee</jobDef>
         <displayOrder>400</displayOrder>
         <hostile>true</hostile>
