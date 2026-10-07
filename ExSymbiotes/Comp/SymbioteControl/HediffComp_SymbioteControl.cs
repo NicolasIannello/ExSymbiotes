@@ -24,7 +24,6 @@ namespace ExSymbiotes
         protected bool reproduce = true;
         protected bool thrall = false;
         public HediffCompProperties_SymbioteControl Props => (HediffCompProperties_SymbioteControl) this.props;
-
         public HediffComp_SymbioteControl()
         {
             this.innerContainer = new ThingOwner<Thing>((IThingHolder) this, LookMode.Deep, false);
@@ -86,7 +85,7 @@ namespace ExSymbiotes
         public override void Notify_PawnPostApplyDamage(DamageInfo dinfo, float totalDamageDealt)
         {
             base.Notify_PawnPostApplyDamage(dinfo, totalDamageDealt);
-            if(Pawn.Downed || (dinfo.Def == DamageDefOf.EMP && Rand.RangeInclusive(1, 5)==1)) this.Remove(dinfo.Def == DamageDefOf.EMP ? "EMP" : null);
+            if((Pawn.Downed && !thrall) || (dinfo.Def == DamageDefOf.EMP && Rand.RangeInclusive(1, 5)==1)) this.Remove(dinfo.Def == DamageDefOf.EMP ? "EMP" : null);
         }
 
         private void Remove(string cause=null)
