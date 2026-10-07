@@ -40,4 +40,14 @@
             </value>
         </match>
     </Operation>
+
+    <Operation Class="PatchOperationConditional">
+        <xpath>Defs/AbilityDef[defName="ExSymbiotes_SymbioticEnthrall"]</xpath>
+        <match Class="PatchOperationAdd">
+            <xpath>Defs/AbilityDef[defName="ExSymbiotes_SymbioticEnthrall"]</xpath>
+            <value>
+                <warmupStartSound>ExSymbiotes_Resurrect_Cast</warmupStartSound>
+            </value>
+        </match>
+    </Operation>
 </Patch>
