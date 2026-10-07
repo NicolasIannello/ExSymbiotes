@@ -141,6 +141,7 @@
     <Compile Include="Worker\Damage\DamageWorker_SymbioticWhip.cs" />
     <Compile Include="Worker\Damage\DamageWorker_VenomLeap.cs" />
     <Compile Include="Worker\Thought\ThoughtWorker_Symbiosis.cs" />
+    <Compile Include="Worker\Thought\Thought_Hivemind.cs" />
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="Lib.Harmony.Ref">
