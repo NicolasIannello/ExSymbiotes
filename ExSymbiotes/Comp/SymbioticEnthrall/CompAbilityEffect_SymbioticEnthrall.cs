@@ -1,4 +1,5 @@
-﻿using RimWorld;
+﻿using ExSymbiotes.Utils;
+using RimWorld;
 using Verse;
 
 namespace ExSymbiotes
@@ -7,7 +8,8 @@ namespace ExSymbiotes
     {
         public override bool CanApplyOn(LocalTargetInfo target, LocalTargetInfo dest)
         {
-            return target.Pawn != null && target.Pawn.health.hediffSet.GetFirstHediffOfDef(ExSymbiotesDefOf.ExSymbiotes_Thrall)==null && base.CanApplyOn(target, dest);
+            return target.Pawn != null && SymbioteUtility.HasSymbiosis(target.Pawn)==null && base.CanApplyOn(target, dest) &&
+                target.Pawn.def!=ExSymbiotesDefOf.ExSymbiotes_Symbiote && target.Pawn.def!=ExSymbiotesDefOf.ExSymbiotes_SymbioteRed;
         }
 
         public override void Apply(LocalTargetInfo target, LocalTargetInfo dest)

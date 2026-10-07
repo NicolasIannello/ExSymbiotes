@@ -176,7 +176,7 @@ namespace ExSymbiotes
           Hediff hediff = SymbioteUtility.HasSymbiosis(thing);
           if (hediff != null)
           {
-            if (hediff.def == ExSymbiotesDefOf.ExSymbiotes_Symbiosis_Red || hediff.def == ExSymbiotesDefOf.ExSymbiotes_Symbiosis_White) 
+            if (hediff.def == ExSymbiotesDefOf.ExSymbiotes_Symbiosis_Red || hediff.def == ExSymbiotesDefOf.ExSymbiotes_Symbiosis_White || hediff.def == ExSymbiotesDefOf.ExSymbiotes_Thrall) 
               this.Pawn.Kill(null, hediff);
             else
             {

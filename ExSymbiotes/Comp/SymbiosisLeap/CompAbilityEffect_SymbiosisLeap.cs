@@ -34,10 +34,11 @@ namespace ExSymbiotes
                 hediff.def == ExSymbiotesDefOf.ExSymbiotes_Symbiosis_Red || 
                 hediff.def == ExSymbiotesDefOf.ExSymbiotes_Symbiosis_White || 
                 hediff.def == ExSymbiotesDefOf.ExSymbiotes_Symbiosis_Yellow || 
-                hediff.def == ExSymbiotesDefOf.ExSymbiotes_Symbiosis_Purple)
+                hediff.def == ExSymbiotesDefOf.ExSymbiotes_Symbiosis_Purple ||
+                hediff.def == ExSymbiotesDefOf.ExSymbiotes_Thrall)
             {
                 int chance = Rand.RangeInclusive(1, 10);
-                return chance <= 2;
+                return chance <= 1;
             }
 
             return hediff.def != ExSymbiotesDefOf.ExSymbiotes_SymbioteControl && hediff.def != ExSymbiotesDefOf.ExSymbiotes_SymbioteControlRed;
