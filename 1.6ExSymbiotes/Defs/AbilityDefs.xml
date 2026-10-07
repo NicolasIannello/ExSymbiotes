@@ -365,4 +365,37 @@
             </li>
         </comps>
     </AbilityDef>
+
+    <AbilityDef ParentName="AbilityTouchBase">
+        <defName>ExSymbiotes_SymbioticConsume</defName>
+        <label>symbiotic consume</label>
+        <description>Consume a symbiote.</description>
+        <iconPath>UI/SymbioticConsume</iconPath>
+        <stunTargetWhileCasting>true</stunTargetWhileCasting>
+        <warmupMote>ExSymbiotes_Mote_ResurrectAbility</warmupMote>
+        <jobDef>CastAbilityOnThingMelee</jobDef>
+        <displayOrder>400</displayOrder>
+        <hostile>true</hostile>
+        <casterMustBeCapableOfViolence>false</casterMustBeCapableOfViolence>
+        <verbProperties>
+            <verbClass>Verb_CastAbilityTouch</verbClass>
+            <drawAimPie>false</drawAimPie>
+            <range>-1</range>
+            <warmupTime>1</warmupTime>
+            <targetParams>
+                <canTargetPawns>true</canTargetPawns>
+                <canTargetSelf>false</canTargetSelf>
+                <canTargetBuildings>false</canTargetBuildings>
+            </targetParams>
+        </verbProperties>
+        <comps>
+            <li Class="ExSymbiotes.CompProperties_AbilitySymbiosisCost">
+                <symbiosisCost>10</symbiosisCost>
+            </li>
+            <li Class="ExSymbiotes.CompProperties_AbilitySymbioticConsume"/>
+            <li Class="CompProperties_AbilityRequiresCapacity">
+                <capacity>Manipulation</capacity>
+            </li>
+        </comps>
+    </AbilityDef>
 </Defs>
