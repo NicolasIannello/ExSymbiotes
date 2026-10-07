@@ -9,7 +9,13 @@ namespace ExSymbiotes
     public class HediffWithComps_Hivemind : HediffWithComps
     {
         public List<Pawn> controlledPawns = new List<Pawn>();
-        
+
+        public override void PostAdd(DamageInfo? dinfo)
+        {
+            base.PostAdd(dinfo);
+            MoteMaker.MakeThoughtBubble(this.pawn, "Things/Pawn/Symbiote/Attachments/SymbioteSpiral/SymbioteSpiral_south");
+        }
+
         public override IEnumerable<Gizmo> GetGizmos()
         {
             IEnumerable<Gizmo> compGetGizmos = base.GetGizmos();

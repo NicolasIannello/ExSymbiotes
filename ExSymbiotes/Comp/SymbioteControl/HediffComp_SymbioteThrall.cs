@@ -35,6 +35,7 @@ namespace ExSymbiotes
             ((HediffWithComps_Hivemind)hivemind.health.hediffSet.
                 GetFirstHediffOfDef(ExSymbiotesDefOf.ExSymbiotes_HivemindConnection)).controlledPawns.Remove(this.Pawn);
             FilthMaker.TryMakeFilth(this.parent.pawn.PositionHeld, this.parent.pawn.MapHeld, ThingDefOf.Filth_RevenantBloodPool);
+            MoteMaker.MakeThoughtBubble(this.parent.pawn, "Things/Pawn/Symbiote/Attachments/SymbioteSpiral/SymbioteSpiral_south");
         }
         
         public override void CompExposeData()

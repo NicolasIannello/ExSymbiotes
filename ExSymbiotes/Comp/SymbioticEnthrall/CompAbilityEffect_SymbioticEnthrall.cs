@@ -1,4 +1,5 @@
-﻿using RimWorld;
+﻿using System.Collections.Generic;
+using RimWorld;
 using Verse;
 
 namespace ExSymbiotes
@@ -17,6 +18,7 @@ namespace ExSymbiotes
 
             ((HediffWithComps_Hivemind)this.parent.pawn.health.hediffSet.
                 GetFirstHediffOfDef(ExSymbiotesDefOf.ExSymbiotes_HivemindConnection)).controlledPawns.Add(target.Pawn);
+            MoteMaker.MakeThoughtBubble(this.parent.pawn, "Things/Pawn/Symbiote/Attachments/SymbioteSpiral/SymbioteSpiral_south");
         }
     }
 }

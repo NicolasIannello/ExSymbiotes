@@ -18,7 +18,6 @@
         <defName>ExSymbiotes_SymbioteControlled</defName>
         <workerClass>ThoughtWorker_Hediff</workerClass>
         <hediff>ExSymbiotes_SymbioteControl</hediff>
-        <showBubble>false</showBubble>
         <stackLimit>1</stackLimit>
         <stackedEffectMultiplier>1</stackedEffectMultiplier>
         <developmentalStageFilter>Baby, Child, Adult</developmentalStageFilter>
@@ -43,7 +42,7 @@
     
     <ThoughtDef>
         <defName>ExSymbiotes_SymbioteControlledAfter</defName>
-        <showBubble>false</showBubble>
+        <showBubble>true</showBubble>
         <stackLimit>1</stackLimit>
         <durationDays>10</durationDays>
         <stackedEffectMultiplier>1</stackedEffectMultiplier>
@@ -87,6 +86,23 @@
                 <label>symbiosis bond awfull</label>
                 <description>I can't stand it!</description>
                 <baseMoodEffect>-10</baseMoodEffect>
+            </li>
+        </stages>
+    </ThoughtDef>
+    
+    <ThoughtDef>
+        <defName>ExSymbiotes_HivemindVoices</defName>
+        <thoughtClass>ExSymbiotes.Thought_Hivemind</thoughtClass>
+        <workerClass>ThoughtWorker_Hediff</workerClass>
+        <hediff>ExSymbiotes_HivemindConnection</hediff>
+        <stackLimit>1</stackLimit>
+        <stackedEffectMultiplier>1</stackedEffectMultiplier>
+        <developmentalStageFilter>Baby, Child, Adult</developmentalStageFilter>
+        <stages>
+            <li>
+                <label>hivemind connection</label>
+                <description>These voices. I can hear them all.</description>
+                <baseMoodEffect>-5</baseMoodEffect>
             </li>
         </stages>
     </ThoughtDef>
