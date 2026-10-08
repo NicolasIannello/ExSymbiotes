@@ -58,7 +58,7 @@ namespace ExSymbiotes
                 symbiote.TakeDamage(dinfo);
             }
             this.Pawn.SetFaction(originalFaction);
-            if(originalLord!=null) 
+            if(originalLord!=null && !Pawn.Dead) 
                 originalLord.AddPawn(this.Pawn);
             if(Pawn.RaceProps.Humanlike && !Pawn.Dead) 
                 Pawn.needs.mood.thoughts.memories.TryGainMemory(ExSymbiotesDefOf.ExSymbiotes_SymbioteControlledAfter);
