@@ -12,7 +12,7 @@ namespace ExSymbiotes
       {
         get
         {
-          Hediff symbiosis = SymbioteUtility.HasSymbiosis(this.parent.pawn);
+          Hediff symbiosis = SymbioteUtility.HasSymbiosis(this.parent.pawn, false);
           if (symbiosis != null)
           {
             HediffComp_Symbiosis comp = symbiosis.TryGetComp<HediffComp_Symbiosis>();
@@ -25,7 +25,7 @@ namespace ExSymbiotes
       public override void Apply(LocalTargetInfo target, LocalTargetInfo dest)
       {
         base.Apply(target, dest);
-        Hediff symbiosis = SymbioteUtility.HasSymbiosis(this.parent.pawn);
+        Hediff symbiosis = SymbioteUtility.HasSymbiosis(this.parent.pawn, false);
         if (symbiosis != null)
         {
           HediffComp_Symbiosis comp = symbiosis.TryGetComp<HediffComp_Symbiosis>();
@@ -35,7 +35,7 @@ namespace ExSymbiotes
 
       public override bool GizmoDisabled(out string reason)
       {
-        Hediff symbiosis = SymbioteUtility.HasSymbiosis(this.parent.pawn);
+        Hediff symbiosis = SymbioteUtility.HasSymbiosis(this.parent.pawn, false);
         if (symbiosis == null)
         {
           reason = (string) "ExSymbiotes.AbilityDisabledNoSymbiosisHediff".Translate((NamedArgument) (Thing) this.parent.pawn);

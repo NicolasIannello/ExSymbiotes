@@ -61,7 +61,7 @@ namespace ExSymbiotes
         {
             if (!ingester.IsColonist || !__state) return;
             
-            Hediff symbiosis = SymbioteUtility.HasSymbiosis(ingester);
+            Hediff symbiosis = SymbioteUtility.HasSymbiosis(ingester, false);
             if (symbiosis != null)
             {
                 BodyPartRecord brain = __instance.InnerPawn.health.hediffSet.GetBrain();
