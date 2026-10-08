@@ -19,15 +19,12 @@ namespace ExSymbiotes
         protected int bond = 2;
         protected Color originalHair;
         protected Color? originalSkin;
-
-        public override void CompPostMake()
-        {
-            originalHair = Pawn.story.HairColor;
-            originalSkin = Pawn.story.skinColorOverride;
-        }
         
         public override void CompPostPostAdd(DamageInfo? dinfo)
         {
+            base.CompPostPostAdd(dinfo);
+            originalHair = Pawn.story.HairColor;
+            originalSkin = Pawn.story.skinColorOverride;
             ChangeVisual(false);
             if (ModsConfig.BiotechActive && this.Pawn.genes!=null)
             {
@@ -40,6 +37,7 @@ namespace ExSymbiotes
 
         public override void CompPostPostRemoved()
         {
+            base.CompPostPostRemoved();
             Pawn.story.HairColor = this.originalHair;
             Pawn.story.skinColorOverride = this.originalSkin ?? this.Pawn.story.SkinColorBase;
             Pawn.Drawer.renderer.SetAllGraphicsDirty();
