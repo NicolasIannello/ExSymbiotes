@@ -35,8 +35,11 @@
     <ExSymbiotes.CommandStopForceAttack>Stop cannon forced attack</ExSymbiotes.CommandStopForceAttack>
 
     <ExSymbiotes.HivemindConnectionCompleteText>{0_nameDef}'s symbiote is now connected to the hivemind. {0_pronoun} can now enthrall living creatures and bring them under his command.\n\nEnthralling creatures will deteriorate over time causing death.</ExSymbiotes.HivemindConnectionCompleteText>
+    <ExSymbiotes.MessageConsumeSymbiote>{0} must be a symbiote or have symbiosis</ExSymbiotes.MessageConsumeSymbiote>
 
     <ExSymbiotes.ThrallAttack>Thrall attack</ExSymbiotes.ThrallAttack>
     <ExSymbiotes.ThrallMove>Thrall move</ExSymbiotes.ThrallMove>
     <ExSymbiotes.ThrallCancel>Thrall cancel order</ExSymbiotes.ThrallCancel>
+    <ExSymbiotes.MessageThrallSymbiote>Symbiotes cannot be enthralled</ExSymbiotes.MessageThrallSymbiote>
+    <ExSymbiotes.MessageThrallSymbiosis>Creature already has a symbiote</ExSymbiotes.MessageThrallSymbiosis>
 </LanguageData>

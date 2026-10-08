@@ -8,8 +8,15 @@ namespace ExSymbiotes
     {
         public override bool CanApplyOn(LocalTargetInfo target, LocalTargetInfo dest)
         {
-            return target.Pawn != null && SymbioteUtility.HasSymbiosis(target.Pawn)==null && base.CanApplyOn(target, dest) &&
-                target.Pawn.def!=ExSymbiotesDefOf.ExSymbiotes_Symbiote && target.Pawn.def!=ExSymbiotesDefOf.ExSymbiotes_SymbioteRed;
+            bool isSymbiote = (target.Pawn.def == ExSymbiotesDefOf.ExSymbiotes_Symbiote || target.Pawn.def == ExSymbiotesDefOf.ExSymbiotes_SymbioteRed);
+            bool hasSymbiosis = SymbioteUtility.HasSymbiosis(target.Pawn) != null;
+            
+            if(isSymbiote)
+                Messages.Message((string) "ExSymbiotes.MessageThrallSymbiote".Translate(), (LookTargets) (Thing) target.Pawn, MessageTypeDefOf.NeutralEvent);
+            if(hasSymbiosis)
+                Messages.Message((string) "ExSymbiotes.MessageThrallSymbiosis".Translate(), (LookTargets) (Thing) target.Pawn, MessageTypeDefOf.NeutralEvent);
+            
+            return target.Pawn != null && !isSymbiote && !hasSymbiosis && base.CanApplyOn(target, dest);
         }
 
         public override void Apply(LocalTargetInfo target, LocalTargetInfo dest)

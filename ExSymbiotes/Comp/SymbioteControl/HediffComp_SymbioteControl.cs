@@ -37,7 +37,7 @@ namespace ExSymbiotes
             base.CompPostPostAdd(dinfo);
             originalFaction=Pawn.Faction;
             originalLord = Pawn.GetLord();
-            this.Pawn.SetFaction(Find.FactionManager.FirstFactionOfDef(ExSymbiotesDefOf.ExSymbiotes_Symbiotes));
+            if(!thrall) this.Pawn.SetFaction(Find.FactionManager.FirstFactionOfDef(ExSymbiotesDefOf.ExSymbiotes_Symbiotes));
             skin = Props.color;
             if (ModsConfig.BiotechActive && this.Pawn.genes!=null)
             {
