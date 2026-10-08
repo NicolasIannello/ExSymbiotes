@@ -62,7 +62,7 @@ namespace ExSymbiotes
                     {
                         --this.burstCooldownTicksLeft;
                     }
-                    if (this.burstCooldownTicksLeft <= 0 && this.Pawn.IsHashIntervalTick(15))
+                    if (this.burstCooldownTicksLeft <= 0 && this.Pawn.IsHashIntervalTick(60))
                         this.TryStartShootSomething(true);
                 }
             }
