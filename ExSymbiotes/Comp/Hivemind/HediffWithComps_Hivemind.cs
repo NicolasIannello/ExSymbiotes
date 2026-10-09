@@ -56,10 +56,13 @@ namespace ExSymbiotes
         {
             for (int i = 0; i < controlledPawns.Count; i++)
             {
-                JobDef jobDef = (controlledPawns[i].equipment?.Primary?.def?.IsRangedWeapon ?? false) ? 
-                    JobDefOf.AttackStatic : JobDefOf.AttackMelee;
+                if(!controlledPawns[i].Spawned) continue;
+                bool isRanged = controlledPawns[i].equipment?.Primary?.def?.IsRangedWeapon ?? false;
+                JobDef jobDef = isRanged ? ExSymbiotesDefOf.ExSymbiotes_UseVerbOnThing : JobDefOf.AttackMelee;
                 Job job = JobMaker.MakeJob(jobDef, target);
-                controlledPawns[i].jobs.TryTakeOrderedJob(job, JobTag.Misc);
+                if(isRanged) job.verbToUse = controlledPawns[i].equipment?.Primary?.GetComp<CompEquippable>()?.PrimaryVerb;;
+                controlledPawns[i].jobs.EndCurrentJob(JobCondition.InterruptForced, false);
+                controlledPawns[i].jobs.StartJob(job);
             }
         }
         
@@ -67,6 +70,7 @@ namespace ExSymbiotes
         {
             for (int i = 0; i < controlledPawns.Count; i++)
             {
+                if(!controlledPawns[i].Spawned) continue;
                 controlledPawns[i].jobs.EndCurrentJob(JobCondition.InterruptForced);
             }
         }
@@ -75,8 +79,10 @@ namespace ExSymbiotes
         {
             for (int i = 0; i < controlledPawns.Count; i++)
             {
+                if(!controlledPawns[i].Spawned) continue;
                 Job job = JobMaker.MakeJob(JobDefOf.Goto, target);
-                controlledPawns[i].jobs.TryTakeOrderedJob(job);
+                controlledPawns[i].jobs.EndCurrentJob(JobCondition.InterruptForced, false);
+                controlledPawns[i].jobs.StartJob(job);
             }
         }
         
