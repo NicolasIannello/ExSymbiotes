@@ -90,6 +90,7 @@ namespace ExSymbiotes
         public static IncidentDef ExSymbiotes_SymbiotePack;
         public static JobDef ExSymbiotes_SymbioteDigest;
         public static JobDef ExSymbiotes_SymbioteSwitchToAttackMode;
+        public static JobDef ExSymbiotes_UseVerbOnThing;
         public static PawnGroupKindDef ExSymbiotes_Symbiote_PawnGroupKind;
         public static PawnGroupKindDef ExSymbiotes_Symbiote_PawnGroupKindRed;
         public static PawnGroupKindDef ExSymbiotes_Symbiote_PawnGroupKindBlackRed;

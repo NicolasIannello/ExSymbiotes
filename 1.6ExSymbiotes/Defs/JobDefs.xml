@@ -13,6 +13,14 @@
         <driverClass>ExSymbiotes.JobDriver_SymbioteSwitchToAttackMode</driverClass>
         <reportString>attacking.</reportString>
     </JobDef>
+
+    <JobDef>
+        <defName>ExSymbiotes_UseVerbOnThing</defName>
+        <driverClass>ExSymbiotes.JobDriver_SymbioteCastVerb</driverClass>
+        <allowOpportunisticPrefix>true</allowOpportunisticPrefix>
+        <tryStartFlying>true</tryStartFlying>
+        <overrideFlyChance>1</overrideFlyChance>
+    </JobDef>
     
     <DutyDef>
         <defName>ExSymbiotes_SymbioteStalkWander</defName>

@@ -106,6 +106,7 @@
     <Compile Include="Comp\SymbioticScythe\HediffComp_SymbioticScythe.cs" />
     <Compile Include="Incident\IncidentWorker_SymbioteMass.cs" />
     <Compile Include="Incident\IncidentWorker_SymbiotePack.cs" />
+    <Compile Include="Job\JobDriver_SymbioteCastVerb.cs" />
     <Compile Include="Job\JobDriver_SymbioteDigest.cs" />
     <Compile Include="Job\JobDriver_SymbioticShield.cs" />
     <Compile Include="Job\JobGiver_FindHost.cs" />
