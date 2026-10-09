@@ -369,7 +369,7 @@
     <AbilityDef ParentName="AbilityTouchBase">
         <defName>ExSymbiotes_SymbioticConsume</defName>
         <label>symbiotic consume</label>
-        <description>Consume a symbiote.</description>
+        <description>Consume a symbiote to empower your connection to the hivemind.</description>
         <iconPath>UI/SymbioticConsume</iconPath>
         <stunTargetWhileCasting>true</stunTargetWhileCasting>
         <warmupMote>ExSymbiotes_Mote_ResurrectAbility</warmupMote>
