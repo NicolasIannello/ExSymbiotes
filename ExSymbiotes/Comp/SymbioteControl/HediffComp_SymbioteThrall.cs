@@ -21,21 +21,28 @@ namespace ExSymbiotes
         public override void CompPostPostRemoved()
         {
             base.CompPostPostRemoved();
+            if(this.parent.pawn.Spawned) 
+                FilthMaker.TryMakeFilth(this.parent.pawn.PositionHeld, this.parent.pawn.MapHeld, ThingDefOf.Filth_RevenantBloodPool);
             if(this.parent.Severity>0.50)
             {
                 if(!this.parent.pawn.Dead) this.parent.pawn.Kill(null, this.parent);
                 if (this.parent.Severity > 0.75)
                 {
-                    CompRottable rotComp = this.parent.pawn.Corpse.GetComp<CompRottable>();
-                    rotComp.RotImmediately();
-                    if (this.parent.Severity >= 1)
-                        rotComp.RotProgress = rotComp.PropsRot.TicksToDessicated;
+                    CompRottable rotComp = this.parent.pawn?.Corpse?.GetComp<CompRottable>();
+                    if(rotComp != null)
+                    {
+                        rotComp.RotImmediately();
+                        if (this.parent.Severity >= 1)
+                            rotComp.RotProgress = rotComp.PropsRot.TicksToDessicated;
+                    }
                 }
             }
-            ((HediffWithComps_Hivemind)hivemind.health.hediffSet.
-                GetFirstHediffOfDef(ExSymbiotesDefOf.ExSymbiotes_HivemindConnection)).controlledPawns.Remove(this.Pawn);
-            FilthMaker.TryMakeFilth(this.parent.pawn.PositionHeld, this.parent.pawn.MapHeld, ThingDefOf.Filth_RevenantBloodPool);
-            MoteMaker.MakeThoughtBubble(hivemind, "Things/Pawn/Symbiote/Attachments/SymbioteSpiral/SymbioteSpiral_south");
+            if(!hivemind.Dead)
+            {
+                ((HediffWithComps_Hivemind)hivemind.health.hediffSet.GetFirstHediffOfDef(
+                    ExSymbiotesDefOf.ExSymbiotes_HivemindConnection)).controlledPawns.Remove(this.Pawn);
+                MoteMaker.MakeThoughtBubble(hivemind, "Things/Pawn/Symbiote/Attachments/SymbioteSpiral/SymbioteSpiral_south");
+            }
         }
         
         public override void CompExposeData()

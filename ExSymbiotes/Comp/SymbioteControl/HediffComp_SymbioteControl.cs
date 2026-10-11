@@ -57,7 +57,7 @@ namespace ExSymbiotes
                 dinfo.SetApplyAllDamage(true);
                 symbiote.TakeDamage(dinfo);
             }
-            this.Pawn.SetFaction(originalFaction);
+            if(this.Pawn.Faction != originalFaction) this.Pawn.SetFaction(originalFaction);
             if(originalLord!=null && !Pawn.Dead) 
                 originalLord.AddPawn(this.Pawn);
             if(Pawn.RaceProps.Humanlike && !Pawn.Dead) 
