@@ -94,5 +94,29 @@ namespace ExSymbiotes
             if (Scribe.mode == LoadSaveMode.PostLoadInit && this.controlledPawns == null)
                 this.controlledPawns = new List<Pawn>();
         }
+        
+        public override void Notify_PawnDied(DamageInfo? dinfo, Hediff culprit = null)
+        {
+            base.Notify_PawnDied(dinfo, culprit);
+            InterruptThrall();
+        }
+        
+        public override void Notify_Downed()
+        {
+            base.Notify_Downed();
+            InterruptThrall();
+        }
+
+        public void InterruptThrall()
+        {
+            for (int i = 0; i < controlledPawns.Count; i++)
+            {
+                if(!controlledPawns[i].Spawned) continue;
+                int chance = this.pawn.Dead ? 1 : Rand.RangeInclusive(1, 3);
+                if (chance == 1)
+                    controlledPawns[i].health.RemoveHediff(
+                        controlledPawns[i].health.hediffSet.GetFirstHediffOfDef(ExSymbiotesDefOf.ExSymbiotes_Thrall));
+            }
+        }
     }
 }
