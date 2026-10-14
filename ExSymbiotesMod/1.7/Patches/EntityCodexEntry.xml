@@ -1,0 +1,20 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Patch>
+    <Operation Class="PatchOperationConditional">
+        <xpath>Defs/EntityCodexEntryDef[defName="VoidNode"]/discoveredResearchProjects</xpath>
+        <match Class="PatchOperationAdd">
+            <xpath>Defs/EntityCodexEntryDef[defName="VoidNode"]/discoveredResearchProjects</xpath>
+            <value>
+                <li>ExSymbiotes_Symbiotes</li>
+            </value>
+        </match>
+        <nomatch Class="PatchOperationAdd">
+            <xpath>Defs/EntityCodexEntryDef[defName="VoidNode"]</xpath>
+            <value>
+                <discoveredResearchProjects>
+                    <li>ExSymbiotes_HivemindConnectionResearch</li>
+                </discoveredResearchProjects>
+            </value>
+        </nomatch>
+    </Operation>
+</Patch>

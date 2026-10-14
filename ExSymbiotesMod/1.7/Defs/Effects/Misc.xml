@@ -1,0 +1,224 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+    <FleckDef ParentName="FleckBase_RandomGraphic">
+        <defName>ExSymbiotes_MeatExplosionSplatter_Black</defName>
+        <altitudeLayer>MoteLow</altitudeLayer>
+        <solidTime>3</solidTime>
+        <fadeOutTime>1</fadeOutTime>
+        <randomGraphics>
+            <li>
+                <graphicClass>Graphic_Fleck</graphicClass>
+                <texPath>Things/Filth/Spatter/SpatterA</texPath>
+                <shaderType>Transparent</shaderType>
+                <color>(31, 27, 28, 170)</color>
+                <drawSize>(1.5, 1.5)</drawSize>
+            </li>
+            <li>
+                <graphicClass>Graphic_Fleck</graphicClass>
+                <texPath>Things/Filth/Spatter/SpatterB</texPath>
+                <shaderType>Transparent</shaderType>
+                <color>(31, 27, 28, 170)</color>
+                <drawSize>(1.5, 1.5)</drawSize>
+            </li>
+            <li>
+                <graphicClass>Graphic_Fleck</graphicClass>
+                <texPath>Things/Filth/Spatter/SpatterC</texPath>
+                <shaderType>Transparent</shaderType>
+                <color>(31, 27, 28, 170)</color>
+                <drawSize>(1.5, 1.5)</drawSize>
+            </li>
+        </randomGraphics>
+    </FleckDef>
+
+    <FleckDef ParentName="FleckBase_Thrown">
+        <defName>ExSymbiotes_HoraxianField_LongDecay</defName>
+        <altitudeLayer>PawnRope</altitudeLayer>
+        <fadeInTime>0.01</fadeInTime>
+        <solidTime>2</solidTime>
+        <fadeOutTime>0.1</fadeOutTime>
+        <growthRate>-2</growthRate>
+        <useAttachLink>true</useAttachLink>
+        <graphicData>
+            <graphicClass>Graphic_FleckPulse</graphicClass>
+            <texPath>Things/Mote/SymbioteGeoCrookedFinal</texPath>
+            <shaderType>Mote</shaderType>
+            <renderInstanced>true</renderInstanced>
+            <shaderParameters>
+                <_brightnessMultiplier>0.0</_brightnessMultiplier>
+            </shaderParameters>
+            <drawSize>8</drawSize>
+        </graphicData>
+    </FleckDef>
+
+    <FleckDef ParentName="FleckBase_Thrown">
+        <defName>ExSymbiotes_PsycastPsychicLine</defName>
+        <altitudeLayer>MoteOverhead</altitudeLayer>
+        <fadeInTime>0</fadeInTime>
+        <fadeOutTime>0</fadeOutTime>
+        <solidTime>0.01</solidTime>
+        <graphicData>
+            <texPath>Things/Mote/SymbioteYellowWhip</texPath>
+        </graphicData>
+    </FleckDef>
+
+    <FleckDef ParentName="FleckBase_Thrown">
+        <defName>ExSymbiotes_PsycastPsychicLineBack</defName>
+        <altitudeLayer>MoteOverhead</altitudeLayer>
+        <fadeInTime>0</fadeInTime>
+        <fadeOutTime>0</fadeOutTime>
+        <solidTime>1</solidTime>
+        <growthRate>-50</growthRate>
+        <graphicData>
+            <graphicClass>ExSymbiotes.Graphic_FleckSymbiote</graphicClass>
+            <texPath>Things/Mote/SymbioteYellowWhip</texPath>
+        </graphicData>
+    </FleckDef>
+    
+    <ThingDef ParentName="MoteCocoonBreakingBase">
+        <defName>ExSymbiotes_Mote_MeatExplosionMist_Black</defName>
+        <mote>
+            <solidTime>0.2</solidTime>
+            <fadeOutTime>1.3</fadeOutTime>
+        </mote>
+        <graphicData>
+            <color>(31, 27, 28, 170)</color>
+            <shaderType>Transparent</shaderType>
+            <drawSize>(1.4, 1.4)</drawSize>
+        </graphicData>
+    </ThingDef>
+
+    <ThingDef ParentName="MoteBase">
+        <defName>ExSymbiotes_Mote_MeatExplosionFlyingSplatter_Black</defName>
+        <thingClass>MoteThrown</thingClass>
+        <altitudeLayer>MoteOverhead</altitudeLayer>
+        <mote>
+            <fadeInTime>0.03</fadeInTime>
+            <fadeOutTime>0.2</fadeOutTime>
+            <solidTime>0.4</solidTime>
+            <growthRate>2</growthRate>
+            <archHeight>0.5</archHeight>
+            <archDuration>0.5</archDuration>
+            <speedPerTime>-3</speedPerTime>
+        </mote>
+        <graphicData>
+            <texPath>Things/Filth/Spatter</texPath>
+            <graphicClass>Graphic_MoteRandom</graphicClass>
+            <color>(31, 27, 28, 170)</color>
+        </graphicData>
+    </ThingDef>
+
+    <ThingDef ParentName="MoteBase">
+        <defName>ExSymbiotes_Mote_MeatExplosionFlyingPieceOverloaded_Black</defName>
+        <thingClass>MoteThrown</thingClass>
+        <altitudeLayer>MoteOverhead</altitudeLayer>
+        <mote>
+            <fadeInTime>0.03</fadeInTime>
+            <fadeOutTime>0.1</fadeOutTime>
+            <solidTime>4</solidTime>
+            <archHeight>2</archHeight>
+            <archDuration>3</archDuration>
+            <speedPerTime>-10</speedPerTime>
+        </mote>
+        <graphicData>
+            <texPath>Things/Mote/MeatPieces</texPath>
+            <graphicClass>Graphic_MoteRandom</graphicClass>
+            <drawSize>0.4</drawSize>
+            <color>(31, 27, 28, 170)</color>
+        </graphicData>
+    </ThingDef>
+
+    <ThingDef ParentName="FilthBlood">
+        <defName>ExSymbiotes_Filth_BloodSmear_Black</defName>
+        <label>blood smear</label>
+        <graphicData>
+            <texPath>Things/Filth/CrawlSmear</texPath>
+            <color>(31, 27, 28, 170)</color>
+            <graphicClass>Graphic_ClusterTight</graphicClass>
+            <drawSize>0.9</drawSize>
+        </graphicData>
+    </ThingDef>
+
+    <ThingDef ParentName="MoteBase">
+        <defName>ExSymbiotes_Mote_MeatExplosionFlyingPiece_Black</defName>
+        <thingClass>MoteThrown</thingClass>
+        <altitudeLayer>MoteOverhead</altitudeLayer>
+        <mote>
+            <fadeInTime>0.03</fadeInTime>
+            <fadeOutTime>0.1</fadeOutTime>
+            <solidTime>0.87</solidTime>
+            <archHeight>0.5</archHeight>
+            <archDuration>0.5</archDuration>
+            <speedPerTime>-3</speedPerTime>
+        </mote>
+        <graphicData>
+            <texPath>Things/Mote/MeatPieces</texPath>
+            <graphicClass>Graphic_MoteRandom</graphicClass>
+            <drawSize>0.4</drawSize>
+            <color>(31, 27, 28, 170)</color>
+        </graphicData>
+    </ThingDef>
+
+    <ThingDef Name="ExSymbiotes_Mote_HarbingerTreeRoots" ParentName="MoteBase">
+        <defName>ExSymbiotes_Mote_HarbingerTreeRoots</defName>
+        <thingClass>MoteAttached</thingClass>
+        <altitudeLayer>MoteOverhead</altitudeLayer>
+        <mote>
+            <fadeInTime>0</fadeInTime>
+            <solidTime>5</solidTime>
+            <fadeOutTime>0</fadeOutTime>
+            <needsMaintenance>false</needsMaintenance>
+        </mote>
+        <graphicData>
+            <graphicClass>Graphic_Mote</graphicClass>
+            <shaderType>Mote</shaderType>
+            <texPath>Things/Mote/SymbioteHarbingerConsumeRoots</texPath>
+            <drawSize>(1, 1)</drawSize>
+        </graphicData>
+    </ThingDef>
+
+    <ThingDef ParentName="ExSymbiotes_Mote_HarbingerTreeRoots">
+        <defName>ExSymbiotes_Mote_HarbingerTreeRootsBlack</defName>
+        <mote Inherit="False">
+            <fadeInTime>0</fadeInTime>
+            <solidTime>2.5</solidTime>
+            <fadeOutTime>0</fadeOutTime>
+            <needsMaintenance>false</needsMaintenance>
+        </mote>
+        <graphicData Inherit="False">
+            <graphicClass>Graphic_Mote</graphicClass>
+            <shaderType>Mote</shaderType>
+            <texPath>Things/Mote/SymbioteHarbingerConsumeRootsBlack</texPath>
+            <drawSize>(1, 1)</drawSize>
+        </graphicData>
+    </ThingDef>
+
+    <ThingDef ParentName="MoteBase">
+        <defName>ExSymbiotes_Mote_ResurrectAbility</defName>
+        <thingClass>MoteAttached</thingClass>
+        <altitudeLayer>MoteOverhead</altitudeLayer>
+        <mote>
+            <fadeInTime>0.35</fadeInTime>
+            <fadeOutTime>0.25</fadeOutTime>
+            <solidTime>999999</solidTime>
+            <needsMaintenance>True</needsMaintenance>
+        </mote>
+        <graphicData>
+            <graphicClass>Graphic_PawnBodySilhouette</graphicClass>
+            <color>(0.8, 0, 0, 1.0)</color>
+            <shaderType>MoteMultiplyAddScroll</shaderType>
+            <texPath>Things/Mote/Transparent</texPath>
+            <shaderParameters>
+                <_MultiplyTexA>/Things/Mote/Cloudy_B</_MultiplyTexA>
+                <_MultiplyTexB>/Things/Mote/Cloudy_C</_MultiplyTexB>
+                <_DetailTex>/Things/Mote/Speckles</_DetailTex>
+                <_detailIntensity>4</_detailIntensity>
+                <_texAScale>1.5</_texAScale>
+                <_texBScale>1.2</_texBScale>
+                <_DetailScale>3</_DetailScale>
+                <_texAScrollSpeed>(0, 0.15, 0)</_texAScrollSpeed>
+                <_texBScrollSpeed>(0.12, 0, 0)</_texBScrollSpeed>
+                <_detailScrollSpeed>(0.15, 0.15, 0)</_detailScrollSpeed>
+            </shaderParameters>
+        </graphicData>
+    </ThingDef>
+</Defs>

@@ -1,0 +1,149 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+    <ThingDef Name="ExSymbiotes_TendrilTurret" ParentName="BaseWeaponTurret">
+        <defName>ExSymbiotes_TendrilTurret</defName>
+        <label>symbiote tendrils</label>
+        <description>symbiote tendrils.</description>
+        <graphicData>
+            <texPath>Things/Building/Security/TurretMini_Top</texPath>
+            <graphicClass>Graphic_Single</graphicClass>
+        </graphicData>
+        <statBases>
+            <AccuracyTouch>0.90</AccuracyTouch>
+            <AccuracyShort>0.70</AccuracyShort>
+            <AccuracyMedium>0.40</AccuracyMedium>
+            <AccuracyLong>0.20</AccuracyLong>
+            <RangedWeapon_Cooldown>0</RangedWeapon_Cooldown>
+            <DeteriorationRate>0</DeteriorationRate>
+            <Mass>5</Mass>
+            <Flammability>0</Flammability>
+        </statBases>
+        <verbs>
+            <li>
+                <verbClass>Verb_Shoot</verbClass>
+                <defaultProjectile>ExSymbiotes_TendrilSpine</defaultProjectile>
+                <warmupTime>0</warmupTime>
+                <range>10</range>
+                <ticksBetweenBurstShots>4</ticksBetweenBurstShots>
+                <burstShotCount>4</burstShotCount>
+                <soundCast>Ability_SpineLaunch</soundCast>
+                <soundCastTail>GunTail_Light</soundCastTail>
+            </li>
+        </verbs>
+    </ThingDef>
+
+    <ThingDef ParentName="ExSymbiotes_TendrilTurret">
+        <defName>ExSymbiotes_TendrilTurretBlack</defName>
+        <verbs Inherit="False">
+            <li>
+                <verbClass>Verb_Shoot</verbClass>
+                <defaultProjectile>ExSymbiotes_TendrilSpineBlack</defaultProjectile>
+                <warmupTime>0</warmupTime>
+                <range>20</range>
+                <ticksBetweenBurstShots>4</ticksBetweenBurstShots>
+                <burstShotCount>4</burstShotCount>
+                <soundCast>Ability_SpineLaunch</soundCast>
+                <soundCastTail>GunTail_Light</soundCastTail>
+            </li>
+        </verbs>
+    </ThingDef>
+    
+    <ThingDef Name="ExSymbiotes_TendrilSpine" ParentName="SpikeBase">
+        <defName>ExSymbiotes_TendrilSpine</defName>
+        <label>symbiote tendril spine</label>
+        <graphicData>
+            <texPath>Things/Projectile/ExSymbiotes_Projectile_TendrilSpine</texPath>
+        </graphicData>
+        <projectile>
+            <damageAmountBase>10</damageAmountBase>
+            <armorPenetrationBase>1</armorPenetrationBase>
+            <stoppingPower>1.2</stoppingPower>
+        </projectile>
+    </ThingDef>
+
+    <ThingDef>
+        <defName>ExSymbiotes_TendrilWhip</defName>
+        <label>tendril whip</label>
+        <category>Projectile</category>
+        <tickerType>Normal</tickerType>
+        <altitudeLayer>Projectile</altitudeLayer>
+        <thingClass>ExSymbiotes.SymbioticWhip</thingClass>
+        <useHitPoints>False</useHitPoints>
+        <neverMultiSelect>True</neverMultiSelect>
+        <graphicData>
+            <graphicClass>Graphic_Single</graphicClass>
+            <texPath>Things/Mote/ExSymbiotesEmpty</texPath>
+        </graphicData>
+        <projectile>
+            <shadowSize>0</shadowSize>
+            <damageDef>ExSymbiotes_SymbioticWhip</damageDef>
+            <speed>50</speed>
+            <flyOverhead>false</flyOverhead>
+        </projectile>
+        <comps>
+            <li Class="ExSymbiotes.CompProperties_ProjectileFleck">
+                <fleckDef>ExSymbiotes_PsycastPsychicLine</fleckDef>
+            </li>
+        </comps>
+    </ThingDef>
+
+    <ThingDef ParentName="ExSymbiotes_TendrilSpine">
+        <defName>ExSymbiotes_TendrilSpineBlack</defName>
+        <graphicData>
+            <texPath>Things/Projectile/ExSymbiotes_Projectile_TendrilSpineBlack</texPath>
+        </graphicData>
+    </ThingDef>
+
+    <ThingDef ParentName="PawnFlyerBase">
+        <defName>ExSymbiotes_PawnFlyer_VenomLeap</defName>
+        <pawnFlyer>
+<!--            <flightDurationMin>0.5</flightDurationMin> &lt;!&ndash; CompAbilityEffect_VenomLeap&ndash;&gt;-->
+<!--            <flightSpeed>12</flightSpeed> &lt;!&ndash; CompAbilityEffect_VenomLeap&ndash;&gt;-->
+            <heightFactor>6</heightFactor>
+            <progressCurve>
+                <points>
+                    <li>(0, 0)</li>
+                    <li>(0.5, 0.70)</li>
+                    <li>(1, 1)</li>
+                </points>
+            </progressCurve>
+        </pawnFlyer>
+    </ThingDef>
+
+    <TaleDef>
+        <defName>ExSymbiotes_SymbiotePack</defName>
+        <label>symbiote pack</label>
+        <taleClass>Tale_SinglePawn</taleClass>
+        <type>Volatile</type>
+        <baseInterest>5</baseInterest>
+        <rulePack>
+            <rulesStrings>
+                <li>tale_noun->symbiote controlled creatures menacing [PAWN_nameDef]'s [Community]</li>
+                <li>tale_noun->[PAWN_nameDef]'s [Community] being attacked by symbiote controlled creatures</li>
+                <li>image->a herd symbiote controlled creatures [circumstance_phrase]</li>
+                <li>image->[Quantity_adjphrase] symbiote controlled creatures [circumstance_phrase]</li>
+                <li>image->a [AdjectiveLarge] symbiote controlled creatures [circumstance_phrase]</li>
+                <li>image->[Quantity_adjphrase] shadowy figures [circumstance_phrase]</li>
+                <li>image->[Quantity_adjphrase] shadowy quadrupeds [circumstance_phrase]</li>
+                <li>circumstance_phrase->advancing over a [TerrainFeature]</li>
+                <li>circumstance_phrase->completely encircling a [Community]</li>
+                <li>circumstance_phrase->attacking [Quantity_adjphrase] [PersonJob]s</li>
+                <li>circumstance_phrase->slaughtering [Quantity_adjphrase] [Animal]s</li>
+                <li>circumstance_phrase->possessed by [hate_emotion]</li>
+                <li>circumstance_phrase->covered in [Gore]</li>
+                <li>hate_emotion->hatred</li>
+                <li>hate_emotion->anger</li>
+                <li>hate_emotion->fury</li>
+                <li>desc_sentence->[PAWN_nameDef] organizes a resistance.</li>
+                <li>desc_sentence->[PAWN_nameDef] wields a [Weapon] defensively.</li>
+                <li>desc_sentence->[PAWN_nameDef] lies on the ground, wounded.</li>
+                <li>desc_sentence->[PAWN_nameDef] retaliates with [PAWN_possessive] [Weapon].</li>
+                <li>desc_sentence->[PAWN_nameDef] wears a [AdjectiveBadass] expression.</li>
+                <li>desc_sentence->[PAWN_nameDef] wears a [AdjectiveAngsty] expression.</li>
+                <li>desc_sentence->The ground is coated in [Gore].</li>
+                <li>desc_sentence->[Quantity_adjphrase] [PersonJob]s flee the area.</li>
+                <li>desc_sentence->[Quantity_adjphrase] symbiote controlled creatures flee the area.</li>
+            </rulesStrings>
+        </rulePack>
+    </TaleDef>
+</Defs>

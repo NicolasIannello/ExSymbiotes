@@ -1,0 +1,1246 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+<!--    SYMBIOSIS   -->
+    <HediffDef Name="ExSymbiotes_SymbiosisBase" Abstract="True">
+        <hediffClass>ExSymbiotes.HediffWithComps_Symbiosis</hediffClass>
+        <description>This person has perform symbiosis with a symbiotic core.The symbiote lives inside them, guiding their actions and twisting their flesh.</description>
+        <isBad>false</isBad>
+        <renderNodeProperties>
+            <li Class="PawnRenderNodeProperties_Eye">
+                <workerClass>ExSymbiotes.PawnRenderNodeWorker_EyeSymbiote</workerClass>
+                <texPath>Things/Pawn/Symbiote/Attachments/Eye/SymbioticEye</texPath>
+                <parentTagDef>Head</parentTagDef>
+                <anchorTag>RightEye</anchorTag>
+                <rotDrawMode>Fresh, Rotting</rotDrawMode>
+                <drawSize>0.35</drawSize>
+                <side>Right</side>
+                <drawData>
+                    <defaultData>
+                        <layer>55</layer>
+                        <offset>(-0.015, 0, -0.24)</offset>
+                    </defaultData>
+                </drawData>
+            </li>
+            <li Class="PawnRenderNodeProperties_Eye">
+                <workerClass>ExSymbiotes.PawnRenderNodeWorker_EyeSymbiote</workerClass>
+                <texPath>Things/Pawn/Symbiote/Attachments/Eye/SymbioticEye</texPath>
+                <parentTagDef>Head</parentTagDef>
+                <anchorTag>LeftEye</anchorTag>
+                <rotDrawMode>Fresh, Rotting</rotDrawMode>
+                <drawSize>0.35</drawSize>
+                <side>Left</side>
+                <drawData>
+                    <defaultData>
+                        <layer>55</layer>
+                        <offset>(+0.015, 0, -0.24)</offset>
+                        <flip>true</flip>
+                    </defaultData>
+                    <dataWest>
+                        <flip>false</flip>
+                    </dataWest>
+                </drawData>
+            </li>
+        </renderNodeProperties>
+        <tags>
+            <li>ExSymbiotes_SymbiosisTag</li>
+        </tags>
+        <removeWithTags>
+            <li>ExSymbiotes_SymbiosisTag</li>
+        </removeWithTags>
+        <comps>
+            <li Class="ExSymbiotes.HediffCompProperties_ReactOnDamageStack">
+                <damageDefIncoming>EMP</damageDefIncoming>
+                <createHediff>ExSymbiotes_Shock</createHediff>
+            </li>
+        </comps>
+    </HediffDef>
+    
+    <HediffDef ParentName="ExSymbiotes_SymbiosisBase">
+        <defName>ExSymbiotes_Symbiosis</defName>
+        <label>symbiosis (Black)</label>
+        <stages>
+            <li>
+                <statFactors>
+                    <MeleeDamageFactor>1.5</MeleeDamageFactor>
+                    <MoveSpeed>1.50</MoveSpeed>
+                    <WorkSpeedGlobal>2.0</WorkSpeedGlobal>
+                    <IncomingDamageFactor>0.5</IncomingDamageFactor>
+                </statFactors>
+                <damageFactors>
+                    <Flame>3</Flame>
+                    <Burn>3</Burn>
+                </damageFactors>
+                <statOffsets>
+                    <ToxicResistance>1</ToxicResistance>
+                    <ComfyTemperatureMax>100</ComfyTemperatureMax>
+                    <ComfyTemperatureMin>-200</ComfyTemperatureMin>
+                </statOffsets>
+                <capMods>
+                    <li><capacity>Consciousness</capacity><postFactor>1.50</postFactor></li>
+                    <li><capacity>Hearing</capacity><postFactor>1.50</postFactor></li>
+                    <li><capacity>Talking</capacity><postFactor>1.50</postFactor></li>
+                    <li><capacity>Manipulation</capacity><postFactor>1.50</postFactor></li>
+                    <li><capacity>Sight</capacity><postFactor>1.50</postFactor></li>
+                    <li><capacity>Eating</capacity><postFactor>1.50</postFactor></li>
+                    <li><capacity>BloodPumping</capacity><postFactor>1.50</postFactor></li>
+                    <li><capacity>BloodFiltration</capacity><postFactor>1.50</postFactor></li>
+                    <li><capacity>Breathing</capacity><postFactor>1.50</postFactor></li>
+                </capMods>
+                <regeneration>50</regeneration>
+            </li>
+        </stages>
+        <comps>
+            <li Class="ExSymbiotes.HediffCompProperties_Symbiosis">
+                <color>(31, 27, 28)</color>
+                <hair>(31, 27, 28)</hair>
+            </li>
+            <li Class="HediffCompProperties_GiveAbility">
+                <abilityDefs>
+                    <li>ExSymbiotes_SymbioticArmor</li>
+                    <li>ExSymbiotes_SymbioticTendrilsWeak</li>
+                    <li>ExSymbiotes_VenomLeap</li>
+                    <li MayRequire="Ludeon.RimWorld.Biotech">ExSymbiotes_SymbioticCoagulate</li>
+                    <li MayRequire="Ludeon.RimWorld.Biotech">ExSymbiotes_SymbioticLongjump</li>
+                </abilityDefs>
+            </li>
+            <li Class="ExSymbiotes.HediffCompProperties_VenomLeap"/>
+        </comps>
+        <renderNodeProperties>
+            <li>
+                <nodeClass>ExSymbiotes.PawnRenderNode_VenomLeap</nodeClass>
+                <workerClass>ExSymbiotes.PawnRenderNodeWorker_VenomLeap</workerClass>
+                <texPaths>
+                    <li>Things/Pawn/Symbiote/VenomLeap/VenomLeap</li>
+                </texPaths>
+                <parentTagDef>Body</parentTagDef>
+                <overrideMeshSize>1</overrideMeshSize>
+                <drawSize>4</drawSize>
+                <rotDrawMode>Fresh, Rotting</rotDrawMode>
+                <useSkinShader>true</useSkinShader>
+                <useRottenColor>true</useRottenColor>
+                <drawData>
+                    <scaleOffsetByBodySize>true</scaleOffsetByBodySize>
+                    <defaultData>
+                        <layer>100</layer>
+                    </defaultData>
+                    <dataSouth>
+                        <offset>(0, 0, 0)</offset>
+                    </dataSouth>
+                    <dataNorth>
+                        <offset>(0, 0, -0.25)</offset>
+                    </dataNorth>
+                    <dataEast>
+                        <offset>(-0.4, 0, 0)</offset>
+                    </dataEast>
+                    <dataWest>
+                        <offset>(0.4, 0, 0)</offset>
+                    </dataWest>
+                </drawData>
+            </li>
+        </renderNodeProperties>
+    </HediffDef>
+
+    <HediffDef ParentName="ExSymbiotes_SymbiosisBase">
+        <defName>ExSymbiotes_Symbiosis_Red</defName>
+        <label>symbiosis (Red)</label>
+        <stages>
+            <li>
+                <statFactors>
+                    <MeleeDamageFactor>2</MeleeDamageFactor>
+                    <MoveSpeed>1.75</MoveSpeed>
+                    <WorkSpeedGlobal>2.0</WorkSpeedGlobal>
+                </statFactors>
+                <damageFactors>
+                    <Flame>3</Flame>
+                    <Burn>3</Burn>
+                </damageFactors>
+                <statOffsets>
+                    <ToxicResistance>1</ToxicResistance>
+                    <ComfyTemperatureMax>100</ComfyTemperatureMax>
+                    <ComfyTemperatureMin>-200</ComfyTemperatureMin>
+                </statOffsets>
+                <capMods>
+                    <li><capacity>Consciousness</capacity><postFactor>1.50</postFactor></li>
+                    <li><capacity>Hearing</capacity><postFactor>1.50</postFactor></li>
+                    <li><capacity>Talking</capacity><postFactor>1.50</postFactor></li>
+                    <li><capacity>Manipulation</capacity><postFactor>1.50</postFactor></li>
+                    <li><capacity>Sight</capacity><postFactor>1.50</postFactor></li>
+                    <li><capacity>Eating</capacity><postFactor>1.50</postFactor></li>
+                    <li><capacity>BloodPumping</capacity><postFactor>1.50</postFactor></li>
+                    <li><capacity>BloodFiltration</capacity><postFactor>1.50</postFactor></li>
+                    <li><capacity>Breathing</capacity><postFactor>1.50</postFactor></li>
+                </capMods>
+                <regeneration>50</regeneration>
+            </li>
+        </stages>
+        <comps>
+            <li Class="ExSymbiotes.HediffCompProperties_Symbiosis">
+                <color>(156, 9, 9)</color>
+                <hair>(156, 9, 9)</hair>
+            </li>
+            <li Class="HediffCompProperties_GiveAbility">
+                <abilityDefs>
+                    <li>ExSymbiotes_SymbioticTendrils</li>
+                    <li>ExSymbiotes_SymbioticScythe</li>
+                    <li MayRequire="Ludeon.RimWorld.Biotech">ExSymbiotes_SymbioticLongjump</li>
+                </abilityDefs>
+            </li>
+        </comps>
+    </HediffDef>
+
+    <HediffDef ParentName="ExSymbiotes_SymbiosisBase">
+        <defName>ExSymbiotes_Symbiosis_White</defName>
+        <label>symbiosis (White)</label>
+        <stages>
+            <li>
+                <statFactors>
+                    <MeleeDamageFactor>1.5</MeleeDamageFactor>
+                    <MoveSpeed>1.50</MoveSpeed>
+                    <WorkSpeedGlobal>2.0</WorkSpeedGlobal>
+                    <IncomingDamageFactor>0.5</IncomingDamageFactor>
+                </statFactors>
+                <statOffsets>
+                    <ToxicResistance>1</ToxicResistance>
+                    <ComfyTemperatureMax>100</ComfyTemperatureMax>
+                    <ComfyTemperatureMin>-200</ComfyTemperatureMin>
+                </statOffsets>
+                <capMods>
+                    <li><capacity>Consciousness</capacity><postFactor>1.50</postFactor></li>
+                    <li><capacity>Hearing</capacity><postFactor>1.50</postFactor></li>
+                    <li><capacity>Talking</capacity><postFactor>1.50</postFactor></li>
+                    <li><capacity>Manipulation</capacity><postFactor>1.50</postFactor></li>
+                    <li><capacity>Sight</capacity><postFactor>1.50</postFactor></li>
+                    <li><capacity>Eating</capacity><postFactor>1.50</postFactor></li>
+                    <li><capacity>BloodPumping</capacity><postFactor>1.50</postFactor></li>
+                    <li><capacity>BloodFiltration</capacity><postFactor>1.50</postFactor></li>
+                    <li><capacity>Breathing</capacity><postFactor>1.50</postFactor></li>
+                </capMods>
+                <regeneration>200</regeneration>
+            </li>
+        </stages>
+        <comps Inherit="False">
+            <li Class="ExSymbiotes.HediffCompProperties_Symbiosis">
+                <color>(240, 240, 240)</color>
+                <hair>(31, 27, 28)</hair>
+            </li>
+            <li Class="HediffCompProperties_GiveAbility">
+                <abilityDefs>
+                    <li>ExSymbiotes_SymbioticArmor</li>
+                    <li MayRequire="Ludeon.RimWorld.Biotech">ExSymbiotes_SymbioticCoagulate</li>
+                    <li>ExSymbiotes_SymbioticHealer</li>
+                    <li>ExSymbiotes_SymbioticResurrect</li>
+                    <li>ExSymbiotes_SymbioticTendrilsWeak</li>
+                    <li MayRequire="Ludeon.RimWorld.Biotech">ExSymbiotes_SymbioticLongjump</li>
+                </abilityDefs>
+            </li>
+        </comps>
+    </HediffDef>
+
+    <HediffDef ParentName="ExSymbiotes_SymbiosisBase">
+        <defName>ExSymbiotes_Symbiosis_Yellow</defName>
+        <label>symbiosis (Yellow)</label>
+        <stages>
+            <li>
+                <statFactors>
+                    <MeleeDamageFactor>2</MeleeDamageFactor>
+                    <MoveSpeed>1.75</MoveSpeed>
+                    <WorkSpeedGlobal>2.0</WorkSpeedGlobal>
+                </statFactors>
+                <damageFactors>
+                    <Flame>3</Flame>
+                    <Burn>3</Burn>
+                </damageFactors>
+                <statOffsets>
+                    <ToxicResistance>1</ToxicResistance>
+                    <ComfyTemperatureMax>100</ComfyTemperatureMax>
+                    <ComfyTemperatureMin>-200</ComfyTemperatureMin>
+                </statOffsets>
+                <capMods>
+                    <li><capacity>Consciousness</capacity><postFactor>1.50</postFactor></li>
+                    <li><capacity>Hearing</capacity><postFactor>1.50</postFactor></li>
+                    <li><capacity>Talking</capacity><postFactor>1.50</postFactor></li>
+                    <li><capacity>Manipulation</capacity><postFactor>1.50</postFactor></li>
+                    <li><capacity>Sight</capacity><postFactor>1.50</postFactor></li>
+                    <li><capacity>Eating</capacity><postFactor>1.50</postFactor></li>
+                    <li><capacity>BloodPumping</capacity><postFactor>1.50</postFactor></li>
+                    <li><capacity>BloodFiltration</capacity><postFactor>1.50</postFactor></li>
+                    <li><capacity>Breathing</capacity><postFactor>1.50</postFactor></li>
+                </capMods>
+                <regeneration>50</regeneration>
+            </li>
+        </stages>
+        <comps>
+            <li Class="ExSymbiotes.HediffCompProperties_Symbiosis">
+                <color>(255, 215, 0)</color>
+                <hair>(156, 9, 9)</hair>
+            </li>
+            <li Class="HediffCompProperties_GiveAbility">
+                <abilityDefs>
+                    <li>ExSymbiotes_SymbioticTendrils</li>
+                    <li MayRequire="Ludeon.RimWorld.Biotech">ExSymbiotes_SymbioticLongjump</li>
+                    <li>ExSymbiotes_SymbioticStun</li>
+                    <li>ExSymbiotes_SymbioticWhip</li>
+                </abilityDefs>
+            </li>
+        </comps>
+    </HediffDef>
+
+<!--    ABILITIES   -->
+    <HediffDef>
+        <defName>ExSymbiotes_SymbioticArmor</defName>
+        <label>symbiotic armor</label>
+        <hediffClass>HediffWithComps</hediffClass>
+        <description>The symbiote builds a hardened overlay of tissue over the user.</description>
+        <isBad>false</isBad>
+        <stages>
+            <li>
+                <statOffsets>
+                    <ArmorRating_Sharp>0.2</ArmorRating_Sharp>
+                    <ArmorRating_Blunt>0.2</ArmorRating_Blunt>
+                </statOffsets>
+                <statFactors>
+                    <ArmorRating_Sharp>1.20</ArmorRating_Sharp>
+                    <ArmorRating_Blunt>1.20</ArmorRating_Blunt>
+                </statFactors>
+                <regeneration>250</regeneration>
+            </li>
+        </stages>
+        <comps>
+            <li Class="ExSymbiotes.HediffCompProperties_SymbioticArmor"/>
+            <li Class="HediffCompProperties_Disappears">
+                <showRemainingTime>True</showRemainingTime>
+            </li>
+            <li Class="HediffCompProperties_DisappearsOnDeath"/>
+        </comps>
+    </HediffDef>
+
+    <HediffDef>
+        <defName>ExSymbiotes_SymbioticScythe</defName>
+        <label>symbiotic scythe</label>
+        <hediffClass>HediffWithComps</hediffClass>
+        <description>The symbiote mutates the user arm into a scythe.</description>
+        <isBad>false</isBad>
+        <stages>
+            <li>
+                <statFactors>
+                    <MoveSpeed>2</MoveSpeed>
+                </statFactors>
+                <regeneration>50</regeneration>
+            </li>
+        </stages>
+        <comps>
+            <li Class="ExSymbiotes.HediffCompProperties_SymbioticScythe"/>
+            <li Class="HediffCompProperties_Disappears">
+                <showRemainingTime>True</showRemainingTime>
+            </li>
+            <li Class="HediffCompProperties_DisappearsOnDeath"/>
+        </comps>
+    </HediffDef>
+
+    <HediffDef Name="ExSymbiotes_SymbioticTendrilsHediffDef">
+        <defName>ExSymbiotes_SymbioticTendrils</defName>
+        <label>symbiotic tendrils</label>
+        <hediffClass>HediffWithComps</hediffClass>
+        <description>Four symbiotic tendrils protude from the back of the user shooting enemies that get too close.</description>
+        <isBad>false</isBad>
+        <stages>
+            <li>
+                <statFactors>
+                    <MeleeCooldownFactor>0.40</MeleeCooldownFactor>
+                    <WorkSpeedGlobal>4.0</WorkSpeedGlobal>
+                </statFactors>
+                <capMods>
+                    <li><capacity>Manipulation</capacity><postFactor>4</postFactor></li>
+                </capMods>
+            </li>
+        </stages>
+        <renderNodeProperties>
+            <li Class="ExSymbiotes.PawnRenderNodeProperties_SpasticSymbiote">
+                <texPaths>
+                    <li>Things/Pawn/Humanlike/BodyAttachments/FleshWhipLimb/FleshWhipLimbD</li>
+                </texPaths>
+                <parentTagDef>Body</parentTagDef>
+                <overrideMeshSize>1</overrideMeshSize>
+                <drawSize>2</drawSize>
+                <colorType>Skin</colorType>
+                <rotDrawMode>Fresh, Rotting</rotDrawMode>
+                <useSkinShader>true</useSkinShader>
+                <useRottenColor>true</useRottenColor>
+                <rotationRange>-15~15</rotationRange>
+                <durationTicksRange>10~35</durationTicksRange>
+                <nextSpasmTicksRange>10~50</nextSpasmTicksRange>
+                <drawData>
+                    <scaleOffsetByBodySize>true</scaleOffsetByBodySize>
+                    <dataSouth>
+                        <offset>(-0.1, 0, 0.05)</offset>
+                        <rotationOffset>-45</rotationOffset>
+                        <layer>0</layer>
+                    </dataSouth>
+                    <dataNorth>
+                        <offset>(0.1, 0, 0.05)</offset>
+                        <rotationOffset>-225</rotationOffset>
+                        <layer>100</layer>
+                        <flip>true</flip>
+                    </dataNorth>
+                    <dataEast>
+                        <offset>(-0.1, 0, 0.05)</offset>
+                        <rotationOffset>-90</rotationOffset>
+                        <layer>90</layer>
+                        <flip>true</flip>
+                    </dataEast>
+                    <dataWest>
+                        <offset>(0.1, 0, 0.05)</offset>
+                        <rotationOffset>-90</rotationOffset>
+                        <layer>0</layer>
+                    </dataWest>
+                </drawData>
+            </li>
+            <li Class="ExSymbiotes.PawnRenderNodeProperties_SpasticSymbiote">
+                <texPaths>
+                    <li>Things/Pawn/Humanlike/BodyAttachments/FleshWhipLimb/FleshWhipLimbD</li>
+                </texPaths>
+                <parentTagDef>Body</parentTagDef>
+                <overrideMeshSize>1</overrideMeshSize>
+                <drawSize>2</drawSize>
+                <colorType>Skin</colorType>
+                <rotDrawMode>Fresh, Rotting</rotDrawMode>
+                <useSkinShader>true</useSkinShader>
+                <useRottenColor>true</useRottenColor>
+                <rotationRange>-15~15</rotationRange>
+                <durationTicksRange>10~35</durationTicksRange>
+                <nextSpasmTicksRange>10~50</nextSpasmTicksRange>
+                <drawData>
+                    <scaleOffsetByBodySize>true</scaleOffsetByBodySize>
+                    <dataSouth>
+                        <offset>(0.1, 0, 0.05)</offset>
+                        <rotationOffset>-45</rotationOffset>
+                        <layer>0</layer>
+                        <flip>true</flip>
+                    </dataSouth>
+                    <dataNorth>
+                        <offset>(-0.1, 0, 0.05)</offset>
+                        <rotationOffset>-225</rotationOffset>
+                        <layer>101</layer>
+                    </dataNorth>
+                    <dataEast>
+                        <offset>(-0.1, 0, 0.05)</offset>
+                        <rotationOffset>-90</rotationOffset>
+                        <layer>0</layer>
+                        <flip>true</flip>
+                    </dataEast>
+                    <dataWest>
+                        <offset>(0.1, 0, 0.05)</offset>
+                        <rotationOffset>-90</rotationOffset>
+                        <layer>90</layer>
+                    </dataWest>
+                </drawData>
+            </li>
+            <li Class="ExSymbiotes.PawnRenderNodeProperties_SpasticSymbiote">
+                <texPaths>
+                    <li>Things/Pawn/Humanlike/BodyAttachments/FleshWhipLimb/FleshWhipLimbC</li>
+                </texPaths>
+                <parentTagDef>Body</parentTagDef>
+                <overrideMeshSize>1</overrideMeshSize>
+                <drawSize>2</drawSize>
+                <colorType>Skin</colorType>
+                <rotDrawMode>Fresh, Rotting</rotDrawMode>
+                <useSkinShader>true</useSkinShader>
+                <useRottenColor>true</useRottenColor>
+                <rotationRange>-15~15</rotationRange>
+                <durationTicksRange>10~35</durationTicksRange>
+                <nextSpasmTicksRange>10~50</nextSpasmTicksRange>
+                <drawData>
+                    <scaleOffsetByBodySize>true</scaleOffsetByBodySize>
+                    <dataSouth>
+                        <offset>(0.1, 0, -0.05)</offset>
+                        <rotationOffset>-90</rotationOffset>
+                        <layer>0</layer>
+                    </dataSouth>
+                    <dataNorth>
+                        <offset>(-0.05, 0, -0.05)</offset>
+                        <rotationOffset>-90</rotationOffset>
+                        <layer>100</layer>
+                        <flip>true</flip>
+                    </dataNorth>
+                    <dataEast>
+                        <offset>(-0.1, 0, -0.05)</offset>
+                        <rotationOffset>-180</rotationOffset>
+                        <layer>91</layer>
+                        <flip>true</flip>
+                    </dataEast>
+                    <dataWest>
+                        <offset>(0.1, 0, -0.05)</offset>
+                        <rotationOffset>-180</rotationOffset>
+                        <layer>0</layer>
+                    </dataWest>
+                </drawData>
+            </li>
+            <li Class="ExSymbiotes.PawnRenderNodeProperties_SpasticSymbiote">
+                <texPaths>
+                    <li>Things/Pawn/Humanlike/BodyAttachments/FleshWhipLimb/FleshWhipLimbC</li>
+                </texPaths>
+                <parentTagDef>Body</parentTagDef>
+                <overrideMeshSize>1</overrideMeshSize>
+                <drawSize>2</drawSize>
+                <colorType>Skin</colorType>
+                <rotDrawMode>Fresh, Rotting</rotDrawMode>
+                <useSkinShader>true</useSkinShader>
+                <useRottenColor>true</useRottenColor>
+                <rotationRange>-15~15</rotationRange>
+                <durationTicksRange>10~35</durationTicksRange>
+                <nextSpasmTicksRange>10~50</nextSpasmTicksRange>
+                <drawData>
+                    <scaleOffsetByBodySize>true</scaleOffsetByBodySize>
+                    <dataSouth>
+                        <offset>(-0.1, 0, -0.05)</offset>
+                        <rotationOffset>-90</rotationOffset>
+                        <layer>0</layer>
+                        <flip>true</flip>
+                    </dataSouth>
+                    <dataNorth>
+                        <offset>(0.05, 0, -0.05)</offset>
+                        <rotationOffset>-90</rotationOffset>
+                        <layer>100</layer>
+                    </dataNorth>
+                    <dataEast>
+                        <offset>(-0.1, 0, -0.05)</offset>
+                        <rotationOffset>-180</rotationOffset>
+                        <layer>0</layer>
+                        <flip>true</flip>
+                    </dataEast>
+                    <dataWest>
+                        <offset>(0.1, 0, -0.05)</offset>
+                        <rotationOffset>-180</rotationOffset>
+                        <layer>91</layer>
+                    </dataWest>
+                </drawData>
+            </li>
+        </renderNodeProperties>
+        <addedPartProps> 
+            <solid>true</solid>
+            <partEfficiency>2</partEfficiency>
+        </addedPartProps>
+        <comps>
+            <li Class="ExSymbiotes.HediffCompProperties_SymbioticTendrils">
+                <turretGunDef>ExSymbiotes_TendrilTurret</turretGunDef>
+                <cd>2</cd>
+            </li>
+            <li Class="HediffCompProperties_Disappears">
+                <showRemainingTime>True</showRemainingTime>
+            </li>
+            <li Class="HediffCompProperties_DisappearsOnDeath"/>
+        </comps>
+    </HediffDef>
+
+    <HediffDef ParentName="ExSymbiotes_SymbioticTendrilsHediffDef">
+        <defName>ExSymbiotes_SymbioticTendrilsWeak</defName>
+        <stages Inherit="False">
+            <li>
+                <statFactors>
+                    <WorkSpeedGlobal>4.0</WorkSpeedGlobal>
+                </statFactors>
+                <capMods>
+                    <li><capacity>Manipulation</capacity><postFactor>2</postFactor></li>
+                </capMods>
+            </li>
+        </stages>
+        <comps Inherit="False">
+            <li Class="ExSymbiotes.HediffCompProperties_SymbioticTendrils">
+                <turretGunDef>ExSymbiotes_TendrilTurretBlack</turretGunDef>
+                <cd>4</cd>
+            </li>
+            <li Class="HediffCompProperties_Disappears">
+                <showRemainingTime>True</showRemainingTime>
+            </li>
+            <li Class="HediffCompProperties_DisappearsOnDeath"/>
+        </comps>
+    </HediffDef>
+
+<!--    CONTROLLED  -->
+    <HediffDef Name="ExSymbiotes_SymbioteControl">
+        <defName>ExSymbiotes_SymbioteControl</defName>
+        <label>symbiote control (black)</label>
+        <hediffClass>HediffWithComps</hediffClass>
+        <description>This creature has been taken over by a symbiote. It will create a new symbiote in the span of a day. The symbiote will abandon its host once it recieves enough damage or if it is disrupted with fire or EMP.</description>
+        <isBad>true</isBad>
+        <initialSeverity>0.001</initialSeverity>
+        <maxSeverity>1</maxSeverity>
+        <alwaysShowSeverity>true</alwaysShowSeverity>
+        <stages>
+            <li>
+                <minSeverity>0</minSeverity>
+                <statFactors>
+                    <MeleeDamageFactor>1.5</MeleeDamageFactor>
+                    <MoveSpeed>1.50</MoveSpeed>
+                    <ArmorRating_Sharp>1.20</ArmorRating_Sharp>
+                    <ArmorRating_Blunt>1.20</ArmorRating_Blunt>
+                </statFactors>
+                <statOffsets>
+                    <ArmorRating_Sharp>0.2</ArmorRating_Sharp>
+                    <ArmorRating_Blunt>0.2</ArmorRating_Blunt>
+                    <ToxicResistance>1</ToxicResistance>
+                    <ComfyTemperatureMax>100</ComfyTemperatureMax>
+                    <ComfyTemperatureMin>-200</ComfyTemperatureMin>
+                </statOffsets>
+                <capMods>
+                    <li><capacity>Consciousness</capacity><postFactor>1.50</postFactor></li>
+                    <li><capacity>Hearing</capacity><postFactor>1.50</postFactor></li>
+                    <li><capacity>Talking</capacity><postFactor>1.50</postFactor></li>
+                    <li><capacity>Manipulation</capacity><postFactor>1.50</postFactor></li>
+                    <li><capacity>Sight</capacity><postFactor>1.50</postFactor></li>
+                    <li><capacity>Eating</capacity><postFactor>1.50</postFactor></li>
+                    <li><capacity>BloodPumping</capacity><postFactor>1.50</postFactor></li>
+                    <li><capacity>BloodFiltration</capacity><postFactor>1.50</postFactor></li>
+                    <li><capacity>Breathing</capacity><postFactor>1.50</postFactor></li>
+                </capMods>
+                <regeneration>350</regeneration>
+                <disablesNeeds>
+                    <li>Food</li>
+                    <li>Rest</li>
+                </disablesNeeds>
+            </li>
+        </stages>
+        <comps>
+            <li Class="HediffCompProperties_SeverityPerDay">
+                <severityPerDay>0.55</severityPerDay>
+            </li>
+            <li Class="ExSymbiotes.HediffCompProperties_SymbioteControl">
+                <color>(31, 27, 28)</color>
+                <messageEmerged>{PAWN_nameDef} emerged from the symbiote.</messageEmerged>
+                <messageEmergedCause>The {CAUSE} made the symbiote leave {PAWN_nameDef} body.</messageEmergedCause>
+                <messageEmergedCorpse>{PAWN_nameDef} emerged from the symbiote's corpse.</messageEmergedCorpse>
+            </li>
+            <li Class="ExSymbiotes.HediffCompProperties_ReactOnDamageStack">
+                <damageDefIncoming>EMP</damageDefIncoming>
+                <createHediff>ExSymbiotes_Shock</createHediff>
+            </li>
+        </comps>
+        <renderNodeProperties>
+            <li Class="ExSymbiotes.PawnRenderNodeProperties_EyeSymbiote">
+                <texPath>Things/Pawn/Symbiote/Attachments/Eye/SymbioticEye</texPath>
+                <parentTagDef>Head</parentTagDef>
+                <anchorTag>RightEye</anchorTag>
+                <rotDrawMode>Fresh, Rotting</rotDrawMode>
+                <drawSize>0.40</drawSize>
+                <side>Right</side>
+                <drawData>
+                    <defaultData>
+                        <layer>89</layer>
+                        <offset>(-0.015, 0, -0.24)</offset>
+                    </defaultData>
+                </drawData>
+            </li>
+            <li Class="ExSymbiotes.PawnRenderNodeProperties_EyeSymbiote">
+                <texPath>Things/Pawn/Symbiote/Attachments/Eye/SymbioticEye</texPath>
+                <parentTagDef>Head</parentTagDef>
+                <anchorTag>LeftEye</anchorTag>
+                <rotDrawMode>Fresh, Rotting</rotDrawMode>
+                <drawSize>0.40</drawSize>
+                <side>Left</side>
+                <drawData>
+                    <defaultData>
+                        <layer>89</layer>
+                        <offset>(+0.015, 0, -0.24)</offset>
+                        <flip>true</flip>
+                    </defaultData>
+                    <dataWest>
+                        <flip>false</flip>
+                    </dataWest>
+                </drawData>
+            </li>
+        </renderNodeProperties>
+    </HediffDef>
+    
+    <HediffDef ParentName="ExSymbiotes_SymbioteControl">
+        <defName>ExSymbiotes_SymbioteControlRed</defName>
+        <label>symbiote control (red)</label>
+        <stages Inherit="False">
+            <li>
+                <statFactors>
+                    <MeleeCooldownFactor>0.60</MeleeCooldownFactor>
+                    <MeleeDamageFactor>2</MeleeDamageFactor>
+                    <MoveSpeed>1.75</MoveSpeed>
+                </statFactors>
+                <statOffsets>
+                    <ToxicResistance>1</ToxicResistance>
+                    <ComfyTemperatureMax>100</ComfyTemperatureMax>
+                    <ComfyTemperatureMin>-200</ComfyTemperatureMin>
+                </statOffsets>
+                <capMods>
+                    <li><capacity>Consciousness</capacity><postFactor>1.50</postFactor></li>
+                    <li><capacity>Hearing</capacity><postFactor>1.50</postFactor></li>
+                    <li><capacity>Talking</capacity><postFactor>1.50</postFactor></li>
+                    <li><capacity>Manipulation</capacity><postFactor>1.50</postFactor></li>
+                    <li><capacity>Sight</capacity><postFactor>1.50</postFactor></li>
+                    <li><capacity>Eating</capacity><postFactor>1.50</postFactor></li>
+                    <li><capacity>BloodPumping</capacity><postFactor>1.50</postFactor></li>
+                    <li><capacity>BloodFiltration</capacity><postFactor>1.50</postFactor></li>
+                    <li><capacity>Breathing</capacity><postFactor>1.50</postFactor></li>
+                </capMods>
+                <regeneration>350</regeneration>
+                <disablesNeeds>
+                    <li>Rest</li>
+                </disablesNeeds>
+            </li>
+        </stages>
+        <renderNodeProperties>
+            <li Class="ExSymbiotes.PawnRenderNodeProperties_SpasticSymbiote">
+                <pawnType>HumanlikeOnly</pawnType>
+                <texPaths>
+                    <li>Things/Pawn/Humanlike/BodyAttachments/FleshWhipLimb/FleshWhipLimbD</li>
+                </texPaths>
+                <parentTagDef>Body</parentTagDef>
+                <overrideMeshSize>1</overrideMeshSize>
+                <drawSize>2</drawSize>
+                <colorType>Skin</colorType>
+                <rotDrawMode>Fresh, Rotting</rotDrawMode>
+                <useSkinShader>true</useSkinShader>
+                <useRottenColor>true</useRottenColor>
+                <rotationRange>-15~15</rotationRange>
+                <durationTicksRange>10~35</durationTicksRange>
+                <nextSpasmTicksRange>10~50</nextSpasmTicksRange>
+                <drawData>
+                    <scaleOffsetByBodySize>true</scaleOffsetByBodySize>
+                    <dataSouth>
+                        <offset>(-0.1, 0, 0.05)</offset>
+                        <rotationOffset>-45</rotationOffset>
+                        <layer>0</layer>
+                    </dataSouth>
+                    <dataNorth>
+                        <offset>(0.1, 0, 0.05)</offset>
+                        <rotationOffset>-225</rotationOffset>
+                        <layer>100</layer>
+                        <flip>true</flip>
+                    </dataNorth>
+                    <dataEast>
+                        <offset>(-0.1, 0, 0.05)</offset>
+                        <rotationOffset>-90</rotationOffset>
+                        <layer>90</layer>
+                        <flip>true</flip>
+                    </dataEast>
+                    <dataWest>
+                        <offset>(0.1, 0, 0.05)</offset>
+                        <rotationOffset>-90</rotationOffset>
+                        <layer>0</layer>
+                    </dataWest>
+                </drawData>
+            </li>
+            <li Class="ExSymbiotes.PawnRenderNodeProperties_SpasticSymbiote">
+                <pawnType>HumanlikeOnly</pawnType>
+                <texPaths>
+                    <li>Things/Pawn/Humanlike/BodyAttachments/FleshWhipLimb/FleshWhipLimbD</li>
+                </texPaths>
+                <parentTagDef>Body</parentTagDef>
+                <overrideMeshSize>1</overrideMeshSize>
+                <drawSize>2</drawSize>
+                <colorType>Skin</colorType>
+                <rotDrawMode>Fresh, Rotting</rotDrawMode>
+                <useSkinShader>true</useSkinShader>
+                <useRottenColor>true</useRottenColor>
+                <rotationRange>-15~15</rotationRange>
+                <durationTicksRange>10~35</durationTicksRange>
+                <nextSpasmTicksRange>10~50</nextSpasmTicksRange>
+                <drawData>
+                    <scaleOffsetByBodySize>true</scaleOffsetByBodySize>
+                    <dataSouth>
+                        <offset>(0.1, 0, 0.05)</offset>
+                        <rotationOffset>-45</rotationOffset>
+                        <layer>0</layer>
+                        <flip>true</flip>
+                    </dataSouth>
+                    <dataNorth>
+                        <offset>(-0.1, 0, 0.05)</offset>
+                        <rotationOffset>-225</rotationOffset>
+                        <layer>101</layer>
+                    </dataNorth>
+                    <dataEast>
+                        <offset>(-0.1, 0, 0.05)</offset>
+                        <rotationOffset>-90</rotationOffset>
+                        <layer>0</layer>
+                        <flip>true</flip>
+                    </dataEast>
+                    <dataWest>
+                        <offset>(0.1, 0, 0.05)</offset>
+                        <rotationOffset>-90</rotationOffset>
+                        <layer>90</layer>
+                    </dataWest>
+                </drawData>
+            </li>
+            <li Class="ExSymbiotes.PawnRenderNodeProperties_SpasticSymbiote">
+                <pawnType>HumanlikeOnly</pawnType>
+                <texPaths>
+                    <li>Things/Pawn/Humanlike/BodyAttachments/FleshWhipLimb/FleshWhipLimbC</li>
+                </texPaths>
+                <parentTagDef>Body</parentTagDef>
+                <overrideMeshSize>1</overrideMeshSize>
+                <drawSize>2</drawSize>
+                <colorType>Skin</colorType>
+                <rotDrawMode>Fresh, Rotting</rotDrawMode>
+                <useSkinShader>true</useSkinShader>
+                <useRottenColor>true</useRottenColor>
+                <rotationRange>-15~15</rotationRange>
+                <durationTicksRange>10~35</durationTicksRange>
+                <nextSpasmTicksRange>10~50</nextSpasmTicksRange>
+                <drawData>
+                    <scaleOffsetByBodySize>true</scaleOffsetByBodySize>
+                    <dataSouth>
+                        <offset>(0.1, 0, -0.05)</offset>
+                        <rotationOffset>-90</rotationOffset>
+                        <layer>0</layer>
+                    </dataSouth>
+                    <dataNorth>
+                        <offset>(-0.05, 0, -0.05)</offset>
+                        <rotationOffset>-90</rotationOffset>
+                        <layer>100</layer>
+                        <flip>true</flip>
+                    </dataNorth>
+                    <dataEast>
+                        <offset>(-0.1, 0, -0.05)</offset>
+                        <rotationOffset>-180</rotationOffset>
+                        <layer>91</layer>
+                        <flip>true</flip>
+                    </dataEast>
+                    <dataWest>
+                        <offset>(0.1, 0, -0.05)</offset>
+                        <rotationOffset>-180</rotationOffset>
+                        <layer>0</layer>
+                    </dataWest>
+                </drawData>
+            </li>
+            <li Class="ExSymbiotes.PawnRenderNodeProperties_SpasticSymbiote">
+                <pawnType>HumanlikeOnly</pawnType>
+                <texPaths>
+                    <li>Things/Pawn/Humanlike/BodyAttachments/FleshWhipLimb/FleshWhipLimbC</li>
+                </texPaths>
+                <parentTagDef>Body</parentTagDef>
+                <overrideMeshSize>1</overrideMeshSize>
+                <drawSize>2</drawSize>
+                <colorType>Skin</colorType>
+                <rotDrawMode>Fresh, Rotting</rotDrawMode>
+                <useSkinShader>true</useSkinShader>
+                <useRottenColor>true</useRottenColor>
+                <rotationRange>-15~15</rotationRange>
+                <durationTicksRange>10~35</durationTicksRange>
+                <nextSpasmTicksRange>10~50</nextSpasmTicksRange>
+                <drawData>
+                    <scaleOffsetByBodySize>true</scaleOffsetByBodySize>
+                    <dataSouth>
+                        <offset>(-0.1, 0, -0.05)</offset>
+                        <rotationOffset>-90</rotationOffset>
+                        <layer>0</layer>
+                        <flip>true</flip>
+                    </dataSouth>
+                    <dataNorth>
+                        <offset>(0.05, 0, -0.05)</offset>
+                        <rotationOffset>-90</rotationOffset>
+                        <layer>100</layer>
+                    </dataNorth>
+                    <dataEast>
+                        <offset>(-0.1, 0, -0.05)</offset>
+                        <rotationOffset>-180</rotationOffset>
+                        <layer>0</layer>
+                        <flip>true</flip>
+                    </dataEast>
+                    <dataWest>
+                        <offset>(0.1, 0, -0.05)</offset>
+                        <rotationOffset>-180</rotationOffset>
+                        <layer>91</layer>
+                    </dataWest>
+                </drawData>
+            </li>
+            <!-- non human -->
+            <li Class="ExSymbiotes.PawnRenderNodeProperties_SpasticSymbiote">
+                <pawnType>NonHumanlikeOnly</pawnType>
+                <texPaths>
+                    <li>Things/Pawn/Humanlike/BodyAttachments/FleshWhipLimb/FleshWhipLimbD</li>
+                </texPaths>
+                <parentTagDef>Body</parentTagDef>
+                <overrideMeshSize>1</overrideMeshSize>
+                <drawSize>2</drawSize>
+                <rotDrawMode>Fresh, Rotting</rotDrawMode>
+                <useSkinShader>true</useSkinShader>
+                <useRottenColor>true</useRottenColor>
+                <rotationRange>-15~15</rotationRange>
+                <durationTicksRange>10~35</durationTicksRange>
+                <nextSpasmTicksRange>10~50</nextSpasmTicksRange>
+                <drawData>
+                    <scaleOffsetByBodySize>true</scaleOffsetByBodySize>
+                    <dataSouth>
+                        <offset>(-0.1, 0, 0.05)</offset>
+                        <rotationOffset>-45</rotationOffset>
+                        <layer>0</layer>
+                    </dataSouth>
+                    <dataNorth>
+                        <offset>(0.1, 0, 0.05)</offset>
+                        <rotationOffset>-225</rotationOffset>
+                        <layer>100</layer>
+                        <flip>true</flip>
+                    </dataNorth>
+                    <dataEast>
+                        <offset>(-0.1, 0, 0.05)</offset>
+                        <rotationOffset>-90</rotationOffset>
+                        <layer>90</layer>
+                        <flip>true</flip>
+                    </dataEast>
+                    <dataWest>
+                        <offset>(0.1, 0, 0.05)</offset>
+                        <rotationOffset>-90</rotationOffset>
+                        <layer>0</layer>
+                    </dataWest>
+                </drawData>
+            </li>
+            <li Class="ExSymbiotes.PawnRenderNodeProperties_SpasticSymbiote">
+                <pawnType>NonHumanlikeOnly</pawnType>
+                <texPaths>
+                    <li>Things/Pawn/Humanlike/BodyAttachments/FleshWhipLimb/FleshWhipLimbD</li>
+                </texPaths>
+                <parentTagDef>Body</parentTagDef>
+                <overrideMeshSize>1</overrideMeshSize>
+                <drawSize>2</drawSize>
+                <rotDrawMode>Fresh, Rotting</rotDrawMode>
+                <useSkinShader>true</useSkinShader>
+                <useRottenColor>true</useRottenColor>
+                <rotationRange>-15~15</rotationRange>
+                <durationTicksRange>10~35</durationTicksRange>
+                <nextSpasmTicksRange>10~50</nextSpasmTicksRange>
+                <drawData>
+                    <scaleOffsetByBodySize>true</scaleOffsetByBodySize>
+                    <dataSouth>
+                        <offset>(0.1, 0, 0.05)</offset>
+                        <rotationOffset>-45</rotationOffset>
+                        <layer>0</layer>
+                        <flip>true</flip>
+                    </dataSouth>
+                    <dataNorth>
+                        <offset>(-0.1, 0, 0.05)</offset>
+                        <rotationOffset>-225</rotationOffset>
+                        <layer>101</layer>
+                    </dataNorth>
+                    <dataEast>
+                        <offset>(-0.1, 0, 0.05)</offset>
+                        <rotationOffset>-90</rotationOffset>
+                        <layer>0</layer>
+                        <flip>true</flip>
+                    </dataEast>
+                    <dataWest>
+                        <offset>(0.1, 0, 0.05)</offset>
+                        <rotationOffset>-90</rotationOffset>
+                        <layer>90</layer>
+                    </dataWest>
+                </drawData>
+            </li>
+            <li Class="ExSymbiotes.PawnRenderNodeProperties_SpasticSymbiote">
+                <pawnType>NonHumanlikeOnly</pawnType>
+                <texPaths>
+                    <li>Things/Pawn/Humanlike/BodyAttachments/FleshWhipLimb/FleshWhipLimbC</li>
+                </texPaths>
+                <parentTagDef>Body</parentTagDef>
+                <overrideMeshSize>1</overrideMeshSize>
+                <drawSize>2</drawSize>
+                <rotDrawMode>Fresh, Rotting</rotDrawMode>
+                <useSkinShader>true</useSkinShader>
+                <useRottenColor>true</useRottenColor>
+                <rotationRange>-15~15</rotationRange>
+                <durationTicksRange>10~35</durationTicksRange>
+                <nextSpasmTicksRange>10~50</nextSpasmTicksRange>
+                <drawData>
+                    <scaleOffsetByBodySize>true</scaleOffsetByBodySize>
+                    <dataSouth>
+                        <offset>(0.1, 0, -0.05)</offset>
+                        <rotationOffset>-90</rotationOffset>
+                        <layer>0</layer>
+                    </dataSouth>
+                    <dataNorth>
+                        <offset>(-0.05, 0, -0.05)</offset>
+                        <rotationOffset>-90</rotationOffset>
+                        <layer>100</layer>
+                        <flip>true</flip>
+                    </dataNorth>
+                    <dataEast>
+                        <offset>(-0.1, 0, -0.05)</offset>
+                        <rotationOffset>-180</rotationOffset>
+                        <layer>91</layer>
+                        <flip>true</flip>
+                    </dataEast>
+                    <dataWest>
+                        <offset>(0.1, 0, -0.05)</offset>
+                        <rotationOffset>-180</rotationOffset>
+                        <layer>0</layer>
+                    </dataWest>
+                </drawData>
+            </li>
+            <li Class="ExSymbiotes.PawnRenderNodeProperties_SpasticSymbiote">
+                <pawnType>NonHumanlikeOnly</pawnType>
+                <texPaths>
+                    <li>Things/Pawn/Humanlike/BodyAttachments/FleshWhipLimb/FleshWhipLimbC</li>
+                </texPaths>
+                <parentTagDef>Body</parentTagDef>
+                <overrideMeshSize>1</overrideMeshSize>
+                <drawSize>2</drawSize>
+                <rotDrawMode>Fresh, Rotting</rotDrawMode>
+                <useSkinShader>true</useSkinShader>
+                <useRottenColor>true</useRottenColor>
+                <rotationRange>-15~15</rotationRange>
+                <durationTicksRange>10~35</durationTicksRange>
+                <nextSpasmTicksRange>10~50</nextSpasmTicksRange>
+                <drawData>
+                    <scaleOffsetByBodySize>true</scaleOffsetByBodySize>
+                    <dataSouth>
+                        <offset>(-0.1, 0, -0.05)</offset>
+                        <rotationOffset>-90</rotationOffset>
+                        <layer>0</layer>
+                        <flip>true</flip>
+                    </dataSouth>
+                    <dataNorth>
+                        <offset>(0.05, 0, -0.05)</offset>
+                        <rotationOffset>-90</rotationOffset>
+                        <layer>100</layer>
+                    </dataNorth>
+                    <dataEast>
+                        <offset>(-0.1, 0, -0.05)</offset>
+                        <rotationOffset>-180</rotationOffset>
+                        <layer>0</layer>
+                        <flip>true</flip>
+                    </dataEast>
+                    <dataWest>
+                        <offset>(0.1, 0, -0.05)</offset>
+                        <rotationOffset>-180</rotationOffset>
+                        <layer>91</layer>
+                    </dataWest>
+                </drawData>
+            </li>
+        </renderNodeProperties>
+        <addedPartProps>
+            <solid>true</solid>
+            <partEfficiency>2</partEfficiency>
+        </addedPartProps>
+        <comps Inherit="False">
+            <li Class="HediffCompProperties_SeverityPerDay">
+                <severityPerDay>0.33</severityPerDay>
+            </li>
+            <li Class="ExSymbiotes.HediffCompProperties_SymbioteControl">
+                <color>(156, 9, 9)</color>
+                <messageEmerged>{PAWN_nameDef} emerged from the symbiote.</messageEmerged>
+                <messageEmergedCause>The {CAUSE} made the symbiote leave {PAWN_nameDef} body.</messageEmergedCause>
+                <messageEmergedCorpse>{PAWN_nameDef} emerged from the symbiote's corpse.</messageEmergedCorpse>
+            </li>
+            <li Class="ExSymbiotes.HediffCompProperties_SymbioticTendrils">
+                <turretGunDef>ExSymbiotes_TendrilTurret</turretGunDef>
+                <cd>4</cd>
+            </li>
+            <li Class="ExSymbiotes.HediffCompProperties_ReactOnDamageStack">
+                <damageDefIncoming>EMP</damageDefIncoming>
+                <createHediff>ExSymbiotes_Shock</createHediff>
+            </li>
+        </comps>
+    </HediffDef>
+    
+<!--    HIVEMIND    -->
+    <HediffDef>
+        <defName>ExSymbiotes_HivemindConnection</defName>
+        <label>hivemind connection</label>
+        <hediffClass>ExSymbiotes.HediffWithComps_Hivemind</hediffClass>
+        <description>This symbiote is connected to the hivemind.</description>
+        <isBad>false</isBad>
+        <initialSeverity>0.05</initialSeverity>
+        <maxSeverity>1</maxSeverity>
+        <alwaysShowSeverity>true</alwaysShowSeverity>
+        <stages>
+            <li>
+                <minSeverity>0.1</minSeverity>
+            </li>
+            <li>
+                <minSeverity>0.2</minSeverity>
+                <statFactors>
+                    <IncomingDamageFactor>0.8</IncomingDamageFactor>
+                </statFactors>
+                <capMods>
+                    <li><capacity>Consciousness</capacity><postFactor>1.25</postFactor></li>
+                </capMods>
+                <regeneration>25</regeneration>
+            </li>
+            <li>
+                <minSeverity>0.4</minSeverity>
+                <statFactors>
+                    <IncomingDamageFactor>0.6</IncomingDamageFactor>
+                </statFactors>
+                <capMods>
+                    <li><capacity>Consciousness</capacity><postFactor>1.50</postFactor></li>
+                </capMods>
+                <regeneration>50</regeneration>
+            </li>
+            <li>
+                <minSeverity>0.6</minSeverity>
+                <statFactors>
+                    <IncomingDamageFactor>0.5</IncomingDamageFactor>
+                </statFactors>
+                <capMods>
+                    <li><capacity>Consciousness</capacity><postFactor>1.75</postFactor></li>
+                </capMods>
+                <regeneration>100</regeneration>
+            </li>
+            <li>
+                <minSeverity>0.8</minSeverity>
+                <statFactors>
+                    <IncomingDamageFactor>0.4</IncomingDamageFactor>
+                </statFactors>
+                <capMods>
+                    <li><capacity>Consciousness</capacity><postFactor>1.75</postFactor></li>
+                </capMods>
+                <regeneration>150</regeneration>
+            </li>
+            <li>
+                <minSeverity>1</minSeverity>
+                <statFactors>
+                    <IncomingDamageFactor>0.3</IncomingDamageFactor>
+                </statFactors>
+                <capMods>
+                    <li><capacity>Consciousness</capacity><postFactor>2</postFactor></li>
+                </capMods>
+                <regeneration>200</regeneration>
+            </li>
+        </stages>
+        <renderNodeProperties>
+            <li Class="PawnRenderNodeProperties_Eye">
+                <workerClass>ExSymbiotes.PawnRenderNodeWorker_EyeSymbiote</workerClass>
+                <texPath>Things/Pawn/Symbiote/Attachments/SymbioteSpiral/SymbioteSpiral</texPath>
+                <parentTagDef>Head</parentTagDef>
+                <anchorTag>Head</anchorTag>
+                <rotDrawMode>Fresh, Rotting</rotDrawMode>
+                <drawSize>0.25</drawSize>
+                <drawData>
+                    <defaultData>
+                        <layer>55</layer>
+                    </defaultData>
+                    <dataSouth>
+                        <offset>(0, 0, 0.07)</offset>
+                    </dataSouth>
+                    <dataEast>
+                        <offset>(0.18, 0, 0.07)</offset>
+                    </dataEast>
+                    <dataWest>
+                        <offset>(-0.18, 0, 0.07)</offset>
+                        <flip>true</flip>
+                    </dataWest>
+                </drawData>
+            </li>
+        </renderNodeProperties>
+        <comps>
+            <li Class="HediffCompProperties_GiveAbility">
+                <abilityDefs>
+                    <li>ExSymbiotes_SymbioticEnthrall</li>
+                    <li>ExSymbiotes_SymbioticConsume</li>
+                </abilityDefs>
+            </li>
+        </comps>
+    </HediffDef>
+
+    <HediffDef ParentName="ExSymbiotes_SymbioteControl">
+        <defName>ExSymbiotes_Thrall</defName>
+        <label>symbiote thrall</label>
+        <description>This symbiote is under the control of another symbiote.</description>
+        <lethalSeverity>1</lethalSeverity>
+        <renderNodeProperties>
+            <li Class="ExSymbiotes.PawnRenderNodeProperties_EyeSymbiote">
+                <texPath>Things/Pawn/Symbiote/Attachments/SymbioteSpiral/SymbioteSpiral</texPath>
+                <parentTagDef>Head</parentTagDef>
+                <anchorTag>Head</anchorTag>
+                <rotDrawMode>Fresh, Rotting</rotDrawMode>
+                <drawSize>0.25</drawSize>
+                <drawData>
+                    <defaultData>
+                        <layer>89</layer>
+                    </defaultData>
+                    <dataSouth>
+                        <offset>(0, 0, 0.07)</offset>
+                    </dataSouth>
+                    <dataEast>
+                        <offset>(0.18, 0, 0.07)</offset>
+                    </dataEast>
+                    <dataWest>
+                        <offset>(-0.18, 0, 0.07)</offset>
+                        <flip>true</flip>
+                    </dataWest>
+                </drawData>
+            </li>
+        </renderNodeProperties>
+        <comps Inherit="false">
+            <li Class="HediffCompProperties_SeverityPerDay">
+                <severityPerDay>0.10</severityPerDay>
+            </li>
+            <li Class="ExSymbiotes.HediffCompProperties_SymbioteThrall">
+                <color>(25, 25, 25)</color>
+                <messageEmerged>{PAWN_nameDef} emerged from the symbiote.</messageEmerged>
+                <messageEmergedCause>The {CAUSE} made the symbiote leave {PAWN_nameDef} body.</messageEmergedCause>
+                <messageEmergedCorpse>{PAWN_nameDef} emerged from the symbiote's corpse.</messageEmergedCorpse>
+            </li>
+            <li Class="ExSymbiotes.HediffCompProperties_ReactOnDamageStack">
+                <damageDefIncoming>EMP</damageDefIncoming>
+                <createHediff>ExSymbiotes_Shock</createHediff>
+            </li>
+        </comps>
+    </HediffDef>
+    
+<!--    MISC    -->
+    <HediffDef>
+        <defName>ExSymbiotes_Shock</defName>
+        <label>symbiote shock</label>
+        <labelNoun>a symbiote shock</labelNoun>
+        <description>After-effects of an electrical shock to the symbiote.</description>
+        <hediffClass>HediffWithComps</hediffClass>
+        <alwaysShowSeverity>true</alwaysShowSeverity>
+        <initialSeverity>0.1</initialSeverity>
+        <comps>
+            <li Class="HediffCompProperties_Disappears">
+                <disappearsAfterTicks>900~1200</disappearsAfterTicks>
+            </li>
+        </comps>
+        <stages>
+            <li>
+                <minSeverity>0</minSeverity>
+                <capMods>
+                    <li>
+                        <capacity>Consciousness</capacity>
+                        <postFactor>0.5</postFactor>
+                    </li>
+                </capMods>
+            </li>
+            <li>
+                <minSeverity>0.25</minSeverity>
+                <capMods>
+                    <li>
+                        <capacity>Consciousness</capacity>
+                        <postFactor>0.4</postFactor>
+                    </li>
+                </capMods>
+            </li>
+            <li>
+                <minSeverity>0.5</minSeverity>
+                <capMods>
+                    <li>
+                        <capacity>Consciousness</capacity>
+                        <postFactor>0.3</postFactor>
+                    </li>
+                </capMods>
+            </li>
+            <li>
+                <minSeverity>0.75</minSeverity>
+                <capMods>
+                    <li>
+                        <capacity>Consciousness</capacity>
+                        <postFactor>0.2</postFactor>
+                    </li>
+                </capMods>
+            </li>
+            <li>
+                <minSeverity>1</minSeverity>
+                <capMods>
+                    <li>
+                        <capacity>Consciousness</capacity>
+                        <setMax>0.1</setMax>
+                    </li>
+                </capMods>
+            </li>
+        </stages>
+    </HediffDef>
+</Defs>

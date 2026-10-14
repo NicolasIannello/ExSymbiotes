@@ -1,28 +1,28 @@
 <?xml version="1.0" encoding="utf-8"?>
-<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
-  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+<Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
-    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
-    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{092245BE-9487-4A30-AB75-4565351D3AFE}</ProjectGuid>
+    <TargetFramework>net10.0</TargetFramework>
     <OutputType>Library</OutputType>
-    <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>ExSymbiotes</RootNamespace>
-    <AssemblyName>ExSymbiotes</AssemblyName>
-    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
-    <FileAlignment>512</FileAlignment>
-    <Deterministic>true</Deterministic>
+    <DebugType>embedded</DebugType>
+    <AssemblyTitle>ExSymbiotes</AssemblyTitle>
+    <Product>ExSymbiotes</Product>
+    <Copyright>Copyright © Eximeisty</Copyright>
+    <Version>1.0.0</Version>
+    <LangVersion>latest</LangVersion>
+    <AppendTargetFrameworkToOutputPath>false</AppendTargetFrameworkToOutputPath>
+    <GenerateDependencyFile>false</GenerateDependencyFile>
+    <GenerateAssemblyInfo>false</GenerateAssemblyInfo>
   </PropertyGroup>
-  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+  <PropertyGroup Condition=" '$(Configuration)' == 'Debug' ">
     <DebugSymbols>true</DebugSymbols>
     <DebugType>embedded</DebugType>
     <Optimize>false</Optimize>
-    <OutputPath>..\1.6ExSymbiotes\Assemblies\</OutputPath>
+    <OutputPath>..\ExSymbiotesMod\1.7\Assemblies\</OutputPath>
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>5</WarningLevel>
   </PropertyGroup>
-  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+  <PropertyGroup Condition=" '$(Configuration)' == 'Release' ">
     <DebugType>pdbonly</DebugType>
     <Optimize>true</Optimize>
     <OutputPath>bin\Release\</OutputPath>
@@ -31,125 +31,22 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="Assembly-CSharp">
-      <HintPath>..\..\..\..\..\..\Program Files (x86)\Steam\steamapps\common\RimWorld\RimWorldWin64_Data\Managed\Assembly-CSharp.dll</HintPath>
-      <Private>False</Private>
-    </Reference>
-    <Reference Include="System" />
-    <Reference Include="System.Core" />
-    <Reference Include="System.Xml.Linq" />
-    <Reference Include="System.Data.DataSetExtensions" />
-    <Reference Include="Microsoft.CSharp" />
-    <Reference Include="System.Data" />
-    <Reference Include="System.Net.Http" />
-    <Reference Include="System.Xml" />
-    <Reference Include="UnityEngine.CoreModule">
-      <HintPath>..\..\..\..\..\..\Program Files (x86)\Steam\steamapps\common\RimWorld\RimWorldWin64_Data\Managed\UnityEngine.CoreModule.dll</HintPath>
-      <Private>False</Private>
-    </Reference>
-    <Reference Include="UnityEngine.IMGUIModule">
-      <HintPath>..\..\..\..\..\..\Program Files (x86)\Steam\steamapps\common\RimWorld\RimWorldWin64_Data\Managed\UnityEngine.IMGUIModule.dll</HintPath>
-      <Private>False</Private>
-    </Reference>
-    <Reference Include="UnityEngine.TextRenderingModule">
-      <HintPath>..\..\..\..\..\..\Program Files (x86)\Steam\steamapps\common\RimWorld\RimWorldWin64_Data\Managed\UnityEngine.TextRenderingModule.dll</HintPath>
-      <Private>False</Private>
-    </Reference>
-  </ItemGroup>
-  <ItemGroup>
-    <Compile Include="Combat\Projectile\SymbioticWhip.cs" />
-    <Compile Include="Combat\Verb\Verb_CastAbilityVenomLeap.cs" />
-    <Compile Include="Combat\Verb\Verb_SymbioticCannon.cs" />
-    <Compile Include="Comp\Hivemind\HediffWithComps_Hivemind.cs" />
-    <Compile Include="Comp\ReactOnDamageStack\HediffCompProperties_ReactOnDamageStack.cs" />
-    <Compile Include="Comp\ReactOnDamageStack\HediffComp_ReactOnDamageStack.cs" />
-    <Compile Include="Comp\SymbiosisCost\CompAbilityEffect_SymbiosisCost.cs" />
-    <Compile Include="Comp\SymbiosisCost\CompProperties_AbilitySymbiosisCost.cs" />
-    <Compile Include="Comp\HediffComp_SymbioteBase.cs" />
-    <Compile Include="Comp\SymbiosisLeap\CompAbilityEffect_SymbiosisLeap.cs" />
-    <Compile Include="Comp\SymbiosisLeap\CompProperties_SymbiosisLeap.cs" />
-    <Compile Include="Comp\SymbiosisLeap\CompProperties_Symbiote.cs" />
-    <Compile Include="Comp\SymbiosisLeap\CompSymbiote.cs" />
-    <Compile Include="Comp\Symbiosis\HediffWithComps_Symbiosis.cs" />
-    <Compile Include="Comp\SymbioteControl\HediffCompProperties_SymbioteControl.cs" />
-    <Compile Include="Comp\SymbioteControl\HediffCompProperties_SymbioteThrall.cs" />
-    <Compile Include="Comp\SymbioteControl\HediffComp_SymbioteControl.cs" />
-    <Compile Include="Comp\SymbioteControl\HediffComp_SymbioteThrall.cs" />
-    <Compile Include="Comp\SymbioticCannon\HediffCompProperties_SymbioticCannon.cs" />
-    <Compile Include="Comp\SymbioticCannon\HediffComp_SymbioticCannon.cs" />
-    <Compile Include="Comp\SymbioticConsume\CompAbilityEffect_SymbioticConsume.cs" />
-    <Compile Include="Comp\SymbioticConsume\CompProperties_AbilitySymbioticConsume.cs" />
-    <Compile Include="Comp\SymbioticEnthrall\CompAbilityEffect_SymbioticEnthrall.cs" />
-    <Compile Include="Comp\SymbioticEnthrall\CompProperties_AbilitySymbioticEnthrall.cs" />
-    <Compile Include="Comp\SymbioticShield\CompPropertiesSymbioticInterceptor.cs" />
-    <Compile Include="Comp\SymbioticShield\CompSymbioticInterceptor.cs" />
-    <Compile Include="Comp\SymbioticShield\HediffCompProperties_SymbioticShield.cs" />
-    <Compile Include="Comp\SymbioticShield\HediffComp_SymbioticShield.cs" />
-    <Compile Include="Comp\SymbioticStun\CompAbilityEffect_SymbioticStun.cs" />
-    <Compile Include="Comp\SymbioticStun\CompProperties_AbilitySymbioticStun.cs" />
-    <Compile Include="Comp\SymbioticTendrils\HediffCompProperties_SymbioticTendrils.cs" />
-    <Compile Include="Comp\SymbioticTendrils\HediffComp_SymbioticTendrils.cs" />
-    <Compile Include="Comp\SymbioticWhip\CompProperties_ProjectileFleck.cs" />
-    <Compile Include="Comp\SymbioticWhip\Comp_ProjectileFleck.cs" />
-    <Compile Include="Comp\VenomLeap\CompAbilityEffect_VenomLeap.cs" />
-    <Compile Include="Comp\VenomLeap\CompProperties_VenomLeap.cs" />
-    <Compile Include="Comp\VenomLeap\HediffCompProperties_VenomLeap.cs" />
-    <Compile Include="Comp\VenomLeap\HediffComp_VenomLeap.cs" />
-    <Compile Include="Comp\Weapon\CompProperties_SymbioticWeapon.cs" />
-    <Compile Include="Comp\Weapon\CompSymbioticWeapon.cs" />
-    <Compile Include="ExSymbiotesMod.cs" />
-    <Compile Include="Comp\Symbiosis\HediffCompProperties_Symbiosis.cs" />
-    <Compile Include="Comp\Symbiosis\HediffComp_Symbiosis.cs" />
-    <Compile Include="Comp\SymbioticArmor\HediffCompProperties_SymbioticArmor.cs" />
-    <Compile Include="Comp\SymbioticArmor\HediffComp_SymbioticArmor.cs" />
-    <Compile Include="Comp\SymbioticScythe\HediffCompProperties_SymbioticScythe.cs" />
-    <Compile Include="Comp\SymbioticScythe\HediffComp_SymbioticScythe.cs" />
-    <Compile Include="Incident\IncidentWorker_SymbioteMass.cs" />
-    <Compile Include="Incident\IncidentWorker_SymbiotePack.cs" />
-    <Compile Include="Job\JobDriver_SymbioteCastVerb.cs" />
-    <Compile Include="Job\JobDriver_SymbioteDigest.cs" />
-    <Compile Include="Job\JobDriver_SymbioticShield.cs" />
-    <Compile Include="Job\JobGiver_FindHost.cs" />
-    <Compile Include="Job\SymbioteMass\JobDriver_SymbioteSwitchToAttackMode.cs" />
-    <Compile Include="Job\SymbioteMass\JobGiver_SymbioteAttackNearbyHumans.cs" />
-    <Compile Include="Job\SymbioteMass\LordJob_SymbioteMass.cs" />
-    <Compile Include="Job\SymbioteMass\LordToil_SymbioteStalk.cs" />
-    <Compile Include="Patches\Symbiosis.cs" />
-    <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Render\Graphic_FleckSymbiote.cs" />
-    <Compile Include="Render\PawnRenderNodeProperties_EyeSymbiote.cs" />
-    <Compile Include="Render\PawnRenderNodeWorker_EyeSymbiote.cs" />
-    <Compile Include="Render\PawnRenderNode_Symbiote.cs" />
-    <Compile Include="Render\Spastic\PawnRenderNodeProperties_SpasticSymbiote.cs" />
-    <Compile Include="Render\Spastic\PawnRenderNodeWorker_SpasticSymbiote.cs" />
-    <Compile Include="Render\Spastic\PawnRenderNode_SpasticSymbiote.cs" />
-    <Compile Include="Render\VenomLeap\PawnRenderNodeWorker_VenomLeap.cs" />
-    <Compile Include="Render\VenomLeap\PawnRenderNode_VenomLeap.cs" />
-    <Compile Include="Ritual\HivemindConnection\PsychicRitualDef_HivemindConnection.cs" />
-    <Compile Include="Ritual\HivemindConnection\PsychicRitualRoleDef_HivemindConnectionInvoker.cs" />
-    <Compile Include="Ritual\HivemindConnection\PsychicRitualRoleDef_HivemindConnectionTarget.cs" />
-    <Compile Include="Ritual\HivemindConnection\PsychicRitualToil_HivemindConnection.cs" />
-    <Compile Include="Ritual\PsychicRitualDef_SummonSymbioticMass.cs" />
-    <Compile Include="Ritual\PsychicRitualToil_SummonSymbioticMass.cs" />
-    <Compile Include="SymbioteMass\Building_SymbioteMass.cs" />
-    <Compile Include="SymbioteMass\CompProperties_SymbioteMass.cs" />
-    <Compile Include="SymbioteMass\CompProperties_SymbioticMassDeactivationInteractor.cs" />
-    <Compile Include="SymbioteMass\CompSymbioteMass_Black.cs" />
-    <Compile Include="SymbioteMass\CompSymbioticMassDeactivationInteractor.cs" />
-    <Compile Include="UI\Gizmo_Symbiosis.cs" />
-    <Compile Include="UI\Gizmo_Symbiotic Interceptor.cs" />
-    <Compile Include="Utils\DeathActionWorker_VanishSymbiote.cs" />
-    <Compile Include="Utils\SymbioteUtility.cs" />
-    <Compile Include="Worker\Damage\DamageWorker_SymbioticStun.cs" />
-    <Compile Include="Worker\Damage\DamageWorker_SymbioticWhip.cs" />
-    <Compile Include="Worker\Damage\DamageWorker_VenomLeap.cs" />
-    <Compile Include="Worker\Thought\ThoughtWorker_Symbiosis.cs" />
-    <Compile Include="Worker\Thought\Thought_Hivemind.cs" />
-  </ItemGroup>
-  <ItemGroup>
     <PackageReference Include="Lib.Harmony.Ref">
-      <Version>2.4.2</Version>
+      <Version>2.4.3</Version>
     </PackageReference>
   </ItemGroup>
-  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <ItemGroup>
+    <Reference Include="Assembly-CSharp">
+      <HintPath>..\..\..\..\..\..\Program Files (x86)\Steam\steamapps\common\RimWorld\Assembly-CSharp.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="UnityStubs">
+      <HintPath>..\..\..\..\..\..\Program Files (x86)\Steam\steamapps\common\RimWorld\UnityStubs.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="Waylith">
+      <HintPath>..\..\..\..\..\..\Program Files (x86)\Steam\steamapps\common\RimWorld\Waylith.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+  </ItemGroup>
 </Project>

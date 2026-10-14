@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+	<EntityCodexEntryDef>
+		<defName>ExSymbiotes_SymbioteMass_EntityCodexEntry</defName>
+		<label>symbiote mass</label>
+		<useDescriptionFrom>ExSymbiotes_SymbioteMass_Black</useDescriptionFrom>
+		<uiIconPath>Things/Buildings/SymbioteMass/SymbioteMass</uiIconPath>
+		<category>Advanced</category>
+		<linkedThings>
+			<li>ExSymbiotes_SymbioteMass_Black</li>
+			<li>ExSymbiotes_SymbioticCore</li>
+			<li>ExSymbiotes_SymbioteMass_Red</li>
+			<li>ExSymbiotes_SymbioticCore_Red</li>
+		</linkedThings>
+		<provocationIncidents>
+			<li>ExSymbiotes_SymbioteMass_Incident</li>
+		</provocationIncidents>
+		<orderInCategory>1441</orderInCategory>
+		<discoveredResearchProjects>
+			<li>ExSymbiotes_SymbioticMassResearch</li>
+			<li>ExSymbiotes_SymbioticCoreResearch</li>
+		</discoveredResearchProjects>
+	</EntityCodexEntryDef>
+
+	<EntityCodexEntryDef>
+		<defName>ExSymbiotes_Symbiote_EntityCodexEntry</defName>
+		<label>symbiote</label>
+		<description>Hideous creatures composed of an unknow sustance.</description>
+		<uiIconPath>Things/Pawn/Symbiote/Black/Symbiote</uiIconPath>
+		<category>Advanced</category>
+		<linkedThings>
+			<li>ExSymbiotes_Symbiote</li>
+			<li>ExSymbiotes_SymbioticTissue</li>
+			<li>ExSymbiotes_SymbioteRed</li>
+			<li>ExSymbiotes_SymbioticTissue_Red</li>
+		</linkedThings>
+		<provocationIncidents>
+			<li>ExSymbiotes_SymbioteMass_Incident</li>
+		</provocationIncidents>
+		<orderInCategory>1442</orderInCategory>
+		<discoveredResearchProjects>
+			<li>ExSymbiotes_SymbioticTissueResearch</li>
+			<li>ExSymbiotes_SymbioticCoreResearch</li>
+		</discoveredResearchProjects>
+	</EntityCodexEntryDef>
+</Defs>

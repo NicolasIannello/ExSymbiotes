@@ -1,0 +1,401 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+    <AbilityDef>
+        <defName>ExSymbiotes_SymbioticArmor</defName>
+        <label>symbiotic armor</label>
+        <description>The symbiote builds a hardened overlay of tissue over the user.</description>
+        <iconPath>UI/SymbioticArmor</iconPath>
+        <cooldownTicksRange>300</cooldownTicksRange>
+        <writeCombatLog>True</writeCombatLog>
+        <targetRequired>false</targetRequired>
+        <casterMustBeCapableOfViolence>false</casterMustBeCapableOfViolence>
+        <statBases>
+            <Ability_Duration>30</Ability_Duration>
+        </statBases>
+        <verbProperties>
+            <verbClass>Verb_CastAbility</verbClass>
+            <drawAimPie>false</drawAimPie>
+            <requireLineOfSight>false</requireLineOfSight>
+            <nonInterruptingSelfCast>true</nonInterruptingSelfCast>
+            <warmupTime>1</warmupTime>
+            <range>19.9</range>
+            <targetable>false</targetable>
+            <targetParams>
+                <canTargetSelf>True</canTargetSelf>
+            </targetParams>
+        </verbProperties>
+        <comps>
+            <li Class="ExSymbiotes.CompProperties_AbilitySymbiosisCost">
+                <symbiosisCost>4</symbiosisCost>
+            </li>
+            <li Class="CompProperties_AbilityGiveHediff">
+                <compClass>CompAbilityEffect_GiveHediff</compClass>
+                <hediffDef>ExSymbiotes_SymbioticArmor</hediffDef>
+            </li>
+            <li Class="CompProperties_AbilityFleckOnTarget">
+                <fleckDef>UnnaturalHealing</fleckDef>
+            </li>
+        </comps>
+    </AbilityDef>
+
+    <AbilityDef>
+        <defName>ExSymbiotes_SymbioticScythe</defName>
+        <label>symbiotic scythe</label>
+        <description>The symbiote mutates the user arm into a scythe, dropping the current weapon on the ground.</description>
+        <iconPath>UI/SymbioticScythe</iconPath>
+        <cooldownTicksRange>300</cooldownTicksRange>
+        <writeCombatLog>True</writeCombatLog>
+        <targetRequired>false</targetRequired>
+        <casterMustBeCapableOfViolence>true</casterMustBeCapableOfViolence>
+        <statBases>
+            <Ability_Duration>120</Ability_Duration>
+        </statBases>
+        <verbProperties>
+            <verbClass>Verb_CastAbility</verbClass>
+            <drawAimPie>false</drawAimPie>
+            <requireLineOfSight>false</requireLineOfSight>
+            <nonInterruptingSelfCast>true</nonInterruptingSelfCast>
+            <warmupTime>1</warmupTime>
+            <range>19.9</range>
+            <targetable>false</targetable>
+            <targetParams>
+                <canTargetSelf>True</canTargetSelf>
+            </targetParams>
+        </verbProperties>
+        <comps>
+            <li Class="ExSymbiotes.CompProperties_AbilitySymbiosisCost">
+                <symbiosisCost>4</symbiosisCost>
+            </li>
+            <li Class="CompProperties_AbilityGiveHediff">
+                <compClass>CompAbilityEffect_GiveHediff</compClass>
+                <hediffDef>ExSymbiotes_SymbioticScythe</hediffDef>
+                <replaceExisting>true</replaceExisting>
+            </li>
+            <li Class="CompProperties_AbilityFleckOnTarget">
+                <fleckDef>BloodSplash</fleckDef>
+            </li>
+        </comps>
+    </AbilityDef>
+
+    <AbilityDef Name="ExSymbiotes_SymbioticTendrilsAbilityDef">
+        <defName>ExSymbiotes_SymbioticTendrils</defName>
+        <label>symbiotic tendrils</label>
+        <description>Four symbiotic tendrils protude from the back of the user shooting enemies that get too close.</description>
+        <iconPath>UI/SymbioticTendrils</iconPath>
+        <cooldownTicksRange>300</cooldownTicksRange>
+        <writeCombatLog>True</writeCombatLog>
+        <targetRequired>false</targetRequired>
+        <casterMustBeCapableOfViolence>true</casterMustBeCapableOfViolence>
+        <statBases>
+            <Ability_Duration>60</Ability_Duration>
+        </statBases>
+        <verbProperties>
+            <verbClass>Verb_CastAbility</verbClass>
+            <drawAimPie>false</drawAimPie>
+            <requireLineOfSight>false</requireLineOfSight>
+            <nonInterruptingSelfCast>true</nonInterruptingSelfCast>
+            <warmupTime>1</warmupTime>
+            <range>19.9</range>
+            <targetable>false</targetable>
+            <targetParams>
+                <canTargetSelf>True</canTargetSelf>
+            </targetParams>
+        </verbProperties>
+        <comps>
+            <li Class="ExSymbiotes.CompProperties_AbilitySymbiosisCost">
+                <symbiosisCost>4</symbiosisCost>
+            </li>
+            <li Class="CompProperties_AbilityGiveHediff">
+                <compClass>CompAbilityEffect_GiveHediff</compClass>
+                <hediffDef>ExSymbiotes_SymbioticTendrils</hediffDef>
+            </li>
+            <li Class="CompProperties_AbilityFleckOnTarget">
+                <fleckDef>BloodSplash</fleckDef>
+            </li>
+        </comps>
+    </AbilityDef>
+
+    <AbilityDef ParentName="ExSymbiotes_SymbioticTendrilsAbilityDef">
+        <defName>ExSymbiotes_SymbioticTendrilsWeak</defName>
+        <comps Inherit="False">
+            <li Class="ExSymbiotes.CompProperties_AbilitySymbiosisCost">
+                <symbiosisCost>4</symbiosisCost>
+            </li>
+            <li Class="CompProperties_AbilityGiveHediff">
+                <compClass>CompAbilityEffect_GiveHediff</compClass>
+                <hediffDef>ExSymbiotes_SymbioticTendrilsWeak</hediffDef>
+            </li>
+            <li Class="CompProperties_AbilityFleckOnTarget">
+                <fleckDef>BloodSplash</fleckDef>
+            </li>
+        </comps>
+    </AbilityDef>
+    
+    <AbilityDef>
+        <defName>ExSymbiotes_SymbiosisLeap</defName>
+        <label>consume leap</label>
+        <description>Leap onto a target and begin symbiosis.</description>
+        <cooldownTicksRange>6000</cooldownTicksRange> <!-- 1.44 hours -->
+        <jobDef>CastJump</jobDef>
+        <ai_IsOffensive>true</ai_IsOffensive>
+        <aiCanUse>true</aiCanUse>
+        <verbProperties>
+            <verbClass>Verb_CastAbilityConsumeLeap</verbClass>
+            <label>consume leap</label>
+            <range>7</range>
+            <requireLineOfSight>true</requireLineOfSight>
+            <warmupTime>0.10</warmupTime>
+            <soundCast>Pawn_Devourer_Jump</soundCast>
+            <soundLanding>Pawn_Devourer_Land</soundLanding>
+            <targetParams>
+                <canTargetBuildings>false</canTargetBuildings>
+            </targetParams>
+        </verbProperties>
+        <comps>
+            <li Class="ExSymbiotes.CompProperties_SymbiosisLeap"/>
+        </comps>
+    </AbilityDef>
+
+    <AbilityDef>
+        <defName>ExSymbiotes_VenomLeap</defName>
+        <label>symbiotic leap</label>
+        <description>Jump to a position stunning everyone and dealing damage.</description>
+        <iconPath>UI/VenomLeap</iconPath>
+        <cooldownTicksRange>30</cooldownTicksRange>
+        <jobDef>CastJump</jobDef>
+        <verbProperties>
+            <verbClass>ExSymbiotes.Verb_CastAbilityVenomLeap</verbClass>
+            <label>symbiotic leap</label>
+            <range>15</range>
+            <requireLineOfSight>true</requireLineOfSight>
+            <warmupTime>0.10</warmupTime>
+            <soundCast>Pawn_Devourer_Jump</soundCast>
+            <soundLanding>Pawn_Devourer_Land</soundLanding>
+            <targetParams>
+                <canTargetLocations>true</canTargetLocations>
+                <canTargetBuildings>false</canTargetBuildings>
+            </targetParams>
+        </verbProperties>
+        <comps>
+            <li Class="ExSymbiotes.CompProperties_AbilitySymbiosisCost">
+                <symbiosisCost>10</symbiosisCost>
+            </li>
+            <li Class="ExSymbiotes.CompProperties_VenomLeap">
+                <radius>2.5</radius>
+                <filth>Filth_RevenantBloodPool</filth>
+            </li>
+        </comps>
+    </AbilityDef>
+
+    <AbilityDef ParentName="AbilityTouchBase">
+        <defName>ExSymbiotes_SymbioticResurrect</defName>
+        <label>symbiotic resurrect</label>
+        <description>A super-dose of symbiote tissue tuned to resurrect the dead. Administered to a corpse, symbiote tissue repairs broken-down tissues and kickstart the body back to life. Unfortunately, the resurrected sometimes come back with brain damage, blindness, or progressive psychosis. Outcomes are better when the symbiote tissue is administered to a fresher body. If a body is preserved, it can even be resurrected long after death.\n\nThe resurrected also experience limited retrograde amnesia, forgetting some recent memories and social interactions.</description>
+        <iconPath>UI/SymbioticResurrect</iconPath>
+        <cooldownTicksRange>1800000</cooldownTicksRange>
+        <stunTargetWhileCasting>true</stunTargetWhileCasting>
+        <displayGizmoWhileUndrafted>true</displayGizmoWhileUndrafted>
+        <disableGizmoWhileUndrafted>false</disableGizmoWhileUndrafted>
+        <warmupMote>Mote_ResurrectAbility</warmupMote>
+        <displayOrder>400</displayOrder>
+        <hostile>false</hostile>
+        <casterMustBeCapableOfViolence>false</casterMustBeCapableOfViolence>
+        <verbProperties>
+            <verbClass>Verb_CastAbilityTouch</verbClass>
+            <drawAimPie>false</drawAimPie>
+            <range>-1</range>
+            <warmupTime>5</warmupTime>
+            <targetParams>
+                <canTargetPawns>false</canTargetPawns>
+                <canTargetBuildings>false</canTargetBuildings>
+                <canTargetCorpses>true</canTargetCorpses>
+                <canTargetMechs>false</canTargetMechs>
+            </targetParams>
+        </verbProperties>
+        <comps>
+            <li Class="ExSymbiotes.CompProperties_AbilitySymbiosisCost">
+                <symbiosisCost>18</symbiosisCost>
+            </li>
+            <li Class="CompProperties_Resurrect"/>
+            <li Class="CompProperties_AbilityRequiresCapacity">
+                <capacity>Manipulation</capacity>
+            </li>
+        </comps>
+    </AbilityDef>
+
+    <AbilityDef ParentName="AbilityTouchBase">
+        <defName>ExSymbiotes_SymbioticHealer</defName>
+        <label>symbiotic healer</label>
+        <description>A super-dose of symbiote tissue tuned to heal health conditions. The symbiote tissue will target and heal the single worst health condition affecting someone at any given time. Works even on health conditions that would otherwise be incurable. The symbiote tissue can even transmute themselves into organic matter, forming new limbs or organs as needed.</description>
+        <iconPath>UI/SymbioticHealer</iconPath>
+        <stunTargetWhileCasting>true</stunTargetWhileCasting>
+        <displayGizmoWhileUndrafted>true</displayGizmoWhileUndrafted>
+        <disableGizmoWhileUndrafted>false</disableGizmoWhileUndrafted>
+        <warmupMote>Mote_ResurrectAbility</warmupMote>
+        <jobDef>CastAbilityOnThingMelee</jobDef>
+        <displayOrder>400</displayOrder>
+        <hostile>false</hostile>
+        <casterMustBeCapableOfViolence>false</casterMustBeCapableOfViolence>
+        <verbProperties>
+            <verbClass>Verb_CastAbilityTouch</verbClass>
+            <drawAimPie>false</drawAimPie>
+            <range>-1</range>
+            <warmupTime>5</warmupTime>
+            <targetParams>
+                <canTargetAnimals>true</canTargetAnimals>
+                <canTargetSelf>true</canTargetSelf>
+                <canTargetBuildings>false</canTargetBuildings>
+                <canTargetMechs>false</canTargetMechs>
+                <canTargetBloodfeeders>true</canTargetBloodfeeders>
+            </targetParams>
+        </verbProperties>
+        <comps>
+            <li Class="ExSymbiotes.CompProperties_AbilitySymbiosisCost">
+                <symbiosisCost>10</symbiosisCost>
+            </li>
+            <li Class="CompProperties_AbilityFixWorstHealthCondition"/>
+            <li Class="CompProperties_AbilityRequiresCapacity">
+                <capacity>Manipulation</capacity>
+            </li>
+        </comps>
+    </AbilityDef>
+
+    <AbilityDef>
+        <defName>ExSymbiotes_SymbioticStun</defName>
+        <label>symbiotic stun</label>
+        <description>The symbiote lashes tendrils outwards stunning everything.</description>
+        <iconPath>UI/SymbioticStun</iconPath>
+        <cooldownTicksRange>300</cooldownTicksRange>
+        <writeCombatLog>True</writeCombatLog>
+        <targetRequired>false</targetRequired>
+        <casterMustBeCapableOfViolence>false</casterMustBeCapableOfViolence>
+        <verbProperties>
+            <verbClass>Verb_CastAbility</verbClass>
+            <warmupEffecter>ExSymbiotes_Bloodfeed_Warmup</warmupEffecter>
+            <warmupTime>1.5</warmupTime>
+            <requireLineOfSight>false</requireLineOfSight>
+            <range>3.5</range>
+            <drawAimPie>false</drawAimPie>
+            <nonInterruptingSelfCast>true</nonInterruptingSelfCast>
+            <targetParams>
+                <canTargetSelf>True</canTargetSelf>
+            </targetParams>
+        </verbProperties>
+        <comps>
+            <li Class="ExSymbiotes.CompProperties_AbilitySymbiosisCost">
+                <symbiosisCost>7</symbiosisCost>
+            </li>
+            <li Class="ExSymbiotes.CompProperties_AbilitySymbioticStun">
+                <radius>3.5</radius>
+            </li>
+        </comps>
+    </AbilityDef>
+    
+    <AbilityDef>
+        <defName>ExSymbiotes_SymbioticWhip</defName>
+        <label>symbiotic whip</label>
+        <description>The symbiote lashes out a tendril to bring a objetive closer.</description>
+        <iconPath>UI/SymbioticWhip</iconPath>
+        <cooldownTicksRange>30</cooldownTicksRange>
+        <writeCombatLog>True</writeCombatLog>
+        <targetRequired>true</targetRequired>
+        <casterMustBeCapableOfViolence>true</casterMustBeCapableOfViolence>
+        <verbProperties>
+            <verbClass>Verb_CastAbility</verbClass>
+            <warmupTime>0.5</warmupTime>
+            <drawAimPie>true</drawAimPie>
+            <soundCast>Longjump_Land</soundCast>
+            <requireLineOfSight>true</requireLineOfSight>
+            <ai_IsWeapon>false</ai_IsWeapon>
+            <accuracyTouch>1.0</accuracyTouch>
+            <accuracyShort>1.0</accuracyShort>
+            <accuracyMedium>1.0</accuracyMedium>
+            <accuracyLong>1.0</accuracyLong>
+            <forcedMissRadius>0</forcedMissRadius>
+            <canGoWild>false</canGoWild>
+            <range>30</range>
+            <targetParams>
+                <canTargetPawns>true</canTargetPawns>
+            </targetParams>
+        </verbProperties>
+        <comps>
+            <li Class="ExSymbiotes.CompProperties_AbilitySymbiosisCost">
+                <symbiosisCost>4</symbiosisCost>
+            </li>
+            <li Class="CompProperties_AbilityLaunchProjectile">
+                <projectileDef>ExSymbiotes_TendrilWhip</projectileDef>
+            </li>
+        </comps>
+    </AbilityDef>
+
+    <AbilityDef ParentName="AbilityTouchBase">
+        <defName>ExSymbiotes_SymbioticEnthrall</defName>
+        <label>symbiotic enthrall</label>
+        <description>Enthrall a creature to serve under your command. The symbiote controlling the creature will consume the host until nothing but bones remain.</description>
+        <iconPath>UI/ExSymbiotesHivemind</iconPath>
+        <stunTargetWhileCasting>true</stunTargetWhileCasting>
+        <displayGizmoWhileUndrafted>true</displayGizmoWhileUndrafted>
+        <disableGizmoWhileUndrafted>false</disableGizmoWhileUndrafted>
+        <warmupMote>ExSymbiotes_Mote_ResurrectAbility</warmupMote>
+        <jobDef>CastAbilityOnThingMelee</jobDef>
+        <displayOrder>400</displayOrder>
+        <hostile>true</hostile>
+        <casterMustBeCapableOfViolence>false</casterMustBeCapableOfViolence>
+        <verbProperties>
+            <verbClass>Verb_CastAbilityTouch</verbClass>
+            <drawAimPie>false</drawAimPie>
+            <range>-1</range>
+            <warmupTime>2</warmupTime>
+            <targetParams>
+                <canTargetPawns>true</canTargetPawns>
+                <canTargetAnimals>true</canTargetAnimals>
+                <canTargetSelf>false</canTargetSelf>
+                <canTargetBuildings>false</canTargetBuildings>
+                <canTargetMechs>false</canTargetMechs>
+                <canTargetBloodfeeders>true</canTargetBloodfeeders>
+            </targetParams>
+        </verbProperties>
+        <comps>
+            <li Class="ExSymbiotes.CompProperties_AbilitySymbiosisCost">
+                <symbiosisCost>5</symbiosisCost>
+            </li>
+            <li Class="ExSymbiotes.CompProperties_AbilitySymbioticEnthrall"/>
+            <li Class="CompProperties_AbilityRequiresCapacity">
+                <capacity>Manipulation</capacity>
+            </li>
+        </comps>
+    </AbilityDef>
+
+    <AbilityDef ParentName="AbilityTouchBase">
+        <defName>ExSymbiotes_SymbioticConsume</defName>
+        <label>symbiotic consume</label>
+        <description>Consume a symbiote to empower your connection to the hivemind.</description>
+        <iconPath>UI/SymbioticConsume</iconPath>
+        <stunTargetWhileCasting>true</stunTargetWhileCasting>
+        <warmupMote>ExSymbiotes_Mote_ResurrectAbility</warmupMote>
+        <jobDef>CastAbilityOnThingMelee</jobDef>
+        <displayOrder>400</displayOrder>
+        <hostile>true</hostile>
+        <casterMustBeCapableOfViolence>false</casterMustBeCapableOfViolence>
+        <verbProperties>
+            <verbClass>Verb_CastAbilityTouch</verbClass>
+            <drawAimPie>false</drawAimPie>
+            <range>-1</range>
+            <warmupTime>1</warmupTime>
+            <targetParams>
+                <canTargetPawns>true</canTargetPawns>
+                <canTargetSelf>false</canTargetSelf>
+                <canTargetBuildings>false</canTargetBuildings>
+            </targetParams>
+        </verbProperties>
+        <comps>
+            <li Class="ExSymbiotes.CompProperties_AbilitySymbiosisCost">
+                <symbiosisCost>10</symbiosisCost>
+            </li>
+            <li Class="ExSymbiotes.CompProperties_AbilitySymbioticConsume"/>
+            <li Class="CompProperties_AbilityRequiresCapacity">
+                <capacity>Manipulation</capacity>
+            </li>
+        </comps>
+    </AbilityDef>
+</Defs>
