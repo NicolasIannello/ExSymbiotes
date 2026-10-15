@@ -55,13 +55,13 @@ namespace ExSymbiotes
 
     public class ExSymbiotesSettings : ModSettings
     {
-        public SymbiosisVisual Visual = SymbiosisVisual.Always;
+        public SymbiosisVisual Visual = SymbiosisVisual.Drafted;
         public bool Hair = true;
 
         public override void ExposeData()
         {
             base.ExposeData();
-            Scribe_Values.Look(ref Visual, nameof(Visual), SymbiosisVisual.Always);
+            Scribe_Values.Look(ref Visual, nameof(Visual), SymbiosisVisual.Drafted);
             Scribe_Values.Look(ref Hair, nameof(Hair), true);
         }
     }
