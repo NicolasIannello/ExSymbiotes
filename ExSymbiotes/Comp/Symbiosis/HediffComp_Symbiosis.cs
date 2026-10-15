@@ -19,6 +19,9 @@ namespace ExSymbiotes
         protected int bond = 2;
         protected Color originalHair;
         protected Color? originalSkin;
+        public string name = string.Empty;
+        private int nameTick = -99999;
+        private int talkTick = -99999;
         
         public override void CompPostPostAdd(DamageInfo? dinfo)
         {
@@ -33,6 +36,8 @@ namespace ExSymbiotes
                 if(ModsConfig.OdysseyActive) vacuumGene = SymbioteUtility.CheckAddGene(this.Pawn, ExSymbiotesDefOf.VacuumResistance_Total);
             }
             RollBond();
+            this.talkTick = Find.TickManager.TicksGame + 15000;
+            this.nameTick = Find.TickManager.TicksGame + (60000 * this.bond > 5 ? 5 : 8);
         }
 
         public override void CompPostPostRemoved()
@@ -48,6 +53,14 @@ namespace ExSymbiotes
                 if (ModsConfig.OdysseyActive) SymbioteUtility.CheckRemoveGene(this.Pawn, ExSymbiotesDefOf.VacuumResistance_Total, this.vacuumGene);
             }
             if(this.bond<2 && !Pawn.Dead) Pawn.needs.mood.thoughts.memories.TryGainMemory(ExSymbiotesDefOf.ExSymbiotes_BondedSymbioteLost);
+        }
+        
+        public override void CompPostTick(ref float severityAdjustment)
+        {
+            base.CompPostTick(ref severityAdjustment);
+
+            if (this.parent.pawn.IsHashIntervalTick(1700) && talkTick < Find.TickManager.TicksGame)//tick 3600 
+                SymbioteInteraction();
         }
         
         public override IEnumerable<Gizmo> CompGetGizmos()
@@ -88,6 +101,9 @@ namespace ExSymbiotes
             Scribe_Values.Look<bool>(ref this.immunityGene, "immunityGene");
             Scribe_Values.Look<Color>(ref this.originalHair, "originalHair");
             Scribe_Values.Look<Color?>(ref this.originalSkin, "originalSkin");
+            Scribe_Values.Look<string>(ref this.name, "name");
+            Scribe_Values.Look<int>(ref this.nameTick, "nameTick");
+            Scribe_Values.Look<int>(ref this.talkTick, "talkTick");
         }
 
         private void RollBond()
@@ -127,6 +143,37 @@ namespace ExSymbiotes
 
             string path = this.bond <= 2 ? "Things/Mote/ThoughtSymbol/GenericGood" : "Things/Mote/ThoughtSymbol/GenericBad";
             MoteMaker.MakeThoughtBubble(this.parent.pawn, path);
+        }
+
+        private void SymbioteInteraction()
+        {
+            this.talkTick = Find.TickManager.TicksGame + 10000 + Rand.RangeInclusive(2500, 7500);
+            
+            int chance = Rand.RangeInclusive(1, 10);
+            InteractionDef interaction = InteractionDefOf.Chitchat;
+            switch (this.bond)
+            {
+                case 0:
+                    if(chance>5) interaction = InteractionDefOf.DeepTalk;
+                    else if (chance<2) interaction = InteractionDefOf.Insult;
+                    break;
+                case 1:
+                    if(chance>7) interaction = InteractionDefOf.DeepTalk;
+                    else if (chance<3) interaction = InteractionDefOf.Insult;
+                    break;
+                case 2:
+                    if(chance>9) interaction = InteractionDefOf.DeepTalk;
+                    else if (chance<4) interaction = InteractionDefOf.Insult;
+                    break;
+                case 3:
+                    if(chance<6) interaction = InteractionDefOf.Insult;
+                    break;
+                case 4:
+                    if(chance<8) interaction = InteractionDefOf.Insult;
+                    break;
+            }
+            Log.Message($"chance: {chance} talk {interaction.defName}");
+            SymbioteUtility.SymbioteInteraction.TryInteractWith(this.parent.pawn, this.parent.pawn, interaction);
         }
         
         public void AddSymbiosis(int amount) => this.energy = (energy + amount)>EnergyMax ? EnergyMax : energy + amount;

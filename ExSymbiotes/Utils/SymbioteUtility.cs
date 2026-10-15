@@ -179,5 +179,101 @@ namespace ExSymbiotes.Utils
                 return verb != null && verb.CanHitTargetFrom(searcher.Thing.Position, (LocalTargetInfo) target.Thing);
             }
         }
+
+        public static class SymbioteInteraction
+        {
+            public static bool CanInteractNowWith(Pawn pawn, Pawn recipient, InteractionDef interactionDef = null)
+            {
+                return (pawn.IsCarryingPawn(recipient) || recipient.Spawned && SocialInteractionUtility.IsGoodPositionForInteraction(pawn, recipient)) && SocialInteractionUtility.CanInitiateInteraction(pawn, interactionDef) && SocialInteractionUtility.CanReceiveInteraction(recipient, interactionDef);
+            }
+            
+            public static bool TryInteractWith(Pawn pawn, Pawn recipient, InteractionDef intDef)
+            {
+                if (DebugSettings.alwaysSocialFight)
+                  intDef = InteractionDefOf.Insult;
+                // if (this.pawn == recipient)
+                // {
+                //   Log.Warning($"{this.pawn?.ToString()} tried to interact with self, interaction={intDef.defName}");
+                //   return false;
+                // }
+                if (!SymbioteInteraction.CanInteractNowWith(pawn, recipient, intDef))
+                  return false;
+                // if (!intDef.ignoreTimeSinceLastInteraction && this.InteractedTooRecentlyToInteract())
+                // {
+                //   Log.Error($"{this.pawn} tried to do interaction {intDef} to {recipient} only {Find.TickManager.TicksGame - this.lastInteractionTime} ticks since last interaction {this.lastInteraction.ToStringSafe<string>()} (min is {120}).");
+                //   return false;
+                // }
+                List<RulePackDef> extraSentencePacks = new List<RulePackDef>();
+                if (intDef.initiatorThought != null)
+                  Pawn_InteractionsTracker.AddInteractionThought(pawn, recipient, intDef.initiatorThought);
+                if (intDef.recipientThought != null && recipient.needs.mood != null)
+                  Pawn_InteractionsTracker.AddInteractionThought(recipient, pawn, intDef.recipientThought);
+                if (intDef.initiatorXpGainSkill != null)
+                  pawn.skills.Learn(intDef.initiatorXpGainSkill, (float) intDef.initiatorXpGainAmount);
+                // if (intDef.recipientXpGainSkill != null && recipient.RaceProps.Humanlike)
+                //   recipient.skills.Learn(intDef.recipientXpGainSkill, (float) intDef.recipientXpGainAmount);
+                // recipient.ideo?.IncreaseIdeoExposureIfBaby(this.pawn.Ideo, 0.5f);
+                // bool flag = false;
+                // if (recipient.RaceProps.Humanlike && recipient.Spawned)
+                //   flag = recipient.interactions.CheckSocialFightStart(intDef, this.pawn);
+                string letterText;
+                string letterLabel;
+                LetterDef letterDef;
+                LookTargets lookTargets;
+                // if (!flag)
+                // {
+                  intDef.Worker.Interacted(pawn, recipient, extraSentencePacks, out letterText, out letterLabel, out letterDef, out lookTargets);
+                // }
+                // else
+                // {
+                //   letterText = (string) null;
+                //   letterLabel = (string) null;
+                //   letterDef = (LetterDef) null;
+                //   lookTargets = (LookTargets) null;
+                // }
+                MoteMaker.MakeInteractionBubble(pawn, recipient, intDef.interactionMote, intDef.GetSymbol(pawn.Faction, pawn.Ideo), intDef.GetSymbolColor(pawn.Faction));
+                // this.lastInteractionTime = Find.TickManager.TicksGame;
+                // this.lastInteraction = intDef.defName;
+                // this.lastInteractionDef = intDef;
+                // if (recipient.interactions != null)
+                // {
+                //   recipient.interactions.lastInteractionTime = Find.TickManager.TicksGame;
+                //   recipient.interactions.lastInteraction = intDef.defName;
+                //   recipient.interactions.lastInteractionDef = intDef;
+                // }
+                // if (flag)
+                //   extraSentencePacks.Add(RulePackDefOf.Sentence_SocialFightStarted);
+                PlayLogEntry_Interaction entry = new PlayLogEntry_Interaction(intDef, pawn, recipient, extraSentencePacks);
+                Find.PlayLog.Add((LogEntry) entry);
+                if (letterDef != null)
+                {
+                  string text = entry.ToGameStringFromPOV((Thing) pawn);
+                  if (!letterText.NullOrEmpty())
+                    text = $"{text}\n\n{letterText}";
+                  Find.LetterStack.ReceiveLetter((TaggedString) letterLabel, (TaggedString) text, letterDef, lookTargets ?? (LookTargets) (Thing) pawn);
+                }
+                if (intDef == InteractionDefOf.OccultTeaching)
+                {
+                  Find.ResearchManager.ApplyKnowledge(KnowledgeCategoryDefOf.Basic, 1f);
+                  // this.lastOccultInteraction = GenTicks.TicksAbs;
+                }
+                SymbioteInteraction.MetalhorrorDetectionCheck(pawn, recipient);
+                return true;
+            }
+            
+            //might wanna do custom AddInteractionThought
+            
+            private static void MetalhorrorDetectionCheck(Pawn pawn, Pawn recipient)
+            {
+                int num = MetalhorrorUtility.IsInfected(pawn) ? 1 : 0;
+                Hediff_MetalhorrorImplant firstHediff = recipient.health.hediffSet.GetFirstHediff<Hediff_MetalhorrorImplant>();
+                if (num != 0 || firstHediff == null || firstHediff.Visible || !Rand.Chance(1f / 1000f) && !firstHediff.debugDiscoverNextInteraction)
+                    return;
+                TaggedString reason = "MetalhorrorReasonInteraction".Translate(pawn.Named("PAWN"), recipient.Named("INFECTED"));
+                TaggedString taggedString = "MetalhorrorNoticedDetailsAppended".Translate(pawn.Named("PAWN"), recipient.Named("INFECTED"));
+                TaggedString subtleMessage = "InteractionDetectedDesc".Translate(pawn.Named("PAWN"), recipient.Named("INFECTED")) + $"\n\n{taggedString}";
+                MetalhorrorUtility.Detect(recipient, (string) reason, (string) subtleMessage, 0.3f);
+            }
+        }
     }
 }
