@@ -19,7 +19,7 @@
             <graphicClass>Graphic_MoteWithAgeSecs</graphicClass>
             <shaderType>MoteBeam</shaderType>
             <shaderParameters>
-                <_ExtraTexA>/Things/Mote/BeamSecondaryNoise_A</_ExtraTexA>
+<!--                <_ExtraTexA>/Things/Mote/BeamSecondaryNoise_A</_ExtraTexA>-->
                 <_ExtraTexB>/Things/Mote/BeamSecondaryNoise_B</_ExtraTexB>
                 <_ScrollSpeedA>-4 </_ScrollSpeedA>
                 <_ScrollSpeedB>3</_ScrollSpeedB>
