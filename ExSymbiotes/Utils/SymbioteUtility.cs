@@ -188,7 +188,7 @@ namespace ExSymbiotes.Utils
                 return (pawn.IsCarryingPawn(recipient) || recipient.Spawned && SocialInteractionUtility.IsGoodPositionForInteraction(pawn, recipient)) && SocialInteractionUtility.CanInitiateInteraction(pawn, interactionDef) && SocialInteractionUtility.CanReceiveInteraction(recipient, interactionDef);
             }
             
-            public static bool TryInteractWith(Pawn pawn, Pawn recipient, InteractionDef intDef, string symbiote, Color symbioteColor)
+            public static bool TryInteractWith(Pawn pawn, Pawn recipient, InteractionDef intDef, string symbiote, Color symbioteColor, bool initiator)
             {
                 if (DebugSettings.alwaysSocialFight)
                   intDef = InteractionDefOf.Insult;
@@ -205,7 +205,7 @@ namespace ExSymbiotes.Utils
                   recipient.skills.Learn(intDef.recipientXpGainSkill, (float) intDef.recipientXpGainAmount);
                 intDef.Worker.Interacted(pawn, recipient, extraSentencePacks, out var letterText, out var letterLabel, out var letterDef, out var lookTargets);
                 MoteMaker.MakeInteractionBubble(pawn, recipient, intDef.interactionMote, intDef.GetSymbol(pawn.Faction, pawn.Ideo), intDef.GetSymbolColor(pawn.Faction));
-                bool symbioteInitiator = intDef == InteractionDefOf.Insult || Rand.RangeInclusive(0, 1)==1;
+                bool symbioteInitiator = initiator || Rand.RangeInclusive(0, 1)==1;
                 PlayLogEntry_SymbiotePawn entry = new PlayLogEntry_SymbiotePawn(intDef, pawn, recipient, extraSentencePacks, symbiote, symbioteInitiator, symbioteColor);
                 Log.Message($"entry {entry}");
                 Find.PlayLog.Add((LogEntry) entry);
