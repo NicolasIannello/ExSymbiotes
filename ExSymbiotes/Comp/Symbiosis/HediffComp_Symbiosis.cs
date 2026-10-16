@@ -22,6 +22,9 @@ namespace ExSymbiotes
         public string name = "ExSymbiotes.Symbiote".Translate();
         private int nameTick = -99999;
         private int talkTick = -99999;
+        private InteractionDef[] good = [InteractionDefOf.DeepTalk, ExSymbiotesDefOf.KindWords];
+        private InteractionDef[] neutral = [InteractionDefOf.Chitchat, InteractionDefOf.OccultTeaching, InteractionDefOf.CreepyWords, InteractionDefOf.InhumanRambling];
+        private InteractionDef[] negative = [InteractionDefOf.Insult, ExSymbiotesDefOf.Slight, InteractionDefOf.DisturbingChat];
         
         public override void CompPostPostAdd(DamageInfo? dinfo)
         {
@@ -78,10 +81,15 @@ namespace ExSymbiotes
                 commandAction1.action = new Action(this.Fill);
                 yield return (Gizmo) commandAction1;
                 
-                Command_Action commandAction2 = new Command_Action();
-                commandAction2.defaultLabel = "DEV: Symbiosis";
-                commandAction2.action = new Action(this.SymbioteInteraction);
-                yield return (Gizmo) commandAction2;
+                // Command_Action commandAction2 = new Command_Action();
+                // commandAction2.defaultLabel = "DEV 1: Symbiosis";
+                // commandAction2.action = new Action(this.SymbioteInteraction);
+                // yield return (Gizmo) commandAction2;
+                //
+                // Command_Action commandAction3 = new Command_Action();
+                // commandAction3.defaultLabel = "DEV 2: Symbiosis";
+                // commandAction3.action = new Action(this.RollBond);
+                // yield return (Gizmo) commandAction3;
             }
         }
         
@@ -153,30 +161,32 @@ namespace ExSymbiotes
         private void SymbioteInteraction()
         {
             int chance = Rand.RangeInclusive(1, 10);
-            InteractionDef interaction = InteractionDefOf.Chitchat;
+            InteractionDef interaction = neutral.RandomElement();
             switch (this.bond)
             {
                 case 0:
-                    if(chance>5) interaction = InteractionDefOf.DeepTalk;
-                    else if (chance<2) interaction = InteractionDefOf.Insult;
+                    if(chance>5) interaction = good.RandomElement();
+                    else if (chance<2) interaction = negative.RandomElement();
                     break;
                 case 1:
-                    if(chance>7) interaction = InteractionDefOf.DeepTalk;
-                    else if (chance<3) interaction = InteractionDefOf.Insult;
+                    if(chance>7) interaction = good.RandomElement();
+                    else if (chance<3) interaction = negative.RandomElement();
                     break;
                 case 2:
-                    if(chance>9) interaction = InteractionDefOf.DeepTalk;
-                    else if (chance<4) interaction = InteractionDefOf.Insult;
+                    if(chance>9) interaction = good.RandomElement();
+                    else if (chance<4) interaction = negative.RandomElement();
                     break;
                 case 3:
-                    if(chance<6) interaction = InteractionDefOf.Insult;
+                    if(chance<6) interaction = negative.RandomElement();
                     break;
                 case 4:
-                    if(chance<8) interaction = InteractionDefOf.Insult;
+                    if(chance<8) interaction = negative.RandomElement();
                     break;
             }
-            Log.Message($"chance: {chance} talk {interaction.defName}");
-            if(SymbioteUtility.SymbioteInteraction.TryInteractWith(this.parent.pawn, this.parent.pawn, interaction, name, this.Props.color))
+            bool initiator = interaction == InteractionDefOf.Insult || interaction == ExSymbiotesDefOf.Slight ||
+                               interaction == InteractionDefOf.InhumanRambling || interaction == InteractionDefOf.OccultTeaching ||
+                               interaction == InteractionDefOf.CreepyWords || interaction == InteractionDefOf.DisturbingChat;
+            if(SymbioteUtility.SymbioteInteraction.TryInteractWith(this.parent.pawn, this.parent.pawn, interaction, name, this.Props.color, initiator))
                 this.talkTick = Find.TickManager.TicksGame + 10000 + Rand.RangeInclusive(2500, 7500);
             else
                 this.talkTick = Find.TickManager.TicksGame + Rand.RangeInclusive(2500, 7500);

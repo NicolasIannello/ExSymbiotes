@@ -112,6 +112,8 @@ namespace ExSymbiotes
         public static GeneDef PerfectImmunity;
         [MayRequireBiotech]
         public static HediffDef ExSymbiotes_Symbiosis_Purple;
+        public static InteractionDef KindWords;
+        public static InteractionDef Slight;
         [MayRequireBiotech]
         public static ThingDef ExSymbiotes_MechShield;
         
