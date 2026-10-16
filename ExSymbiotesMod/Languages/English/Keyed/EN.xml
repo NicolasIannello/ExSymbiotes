@@ -42,4 +42,6 @@
     <ExSymbiotes.ThrallCancel>Thrall cancel order</ExSymbiotes.ThrallCancel>
     <ExSymbiotes.MessageThrallSymbiote>Symbiotes cannot be enthralled</ExSymbiotes.MessageThrallSymbiote>
     <ExSymbiotes.MessageThrallSymbiosis>Creature already has a symbiote</ExSymbiotes.MessageThrallSymbiosis>
+
+    <ExSymbiotes.Symbiote>The Symbiote</ExSymbiotes.Symbiote>
 </LanguageData>
