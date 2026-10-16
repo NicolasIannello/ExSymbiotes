@@ -19,7 +19,7 @@ namespace ExSymbiotes
         protected int bond = 2;
         protected Color originalHair;
         protected Color? originalSkin;
-        public string name = string.Empty;
+        public string name = "ExSymbiotes.Symbiote".Translate();
         private int nameTick = -99999;
         private int talkTick = -99999;
         
@@ -59,7 +59,7 @@ namespace ExSymbiotes
         {
             base.CompPostTick(ref severityAdjustment);
 
-            if (this.parent.pawn.IsHashIntervalTick(1700) && talkTick < Find.TickManager.TicksGame)//tick 3600 
+            if (this.parent.pawn.IsHashIntervalTick(3600) && talkTick < Find.TickManager.TicksGame) 
                 SymbioteInteraction();
         }
         
@@ -77,6 +77,11 @@ namespace ExSymbiotes
                 commandAction1.defaultLabel = "DEV: Fill Symbiosis";
                 commandAction1.action = new Action(this.Fill);
                 yield return (Gizmo) commandAction1;
+                
+                Command_Action commandAction2 = new Command_Action();
+                commandAction2.defaultLabel = "DEV: Symbiosis";
+                commandAction2.action = new Action(this.SymbioteInteraction);
+                yield return (Gizmo) commandAction2;
             }
         }
         
@@ -147,8 +152,6 @@ namespace ExSymbiotes
 
         private void SymbioteInteraction()
         {
-            this.talkTick = Find.TickManager.TicksGame + 10000 + Rand.RangeInclusive(2500, 7500);
-            
             int chance = Rand.RangeInclusive(1, 10);
             InteractionDef interaction = InteractionDefOf.Chitchat;
             switch (this.bond)
@@ -173,7 +176,10 @@ namespace ExSymbiotes
                     break;
             }
             Log.Message($"chance: {chance} talk {interaction.defName}");
-            SymbioteUtility.SymbioteInteraction.TryInteractWith(this.parent.pawn, this.parent.pawn, interaction);
+            if(SymbioteUtility.SymbioteInteraction.TryInteractWith(this.parent.pawn, this.parent.pawn, interaction, name, this.Props.color))
+                this.talkTick = Find.TickManager.TicksGame + 10000 + Rand.RangeInclusive(2500, 7500);
+            else
+                this.talkTick = Find.TickManager.TicksGame + Rand.RangeInclusive(2500, 7500);
         }
         
         public void AddSymbiosis(int amount) => this.energy = (energy + amount)>EnergyMax ? EnergyMax : energy + amount;
