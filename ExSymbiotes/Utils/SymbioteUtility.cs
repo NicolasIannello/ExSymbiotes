@@ -207,7 +207,6 @@ namespace ExSymbiotes.Utils
                 MoteMaker.MakeInteractionBubble(pawn, recipient, intDef.interactionMote, intDef.GetSymbol(pawn.Faction, pawn.Ideo), intDef.GetSymbolColor(pawn.Faction));
                 bool symbioteInitiator = initiator || Rand.RangeInclusive(0, 1)==1;
                 PlayLogEntry_SymbiotePawn entry = new PlayLogEntry_SymbiotePawn(intDef, pawn, recipient, extraSentencePacks, symbiote, symbioteInitiator, symbioteColor);
-                Log.Message($"entry {entry}");
                 Find.PlayLog.Add((LogEntry) entry);
                 if (letterDef != null)
                 {
@@ -220,20 +219,19 @@ namespace ExSymbiotes.Utils
                 {
                   Find.ResearchManager.ApplyKnowledge(KnowledgeCategoryDefOf.Basic, 1f);
                 }
-                SymbioteInteraction.MetalhorrorDetectionCheck(pawn, recipient);
+                SymbioteInteraction.MetalhorrorDetectionCheck(pawn, recipient, symbiote);
                 return true;
             }
             
-            private static void MetalhorrorDetectionCheck(Pawn pawn, Pawn recipient)
+            private static void MetalhorrorDetectionCheck(Pawn pawn, Pawn recipient, string symbiote)
             {
-                int num = MetalhorrorUtility.IsInfected(pawn) ? 1 : 0;
                 Hediff_MetalhorrorImplant firstHediff = recipient.health.hediffSet.GetFirstHediff<Hediff_MetalhorrorImplant>();
-                if (num != 0 || firstHediff == null || firstHediff.Visible || !Rand.Chance(1f / 1000f) && !firstHediff.debugDiscoverNextInteraction)
+                if (!MetalhorrorUtility.IsInfected(recipient) || firstHediff == null || firstHediff.Visible || !Rand.Chance(1f / 10f) && !firstHediff.debugDiscoverNextInteraction)
                     return;
-                TaggedString reason = "MetalhorrorReasonInteraction".Translate(pawn.Named("PAWN"), recipient.Named("INFECTED"));
-                TaggedString taggedString = "MetalhorrorNoticedDetailsAppended".Translate(pawn.Named("PAWN"), recipient.Named("INFECTED"));
-                TaggedString subtleMessage = "InteractionDetectedDesc".Translate(pawn.Named("PAWN"), recipient.Named("INFECTED")) + $"\n\n{taggedString}";
-                MetalhorrorUtility.Detect(recipient, (string) reason, (string) subtleMessage, 0.3f);
+                TaggedString reason = "ExSymbiotes.MetalhorrorReasonInteraction".Translate(symbiote, recipient.Named("INFECTED"));
+                TaggedString taggedString = "ExSymbiotes.MetalhorrorNoticedDetailsAppended".Translate();
+                TaggedString subtleMessage = "ExSymbiotes.InteractionDetectedDesc".Translate(symbiote, recipient.Named("INFECTED")) + $"\n\n{taggedString}";
+                MetalhorrorUtility.Detect(recipient, (string) reason, (string) subtleMessage, 0.1f);
             }
         }
     }
