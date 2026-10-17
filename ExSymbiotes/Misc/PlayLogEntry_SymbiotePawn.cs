@@ -127,4 +127,12 @@ public class PlayLogEntry_SymbiotePawn : PlayLogEntry_Interaction
         
         return $"{this.intDef.label}: {this.InitiatorName}->{this.symbiote}";
     }
+    
+    public override void ExposeData()
+    {
+      base.ExposeData();
+      Scribe_Values.Look<string>(ref this.symbiote, "symbiote");
+      Scribe_Values.Look<bool>(ref this.symbioteInitiator, "symbioteInitiator");
+      Scribe_Values.Look<Color>(ref this.symbioteColor, "symbioteColor");
+    }
 }
