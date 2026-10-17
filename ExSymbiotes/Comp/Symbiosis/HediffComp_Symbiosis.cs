@@ -16,15 +16,23 @@ namespace ExSymbiotes
         private bool deathlessGene = false;
         private bool vacuumGene = false;
         private bool immunityGene = false;
-        protected int bond = 2;
+        public int bond = 2;
         protected Color originalHair;
         protected Color? originalSkin;
         public string name = "ExSymbiotes.Symbiote".Translate();
+        public bool named = false;
         private int nameTick = -99999;
         private int talkTick = -99999;
         private InteractionDef[] good = [InteractionDefOf.DeepTalk, ExSymbiotesDefOf.KindWords];
         private InteractionDef[] neutral = [InteractionDefOf.Chitchat, InteractionDefOf.OccultTeaching, InteractionDefOf.CreepyWords, InteractionDefOf.InhumanRambling];
         private InteractionDef[] negative = [InteractionDefOf.Insult, ExSymbiotesDefOf.Slight, InteractionDefOf.DisturbingChat];
+        
+        public override void CompPostMake()
+        {
+            base.CompPostMake();
+            this.talkTick = Find.TickManager.TicksGame + 2500;
+            this.nameTick = Find.TickManager.TicksGame + (60000 * (this.bond < 3 ? 5 : 8));
+        }
         
         public override void CompPostPostAdd(DamageInfo? dinfo)
         {
@@ -39,8 +47,6 @@ namespace ExSymbiotes
                 if(ModsConfig.OdysseyActive) vacuumGene = SymbioteUtility.CheckAddGene(this.Pawn, ExSymbiotesDefOf.VacuumResistance_Total);
             }
             RollBond();
-            this.talkTick = Find.TickManager.TicksGame + 15000;
-            this.nameTick = Find.TickManager.TicksGame + (60000 * this.bond > 5 ? 5 : 8);
         }
 
         public override void CompPostPostRemoved()
@@ -61,9 +67,10 @@ namespace ExSymbiotes
         public override void CompPostTick(ref float severityAdjustment)
         {
             base.CompPostTick(ref severityAdjustment);
-
-            if (this.parent.pawn.IsHashIntervalTick(3600) && talkTick < Find.TickManager.TicksGame) 
+            if (this.parent.pawn.IsHashIntervalTick(2500) && talkTick < Find.TickManager.TicksGame) 
                 SymbioteInteraction();
+            if (!named && this.parent.pawn.IsHashIntervalTick(30000) && nameTick < Find.TickManager.TicksGame)
+                Find.WindowStack.Add((Window) new Dialog_SymbioteName(this));
         }
         
         public override IEnumerable<Gizmo> CompGetGizmos()
@@ -115,6 +122,7 @@ namespace ExSymbiotes
             Scribe_Values.Look<Color>(ref this.originalHair, "originalHair");
             Scribe_Values.Look<Color?>(ref this.originalSkin, "originalSkin");
             Scribe_Values.Look<string>(ref this.name, "name");
+            Scribe_Values.Look<bool>(ref this.named, "named");
             Scribe_Values.Look<int>(ref this.nameTick, "nameTick");
             Scribe_Values.Look<int>(ref this.talkTick, "talkTick");
         }
@@ -187,9 +195,9 @@ namespace ExSymbiotes
                                interaction == InteractionDefOf.InhumanRambling || interaction == InteractionDefOf.OccultTeaching ||
                                interaction == InteractionDefOf.CreepyWords || interaction == InteractionDefOf.DisturbingChat;
             if(SymbioteUtility.SymbioteInteraction.TryInteractWith(this.parent.pawn, this.parent.pawn, interaction, name, this.Props.color, initiator))
-                this.talkTick = Find.TickManager.TicksGame + 10000 + Rand.RangeInclusive(2500, 7500);
-            else
                 this.talkTick = Find.TickManager.TicksGame + Rand.RangeInclusive(2500, 7500);
+            else
+                this.talkTick = Find.TickManager.TicksGame + 2500;
         }
         
         public void AddSymbiosis(int amount) => this.energy = (energy + amount)>EnergyMax ? EnergyMax : energy + amount;
