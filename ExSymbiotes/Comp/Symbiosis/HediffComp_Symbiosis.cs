@@ -69,7 +69,7 @@ namespace ExSymbiotes
             base.CompPostTick(ref severityAdjustment);
             if (this.parent.pawn.IsHashIntervalTick(2500) && talkTick < Find.TickManager.TicksGame) 
                 SymbioteInteraction();
-            if (!named && this.parent.pawn.IsHashIntervalTick(30000) && nameTick < Find.TickManager.TicksGame)
+            if (!named && this.parent.pawn.IsHashIntervalTick(5000) && nameTick < Find.TickManager.TicksGame)
                 Find.WindowStack.Add((Window) new Dialog_SymbioteName(this));
         }
         
@@ -92,11 +92,11 @@ namespace ExSymbiotes
                 // commandAction2.defaultLabel = "DEV 1: Symbiosis";
                 // commandAction2.action = new Action(this.SymbioteInteraction);
                 // yield return (Gizmo) commandAction2;
-                //
-                // Command_Action commandAction3 = new Command_Action();
-                // commandAction3.defaultLabel = "DEV 2: Symbiosis";
-                // commandAction3.action = new Action(this.RollBond);
-                // yield return (Gizmo) commandAction3;
+                
+                Command_Action commandAction3 = new Command_Action();
+                commandAction3.defaultLabel = "DEV: Symbiosis roll bond";
+                commandAction3.action = new Action(this.RollBond);
+                yield return (Gizmo) commandAction3;
             }
         }
         
@@ -121,7 +121,7 @@ namespace ExSymbiotes
             Scribe_Values.Look<bool>(ref this.immunityGene, "immunityGene");
             Scribe_Values.Look<Color>(ref this.originalHair, "originalHair");
             Scribe_Values.Look<Color?>(ref this.originalSkin, "originalSkin");
-            Scribe_Values.Look<string>(ref this.name, "name");
+            Scribe_Values.Look<string>(ref this.name, "name", "ExSymbiotes.Symbiote".Translate());
             Scribe_Values.Look<bool>(ref this.named, "named");
             Scribe_Values.Look<int>(ref this.nameTick, "nameTick");
             Scribe_Values.Look<int>(ref this.talkTick, "talkTick");
@@ -193,7 +193,8 @@ namespace ExSymbiotes
             }
             bool initiator = interaction == InteractionDefOf.Insult || interaction == ExSymbiotesDefOf.Slight ||
                                interaction == InteractionDefOf.InhumanRambling || interaction == InteractionDefOf.OccultTeaching ||
-                               interaction == InteractionDefOf.CreepyWords || interaction == InteractionDefOf.DisturbingChat;
+                               interaction == InteractionDefOf.CreepyWords || interaction == InteractionDefOf.DisturbingChat ||
+                               interaction == ExSymbiotesDefOf.KindWords;
             if(SymbioteUtility.SymbioteInteraction.TryInteractWith(this.parent.pawn, this.parent.pawn, interaction, name, this.Props.color, initiator))
                 this.talkTick = Find.TickManager.TicksGame + Rand.RangeInclusive(2500, 7500);
             else
