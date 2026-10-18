@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Defs>
-<!--    SYMBIOSIS   -->
+<!--    SYMBIOSIS   NOTE: White does not inherits comps-->
     <HediffDef Name="ExSymbiotes_SymbiosisBase" Abstract="True">
         <hediffClass>ExSymbiotes.HediffWithComps_Symbiosis</hediffClass>
         <description>This person has perform symbiosis with a symbiotic core.The symbiote lives inside them, guiding their actions and twisting their flesh.</description>
@@ -51,6 +51,12 @@
             <li Class="ExSymbiotes.HediffCompProperties_ReactOnDamageStack">
                 <damageDefIncoming>EMP</damageDefIncoming>
                 <createHediff>ExSymbiotes_Shock</createHediff>
+            </li>
+            <li Class="HediffCompProperties_LetterOnDeath">
+                <letterDef>NeutralEvent</letterDef>
+                <letterLabel>Symbiosis pawn death</letterLabel>
+                <letterText>{PAWN} has died while being bonded with a symbiote. If the bond between {PAWN} and the symbiote was strong enough the symbiote will attemp to resurrect {PAWN} at the cost of its own life.\n\nYou can also harvest the symbiote from the corpse to use on another colonist.</letterText>
+                <onlyIfNoMechanitorDied>true</onlyIfNoMechanitorDied>
             </li>
         </comps>
     </HediffDef>
@@ -232,6 +238,12 @@
                     <li>ExSymbiotes_SymbioticTendrilsWeak</li>
                     <li MayRequire="Ludeon.RimWorld.Biotech">ExSymbiotes_SymbioticLongjump</li>
                 </abilityDefs>
+            </li>
+            <li Class="HediffCompProperties_LetterOnDeath">
+                <letterDef>NeutralEvent</letterDef>
+                <letterLabel>Symbiosis pawn death</letterLabel>
+                <letterText>{PAWN} has died while being bonded with a symbiote. If the bond between {PAWN} and the symbiote was strong enough the symbiote will attemp to resurrect {PAWN} at the cost of its own life.\n\nYou can also harvest the symbiote from the corpse to use on another colonist.</letterText>
+                <onlyIfNoMechanitorDied>true</onlyIfNoMechanitorDied>
             </li>
         </comps>
     </HediffDef>

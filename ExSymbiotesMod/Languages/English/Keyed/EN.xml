@@ -53,4 +53,7 @@
     <ExSymbiotes.NameSymbioteMessageBad>{0}'s symbiote is demanding to have a name. What should your symbiote be called?</ExSymbiotes.NameSymbioteMessageBad>
     <ExSymbiotes.SymbioteGainsName>{0}'s symbiote is now called {1}.</ExSymbiotes.SymbioteGainsName>
     <ExSymbiotes.SymbioteNameIsInvalid>That name isn't valid.</ExSymbiotes.SymbioteNameIsInvalid>
+
+    <ExSymbiotes.ReportRemovingSymbiote>Removing symbiote</ExSymbiotes.ReportRemovingSymbiote>
+    <ExSymbiotes.Removing>Remove</ExSymbiotes.Removing>
 </LanguageData>

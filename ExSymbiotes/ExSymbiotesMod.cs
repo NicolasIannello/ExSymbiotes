@@ -84,6 +84,8 @@ namespace ExSymbiotes
         public static HediffDef ExSymbiotes_SymbioteControlRed;
         public static HediffDef ExSymbiotes_Symbiosis_White;
         public static HediffDef ExSymbiotes_Symbiosis_Yellow;
+        [MayRequireBiotech]
+        public static HediffDef ExSymbiotes_Symbiosis_Purple;
         public static HediffDef ExSymbiotes_HivemindConnection;
         public static HediffDef ExSymbiotes_Thrall;
         public static IncidentDef ExSymbiotes_SymbioteMass_Incident;
@@ -91,6 +93,7 @@ namespace ExSymbiotes
         public static JobDef ExSymbiotes_SymbioteDigest;
         public static JobDef ExSymbiotes_SymbioteSwitchToAttackMode;
         public static JobDef ExSymbiotes_UseVerbOnThing;
+        public static JobDef ExSymbiotes_RemoveSymbiote;
         public static PawnGroupKindDef ExSymbiotes_Symbiote_PawnGroupKind;
         public static PawnGroupKindDef ExSymbiotes_Symbiote_PawnGroupKindRed;
         public static PawnGroupKindDef ExSymbiotes_Symbiote_PawnGroupKindBlackRed;
@@ -103,6 +106,14 @@ namespace ExSymbiotes
         public static ThingDef ExSymbiotes_Mote_HarbingerTreeRoots;
         public static ThingDef ExSymbiotes_Mote_HarbingerTreeRootsBlack;
         public static ThingDef ExSymbiotes_PawnFlyer_VenomLeap;
+        public static ThingDef ExSymbiotes_SymbioticCore;
+        public static ThingDef ExSymbiotes_SymbioticCore_Red;
+        public static ThingDef ExSymbiotes_SymbioticCore_White;
+        public static ThingDef ExSymbiotes_SymbioticCore_Yellow;
+        [MayRequireBiotech]
+        public static ThingDef ExSymbiotes_SymbioticCore_Purple;
+        [MayRequireBiotech]
+        public static ThingDef ExSymbiotes_MechShield;
         public static ThoughtDef ExSymbiotes_SymbioteControlledAfter;
         public static ThoughtDef ExSymbiotes_BondedSymbioteLost;
 
@@ -110,12 +121,8 @@ namespace ExSymbiotes
         public static GeneDef VacuumResistance_Total;
         [MayRequireBiotech]
         public static GeneDef PerfectImmunity;
-        [MayRequireBiotech]
-        public static HediffDef ExSymbiotes_Symbiosis_Purple;
         public static InteractionDef KindWords;
         public static InteractionDef Slight;
-        [MayRequireBiotech]
-        public static ThingDef ExSymbiotes_MechShield;
         
         static ExSymbiotesDefOf()
         {
