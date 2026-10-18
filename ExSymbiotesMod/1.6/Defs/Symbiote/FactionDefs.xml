@@ -8,6 +8,7 @@
         <pawnsPlural>symbiotes</pawnsPlural>
         <factionIconPath>UI/SymbioticArmor</factionIconPath>
         <requiredCountAtGameStart>1</requiredCountAtGameStart>
+        <canGenerateQuestSites>false</canGenerateQuestSites>
         <raidCommonalityFromPointsCurve>
             <points>
                 <li>(0, 0)</li>
