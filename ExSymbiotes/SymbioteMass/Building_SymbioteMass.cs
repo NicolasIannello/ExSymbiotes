@@ -67,11 +67,11 @@ namespace ExSymbiotes
     {
       if (!red || texture==1)
       {
-        if (study) GenPlace.TryPlaceThing(GetReward(texture==0 ? "ExSymbiotes_SymbioticCore" : "ExSymbiotes_SymbioticCore_Red", 1), this.Position, this.Map, ThingPlaceMode.Near);
+        if (study) GenPlace.TryPlaceThing(GetReward(texture==0 ? ExSymbiotesDefOf.ExSymbiotes_SymbioticCore : ExSymbiotesDefOf.ExSymbiotes_SymbioticCore_Red, 1), this.Position, this.Map, ThingPlaceMode.Near);
         else
         {
-          GenPlace.TryPlaceThing(GetReward("Shard", 10), this.Position, this.Map, ThingPlaceMode.Near);
-          GenPlace.TryPlaceThing(GetReward(texture==0 ? "ExSymbiotes_SymbioticTissue" : "ExSymbiotes_SymbioticTissue_Red", 50), this.Position, this.Map, ThingPlaceMode.Near);
+          GenPlace.TryPlaceThing(GetReward(ThingDefOf.Shard, 10), this.Position, this.Map, ThingPlaceMode.Near);
+          GenPlace.TryPlaceThing(GetReward(texture==0 ? ExSymbiotesDefOf.ExSymbiotes_SymbioticTissue : ExSymbiotesDefOf.ExSymbiotes_SymbioticTissue_Red, 50), this.Position, this.Map, ThingPlaceMode.Near);
         }
       }
       else
@@ -91,9 +91,8 @@ namespace ExSymbiotes
       base.Kill(dinfo, exactCulprit);
     }
 
-    private Thing GetReward(string itemDefName, int stack)
+    private Thing GetReward(ThingDef itemDef, int stack)
     {
-      ThingDef itemDef = ThingDef.Named(itemDefName);
       Thing item = ThingMaker.MakeThing(itemDef);
       item.stackCount = stack;
 

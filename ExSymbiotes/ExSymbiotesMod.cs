@@ -110,6 +110,8 @@ namespace ExSymbiotes
         public static ThingDef ExSymbiotes_SymbioticCore_Red;
         public static ThingDef ExSymbiotes_SymbioticCore_White;
         public static ThingDef ExSymbiotes_SymbioticCore_Yellow;
+        public static ThingDef ExSymbiotes_SymbioticTissue;
+        public static ThingDef ExSymbiotes_SymbioticTissue_Red;
         [MayRequireBiotech]
         public static ThingDef ExSymbiotes_SymbioticCore_Purple;
         [MayRequireBiotech]
