@@ -56,4 +56,10 @@
 
     <ExSymbiotes.ReportRemovingSymbiote>Removing symbiote</ExSymbiotes.ReportRemovingSymbiote>
     <ExSymbiotes.Removing>Remove</ExSymbiotes.Removing>
+
+    <ExSymbiotes.SymbioticResurrection>Symbiotic Resurrection</ExSymbiotes.SymbioticResurrection>
+    <ExSymbiotes.SymbioticResurrectionDesc>The symbiote inside will try to resurrect its dead host at the cost of it own life. Succes chance depends on the bond with the host.</ExSymbiotes.SymbioticResurrectionDesc>
+    <ExSymbiotes.SymbioticResurrectionLabel>Symbiotic Resurrection</ExSymbiotes.SymbioticResurrectionLabel>
+    <ExSymbiotes.SymbioticResurrectionTextFailed>{0} failed to resurrect {1}, {0} was lost in the process.</ExSymbiotes.SymbioticResurrectionTextFailed>
+    <ExSymbiotes.SymbioticResurrectionTextSuccess>{0} successfully resurrected {1}, {0} was lost in the process.</ExSymbiotes.SymbioticResurrectionTextSuccess>
 </LanguageData>

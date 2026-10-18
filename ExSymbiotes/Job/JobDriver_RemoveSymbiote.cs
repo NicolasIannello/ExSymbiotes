@@ -36,12 +36,13 @@ public class JobDriver_RemoveSymbiote : JobDriver
     toil2.initAction = (Action) (() =>
     {
       Pawn innerPawn = this.Corpse.InnerPawn;
+      innerPawn.health.RemoveHediff(symbiosis);
       List<Hediff> hediffs = innerPawn.health.hediffSet.hediffs;
       for (int index = hediffs.Count - 1; index >= 0; --index)
       {
-        if (hediffs[index].def == symbiosis.def)
+        if (hediffs[index].def == ExSymbiotesDefOf.ExSymbiotes_SymbioticResurrectionDEV || 
+            hediffs[index].def == ExSymbiotesDefOf.ExSymbiotes_SymbioticResurrection)
           innerPawn.health.RemoveHediff(hediffs[index]);
-        //remove revive one
       }
       ThingDef coreDef = ExSymbiotesDefOf.ExSymbiotes_SymbioticCore;
       if (symbiosis.def == ExSymbiotesDefOf.ExSymbiotes_Symbiosis_Red) coreDef = ExSymbiotesDefOf.ExSymbiotes_SymbioticCore_Red;

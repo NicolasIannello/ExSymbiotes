@@ -1255,4 +1255,64 @@
             </li>
         </stages>
     </HediffDef>
+
+    <HediffDef>
+        <defName>ExSymbiotes_SymbioticResurrectionDEV</defName>
+        <hediffClass>ExSymbiotes.HediffWithComp_SymbioticResurrectionDEV</hediffClass>
+        <label>symbiote resurrection DEV</label> <!-- won't be seen outside of dev-mode -->
+        <description>Gizmo for triggering symbiote resurrection. This text is visible in dev mode only.</description> <!-- won't be seen outside of dev-mode -->
+        <isBad>false</isBad>
+        <showGizmosOnCorpse>true</showGizmosOnCorpse>
+        <forceRemoveOnResurrection>true</forceRemoveOnResurrection>
+        <everCurableByItem>false</everCurableByItem>
+        <stages>
+            <li>
+                <becomeVisible>false</becomeVisible>
+            </li>
+        </stages>
+    </HediffDef>
+
+    <HediffDef>
+        <defName>ExSymbiotes_SymbioticResurrection</defName>
+        <hediffClass>ExSymbiotes.HediffWithComp_SymbioticResurrection</hediffClass>
+        <label>symbiote resurrection</label>
+        <description>The symbiote inside is trying to resurrect its dead host at the cost of it own life.</description>
+        <everCurableByItem>false</everCurableByItem>
+        <recordDownedTale>false</recordDownedTale>
+        <stages>
+            <li>
+                <painFactor>0</painFactor>
+                <capMods>
+                    <li>
+                        <capacity>Moving</capacity>
+                        <postFactor>0</postFactor>
+                    </li>
+                    <li>
+                        <capacity>Manipulation</capacity>
+                        <postFactor>0</postFactor>
+                    </li>
+                    <li>
+                        <capacity>Talking</capacity>
+                        <postFactor>0</postFactor>
+                    </li>
+                    <li>
+                        <capacity>Hearing</capacity>
+                        <postFactor>0.2</postFactor>
+                    </li>
+                    <li>
+                        <capacity>Consciousness</capacity>
+                        <setMax>0.1</setMax>
+                    </li>
+                </capMods>
+            </li>
+        </stages>
+        <comps>
+            <li Class="HediffCompProperties_Disappears">
+                <showRemainingTime>True</showRemainingTime>
+                <disappearsAfterTicks>125000</disappearsAfterTicks>
+            </li>
+            <li Class="HediffCompProperties_DisappearsOnDeath"/>
+        </comps>
+    </HediffDef>
+    
 </Defs>

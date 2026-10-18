@@ -73,6 +73,13 @@ namespace ExSymbiotes
                 Find.WindowStack.Add((Window) new Dialog_SymbioteName(this));
         }
         
+        public override void Notify_PawnDied(DamageInfo? dinfo, Hediff culprit = null)
+        {
+            base.Notify_PawnDied(dinfo, culprit);
+            if(this.bond<2)
+                this.parent.pawn.health.AddHediff(ExSymbiotesDefOf.ExSymbiotes_SymbioticResurrectionDEV);
+        }
+        
         public override IEnumerable<Gizmo> CompGetGizmos()
         {
             IEnumerable<Gizmo> compGetGizmos = base.CompGetGizmos();

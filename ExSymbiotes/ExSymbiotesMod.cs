@@ -88,6 +88,8 @@ namespace ExSymbiotes
         public static HediffDef ExSymbiotes_Symbiosis_Purple;
         public static HediffDef ExSymbiotes_HivemindConnection;
         public static HediffDef ExSymbiotes_Thrall;
+        public static HediffDef ExSymbiotes_SymbioticResurrectionDEV;
+        public static HediffDef ExSymbiotes_SymbioticResurrection;
         public static IncidentDef ExSymbiotes_SymbioteMass_Incident;
         public static IncidentDef ExSymbiotes_SymbiotePack;
         public static JobDef ExSymbiotes_SymbioteDigest;
@@ -112,12 +114,14 @@ namespace ExSymbiotes
         public static ThingDef ExSymbiotes_SymbioticCore_Yellow;
         public static ThingDef ExSymbiotes_SymbioticTissue;
         public static ThingDef ExSymbiotes_SymbioticTissue_Red;
+        public static ThingDef ExSymbiotes_Filth_RevenantBloodPool_Red;
         [MayRequireBiotech]
         public static ThingDef ExSymbiotes_SymbioticCore_Purple;
         [MayRequireBiotech]
         public static ThingDef ExSymbiotes_MechShield;
         public static ThoughtDef ExSymbiotes_SymbioteControlledAfter;
         public static ThoughtDef ExSymbiotes_BondedSymbioteLost;
+        public static ThoughtDef ExSymbiotes_BondedSymbioteSacrifice;
 
         [MayRequire("Ludeon.RimWorld.Odyssey,Ludeon.RimWorld.Biotech")]
         public static GeneDef VacuumResistance_Total;
