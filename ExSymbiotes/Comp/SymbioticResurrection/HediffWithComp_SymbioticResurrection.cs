@@ -17,7 +17,7 @@ public class HediffWithComp_SymbioticResurrection : HediffWithComps
     {
       base.PostMake();
       this.headRotation = Rand.RangeSeeded(-20f, 20f, this.pawn.thingIDNumber);
-      this.resurrectTimer = Find.TickManager.TicksGame + 120000;
+      this.resurrectTimer = Find.TickManager.TicksGame + 120000 - 15;
     }
               
     public override void TickInterval(int delta)
@@ -27,7 +27,7 @@ public class HediffWithComp_SymbioticResurrection : HediffWithComps
           this.FinishRising();
         if (!this.pawn.Spawned)
           return;
-        if (Find.TickManager.TicksGame > this.resurrectTimer - 60)
+        if (Find.TickManager.TicksGame > this.resurrectTimer - 15)
           this.riseSustainer?.End();
         else
         {
@@ -54,6 +54,7 @@ public class HediffWithComp_SymbioticResurrection : HediffWithComps
 
     private void FinishRising(bool stun = true)
     {
+      this.riseSustainer?.End();
       this.pawn.health.RemoveHediff(this);
       if (this.pawn.ParentHolder is Pawn_CarryTracker parentHolder)
       {
