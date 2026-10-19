@@ -1304,12 +1304,17 @@
                         <setMax>0.1</setMax>
                     </li>
                 </capMods>
+                <disablesNeeds>
+                    <li>Food</li>
+                    <li>Comfort</li>
+                    <li>Beauty</li>
+                </disablesNeeds>
             </li>
         </stages>
         <comps>
             <li Class="HediffCompProperties_Disappears">
                 <showRemainingTime>True</showRemainingTime>
-                <disappearsAfterTicks>125000</disappearsAfterTicks>
+                <disappearsAfterTicks>120000</disappearsAfterTicks>
             </li>
             <li Class="HediffCompProperties_DisappearsOnDeath"/>
         </comps>
