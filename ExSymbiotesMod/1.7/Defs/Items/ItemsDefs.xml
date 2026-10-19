@@ -57,14 +57,14 @@
             <DeteriorationRate>0</DeteriorationRate>
             <Mass>0.03</Mass>
             <Flammability>2</Flammability>
-            <MarketValue>40</MarketValue>
-            <StuffPower_Armor_Sharp>3</StuffPower_Armor_Sharp>
-            <StuffPower_Armor_Blunt>1</StuffPower_Armor_Blunt>
+            <MarketValue>30</MarketValue>
+            <StuffPower_Armor_Sharp>2.65</StuffPower_Armor_Sharp>
+            <StuffPower_Armor_Blunt>1.65</StuffPower_Armor_Blunt>
             <StuffPower_Armor_Heat>0</StuffPower_Armor_Heat>
             <StuffPower_Insulation_Cold>60</StuffPower_Insulation_Cold>
             <StuffPower_Insulation_Heat>40</StuffPower_Insulation_Heat>
-            <SharpDamageMultiplier>2</SharpDamageMultiplier>
-            <BluntDamageMultiplier>1.5</BluntDamageMultiplier>
+            <SharpDamageMultiplier>0.6</SharpDamageMultiplier>
+            <BluntDamageMultiplier>2</BluntDamageMultiplier>
         </statBases>
         <thingCategories>
             <li>Textiles</li>
@@ -97,14 +97,14 @@
             <DeteriorationRate>0</DeteriorationRate>
             <Mass>0.03</Mass>
             <Flammability>2</Flammability>
-            <MarketValue>50</MarketValue>
-            <StuffPower_Armor_Sharp>3.5</StuffPower_Armor_Sharp>
-            <StuffPower_Armor_Blunt>1.5</StuffPower_Armor_Blunt>
+            <MarketValue>35</MarketValue>
+            <StuffPower_Armor_Sharp>3.33</StuffPower_Armor_Sharp>
+            <StuffPower_Armor_Blunt>2.51</StuffPower_Armor_Blunt>
             <StuffPower_Armor_Heat>0</StuffPower_Armor_Heat>
             <StuffPower_Insulation_Cold>60</StuffPower_Insulation_Cold>
             <StuffPower_Insulation_Heat>40</StuffPower_Insulation_Heat>
-            <SharpDamageMultiplier>2.25</SharpDamageMultiplier>
-            <BluntDamageMultiplier>1.75</BluntDamageMultiplier>
+            <SharpDamageMultiplier>2</SharpDamageMultiplier>
+            <BluntDamageMultiplier>0.6</BluntDamageMultiplier>
         </statBases>
         <stuffProps>
             <categories>
@@ -137,15 +137,15 @@
         <healthAffectsPrice>false</healthAffectsPrice>
         <genericMarketSellable>false</genericMarketSellable>
         <statBases>
-            <MarketValue>30</MarketValue>
+            <MarketValue>25</MarketValue>
             <Mass>0.25</Mass>
-            <StuffPower_Armor_Sharp>3.0</StuffPower_Armor_Sharp>
-            <StuffPower_Armor_Blunt>2</StuffPower_Armor_Blunt>
+            <StuffPower_Armor_Sharp>1.67</StuffPower_Armor_Sharp>
+            <StuffPower_Armor_Blunt>1.11</StuffPower_Armor_Blunt>
             <StuffPower_Armor_Heat>0</StuffPower_Armor_Heat>
             <StuffPower_Insulation_Cold>60</StuffPower_Insulation_Cold>
             <StuffPower_Insulation_Heat>40</StuffPower_Insulation_Heat>
-            <SharpDamageMultiplier>2</SharpDamageMultiplier>
-            <BluntDamageMultiplier>1.5</BluntDamageMultiplier>
+            <SharpDamageMultiplier>0.6</SharpDamageMultiplier>
+            <BluntDamageMultiplier>2</BluntDamageMultiplier>
         </statBases>
         <thingCategories>
             <li>ResourcesRaw</li>
@@ -186,15 +186,15 @@
             <color>(156, 9, 9)</color>
         </graphicData>
         <statBases>
-            <MarketValue>40</MarketValue>
+            <MarketValue>30</MarketValue>
             <Mass>0.25</Mass>
-            <StuffPower_Armor_Sharp>3.5</StuffPower_Armor_Sharp>
-            <StuffPower_Armor_Blunt>2.5</StuffPower_Armor_Blunt>
+            <StuffPower_Armor_Sharp>2.25</StuffPower_Armor_Sharp>
+            <StuffPower_Armor_Blunt>1.39</StuffPower_Armor_Blunt>
             <StuffPower_Armor_Heat>0</StuffPower_Armor_Heat>
             <StuffPower_Insulation_Cold>60</StuffPower_Insulation_Cold>
             <StuffPower_Insulation_Heat>40</StuffPower_Insulation_Heat>
-            <SharpDamageMultiplier>2.25</SharpDamageMultiplier>
-            <BluntDamageMultiplier>1.75</BluntDamageMultiplier>
+            <SharpDamageMultiplier>2</SharpDamageMultiplier>
+            <BluntDamageMultiplier>0.6</BluntDamageMultiplier>
         </statBases>
         <stuffProps>
             <categories>
