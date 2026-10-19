@@ -55,7 +55,7 @@
             <li Class="HediffCompProperties_LetterOnDeath">
                 <letterDef>NeutralEvent</letterDef>
                 <letterLabel>Symbiosis pawn death</letterLabel>
-                <letterText>{PAWN} has died while being bonded with a symbiote. If the bond between {PAWN} and the symbiote was strong enough the symbiote will attemp to resurrect {PAWN} at the cost of its own life.\n\nYou can also harvest the symbiote from the corpse to use on another colonist.</letterText>
+                <letterText>{PAWN} has died while being bonded with a symbiote. If the bond between {PAWN} and the symbiote was strong enough you can trigger an attempt to resurrect {PAWN} at the cost of the symbiote's own life.\n\nYou can also harvest the symbiote from the corpse to use on another colonist.</letterText>
                 <onlyIfNoMechanitorDied>true</onlyIfNoMechanitorDied>
             </li>
         </comps>
