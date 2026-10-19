@@ -51,6 +51,13 @@ public class HediffWithComp_SymbioticResurrection : HediffWithComps
           this.pawn.records.Increment(RecordDefOf.FiresExtinguished);
         }
     }
+    
+    public override void PostRemoved()
+    {
+      base.PostRemoved();
+      this.riseSustainer?.End();
+      this.pawn.Drawer.renderer.SetAnimation((AnimationDef)null);
+    }
 
     private void FinishRising(bool stun = true)
     {
