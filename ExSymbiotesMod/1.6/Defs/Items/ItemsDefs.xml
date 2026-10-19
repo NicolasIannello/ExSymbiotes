@@ -57,7 +57,7 @@
             <DeteriorationRate>0</DeteriorationRate>
             <Mass>0.03</Mass>
             <Flammability>2</Flammability>
-            <MarketValue>25</MarketValue>
+            <MarketValue>40</MarketValue>
             <StuffPower_Armor_Sharp>3</StuffPower_Armor_Sharp>
             <StuffPower_Armor_Blunt>1</StuffPower_Armor_Blunt>
             <StuffPower_Armor_Heat>0</StuffPower_Armor_Heat>
@@ -73,7 +73,7 @@
             <categories>
                 <li>Fabric</li>
             </categories>
-            <commonality>0.01</commonality>
+            <commonality>0.002</commonality>
             <color>(31, 27, 28)</color>
             <isAirtight>true</isAirtight>
             <statFactors>
@@ -97,7 +97,7 @@
             <DeteriorationRate>0</DeteriorationRate>
             <Mass>0.03</Mass>
             <Flammability>2</Flammability>
-            <MarketValue>25</MarketValue>
+            <MarketValue>50</MarketValue>
             <StuffPower_Armor_Sharp>3.5</StuffPower_Armor_Sharp>
             <StuffPower_Armor_Blunt>1.5</StuffPower_Armor_Blunt>
             <StuffPower_Armor_Heat>0</StuffPower_Armor_Heat>
@@ -110,7 +110,7 @@
             <categories>
                 <li>Fabric</li>
             </categories>
-            <commonality>0.005</commonality>
+            <commonality>0.001</commonality>
             <color>(156, 9, 9)</color>
             <isAirtight>true</isAirtight>
             <statFactors>
@@ -157,7 +157,7 @@
                 <li>Metallic</li>
             </categories>
             <appearance>Metal</appearance>
-            <commonality>0.01</commonality>
+            <commonality>0.002</commonality>
             <constructEffect>ConstructMetal</constructEffect>
             <isAirtight>true</isAirtight>
             <color>(31, 27, 28)</color>
@@ -201,7 +201,7 @@
                 <li>Metallic</li>
             </categories>
             <appearance>Metal</appearance>
-            <commonality>0.005</commonality>
+            <commonality>0.001</commonality>
             <constructEffect>ConstructMetal</constructEffect>
             <isAirtight>true</isAirtight>
             <color>(156, 9, 9)</color>
