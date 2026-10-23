@@ -10,5 +10,11 @@ namespace ExSymbiotes
             base.Notify_IngestedThing(thing, amount);
             if(thing.def == ThingDefOf.Chocolate) this.TryGetComp<HediffComp_Symbiosis>().AddSymbiosis(1);
         }
+        
+        public override void Notify_Downed()
+        {
+            base.Notify_Downed();
+            this.TryGetComp<HediffComp_Symbiosis>().ChangeVisual(false);
+        }
     }
 }
