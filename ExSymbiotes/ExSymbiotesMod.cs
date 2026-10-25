@@ -96,6 +96,8 @@ namespace ExSymbiotes
         public static JobDef ExSymbiotes_SymbioteSwitchToAttackMode;
         public static JobDef ExSymbiotes_UseVerbOnThing;
         public static JobDef ExSymbiotes_RemoveSymbiote;
+        [MayRequireOdyssey] 
+        public static OrbitalDebrisDef ExSymbiotes_OrbitalDebris;
         public static PawnGroupKindDef ExSymbiotes_Symbiote_PawnGroupKind;
         public static PawnGroupKindDef ExSymbiotes_Symbiote_PawnGroupKindRed;
         public static PawnGroupKindDef ExSymbiotes_Symbiote_PawnGroupKindBlackRed;

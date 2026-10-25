@@ -22,7 +22,7 @@ public class GenStep_SpaceGrendel : GenStep
     this.GenerateAsteroidElevation(map, parms);
     this.GenerateCaveElevation(map, parms);
     GenStep_SpaceGrendel.SpawnAsteroid(map);
-    map.OrbitalDebris = OrbitalDebrisDefOf.Asteroid;//custom
+    map.OrbitalDebris = ExSymbiotesDefOf.ExSymbiotes_OrbitalDebris;
   }
 
   private static void SpawnAsteroid(Map map)
@@ -90,9 +90,9 @@ public class GenStep_SpaceGrendel : GenStep
       closedTunnelsPer10k = 0,
       tunnelsWidthPerRockCount = new SimpleCurve()
       {
-        { new CurvePoint(100f, 3f), true },
-        { new CurvePoint(300f, 3.5f), true },
-        { new CurvePoint(3000f, 4f), true }
+        { new CurvePoint(100f, 3.1f), true },
+        { new CurvePoint(300f, 3.65f), true },
+        { new CurvePoint(3000f, 4.15f), true }
       },
       directionChangeSpeed = 5
     };
