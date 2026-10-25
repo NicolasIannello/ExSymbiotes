@@ -1,0 +1,14 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+	<EntityCodexEntryDef>
+		<defName>ExSymbiotes_Grendel_EntityCodexEntry</defName>
+		<label>grendel</label>
+		<useDescriptionFrom>ExSymbiotes_SymbioteMass_Black</useDescriptionFrom><!--cambiar-->
+		<uiIconPath>Things/Pawn/Symbiote/Black/Symbiote</uiIconPath><!--cambiar-->
+		<category>Ultimate</category>
+		<provocationIncidents>
+			<li>ExSymbiotes_SpaceGrendel</li>
+		</provocationIncidents>
+		<orderInCategory>1443</orderInCategory>
+	</EntityCodexEntryDef>
+</Defs>

@@ -1,0 +1,35 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+    <WorldObjectDef ParentName="ClaimableSpace">
+        <defName>ExSymbiotes_SpaceGrendelAsteroid</defName>
+        <worldObjectClass>BasicAsteroidMapParent</worldObjectClass>
+        <label>symbiotic asteroid</label> <!-- hidden -->
+        <description>A symbiotic asteroid that was towed into orbit around the planet by an unknow force.\n\nThis location can be reached using transport pods, shuttles, or a gravship.</description>
+        <expandingIconTexture>World/WorldObjects/Expanding/ResourceAsteroid</expandingIconTexture>
+<!--        <expandingIconMaskTexture>World/WorldObjects/Expanding/ResourceAsteroid_m</expandingIconMaskTexture>-->
+<!--        <expandingShader>CutoutComplexUI</expandingShader>-->
+        <overrideMapSize>(250,1,250)</overrideMapSize>
+        <mapGenerator>ExSymbiotes_SpaceGrendelAsteroid</mapGenerator>
+        <canBePlayerHome>false</canBePlayerHome>
+        <treatAsPlayerHome>false</treatAsPlayerHome>
+    </WorldObjectDef>
+
+    <MapGeneratorDef ParentName="SpaceMapGenerator">
+        <defName>ExSymbiotes_SpaceGrendelAsteroid</defName>
+        <label>symbiotic asteroid</label>
+        <genSteps>
+            <li>ExSymbiotes_SpaceGrendelAsteroid</li>
+<!--            <li>RockChunks</li>-->
+        </genSteps>
+    </MapGeneratorDef>
+
+    <GenStepDef>
+        <defName>ExSymbiotes_SpaceGrendelAsteroid</defName>
+        <order>200</order>
+        <genStep Class="ExSymbiotes.GenStep_SpaceGrendel">
+<!--            <numChunks>5~8</numChunks>-->
+<!--            <ruinsChance>1</ruinsChance>-->
+<!--            <archeanTreeChance>0.25</archeanTreeChance>-->
+        </genStep>
+    </GenStepDef>
+</Defs>

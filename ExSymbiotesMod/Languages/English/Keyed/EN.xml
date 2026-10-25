@@ -62,4 +62,7 @@
     <ExSymbiotes.SymbioticResurrectionLabel>Symbiotic Resurrection</ExSymbiotes.SymbioticResurrectionLabel>
     <ExSymbiotes.SymbioticResurrectionTextFailed>{0} failed to resurrect {1}, {0} was lost in the process.</ExSymbiotes.SymbioticResurrectionTextFailed>
     <ExSymbiotes.SymbioticResurrectionTextSuccess>{0} successfully resurrected {1}, {0} was lost in the process.</ExSymbiotes.SymbioticResurrectionTextSuccess>
+
+    <ExSymbiotes.SpaceGrendelLetter>Symbiotic asteroid</ExSymbiotes.SpaceGrendelLetter>
+    <ExSymbiotes.SpaceGrendelText>A symbiotic asteroid that was towed into orbit around the planet by an unknow force.\n\nThis location can be reached using transport pods, shuttles, or a gravship.</ExSymbiotes.SpaceGrendelText>
 </LanguageData>
