@@ -66,8 +66,6 @@ namespace ExSymbiotes
           comp.AddThing(this.Pawn);
           subject = null;
         }
-
-        if(this.Pawn.IsHashIntervalTick(120) && this.Pawn.IsBurning() && this.Digesting && Rand.RangeInclusive(1, 3)==1) this.AbortDigestion(this.Pawn.MapHeld, "Fire");
         
         if (this.Digesting)
           ++this.ticksDigesting;
@@ -79,7 +77,8 @@ namespace ExSymbiotes
       public override void PostPostApplyDamage(DamageInfo dinfo, float totalDamageDealt)
       {
         base.PostPostApplyDamage(dinfo, totalDamageDealt);
-        if(this.Digesting && dinfo.Def == DamageDefOf.EMP && Rand.RangeInclusive(1, 3)==1) this.AbortDigestion(this.Pawn.MapHeld, "EMP");
+        if(this.Digesting && (dinfo.Def == DamageDefOf.EMP || dinfo.Def == DamageDefOf.Flame) && Rand.RangeInclusive(1, 3)==1) 
+          this.AbortDigestion(this.Pawn.MapHeld, dinfo.Def == DamageDefOf.EMP ? "EMP" : "fire");
       }
 
       public override string CompInspectStringExtra()

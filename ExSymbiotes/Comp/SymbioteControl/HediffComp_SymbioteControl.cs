@@ -74,7 +74,6 @@ namespace ExSymbiotes
         public override void CompPostTick(ref float severityAdjustment)
         {
             base.CompPostTick(ref severityAdjustment);
-            if(this.Pawn.IsHashIntervalTick(120) && this.Pawn.IsBurning() && Rand.RangeInclusive(1, 5)==1) this.Remove("Fire");
             if (this.Pawn.IsHashIntervalTick(300) && this.reproduce && this.parent.Severity >= 1f)
             {
                 this.reproduce = false;
@@ -85,7 +84,8 @@ namespace ExSymbiotes
         public override void Notify_PawnPostApplyDamage(DamageInfo dinfo, float totalDamageDealt)
         {
             base.Notify_PawnPostApplyDamage(dinfo, totalDamageDealt);
-            if((Pawn.Downed && !thrall) || (dinfo.Def == DamageDefOf.EMP && Rand.RangeInclusive(1, 5)==1)) this.Remove(dinfo.Def == DamageDefOf.EMP ? "EMP" : null);
+            if((Pawn.Downed && !thrall) || ((dinfo.Def == DamageDefOf.EMP || dinfo.Def == DamageDefOf.Flame) && Rand.RangeInclusive(1, 5)==1)) 
+                this.Remove(dinfo.Def == DamageDefOf.EMP ? "EMP" : dinfo.Def == DamageDefOf.Flame ? "fire" : null);
         }
 
         private void Remove(string cause=null)
