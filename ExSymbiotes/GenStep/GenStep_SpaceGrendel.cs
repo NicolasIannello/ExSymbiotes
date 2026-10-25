@@ -35,9 +35,9 @@ public class GenStep_SpaceGrendel : GenStep
         float cave = MapGenerator.Caves[allCell];
         if (num > 0.5)
           map.terrainGrid.SetTerrain(allCell, TerrainDefOf.Voidmetal);
-        if (num > 0.699999988079071 && (double) cave == 0.0)
+        if (num > 0.69 && (double) cave == 0.0)
           GenSpawn.Spawn(ThingDefOf.VoidmetalMassSmall, allCell, map);
-        if (num > 0.699999988079071)
+        if (num > 0.69)
           map.roofGrid.SetRoof(allCell, RoofDefOf.RoofRockThin);
       }
       HashSet<IntVec3> mainIsland = new HashSet<IntVec3>();
@@ -64,11 +64,11 @@ public class GenStep_SpaceGrendel : GenStep
 
   protected virtual ModuleBase ConfigureNoise(Map map, GenStepParams parms)
   {
-    ModuleBase input1 = (ModuleBase) new Scale(0.6499999761581421, 1.0, 1.0, (ModuleBase) new ScaleBias(-1.0, 1.0, (ModuleBase) new DistFromPoint((float) map.Size.x * this.Radius)));
+    ModuleBase input1 = (ModuleBase) new Scale(0.65, 1.0, 1.0, (ModuleBase) new ScaleBias(-1.0, 1.0, (ModuleBase) new DistFromPoint((float) map.Size.x * this.Radius)));
     ModuleBase input2 = (ModuleBase) new Rotate(0.0, (double) Rand.Range(0.0f, 360f), 0.0, input1);
     ModuleBase moduleBase = (ModuleBase) new Translate((double) -map.Center.x, 0.0, (double) -map.Center.z, input2);
     NoiseDebugUI.StoreNoiseRender(moduleBase, "Base asteroid shape");
-    ModuleBase noise = (ModuleBase) new Power((ModuleBase) new Blend((ModuleBase) new Perlin(0.05000000074505806, 2.0, 0.5, 6, Rand.Int, QualityMode.Medium), (ModuleBase) new Blend((ModuleBase) new Perlin(3.0 / 500.0, 2.0, 2.0, 3, Rand.Int, QualityMode.Medium), moduleBase, (ModuleBase) new Const(0.800000011920929)), (ModuleBase) new Const(0.8500000238418579)), (ModuleBase) new Const(0.20000000298023224));
+    ModuleBase noise = (ModuleBase) new Power((ModuleBase) new Blend((ModuleBase) new Perlin(0.05, 2.0, 0.5, 6, Rand.Int, QualityMode.Medium), (ModuleBase) new Blend((ModuleBase) new Perlin(3.0 / 500.0, 2.0, 2.0, 3, Rand.Int, QualityMode.Medium), moduleBase, (ModuleBase) new Const(0.8)), (ModuleBase) new Const(0.85)), (ModuleBase) new Const(0.2));
     NoiseDebugUI.StoreNoiseRender(noise, "Asteroid");
     return noise;
   }
@@ -84,16 +84,17 @@ public class GenStep_SpaceGrendel : GenStep
       widthOffsetPerCell = 0.005f,
       minTunnelWidth = 2f,
       branchChance = 0.5f,
-      maxOpenTunnelsPerRockGroup = 30,
+      maxOpenTunnelsPerRockGroup = 25,
       maxClosedTunnelsPerRockGroup = 0,
-      openTunnelsPer10k = 30,
+      openTunnelsPer10k = 25,
       closedTunnelsPer10k = 0,
       tunnelsWidthPerRockCount = new SimpleCurve()
       {
-        { new CurvePoint(100f, 3), true },
+        { new CurvePoint(100f, 3f), true },
         { new CurvePoint(300f, 3.5f), true },
         { new CurvePoint(3000f, 4f), true }
-      }
+      },
+      directionChangeSpeed = 5
     };
     MapGenCavesUtility.GenerateCaves(map, visited, group, (ModuleBase) directionNoise, parms1, new Predicate<IntVec3>(Rock));
 
@@ -102,7 +103,7 @@ public class GenStep_SpaceGrendel : GenStep
 
   private bool IsRock(IntVec3 c, MapGenFloatGrid elevation, Map map)
   {
-    return c.InBounds(map) && (double) elevation[c] > 0.699999988079071;
+    return c.InBounds(map) && (double) elevation[c] > 0.69;
   }
   
 }
