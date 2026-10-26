@@ -2,10 +2,13 @@
 <Defs>
 	<EntityCodexEntryDef>
 		<defName>ExSymbiotes_Grendel_EntityCodexEntry</defName>
-		<label>grendel</label>
-		<useDescriptionFrom>ExSymbiotes_SymbioteMass_Black</useDescriptionFrom><!--cambiar-->
-		<uiIconPath>Things/Pawn/Symbiote/Black/Symbiote</uiIconPath><!--cambiar-->
+		<label>grendel symbiote</label>
+		<useDescriptionFrom>ExSymbiotes_SymbioteGrendel</useDescriptionFrom>
+		<uiIconPath>Things/Pawn/Grendel/GrendelSymbiote</uiIconPath>
 		<category>Ultimate</category>
+		<linkedThings>
+			<li>ExSymbiotes_SymbioteGrendel</li>
+		</linkedThings>
 		<provocationIncidents>
 			<li>ExSymbiotes_SpaceGrendel</li>
 		</provocationIncidents>

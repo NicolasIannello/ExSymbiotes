@@ -7,6 +7,7 @@
 			<ComfyTemperatureMax>100</ComfyTemperatureMax>
 			<Flammability>2</Flammability>
 			<MeatAmount>0</MeatAmount>
+			<VacuumResistance MayRequire="Ludeon.RimWorld.Odyssey">1</VacuumResistance>
 		</statBases>
 		<tradeability>None</tradeability>
 		<hiddenWhileUndiscovered>true</hiddenWhileUndiscovered>
@@ -160,6 +161,82 @@
 		</race>
 	</ThingDef>
 
+	<ThingDef ParentName="ExSymbiotes_BaseSymbiote">
+		<defName>ExSymbiotes_SymbioteGrendel</defName>
+		<label>grendel symbiote</label>
+		<description>Inorganic, amorphous, symbiotic extraterrestrials with the form of a dragon.</description>
+		<statBases>
+			<MoveSpeed>8</MoveSpeed>
+			<MinimumContainmentStrength>100</MinimumContainmentStrength>
+			<ToxicResistance>1</ToxicResistance>
+			<PsychicSensitivity>0</PsychicSensitivity>
+			<StaggerDurationFactor>0</StaggerDurationFactor>
+			<IncomingDamageFactor>0.2</IncomingDamageFactor>
+		</statBases>
+		<race>
+			<body>QuadrupedAnimalWithClawsTailAndJowl</body>
+			<thinkTreeMain>ExSymbiotes_GrendelSymbiote</thinkTreeMain>
+			<thinkTreeConstant>ExSymbiotes_GrendelSymbioteConstant</thinkTreeConstant>
+			<renderTree>Animal</renderTree>
+			<baseBodySize>6.00</baseBodySize>
+			<baseHealthScale>50</baseHealthScale>
+			<lifeStageAges>
+				<li>
+					<def>EntityFullyFormed</def>
+					<soundWounded>Pawn_Fleshbeast_Trispike_Wounded</soundWounded>
+					<soundDeath>Pawn_Fleshbeast_Trispike_Death</soundDeath>
+					<soundCall>Pawn_Fleshbeast_Trispike_Call</soundCall>
+				</li>
+			</lifeStageAges>
+		</race>
+		<uiIconPath>Things/Pawn/Grendel/GrendelSymbiote</uiIconPath>
+		<comps Inherit="False">
+			<li Class="CompProperties_Studiable">
+				<frequencyTicks>120000</frequencyTicks>
+				<knowledgeCategory>Advanced</knowledgeCategory>
+				<minMonolithLevelForStudy>3</minMonolithLevelForStudy>
+				<anomalyKnowledge>5</anomalyKnowledge>
+				<requiresHoldingPlatform>true</requiresHoldingPlatform>
+			</li>
+			<li Class="CompProperties_ProducesBioferrite">
+				<bioferriteDensity>10</bioferriteDensity>
+			</li>
+		</comps>
+		<tools Inherit="False">
+			<li>
+				<label>teeth</label>
+				<capacities>
+					<li>Bite</li>
+				</capacities>
+				<power>60</power>
+				<armorPenetration>0.8</armorPenetration>
+				<cooldownTime>0.7</cooldownTime>
+				<linkedBodyPartsGroup>Teeth</linkedBodyPartsGroup>
+				<ensureLinkedBodyPartsGroupAlwaysUsable>true</ensureLinkedBodyPartsGroupAlwaysUsable>
+			</li>
+			<li>
+				<label>claws</label>
+				<capacities>
+					<li>Scratch</li>
+				</capacities>
+				<power>50</power>
+				<armorPenetration>0.6</armorPenetration>
+				<cooldownTime>1</cooldownTime>
+				<linkedBodyPartsGroup>FrontRightClaws</linkedBodyPartsGroup>
+				<ensureLinkedBodyPartsGroupAlwaysUsable>true</ensureLinkedBodyPartsGroupAlwaysUsable>
+			</li>
+			<li>
+				<label>tail</label>
+				<capacities>
+					<li>Blunt</li>
+				</capacities>
+				<power>40</power>
+				<armorPenetration>0.2</armorPenetration>
+				<cooldownTime>1.4</cooldownTime>
+			</li>
+		</tools>
+	</ThingDef>
+	
 	<PawnKindDef Name="ExSymbiotes_Symbiote_PawnKindBase" Abstract="True">
 		<defaultFactionDef>ExSymbiotes_Symbiotes</defaultFactionDef>
 		<overrideDebugActionCategory>Entity</overrideDebugActionCategory>
@@ -221,6 +298,39 @@
 				</silhouetteGraphicData>
 			</li>
 		</lifeStages>
+	</PawnKindDef>
+
+	<PawnKindDef ParentName="ExSymbiotes_Symbiote_PawnKindBase">
+		<defName>ExSymbiotes_GrendelSymbiote_PawnKind</defName>
+		<label>grendel symbiote</label>
+		<race>ExSymbiotes_SymbioteGrendel</race>
+		<isBoss>true</isBoss>
+		<overrideDeathOnDownedChance>0.9</overrideDeathOnDownedChance>
+		<immuneToGameConditionEffects>true</immuneToGameConditionEffects>
+<!--		<abilities>-->
+<!--			<li>ExSymbiotes_SymbiosisLeap</li>-->
+<!--		</abilities>-->
+		<combatPower>1000</combatPower>
+		<lifeStages>
+			<li>
+				<bodyGraphicData>
+					<texPath>Things/Pawn/Grendel/GrendelSymbiote</texPath>
+					<graphicClass>Graphic_Multi</graphicClass>
+					<drawSize>7</drawSize>
+					<drawOffset>(0, 0, 0.1)</drawOffset>
+				</bodyGraphicData>
+				<silhouetteGraphicData>
+					<texPath>Things/Pawn/Grendel/GrendelSymbiote_Silhouette</texPath>
+					<graphicClass>Graphic_Single</graphicClass>
+					<drawSize>2</drawSize>
+				</silhouetteGraphicData>
+			</li>
+		</lifeStages>
+		<startingHediffs>
+			<li>
+				<def>RapidRegeneration</def>
+			</li>
+		</startingHediffs>
 	</PawnKindDef>
 
 	<PawnGroupKindDef>
