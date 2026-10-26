@@ -14,8 +14,8 @@ namespace ExSymbiotes
         {
             base.Apply(target, dest);
             float distance = this.parent.pawn.Position.DistanceTo(target.Cell);
-            float flightSpeed = 12f;        //ExSymbiotes_PawnFlyer_VenomLeap flightSpeed
-            float flightDurationMin = 0.5f; //ExSymbiotes_PawnFlyer_VenomLeap flightDurationMin
+            float flightSpeed = ExSymbiotesDefOf.ExSymbiotes_PawnFlyer_VenomLeap.pawnFlyer.flightSpeed;
+            float flightDurationMin = ExSymbiotesDefOf.ExSymbiotes_PawnFlyer_VenomLeap.pawnFlyer.flightDurationMin;
             float totalTicks = Mathf.CeilToInt(Mathf.Max(flightDurationMin * 60f, distance / flightSpeed * 60f));
             int tick70 = Mathf.CeilToInt(totalTicks * 0.55f);
             this.tickChange = Find.TickManager.TicksGame + tick70;
