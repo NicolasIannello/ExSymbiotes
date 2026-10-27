@@ -18,4 +18,9 @@ namespace ExSymbiotes
             }
         }
     }
+    
+    public class Verb_CastAbilityGrendelLeap : Verb_CastAbilityVenomLeap
+    {
+        public override ThingDef JumpFlyerDef => ExSymbiotesDefOf.ExSymbiotes_PawnFlyer_GrendelLeap;
+    }
 }
