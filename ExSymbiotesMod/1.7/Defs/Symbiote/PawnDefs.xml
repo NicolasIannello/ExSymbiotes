@@ -177,7 +177,7 @@
 			<body>QuadrupedAnimalWithClawsTailAndJowl</body>
 			<thinkTreeMain>ExSymbiotes_GrendelSymbiote</thinkTreeMain>
 			<thinkTreeConstant>ExSymbiotes_GrendelSymbioteConstant</thinkTreeConstant>
-			<renderTree>Animal</renderTree>
+			<renderTree>ExSymbiotes_GrendelSymbiote_PawnRenderTree</renderTree>
 			<baseBodySize>6.00</baseBodySize>
 			<baseHealthScale>50</baseHealthScale>
 			<lifeStageAges>
@@ -191,6 +191,7 @@
 		</race>
 		<uiIconPath>Things/Pawn/Grendel/GrendelSymbiote</uiIconPath>
 		<comps Inherit="False">
+			<li Class="ExSymbiotes.CompProperties_GrendelSymbiote"/>
 			<li Class="CompProperties_Studiable">
 				<frequencyTicks>120000</frequencyTicks>
 				<knowledgeCategory>Advanced</knowledgeCategory>
@@ -307,9 +308,9 @@
 		<isBoss>true</isBoss>
 		<overrideDeathOnDownedChance>0.9</overrideDeathOnDownedChance>
 		<immuneToGameConditionEffects>true</immuneToGameConditionEffects>
-<!--		<abilities>-->
-<!--			<li>ExSymbiotes_SymbiosisLeap</li>-->
-<!--		</abilities>-->
+		<abilities>
+			<li>ExSymbiotes_GrendelLeap</li>
+		</abilities>
 		<combatPower>1000</combatPower>
 		<lifeStages>
 			<li>
@@ -475,4 +476,51 @@
 			</children>
 		</root>
 	</PawnRenderTreeDef>
+
+	<PawnRenderTreeDef>
+		<defName>ExSymbiotes_GrendelSymbiote_PawnRenderTree</defName>
+		<root Class="PawnRenderNodeProperties_Parent">
+			<debugLabel>Root</debugLabel>
+			<tagDef>Root</tagDef>
+			<children>
+				<li>
+					<debugLabel>Body</debugLabel>
+					<tagDef>Body</tagDef>
+					<nodeClass>ExSymbiotes.PawnRenderNode_GrendelSymbiote</nodeClass>
+					<workerClass>PawnRenderNodeWorker_AnimalBody</workerClass>
+					<useRottenColor>true</useRottenColor>
+					<children>
+						<li>
+							<debugLabel>Wounds</debugLabel>
+							<nodeClass>PawnRenderNode_AnimalPart</nodeClass>
+							<workerClass>PawnRenderNodeWorker_OverlayWounds</workerClass>
+							<overlayLayer>Body</overlayLayer>
+							<useGraphic>false</useGraphic>
+							<baseLayer>3</baseLayer>
+						</li>
+						<li>
+							<debugLabel>Pack</debugLabel>
+							<nodeClass>PawnRenderNode_AnimalPack</nodeClass>
+							<workerClass>PawnRenderNodeWorker_AnimalPack</workerClass>
+							<rotDrawMode>Fresh, Rotting</rotDrawMode>
+							<baseLayer>5</baseLayer>
+						</li>
+						<li>
+							<debugLabel>Firefoam</debugLabel>
+							<nodeClass>PawnRenderNode_AnimalPart</nodeClass>
+							<workerClass>PawnRenderNodeWorker_OverlayFirefoam</workerClass>
+							<overlayLayer>Body</overlayLayer>
+							<useGraphic>false</useGraphic>
+							<baseLayer>10</baseLayer>
+						</li>
+					</children>
+				</li>
+				<li Class="PawnRenderNodeProperties_Carried">
+					<debugLabel>Carried thing</debugLabel>
+					<workerClass>PawnRenderNodeWorker_Carried</workerClass>
+				</li>
+			</children>
+		</root>
+	</PawnRenderTreeDef>
+
 </Defs>
