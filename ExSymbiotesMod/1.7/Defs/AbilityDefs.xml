@@ -187,6 +187,35 @@
         </comps>
     </AbilityDef>
 
+    <AbilityDef>
+        <defName>ExSymbiotes_GrendelLeap</defName>
+        <label>grendel leap</label>
+        <description>Jump to a position stunning everyone and dealing damage.</description>
+        <cooldownTicksRange>600</cooldownTicksRange>
+        <jobDef>CastJump</jobDef>
+        <ai_IsOffensive>true</ai_IsOffensive>
+        <aiCanUse>true</aiCanUse>
+        <verbProperties>
+            <verbClass>ExSymbiotes.Verb_CastAbilityGrendelLeap</verbClass>
+            <label>grendel leap</label>
+            <range>30</range>
+            <requireLineOfSight>true</requireLineOfSight>
+            <warmupTime>0.10</warmupTime>
+            <soundCast>Pawn_Devourer_Jump</soundCast>
+            <soundLanding>Pawn_Devourer_Land</soundLanding>
+            <targetParams>
+                <canTargetLocations>false</canTargetLocations>
+                <canTargetBuildings>true</canTargetBuildings>
+            </targetParams>
+        </verbProperties>
+        <comps>
+            <li Class="ExSymbiotes.CompProperties_GrendelLeap">
+                <radius>2.5</radius>
+                <filth>Filth_RevenantBloodPool</filth>
+            </li>
+        </comps>
+    </AbilityDef>
+    
     <AbilityDef ParentName="AbilityTouchBase">
         <defName>ExSymbiotes_SymbioticResurrect</defName>
         <label>symbiotic resurrect</label>
