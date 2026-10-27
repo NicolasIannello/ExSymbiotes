@@ -49,6 +49,26 @@
             <drawSize>8</drawSize>
         </graphicData>
     </FleckDef>
+    
+    <FleckDef ParentName="FleckBase_Thrown">
+        <defName>ExSymbiotes_HoraxianField_LongDecayBlack</defName>
+        <altitudeLayer>PawnRope</altitudeLayer>
+        <fadeInTime>0.01</fadeInTime>
+        <solidTime>2</solidTime>
+        <fadeOutTime>0.1</fadeOutTime>
+        <growthRate>-2</growthRate>
+        <useAttachLink>true</useAttachLink>
+        <graphicData>
+            <graphicClass>Graphic_FleckPulse</graphicClass>
+            <texPath>Things/Mote/SymbioteGeoCrookedFinalBlack</texPath>
+            <shaderType>Mote</shaderType>
+            <renderInstanced>true</renderInstanced>
+            <shaderParameters>
+                <_brightnessMultiplier>0.0</_brightnessMultiplier>
+            </shaderParameters>
+            <drawSize>8</drawSize>
+        </graphicData>
+    </FleckDef>
 
     <FleckDef ParentName="FleckBase_Thrown">
         <defName>ExSymbiotes_PsycastPsychicLine</defName>
@@ -160,7 +180,7 @@
 
     <ThingDef Name="ExSymbiotes_Mote_HarbingerTreeRoots" ParentName="MoteBase">
         <defName>ExSymbiotes_Mote_HarbingerTreeRoots</defName>
-        <thingClass>MoteAttached</thingClass>
+        <thingClass>ExSymbiotes.SymbioteMoteAtached</thingClass>
         <altitudeLayer>MoteOverhead</altitudeLayer>
         <mote>
             <fadeInTime>0</fadeInTime>
