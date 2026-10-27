@@ -71,11 +71,13 @@ namespace ExSymbiotes
     {
         public static AbilityDef ExSymbiotes_SymbiosisLeap;
         public static DamageDef ExSymbiotes_SymbioticStun;
+        public static DamageDef ExSymbiotes_GrendelStun;
         public static DamageDef ExSymbiotes_VenomLeap;
         public static DutyDef ExSymbiotes_SymbioteStalkWander;
         public static EffecterDef ExSymbiotes_TachycardiacArrest;
         public static EffecterDef ExSymbiotes_MeatExplosion_Black;
         public static EffecterDef ExSymbiotes_VoidStructureActivated;
+        public static EffecterDef ExSymbiotes_VoidStructureActivatedBlack;
         public static FactionDef ExSymbiotes_Symbiotes;
         public static FleckDef ExSymbiotes_PsycastPsychicLineBack;
         public static HediffDef ExSymbiotes_Symbiosis;

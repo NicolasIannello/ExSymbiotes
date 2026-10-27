@@ -310,6 +310,7 @@
 		<immuneToGameConditionEffects>true</immuneToGameConditionEffects>
 		<abilities>
 			<li>ExSymbiotes_GrendelLeap</li>
+			<li>ExSymbiotes_GrendelStun</li>
 		</abilities>
 		<combatPower>1000</combatPower>
 		<lifeStages>

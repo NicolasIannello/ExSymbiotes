@@ -230,4 +230,23 @@
         </children>
     </EffecterDef>
 
+    <EffecterDef>
+        <defName>ExSymbiotes_VoidStructureActivatedBlack</defName>
+        <children>
+            <li>
+                <subEffecterClass>SubEffecter_SprayerTriggered</subEffecterClass>
+                <fleckDef>ExSymbiotes_HoraxianField_LongDecayBlack</fleckDef>
+                <scale>1.8~2.2</scale>
+                <burstCount>20~25</burstCount>
+                <angle>0</angle>
+                <rotateTowardsTargetCenter>true</rotateTowardsTargetCenter>
+                <fleckUsesAngleForVelocity>true</fleckUsesAngleForVelocity>
+                <positionRadius>0</positionRadius>
+                <positionRadiusMin>0</positionRadiusMin>
+                <rotationRate>-10~10</rotationRate>
+                <speed>0</speed>
+                <spawnLocType>OnSource</spawnLocType>
+            </li>
+        </children>
+    </EffecterDef>
 </Defs>

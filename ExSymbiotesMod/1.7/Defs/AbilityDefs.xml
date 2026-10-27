@@ -319,6 +319,34 @@
             </li>
         </comps>
     </AbilityDef>
+
+    <AbilityDef>
+        <defName>ExSymbiotes_GrendelStun</defName>
+        <label>grendel stun</label>
+        <description>The symbiote lashes tendrils outwards stunning everything.</description>
+        <cooldownTicksRange>1200</cooldownTicksRange>
+        <ai_IsOffensive>true</ai_IsOffensive>
+        <aiCanUse>true</aiCanUse>
+        <writeCombatLog>True</writeCombatLog>
+        <targetRequired>false</targetRequired>
+        <verbProperties>
+            <verbClass>Verb_CastAbility</verbClass>
+            <warmupEffecter>ExSymbiotes_Bloodfeed_Warmup</warmupEffecter>
+            <warmupTime>3</warmupTime>
+            <requireLineOfSight>false</requireLineOfSight>
+            <range>4.5</range>
+            <drawAimPie>false</drawAimPie>
+            <nonInterruptingSelfCast>true</nonInterruptingSelfCast>
+            <targetParams>
+                <canTargetSelf>False</canTargetSelf>
+            </targetParams>
+        </verbProperties>
+        <comps>
+            <li Class="ExSymbiotes.CompProperties_AbilityGrendelStun">
+                <radius>4.5</radius>
+            </li>
+        </comps>
+    </AbilityDef>
     
     <AbilityDef>
         <defName>ExSymbiotes_SymbioticWhip</defName>
