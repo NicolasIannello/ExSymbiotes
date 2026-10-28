@@ -128,16 +128,21 @@
                 </li>
                 
                 <li Class="JobGiver_AIAbilityFight">
-                    <targetAcquireRadius>4</targetAcquireRadius>
+                    <targetAcquireRadius>3</targetAcquireRadius>
                     <targetKeepRadius>5</targetKeepRadius>
                     <ability>ExSymbiotes_GrendelStun</ability>
                 </li>
+                <li Class="JobGiver_AIAbilityFight">
+                    <targetAcquireRadius>25</targetAcquireRadius>
+                    <targetKeepRadius>30</targetKeepRadius>
+                    <ability>ExSymbiotes_GrendelLeap</ability>
+                </li>
                 <li Class="JobGiver_ReactToCloseMeleeThreat">
-                    <maxDistance>4</maxDistance>
+                    <maxDistance>150</maxDistance>
                 </li>
                 <li Class="JobGiver_AIFightEnemies">
-                    <targetAcquireRadius>100</targetAcquireRadius>
-                    <targetKeepRadius>300</targetKeepRadius>
+                    <targetAcquireRadius>150</targetAcquireRadius>
+                    <targetKeepRadius>900</targetKeepRadius>
                     <allowTurrets>true</allowTurrets>
                 </li>
 
