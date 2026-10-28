@@ -331,7 +331,6 @@
         <targetRequired>false</targetRequired>
         <verbProperties>
             <verbClass>Verb_CastAbility</verbClass>
-            <warmupEffecter>HoraxianSpellDark_Warmup</warmupEffecter>
             <warmupTime>3</warmupTime>
             <requireLineOfSight>false</requireLineOfSight>
             <range>4.5</range>
@@ -341,6 +340,7 @@
         <comps>
             <li Class="ExSymbiotes.CompProperties_AbilityGrendelStun">
                 <radius>4.5</radius>
+                <warmupEffecter>HoraxianSpellDark_Warmup</warmupEffecter>
             </li>
         </comps>
     </AbilityDef>

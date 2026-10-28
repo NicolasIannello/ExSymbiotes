@@ -26,7 +26,24 @@ namespace ExSymbiotes
         protected override DamageDef damageDef => ExSymbiotesDefOf.ExSymbiotes_GrendelStun;
         protected override EffecterDef effecter => ExSymbiotesDefOf.ExSymbiotes_VoidStructureActivatedBlack;
         protected override float radius => this.Props3.radius;
-
+        private bool flag = true;
+        
+        public override void CompTick()
+        {
+            base.CompTick();
+            if (!flag && !parent.Casting)
+            {
+                flag = true;
+                return;
+            }
+            
+            if (flag && parent.Casting && Pawn.Spawned)
+            {
+                flag = false;
+                Props3.warmupEffecter.SpawnAttached(Pawn, Pawn.Map).Cleanup();
+            }
+        }
+        
         public override bool AICanTargetNow(LocalTargetInfo target)
         {
             return target.Pawn.Position.DistanceToSquared(Pawn.Position) <= radius-2;
