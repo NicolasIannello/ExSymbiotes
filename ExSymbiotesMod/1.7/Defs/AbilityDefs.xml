@@ -191,7 +191,7 @@
         <defName>ExSymbiotes_GrendelLeap</defName>
         <label>grendel leap</label>
         <description>Jump to a position stunning everyone and dealing damage.</description>
-        <cooldownTicksRange>600</cooldownTicksRange>
+        <cooldownTicksRange>900</cooldownTicksRange>
         <jobDef>CastJump</jobDef>
         <ai_IsOffensive>true</ai_IsOffensive>
         <aiCanUse>true</aiCanUse>
@@ -331,15 +331,12 @@
         <targetRequired>false</targetRequired>
         <verbProperties>
             <verbClass>Verb_CastAbility</verbClass>
-            <warmupEffecter>ExSymbiotes_Bloodfeed_Warmup</warmupEffecter>
+            <warmupEffecter>HoraxianSpellDark_Warmup</warmupEffecter>
             <warmupTime>3</warmupTime>
             <requireLineOfSight>false</requireLineOfSight>
             <range>4.5</range>
             <drawAimPie>false</drawAimPie>
             <nonInterruptingSelfCast>true</nonInterruptingSelfCast>
-            <targetParams>
-                <canTargetSelf>False</canTargetSelf>
-            </targetParams>
         </verbProperties>
         <comps>
             <li Class="ExSymbiotes.CompProperties_AbilityGrendelStun">
