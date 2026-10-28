@@ -21,7 +21,8 @@ namespace ExSymbiotes
                 float flightSpeed = flyer.def.pawnFlyer.flightSpeed;
                 float flightDurationMin = flyer.def.pawnFlyer.flightDurationMin;
                 float totalTicks = Mathf.CeilToInt(Mathf.Max(flightDurationMin * 60f, distance / flightSpeed * 60f))+(float)dinfo.Def.constantStunDurationTicks;
-                MoteMaker.MakeAttachedOverlay(pawn, ExSymbiotesDefOf.ExSymbiotes_Mote_HarbingerTreeRoots, Vector3.zero, pawn.BodySize, totalTicks/60);
+                float scale = pawn.BodySize>3 ? pawn.BodySize/2 : pawn.BodySize;
+                MoteMaker.MakeAttachedOverlay(pawn, ExSymbiotesDefOf.ExSymbiotes_Mote_HarbingerTreeRoots, Vector3.zero, scale, totalTicks/60);
             }
             damageResult.stunned = true;
             return damageResult;
