@@ -15,14 +15,9 @@ namespace ExSymbiotes
         {
             EffecterDefOf.ChimeraRage.SpawnAttached(Pawn, Pawn.Map).Cleanup();
             effecter.SpawnMaintained(Pawn, Pawn);
-            GenExplosion.DoExplosion(Pawn.Position, Pawn.Map, radius, damageDef, Pawn, doVisualEffects:false, doSoundEffects:false, screenShakeFactor:0f, excludeRadius:1f);
+            GenExplosion.DoExplosion(Pawn.Position, Pawn.Map, radius, damageDef, Pawn, doVisualEffects:false, doSoundEffects:false, screenShakeFactor:0f);
             base.Apply(target, dest);
         }
-
-        // public override bool AICanTargetNow(LocalTargetInfo target)
-        // {
-        //     return this.Pawn.Faction != Faction.OfPlayer && target.HasThing && target.Thing is Pawn thing && thing.TargetCurrentlyAimingAt == (LocalTargetInfo) (Thing) this.Pawn;
-        // }
     }
     
     public class CompAbilityEffect_SymbioticStunBlack : CompAbilityEffect_SymbioticStun
@@ -32,15 +27,9 @@ namespace ExSymbiotes
         protected override EffecterDef effecter => ExSymbiotesDefOf.ExSymbiotes_VoidStructureActivatedBlack;
         protected override float radius => this.Props3.radius;
 
-        public override void Apply(LocalTargetInfo target, LocalTargetInfo dest)
-        {
-            EffecterDefOf.VoidStructureActivated.SpawnMaintained(Pawn, Pawn, 0.7f);
-            base.Apply(target, dest);
-        }
-
         public override bool AICanTargetNow(LocalTargetInfo target)
         {
-            return target.Pawn.Position.DistanceToSquared(Pawn.Position) <= radius-1;
+            return target.Pawn.Position.DistanceToSquared(Pawn.Position) <= radius-2;
         }
     }
 }
