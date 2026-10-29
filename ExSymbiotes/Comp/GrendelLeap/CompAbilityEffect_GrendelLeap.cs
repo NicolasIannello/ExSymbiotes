@@ -28,7 +28,7 @@ namespace ExSymbiotes
         
         public override bool AICanTargetNow(LocalTargetInfo target)
         {
-            return target.Pawn.Position.DistanceToSquared(this.parent.pawn.Position) > 10;
+            return target.Pawn.Position.DistanceTo(this.parent.pawn.Position) > 15;
         }
     }
 }
