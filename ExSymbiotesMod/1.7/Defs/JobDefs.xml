@@ -128,7 +128,7 @@
                 </li>
                 
                 <li Class="JobGiver_AIAbilityFight">
-                    <targetAcquireRadius>4</targetAcquireRadius>
+                    <targetAcquireRadius>5</targetAcquireRadius>
                     <targetKeepRadius>7</targetKeepRadius>
                     <ability>ExSymbiotes_GrendelStun</ability>
                 </li>
