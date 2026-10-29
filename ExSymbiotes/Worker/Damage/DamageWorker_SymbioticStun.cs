@@ -34,11 +34,8 @@ namespace ExSymbiotes
         public override DamageWorker.DamageResult Apply(DamageInfo dinfo, Thing victim)
         {
             DamageWorker.DamageResult damageResult = base.Apply(dinfo, victim);
-            if (victim is Pawn pawn && !pawn.Dead)
-            {
-                if (victim == dinfo.Instigator) ((Pawn)victim).stances.stunner.StunFor(60, dinfo.Instigator, showMote:false);
-                //check symbiosis
-            }
+            if (victim is Pawn pawn && !pawn.Dead && victim == dinfo.Instigator)
+                ((Pawn)victim).stances.stunner.StunFor(60, dinfo.Instigator, showMote:false);
             return damageResult;
         }
     }
