@@ -14,7 +14,7 @@ namespace ExSymbiotes
 
         public override void Notify_PawnPostApplyDamage(DamageInfo dinfo, float totalDamageDealt)
         {
-            if (this.Props.damageDefIncoming != dinfo.Def)
+            if (DamageDefOf.EMP != dinfo.Def && DamageDefOf.Flame != dinfo.Def && DamageDefOf.Burn != dinfo.Def)
                 return;
             this.React();
         }
@@ -29,7 +29,7 @@ namespace ExSymbiotes
                         (Func<BodyPartRecord, bool>)(p => p.def == this.Props.createHediffOn));
                 Hediff hediff = this.parent.pawn.health.hediffSet.GetFirstHediffOfDef(this.Props.createHediff);
                 if (hediff != null)
-                    hediff.Severity += 0.2f;
+                    hediff.Severity += 0.1f;
                 else
                     this.parent.pawn.health.AddHediff(this.Props.createHediff, part);
             }

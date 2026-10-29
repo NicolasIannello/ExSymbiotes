@@ -49,7 +49,6 @@
         </removeWithTags>
         <comps>
             <li Class="ExSymbiotes.HediffCompProperties_ReactOnDamageStack">
-                <damageDefIncoming>EMP</damageDefIncoming>
                 <createHediff>ExSymbiotes_Shock</createHediff>
             </li>
             <li Class="HediffCompProperties_LetterOnDeath">
@@ -709,7 +708,6 @@
                 <messageEmergedCorpse>{PAWN_nameDef} emerged from the symbiote's corpse.</messageEmergedCorpse>
             </li>
             <li Class="ExSymbiotes.HediffCompProperties_ReactOnDamageStack">
-                <damageDefIncoming>EMP</damageDefIncoming>
                 <createHediff>ExSymbiotes_Shock</createHediff>
             </li>
         </comps>
@@ -1127,7 +1125,6 @@
                 <cd>4</cd>
             </li>
             <li Class="ExSymbiotes.HediffCompProperties_ReactOnDamageStack">
-                <damageDefIncoming>EMP</damageDefIncoming>
                 <createHediff>ExSymbiotes_Shock</createHediff>
             </li>
         </comps>
@@ -1273,7 +1270,6 @@
                 <messageEmergedCorpse>{PAWN_nameDef} emerged from the symbiote's corpse.</messageEmergedCorpse>
             </li>
             <li Class="ExSymbiotes.HediffCompProperties_ReactOnDamageStack">
-                <damageDefIncoming>EMP</damageDefIncoming>
                 <createHediff>ExSymbiotes_Shock</createHediff>
             </li>
         </comps>
@@ -1284,13 +1280,16 @@
         <defName>ExSymbiotes_Shock</defName>
         <label>symbiote shock</label>
         <labelNoun>a symbiote shock</labelNoun>
-        <description>After-effects of an electrical shock to the symbiote.</description>
+        <description>After-effects of an electrical shock or fire damage to the symbiote.</description>
         <hediffClass>HediffWithComps</hediffClass>
         <alwaysShowSeverity>true</alwaysShowSeverity>
-        <initialSeverity>0.1</initialSeverity>
+        <minSeverity>0.0</minSeverity>
+        <maxSeverity>1.0</maxSeverity>
+        <initialSeverity>0.01</initialSeverity>
         <comps>
-            <li Class="HediffCompProperties_Disappears">
-                <disappearsAfterTicks>900~1200</disappearsAfterTicks>
+            <li Class="HediffCompProperties_DisappearsOnDeath"/>
+            <li Class="HediffCompProperties_SeverityPerDay">
+                <severityPerDay>-0.90</severityPerDay>
             </li>
         </comps>
         <stages>
@@ -1299,16 +1298,7 @@
                 <capMods>
                     <li>
                         <capacity>Consciousness</capacity>
-                        <postFactor>0.5</postFactor>
-                    </li>
-                </capMods>
-            </li>
-            <li>
-                <minSeverity>0.25</minSeverity>
-                <capMods>
-                    <li>
-                        <capacity>Consciousness</capacity>
-                        <postFactor>0.4</postFactor>
+                        <postFactor>0.75</postFactor>
                     </li>
                 </capMods>
             </li>
@@ -1317,7 +1307,7 @@
                 <capMods>
                     <li>
                         <capacity>Consciousness</capacity>
-                        <postFactor>0.3</postFactor>
+                        <postFactor>0.5</postFactor>
                     </li>
                 </capMods>
             </li>
@@ -1326,12 +1316,12 @@
                 <capMods>
                     <li>
                         <capacity>Consciousness</capacity>
-                        <postFactor>0.2</postFactor>
+                        <postFactor>0.3</postFactor>
                     </li>
                 </capMods>
             </li>
             <li>
-                <minSeverity>1</minSeverity>
+                <minSeverity>0.9</minSeverity>
                 <capMods>
                     <li>
                         <capacity>Consciousness</capacity>
