@@ -25,16 +25,9 @@ namespace ExSymbiotes
         {
             dest = IntVec3.Invalid;
             Thing enemyTarget = pawn.mindState.enemyTarget;
-            Ability ability = pawn.abilities.GetAbility(this.ability);
-            return CastPositionFinder.TryFindCastPosition(new CastPositionRequest()
-            {
-                caster = pawn,
-                target = enemyTarget,
-                verb = ability.verb,
-                maxRangeFromTarget = ability.verb.EffectiveRange,
-                wantCoverFromTarget = false,
-                preferredCastPosition = new IntVec3?(pawn.Position)
-            }, out dest);
+            bool reachable = SymbioteUtility.TargetFinder.CanReach(pawn, enemyTarget, canBashDoors: false, canBashFences: false);
+            dest = enemyTarget.Position;
+            return reachable;
         }
 
         protected override Job TryGiveJob(Pawn pawn)
