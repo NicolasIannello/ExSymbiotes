@@ -1,4 +1,5 @@
-﻿using RimWorld;
+﻿using System.Collections.Generic;
+using RimWorld;
 using Verse;
 
 namespace ExSymbiotes
@@ -27,18 +28,28 @@ namespace ExSymbiotes
         protected override EffecterDef effecter => ExSymbiotesDefOf.ExSymbiotes_VoidStructureActivatedBlack;
         protected override float radius => this.Props3.radius;
         private bool flag = true;
+        private bool flagCast = false;
+
+        public override void Apply(LocalTargetInfo target, LocalTargetInfo dest)
+        {
+            base.Apply(target, dest);
+            flagCast = false;
+        }
         
         public override void CompTick()
         {
             base.CompTick();
+            if (flagCast && !parent.Casting) parent.verb.TryStartCastOn(Pawn, nonInterruptingSelfCast:true);
+            
             if (!flag && !parent.Casting)
             {
                 flag = true;
                 return;
             }
-            
+
             if (flag && parent.Casting && Pawn.Spawned)
             {
+                flagCast = true;
                 flag = false;
                 Props3.warmupEffecter.SpawnAttached(Pawn, Pawn.Map).Cleanup();
             }
@@ -46,7 +57,13 @@ namespace ExSymbiotes
         
         public override bool AICanTargetNow(LocalTargetInfo target)
         {
-            return target.Pawn.Position.DistanceToSquared(Pawn.Position) <= radius-2;
+            int count = 0;
+            foreach (IntVec3 cell in GenRadial.RadialCellsAround(Pawn.Position, this.Props3.radius-0.5f, true))
+            {
+                foreach (Thing t in cell.GetThingList(Pawn.MapHeld)) if (t is Pawn) count++;
+                if (count > 2) return true;
+            }
+            return false;
         }
     }
 }
