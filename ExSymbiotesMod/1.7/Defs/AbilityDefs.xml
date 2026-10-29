@@ -198,7 +198,7 @@
         <verbProperties>
             <verbClass>ExSymbiotes.Verb_CastAbilityGrendelLeap</verbClass>
             <label>grendel leap</label>
-            <range>30</range>
+            <range>50</range>
             <requireLineOfSight>true</requireLineOfSight>
             <warmupTime>0.10</warmupTime>
             <soundCast>Pawn_Devourer_Jump</soundCast>
