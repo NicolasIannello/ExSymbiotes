@@ -191,7 +191,7 @@
         <defName>ExSymbiotes_GrendelLeap</defName>
         <label>grendel leap</label>
         <description>Jump to a position stunning everyone and dealing damage.</description>
-        <cooldownTicksRange>900</cooldownTicksRange>
+        <cooldownTicksRange>1200</cooldownTicksRange>
         <jobDef>CastJump</jobDef>
         <ai_IsOffensive>true</ai_IsOffensive>
         <aiCanUse>true</aiCanUse>
@@ -324,22 +324,25 @@
         <defName>ExSymbiotes_GrendelStun</defName>
         <label>grendel stun</label>
         <description>The symbiote lashes tendrils outwards stunning everything.</description>
-        <cooldownTicksRange>1200</cooldownTicksRange>
+        <cooldownTicksRange>2000</cooldownTicksRange>
         <ai_IsOffensive>true</ai_IsOffensive>
         <aiCanUse>true</aiCanUse>
         <writeCombatLog>True</writeCombatLog>
         <targetRequired>false</targetRequired>
         <verbProperties>
             <verbClass>Verb_CastAbility</verbClass>
-            <warmupTime>3</warmupTime>
+            <warmupTime>2</warmupTime>
             <requireLineOfSight>false</requireLineOfSight>
-            <range>4.5</range>
-            <drawAimPie>false</drawAimPie>
+            <range>4.7</range>
+            <drawAimPie>true</drawAimPie>
             <nonInterruptingSelfCast>true</nonInterruptingSelfCast>
+            <targetParams>
+                <canTargetSelf>True</canTargetSelf>
+            </targetParams>
         </verbProperties>
         <comps>
             <li Class="ExSymbiotes.CompProperties_AbilityGrendelStun">
-                <radius>4.5</radius>
+                <radius>4.7</radius>
                 <warmupEffecter>HoraxianSpellDark_Warmup</warmupEffecter>
             </li>
         </comps>
