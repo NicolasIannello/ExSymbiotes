@@ -14,7 +14,8 @@ namespace ExSymbiotes
 
         public override void Notify_PawnPostApplyDamage(DamageInfo dinfo, float totalDamageDealt)
         {
-            if (DamageDefOf.EMP != dinfo.Def && DamageDefOf.Flame != dinfo.Def && DamageDefOf.Burn != dinfo.Def)
+            if (DamageDefOf.EMP != dinfo.Def && DamageDefOf.Flame != dinfo.Def && DamageDefOf.Burn != dinfo.Def &&
+                ExSymbiotesDefOf.ExSymbiotes_GrendelStun != dinfo.Def)
                 return;
             this.React();
         }
