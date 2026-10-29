@@ -18,7 +18,7 @@ public class GenStep_SpaceGrendelSpawn : GenStep
       for (int i = things.Count - 1; i >= 0; i--) things[i].DeSpawn();
     }
     
-    // GenSpawn.Spawn(PawnGenerator.GeneratePawn(ExSymbiotesDefOf.ExSymbiotes_Symbiote_PawnKindRed), map.Center, map);
+    GenSpawn.Spawn(PawnGenerator.GeneratePawn(ExSymbiotesDefOf.ExSymbiotes_GrendelSymbiote_PawnKind, Find.FactionManager.FirstFactionOfDef(ExSymbiotesDefOf.ExSymbiotes_Symbiotes)), map.Center, map);
   }
   
 }
