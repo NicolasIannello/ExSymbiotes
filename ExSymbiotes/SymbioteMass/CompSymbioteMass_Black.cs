@@ -32,13 +32,13 @@ namespace ExSymbiotes
     public override void CompTick()
     {
       base.CompTick();
-      if(Heart.IsHashIntervalTick(475) && nextTick>0 && nextTick<=Find.TickManager.TicksGame)
+      if(nextTick>0 && nextTick<=Find.TickManager.TicksGame)
       {
         SymbioteUtility.SymbioteHorde(Heart.Map, Heart, StorytellerUtility.DefaultThreatPointsNow(Heart.Map)*scale, "ExSymbiotes.LabelSymbioteHorde2", "ExSymbiotes.TextSymbioteHorde2");
         this.nextTick = Find.TickManager.TicksGame + 60000 + 15000;
         this.scale += 0.25f;
       }
-      if (Heart.IsHashIntervalTick(2500) && incident && StudyLevel>=1)
+      if (Heart.IsHashIntervalTick(1250) && incident && StudyLevel>=1)
       {
         float points = StorytellerUtility.DefaultThreatPointsNow((IIncidentTarget) Heart.Map);
         incident = false;

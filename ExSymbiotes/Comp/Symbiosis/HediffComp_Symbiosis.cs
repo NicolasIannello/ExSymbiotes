@@ -67,9 +67,9 @@ namespace ExSymbiotes
         public override void CompPostTick(ref float severityAdjustment)
         {
             base.CompPostTick(ref severityAdjustment);
-            if (this.parent.pawn.IsHashIntervalTick(2500) && talkTick < Find.TickManager.TicksGame) 
+            if (talkTick < Find.TickManager.TicksGame) 
                 SymbioteInteraction();
-            if (!named && this.parent.pawn.IsHashIntervalTick(5000) && nameTick < Find.TickManager.TicksGame)
+            if (!named && nameTick < Find.TickManager.TicksGame)
                 Find.WindowStack.Add((Window) new Dialog_SymbioteName(this));
         }
         

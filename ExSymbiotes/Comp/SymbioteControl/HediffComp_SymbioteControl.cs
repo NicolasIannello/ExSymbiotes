@@ -74,7 +74,7 @@ namespace ExSymbiotes
         public override void CompPostTick(ref float severityAdjustment)
         {
             base.CompPostTick(ref severityAdjustment);
-            if (this.Pawn.IsHashIntervalTick(300) && this.reproduce && this.parent.Severity >= 1f)
+            if (this.reproduce && this.parent.Severity >= 1f)
             {
                 this.reproduce = false;
                 SymbioteUtility.SingleSymbiote(this.Pawn.MapHeld, (Pawn)this.SymbioteControlling);
