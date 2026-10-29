@@ -1285,7 +1285,7 @@
         <alwaysShowSeverity>true</alwaysShowSeverity>
         <minSeverity>0.0</minSeverity>
         <maxSeverity>1.0</maxSeverity>
-        <initialSeverity>0.01</initialSeverity>
+        <initialSeverity>0.1</initialSeverity>
         <comps>
             <li Class="HediffCompProperties_DisappearsOnDeath"/>
             <li Class="HediffCompProperties_SeverityPerDay">
