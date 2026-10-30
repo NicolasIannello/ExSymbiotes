@@ -5,105 +5,112 @@ using RimWorld;
 using Verse;
 using Verse.Noise;
 
-namespace ExSymbiotes;
-
-public class GenStep_SpaceGrendel : GenStep
+namespace ExSymbiotes
 {
-  private ModuleBase innerNoise;
 
-  public override int SeedPart => 1959414;
-
-  protected virtual float Radius => 0.35f;
-
-  public override void Generate(Map map, GenStepParams parms)
+  public class GenStep_SpaceGrendel : GenStep
   {
-    if (!ModsConfig.OdysseyActive)
-      return;
-    this.GenerateAsteroidElevation(map, parms);
-    this.GenerateCaveElevation(map, parms);
-    GenStep_SpaceGrendel.SpawnAsteroid(map);
-    map.OrbitalDebris = ExSymbiotesDefOf.ExSymbiotes_OrbitalDebris;
-  }
+    private ModuleBase innerNoise;
 
-  private static void SpawnAsteroid(Map map)
-  {
-    using (map.pathing.DisableIncrementalScope())
+    public override int SeedPart => 1959414;
+
+    protected virtual float Radius => 0.35f;
+
+    public override void Generate(Map map, GenStepParams parms)
     {
-      foreach (IntVec3 allCell in map.AllCells)
+      if (!ModsConfig.OdysseyActive)
+        return;
+      this.GenerateAsteroidElevation(map, parms);
+      this.GenerateCaveElevation(map, parms);
+      GenStep_SpaceGrendel.SpawnAsteroid(map);
+      map.OrbitalDebris = ExSymbiotesDefOf.ExSymbiotes_OrbitalDebris;
+    }
+
+    private static void SpawnAsteroid(Map map)
+    {
+      using (map.pathing.DisableIncrementalScope())
       {
-        double num = (double) MapGenerator.Elevation[allCell];
-        float cave = MapGenerator.Caves[allCell];
-        if (num > 0.5)
-          map.terrainGrid.SetTerrain(allCell, TerrainDefOf.Voidmetal);
-        if (num > 0.69 && (double) cave == 0.0)
-          GenSpawn.Spawn(ThingDefOf.VoidmetalMassSmall, allCell, map);
-        if (num > 0.69)
-          map.roofGrid.SetRoof(allCell, RoofDefOf.RoofRockThin);
-      }
-      HashSet<IntVec3> mainIsland = new HashSet<IntVec3>();
-      map.floodFiller.FloodFill(map.Center, (Predicate<IntVec3>) (x => x.GetTerrain(map) != TerrainDefOf.Space), (Action<IntVec3>) (x => mainIsland.Add(x)));
-      foreach (IntVec3 allCell in map.AllCells)
-      {
-        if (!mainIsland.Contains(allCell))
+        foreach (IntVec3 allCell in map.AllCells)
         {
-          map.terrainGrid.SetTerrain(allCell, TerrainDefOf.Space);
-          map.roofGrid.SetRoof(allCell, (RoofDef) null);
-          foreach (Thing thing in allCell.GetThingList(map).ToList<Thing>())
-            thing.Destroy();
+          double num = (double)MapGenerator.Elevation[allCell];
+          float cave = MapGenerator.Caves[allCell];
+          if (num > 0.5)
+            map.terrainGrid.SetTerrain(allCell, TerrainDefOf.Voidmetal);
+          if (num > 0.69 && (double)cave == 0.0)
+            GenSpawn.Spawn(ThingDefOf.VoidmetalMassSmall, allCell, map);
+          if (num > 0.69)
+            map.roofGrid.SetRoof(allCell, RoofDefOf.RoofRockThin);
+        }
+
+        HashSet<IntVec3> mainIsland = new HashSet<IntVec3>();
+        map.floodFiller.FloodFill(map.Center, (Predicate<IntVec3>)(x => x.GetTerrain(map) != TerrainDefOf.Space),
+          (Action<IntVec3>)(x => mainIsland.Add(x)));
+        foreach (IntVec3 allCell in map.AllCells)
+        {
+          if (!mainIsland.Contains(allCell))
+          {
+            map.terrainGrid.SetTerrain(allCell, TerrainDefOf.Space);
+            map.roofGrid.SetRoof(allCell, (RoofDef)null);
+            foreach (Thing thing in allCell.GetThingList(map).ToList<Thing>())
+              thing.Destroy();
+          }
         }
       }
     }
-  }
 
-  private void GenerateAsteroidElevation(Map map, GenStepParams parms)
-  {
-    this.innerNoise = this.ConfigureNoise(map, parms);
-    foreach (IntVec3 allCell in map.AllCells)
-      MapGenerator.Elevation[allCell] = this.innerNoise.GetValue(allCell);
-  }
-
-  protected virtual ModuleBase ConfigureNoise(Map map, GenStepParams parms)
-  {
-    ModuleBase input1 = (ModuleBase) new Scale(0.65, 1.0, 1.0, (ModuleBase) new ScaleBias(-1.0, 1.0, (ModuleBase) new DistFromPoint((float) map.Size.x * this.Radius)));
-    ModuleBase input2 = (ModuleBase) new Rotate(0.0, (double) Rand.Range(0.0f, 360f), 0.0, input1);
-    ModuleBase moduleBase = (ModuleBase) new Translate((double) -map.Center.x, 0.0, (double) -map.Center.z, input2);
-    NoiseDebugUI.StoreNoiseRender(moduleBase, "Base asteroid shape");
-    ModuleBase noise = (ModuleBase) new Power((ModuleBase) new Blend((ModuleBase) new Perlin(0.05, 2.0, 0.5, 6, Rand.Int, QualityMode.Medium), (ModuleBase) new Blend((ModuleBase) new Perlin(3.0 / 500.0, 2.0, 2.0, 3, Rand.Int, QualityMode.Medium), moduleBase, (ModuleBase) new Const(0.8)), (ModuleBase) new Const(0.85)), (ModuleBase) new Const(0.2));
-    NoiseDebugUI.StoreNoiseRender(noise, "Asteroid");
-    return noise;
-  }
-
-  private void GenerateCaveElevation(Map map, GenStepParams parms)
-  {
-    Perlin directionNoise = new Perlin(1.0 / 500.0, 2.0, 0.5, 4, Rand.Int, QualityMode.Medium);
-    MapGenFloatGrid elevation = MapGenerator.Elevation;
-    BoolGrid visited = new BoolGrid(map);
-    List<IntVec3> group = new List<IntVec3>();
-    MapGenCavesUtility.CaveGenParms parms1 = MapGenCavesUtility.CaveGenParms.Default with
+    private void GenerateAsteroidElevation(Map map, GenStepParams parms)
     {
-      widthOffsetPerCell = 0.005f,
-      minTunnelWidth = 2f,
-      branchChance = 0.5f,
-      maxOpenTunnelsPerRockGroup = 25,
-      maxClosedTunnelsPerRockGroup = 0,
-      openTunnelsPer10k = 25,
-      closedTunnelsPer10k = 0,
-      tunnelsWidthPerRockCount = new SimpleCurve()
+      this.innerNoise = this.ConfigureNoise(map, parms);
+      foreach (IntVec3 allCell in map.AllCells)
+        MapGenerator.Elevation[allCell] = this.innerNoise.GetValue(allCell);
+    }
+
+    protected virtual ModuleBase ConfigureNoise(Map map, GenStepParams parms)
+    {
+      ModuleBase input1 = (ModuleBase)new Scale(0.65, 1.0, 1.0,
+        (ModuleBase)new ScaleBias(-1.0, 1.0, (ModuleBase)new DistFromPoint((float)map.Size.x * this.Radius)));
+      ModuleBase input2 = (ModuleBase)new Rotate(0.0, (double)Rand.Range(0.0f, 360f), 0.0, input1);
+      ModuleBase moduleBase = (ModuleBase)new Translate((double)-map.Center.x, 0.0, (double)-map.Center.z, input2);
+      NoiseDebugUI.StoreNoiseRender(moduleBase, "Base asteroid shape");
+      ModuleBase noise = (ModuleBase)new Power(
+        (ModuleBase)new Blend((ModuleBase)new Perlin(0.05, 2.0, 0.5, 6, Rand.Int, QualityMode.Medium),
+          (ModuleBase)new Blend((ModuleBase)new Perlin(3.0 / 500.0, 2.0, 2.0, 3, Rand.Int, QualityMode.Medium),
+            moduleBase, (ModuleBase)new Const(0.8)), (ModuleBase)new Const(0.85)), (ModuleBase)new Const(0.2));
+      NoiseDebugUI.StoreNoiseRender(noise, "Asteroid");
+      return noise;
+    }
+
+    private void GenerateCaveElevation(Map map, GenStepParams parms)
+    {
+      Perlin directionNoise = new Perlin(1.0 / 500.0, 2.0, 0.5, 4, Rand.Int, QualityMode.Medium);
+      MapGenFloatGrid elevation = MapGenerator.Elevation;
+      BoolGrid visited = new BoolGrid(map);
+      List<IntVec3> group = new List<IntVec3>();
+      MapGenCavesUtility.CaveGenParms parms1 = MapGenCavesUtility.CaveGenParms.Default;
+      parms1.widthOffsetPerCell = 0.005f;
+      parms1.minTunnelWidth = 2f;
+      parms1.branchChance = 0.5f;
+      parms1.maxOpenTunnelsPerRockGroup = 25;
+      parms1.maxClosedTunnelsPerRockGroup = 0;
+      parms1.openTunnelsPer10k = 25;
+      parms1.closedTunnelsPer10k = 0;
+      parms1.tunnelsWidthPerRockCount = new SimpleCurve()
       {
         { new CurvePoint(100f, 3f), true },
         { new CurvePoint(300f, 3.5f), true },
         { new CurvePoint(3000f, 4f), true }
-      },
-      directionChangeSpeed = 5
-    };
-    MapGenCavesUtility.GenerateCaves(map, visited, group, (ModuleBase) directionNoise, parms1, new Predicate<IntVec3>(Rock));
+      };
+      parms1.directionChangeSpeed = 5;
+      MapGenCavesUtility.GenerateCaves(map, visited, group, (ModuleBase)directionNoise, parms1,
+        new Predicate<IntVec3>(Rock));
 
-    bool Rock(IntVec3 cell) => this.IsRock(cell, elevation, map);
-  }
+      bool Rock(IntVec3 cell) => this.IsRock(cell, elevation, map);
+    }
 
-  private bool IsRock(IntVec3 c, MapGenFloatGrid elevation, Map map)
-  {
-    return c.InBounds(map) && (double) elevation[c] > 0.69;
+    private bool IsRock(IntVec3 c, MapGenFloatGrid elevation, Map map)
+    {
+      return c.InBounds(map) && (double)elevation[c] > 0.69;
+    }
+
   }
-  
 }

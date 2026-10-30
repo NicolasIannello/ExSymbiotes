@@ -19,7 +19,7 @@ namespace ExSymbiotes
             Pawn pawn = parms.pawn;
             if (pawn == null) return;
             if (!HediffComp_SymbioteBase.SymbioteWeakTable.TryGetValue(pawn, out HediffComp_SymbioteBase symbioteBase)) return;
-            if (__instance is PawnRenderNodeWorker_Eye or PawnRenderNodeWorker_SymbioteStripes) return;
+            if (__instance is PawnRenderNodeWorker_Eye || __instance is PawnRenderNodeWorker_SymbioteStripes) return;
             
             GraphicStateDef state;
             GraphicStateDef graphicState = !parms.flags.FlagSet(PawnRenderFlags.Portrait) && node.TryGetAnimationGraphicState(parms, out state) ? state : (GraphicStateDef) null;

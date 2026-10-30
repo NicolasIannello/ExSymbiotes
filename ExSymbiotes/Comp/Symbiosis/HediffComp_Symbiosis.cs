@@ -23,9 +23,9 @@ namespace ExSymbiotes
         public bool named = false;
         private int nameTick = -99999;
         private int talkTick = -99999;
-        private InteractionDef[] good = [InteractionDefOf.DeepTalk, ExSymbiotesDefOf.KindWords];
-        private InteractionDef[] neutral = [InteractionDefOf.Chitchat, InteractionDefOf.OccultTeaching, InteractionDefOf.CreepyWords, InteractionDefOf.InhumanRambling];
-        private InteractionDef[] negative = [InteractionDefOf.Insult, ExSymbiotesDefOf.Slight, InteractionDefOf.DisturbingChat];
+        private InteractionDef[] good = {InteractionDefOf.DeepTalk, ExSymbiotesDefOf.KindWords};
+        private InteractionDef[] neutral = {InteractionDefOf.Chitchat, InteractionDefOf.OccultTeaching, InteractionDefOf.CreepyWords, InteractionDefOf.InhumanRambling};
+        private InteractionDef[] negative = {InteractionDefOf.Insult, ExSymbiotesDefOf.Slight, InteractionDefOf.DisturbingChat};
         
         public override void CompPostMake()
         {
