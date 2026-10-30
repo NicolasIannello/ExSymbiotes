@@ -117,6 +117,7 @@ namespace ExSymbiotes.Utils
         //JobDriver_RemoveSymbiote
         public static Hediff HasSymbiosis(Pawn pawn, bool all = true)
         {
+            if (pawn.health == null) return null;
             List<Hediff> hediffs = pawn.health.hediffSet.hediffs;
     
             for (int i = 0; i < hediffs.Count; i++)
