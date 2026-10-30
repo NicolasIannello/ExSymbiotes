@@ -1,0 +1,20 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+<!--	<IncidentDef ParentName="AnomalyIncidentBase">-->
+<!--		<defName>ExSymbiotes_SpaceGrendel</defName>-->
+<!--		<label>space grendel</label>-->
+<!--		<targetTags>-->
+<!--			<li>Map_PlayerHome</li>-->
+<!--		</targetTags>-->
+<!--		<workerClass>ExSymbiotes.IncidentWorker_SpaceGrendel</workerClass>-->
+<!--		<baseChance>1.0</baseChance>-->
+<!--		<category>ThreatBig</category>-->
+<!--		<pointsScaleable>false</pointsScaleable>-->
+<!--		<letterText>Grendel.</letterText>-->
+<!--		<letterDef>NegativeEvent</letterDef>-->
+<!--		<minAnomalyThreatLevel>3</minAnomalyThreatLevel>-->
+<!--		<requireColonistsPresent>True</requireColonistsPresent>-->
+<!--		<minRefireDays>100</minRefireDays>-->
+<!--		<minThreatPoints>2000</minThreatPoints>-->
+<!--	</IncidentDef>-->
+</Defs>

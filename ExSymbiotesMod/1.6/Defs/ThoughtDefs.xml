@@ -14,6 +14,20 @@
         </stages>
     </ThoughtDef>
 
+    <ThoughtDef ParentName="LostMemory">
+        <defName>ExSymbiotes_BondedSymbioteSacrifice</defName>
+        <showBubble>true</showBubble>
+        <durationDays>30</durationDays>
+        <stackLimit>5</stackLimit>
+        <stages>
+            <li>
+                <label>bonded symbiote sacrifice</label>
+                <description>My symbiote gave me another opportunity at life, I should not waste it!</description>
+                <baseMoodEffect>10</baseMoodEffect>
+            </li>
+        </stages>
+    </ThoughtDef>
+    
     <ThoughtDef Name="ExSymbiotes_SymbioteControlledThoughtDef">
         <defName>ExSymbiotes_SymbioteControlled</defName>
         <workerClass>ThoughtWorker_Hediff</workerClass>

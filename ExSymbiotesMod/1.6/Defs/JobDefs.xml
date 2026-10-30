@@ -21,6 +21,11 @@
         <tryStartFlying>true</tryStartFlying>
         <overrideFlyChance>1</overrideFlyChance>
     </JobDef>
+
+    <JobDef>
+        <defName>ExSymbiotes_RemoveSymbiote</defName>
+        <driverClass>ExSymbiotes.JobDriver_RemoveSymbiote</driverClass>
+    </JobDef>
     
     <DutyDef>
         <defName>ExSymbiotes_SymbioteStalkWander</defName>
@@ -100,6 +105,66 @@
                             <treeDef>LordDutyConstant</treeDef>
                         </li>
                     </subNodes>
+                </li>
+            </subNodes>
+        </thinkRoot>
+    </ThinkTreeDef>
+
+    <ThinkTreeDef>
+        <defName>ExSymbiotes_GrendelSymbiote</defName>
+        <thinkRoot Class="ThinkNode_Priority">
+            <subNodes>
+                <li Class="ThinkNode_Subtree">
+                    <treeDef>Despawned</treeDef>
+                </li>
+                <li Class="ThinkNode_Subtree">
+                    <treeDef>Downed</treeDef>
+                </li>
+
+                <li Class="ThinkNodeConditional_EscapingHoldingPlatform">
+                    <subNodes>
+                        <li Class="JobGiver_EscapingHoldingPlatform" />
+                    </subNodes>
+                </li>
+                
+                <li Class="JobGiver_AIAbilityFight">
+                    <targetAcquireRadius>5</targetAcquireRadius>
+                    <targetKeepRadius>7</targetKeepRadius>
+                    <ability>ExSymbiotes_GrendelStun</ability>
+                </li>
+                <li Class="JobGiver_AIAbilityFight">
+                    <targetAcquireRadius>11</targetAcquireRadius>
+                    <targetKeepRadius>12</targetKeepRadius>
+                    <ability>ExSymbiotes_GrendelBurner</ability>
+                </li>
+                <li Class="JobGiver_AIAbilityFight">
+                    <targetAcquireRadius>50</targetAcquireRadius>
+                    <targetKeepRadius>55</targetKeepRadius>
+                    <ability>ExSymbiotes_GrendelLeap</ability>
+                </li>
+                <li Class="JobGiver_ReactToCloseMeleeThreat">
+                    <maxDistance>100</maxDistance>
+                </li>
+                <li Class="JobGiver_AIFightEnemies">
+                    <targetAcquireRadius>100</targetAcquireRadius>
+                    <targetKeepRadius>900</targetKeepRadius>
+                    <allowTurrets>true</allowTurrets>
+                </li>
+
+                <li Class="JobGiver_WanderHerd">
+                    <maxDanger>Deadly</maxDanger>
+                    <ticksBetweenWandersRange>120~240</ticksBetweenWandersRange>
+                </li>
+            </subNodes>
+        </thinkRoot>
+    </ThinkTreeDef>
+
+    <ThinkTreeDef>
+        <defName>ExSymbiotes_GrendelSymbioteConstant</defName>
+        <thinkRoot Class="ThinkNode_Priority">
+            <subNodes>
+                <li Class="ThinkNode_Subtree">
+                    <treeDef>Despawned</treeDef>
                 </li>
             </subNodes>
         </thinkRoot>

@@ -1,0 +1,49 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+
+    <QuestScriptDef>
+        <defName>ExSymbiotes_GrendelAsteroid</defName>
+        <randomlySelectable>false</randomlySelectable>
+<!--        <givenBy>-->
+<!--            <li>OrbitalScanner</li>-->
+<!--        </givenBy>-->
+        <rootSelectionWeight>0</rootSelectionWeight>
+        <isRootSpecial>true</isRootSpecial>
+        <autoAccept>true</autoAccept>
+        <questNameRules>
+            <rulesStrings>
+                <li>questName->Symbiotic asteroid</li>
+            </rulesStrings>
+        </questNameRules>
+        <questDescriptionRules>
+            <rulesStrings>
+                <li>questDescription->A symbiotic asteroid has started orbiting the planet. It is unkown what lies there.\n\nYou can reach the asteroid with transport pods, shuttles, or a gravship. Equip your colonists with sufficient orbital apparel before departing.</li>
+            </rulesStrings>
+        </questDescriptionRules>
+        <questDescriptionAndNameRules>
+            <rulesStrings>
+            </rulesStrings>
+        </questDescriptionAndNameRules>
+        <canOccurOnAllPlanetLayers>true</canOccurOnAllPlanetLayers>
+        <root Class="QuestNode_Sequence">
+            <nodes>
+<!--                <li Class="QuestNode_IsSet">-->
+<!--                    <name>discoveryMethod</name>-->
+<!--                    <elseNode Class="QuestNode_RandomNode">-->
+<!--                        <nodes>-->
+<!--                            <li Class="QuestNode_Set">-->
+<!--                                <name>discoveryMethod</name>-->
+<!--                                <value>You have discovered</value>-->
+<!--                            </li>-->
+<!--                        </nodes>-->
+<!--                    </elseNode>-->
+<!--                </li>-->
+
+                <li Class="ExSymbiotes.QuestNode_Root_SpaceGrendel">
+                    <layerDef>Orbit</layerDef>
+                    <worldObjectDef>ExSymbiotes_SpaceGrendelAsteroid</worldObjectDef>
+                </li>
+            </nodes>
+        </root>
+    </QuestScriptDef>
+</Defs>

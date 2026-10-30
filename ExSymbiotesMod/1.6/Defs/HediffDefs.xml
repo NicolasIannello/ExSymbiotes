@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Defs>
-<!--    SYMBIOSIS   -->
+<!--    SYMBIOSIS   NOTE: White does not inherits comps-->
     <HediffDef Name="ExSymbiotes_SymbiosisBase" Abstract="True">
         <hediffClass>ExSymbiotes.HediffWithComps_Symbiosis</hediffClass>
         <description>This person has perform symbiosis with a symbiotic core.The symbiote lives inside them, guiding their actions and twisting their flesh.</description>
@@ -49,8 +49,13 @@
         </removeWithTags>
         <comps>
             <li Class="ExSymbiotes.HediffCompProperties_ReactOnDamageStack">
-                <damageDefIncoming>EMP</damageDefIncoming>
                 <createHediff>ExSymbiotes_Shock</createHediff>
+            </li>
+            <li Class="HediffCompProperties_LetterOnDeath">
+                <letterDef>NeutralEvent</letterDef>
+                <letterLabel>Symbiosis pawn death</letterLabel>
+                <letterText>{PAWN} has died while being bonded with a symbiote. If the bond between {PAWN} and the symbiote was strong enough you can trigger an attempt to resurrect {PAWN} at the cost of the symbiote's own life.\n\nYou can also harvest the symbiote from the corpse to use on another colonist.</letterText>
+                <onlyIfNoMechanitorDied>true</onlyIfNoMechanitorDied>
             </li>
         </comps>
     </HediffDef>
@@ -137,6 +142,26 @@
                     </dataWest>
                 </drawData>
             </li>
+            <li>
+                <debugLabel>SymbioteStripes</debugLabel>
+                <nodeClass>ExSymbiotes.PawnRenderNode_SymbioteStripes</nodeClass>
+                <workerClass>ExSymbiotes.PawnRenderNodeWorker_SymbioteStripes</workerClass>
+                <texPath>Things/Pawn/Stripes/ExSymbiote_stripes</texPath>
+                <baseLayer>1</baseLayer>
+                <rotDrawMode>Fresh, Rotting</rotDrawMode>
+                <color>(240, 240, 240)</color>
+                <parentTagDef>Body</parentTagDef>
+            </li>
+            <li>
+                <debugLabel>SymbioteStripesHead</debugLabel>
+                <nodeClass>ExSymbiotes.PawnRenderNode_SymbioteStripesHead</nodeClass>
+                <workerClass>ExSymbiotes.PawnRenderNodeWorker_SymbioteStripes</workerClass>
+                <texPath>Things/Pawn/Stripes/ExSymbiote_stripes</texPath>
+                <baseLayer>51</baseLayer>
+                <rotDrawMode>Fresh, Rotting</rotDrawMode>
+                <color>(240, 240, 240)</color>
+                <parentTagDef>Head</parentTagDef>
+            </li>
         </renderNodeProperties>
     </HediffDef>
 
@@ -186,6 +211,28 @@
                 </abilityDefs>
             </li>
         </comps>
+        <renderNodeProperties>
+            <li>
+                <debugLabel>SymbioteStripes</debugLabel>
+                <nodeClass>ExSymbiotes.PawnRenderNode_SymbioteStripes</nodeClass>
+                <workerClass>ExSymbiotes.PawnRenderNodeWorker_SymbioteStripes</workerClass>
+                <texPath>Things/Pawn/Stripes/ExSymbiote_stripes</texPath>
+                <baseLayer>1</baseLayer>
+                <rotDrawMode>Fresh, Rotting</rotDrawMode>
+                <color>(31, 27, 28)</color>
+                <parentTagDef>Body</parentTagDef>
+            </li>
+            <li>
+                <debugLabel>SymbioteStripesHead</debugLabel>
+                <nodeClass>ExSymbiotes.PawnRenderNode_SymbioteStripesHead</nodeClass>
+                <workerClass>ExSymbiotes.PawnRenderNodeWorker_SymbioteStripes</workerClass>
+                <texPath>Things/Pawn/Stripes/ExSymbiote_stripes</texPath>
+                <baseLayer>51</baseLayer>
+                <rotDrawMode>Fresh, Rotting</rotDrawMode>
+                <color>(31, 27, 28)</color>
+                <parentTagDef>Head</parentTagDef>
+            </li>
+        </renderNodeProperties>
     </HediffDef>
 
     <HediffDef ParentName="ExSymbiotes_SymbiosisBase">
@@ -233,7 +280,35 @@
                     <li MayRequire="Ludeon.RimWorld.Biotech">ExSymbiotes_SymbioticLongjump</li>
                 </abilityDefs>
             </li>
+            <li Class="HediffCompProperties_LetterOnDeath">
+                <letterDef>NeutralEvent</letterDef>
+                <letterLabel>Symbiosis pawn death</letterLabel>
+                <letterText>{PAWN} has died while being bonded with a symbiote. If the bond between {PAWN} and the symbiote was strong enough the symbiote will attemp to resurrect {PAWN} at the cost of its own life.\n\nYou can also harvest the symbiote from the corpse to use on another colonist.</letterText>
+                <onlyIfNoMechanitorDied>true</onlyIfNoMechanitorDied>
+            </li>
         </comps>
+        <renderNodeProperties>
+            <li>
+                <debugLabel>SymbioteStripes</debugLabel>
+                <nodeClass>ExSymbiotes.PawnRenderNode_SymbioteStripes</nodeClass>
+                <workerClass>ExSymbiotes.PawnRenderNodeWorker_SymbioteStripes</workerClass>
+                <texPath>Things/Pawn/Stripes/ExSymbiote_stripes</texPath>
+                <baseLayer>1</baseLayer>
+                <rotDrawMode>Fresh, Rotting</rotDrawMode>
+                <color>(31, 27, 28)</color>
+                <parentTagDef>Body</parentTagDef>
+            </li>
+            <li>
+                <debugLabel>SymbioteStripesHead</debugLabel>
+                <nodeClass>ExSymbiotes.PawnRenderNode_SymbioteStripesHead</nodeClass>
+                <workerClass>ExSymbiotes.PawnRenderNodeWorker_SymbioteStripes</workerClass>
+                <texPath>Things/Pawn/Stripes/ExSymbiote_stripes</texPath>
+                <baseLayer>51</baseLayer>
+                <rotDrawMode>Fresh, Rotting</rotDrawMode>
+                <color>(31, 27, 28)</color>
+                <parentTagDef>Head</parentTagDef>
+            </li>
+        </renderNodeProperties>
     </HediffDef>
 
     <HediffDef ParentName="ExSymbiotes_SymbiosisBase">
@@ -283,6 +358,28 @@
                 </abilityDefs>
             </li>
         </comps>
+        <renderNodeProperties>
+            <li>
+                <debugLabel>SymbioteStripes</debugLabel>
+                <nodeClass>ExSymbiotes.PawnRenderNode_SymbioteStripes</nodeClass>
+                <workerClass>ExSymbiotes.PawnRenderNodeWorker_SymbioteStripes</workerClass>
+                <texPath>Things/Pawn/Stripes/ExSymbiote_stripes</texPath>
+                <baseLayer>1</baseLayer>
+                <rotDrawMode>Fresh, Rotting</rotDrawMode>
+                <color>(156, 9, 9)</color>
+                <parentTagDef>Body</parentTagDef>
+            </li>
+            <li>
+                <debugLabel>SymbioteStripesHead</debugLabel>
+                <nodeClass>ExSymbiotes.PawnRenderNode_SymbioteStripesHead</nodeClass>
+                <workerClass>ExSymbiotes.PawnRenderNodeWorker_SymbioteStripes</workerClass>
+                <texPath>Things/Pawn/Stripes/ExSymbiote_stripes</texPath>
+                <baseLayer>51</baseLayer>
+                <rotDrawMode>Fresh, Rotting</rotDrawMode>
+                <color>(156, 9, 9)</color>
+                <parentTagDef>Head</parentTagDef>
+            </li>
+        </renderNodeProperties>
     </HediffDef>
 
 <!--    ABILITIES   -->
@@ -611,7 +708,6 @@
                 <messageEmergedCorpse>{PAWN_nameDef} emerged from the symbiote's corpse.</messageEmergedCorpse>
             </li>
             <li Class="ExSymbiotes.HediffCompProperties_ReactOnDamageStack">
-                <damageDefIncoming>EMP</damageDefIncoming>
                 <createHediff>ExSymbiotes_Shock</createHediff>
             </li>
         </comps>
@@ -1029,7 +1125,6 @@
                 <cd>4</cd>
             </li>
             <li Class="ExSymbiotes.HediffCompProperties_ReactOnDamageStack">
-                <damageDefIncoming>EMP</damageDefIncoming>
                 <createHediff>ExSymbiotes_Shock</createHediff>
             </li>
         </comps>
@@ -1175,7 +1270,6 @@
                 <messageEmergedCorpse>{PAWN_nameDef} emerged from the symbiote's corpse.</messageEmergedCorpse>
             </li>
             <li Class="ExSymbiotes.HediffCompProperties_ReactOnDamageStack">
-                <damageDefIncoming>EMP</damageDefIncoming>
                 <createHediff>ExSymbiotes_Shock</createHediff>
             </li>
         </comps>
@@ -1186,13 +1280,16 @@
         <defName>ExSymbiotes_Shock</defName>
         <label>symbiote shock</label>
         <labelNoun>a symbiote shock</labelNoun>
-        <description>After-effects of an electrical shock to the symbiote.</description>
+        <description>After-effects of an electrical shock or fire damage to the symbiote.</description>
         <hediffClass>HediffWithComps</hediffClass>
         <alwaysShowSeverity>true</alwaysShowSeverity>
+        <minSeverity>0.0</minSeverity>
+        <maxSeverity>1.0</maxSeverity>
         <initialSeverity>0.1</initialSeverity>
         <comps>
-            <li Class="HediffCompProperties_Disappears">
-                <disappearsAfterTicks>900~1200</disappearsAfterTicks>
+            <li Class="HediffCompProperties_DisappearsOnDeath"/>
+            <li Class="HediffCompProperties_SeverityPerDay">
+                <severityPerDay>-0.90</severityPerDay>
             </li>
         </comps>
         <stages>
@@ -1201,16 +1298,7 @@
                 <capMods>
                     <li>
                         <capacity>Consciousness</capacity>
-                        <postFactor>0.5</postFactor>
-                    </li>
-                </capMods>
-            </li>
-            <li>
-                <minSeverity>0.25</minSeverity>
-                <capMods>
-                    <li>
-                        <capacity>Consciousness</capacity>
-                        <postFactor>0.4</postFactor>
+                        <postFactor>0.75</postFactor>
                     </li>
                 </capMods>
             </li>
@@ -1219,7 +1307,7 @@
                 <capMods>
                     <li>
                         <capacity>Consciousness</capacity>
-                        <postFactor>0.3</postFactor>
+                        <postFactor>0.5</postFactor>
                     </li>
                 </capMods>
             </li>
@@ -1228,12 +1316,12 @@
                 <capMods>
                     <li>
                         <capacity>Consciousness</capacity>
-                        <postFactor>0.2</postFactor>
+                        <postFactor>0.3</postFactor>
                     </li>
                 </capMods>
             </li>
             <li>
-                <minSeverity>1</minSeverity>
+                <minSeverity>0.9</minSeverity>
                 <capMods>
                     <li>
                         <capacity>Consciousness</capacity>
@@ -1243,4 +1331,69 @@
             </li>
         </stages>
     </HediffDef>
+
+    <HediffDef>
+        <defName>ExSymbiotes_SymbioticResurrectionDEV</defName>
+        <hediffClass>ExSymbiotes.HediffWithComp_SymbioticResurrectionDEV</hediffClass>
+        <label>symbiote resurrection DEV</label> <!-- won't be seen outside of dev-mode -->
+        <description>Gizmo for triggering symbiote resurrection. This text is visible in dev mode only.</description> <!-- won't be seen outside of dev-mode -->
+        <isBad>false</isBad>
+        <showGizmosOnCorpse>true</showGizmosOnCorpse>
+        <forceRemoveOnResurrection>true</forceRemoveOnResurrection>
+        <everCurableByItem>false</everCurableByItem>
+        <stages>
+            <li>
+                <becomeVisible>false</becomeVisible>
+            </li>
+        </stages>
+    </HediffDef>
+
+    <HediffDef>
+        <defName>ExSymbiotes_SymbioticResurrection</defName>
+        <hediffClass>ExSymbiotes.HediffWithComp_SymbioticResurrection</hediffClass>
+        <label>symbiote resurrection</label>
+        <description>The symbiote inside is trying to resurrect its dead host at the cost of it own life.</description>
+        <everCurableByItem>false</everCurableByItem>
+        <recordDownedTale>false</recordDownedTale>
+        <stages>
+            <li>
+                <painFactor>0</painFactor>
+                <capMods>
+                    <li>
+                        <capacity>Moving</capacity>
+                        <postFactor>0</postFactor>
+                    </li>
+                    <li>
+                        <capacity>Manipulation</capacity>
+                        <postFactor>0</postFactor>
+                    </li>
+                    <li>
+                        <capacity>Talking</capacity>
+                        <postFactor>0</postFactor>
+                    </li>
+                    <li>
+                        <capacity>Hearing</capacity>
+                        <postFactor>0.2</postFactor>
+                    </li>
+                    <li>
+                        <capacity>Consciousness</capacity>
+                        <setMax>0.1</setMax>
+                    </li>
+                </capMods>
+                <disablesNeeds>
+                    <li>Food</li>
+                    <li>Comfort</li>
+                    <li>Beauty</li>
+                </disablesNeeds>
+            </li>
+        </stages>
+        <comps>
+            <li Class="HediffCompProperties_Disappears">
+                <showRemainingTime>True</showRemainingTime>
+                <disappearsAfterTicks>120000</disappearsAfterTicks>
+            </li>
+            <li Class="HediffCompProperties_DisappearsOnDeath"/>
+        </comps>
+    </HediffDef>
+    
 </Defs>

@@ -1,0 +1,74 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+    <WorldObjectDef ParentName="ClaimableSpace">
+        <defName>ExSymbiotes_SpaceGrendelAsteroid</defName>
+        <worldObjectClass>BasicAsteroidMapParent</worldObjectClass>
+        <label>symbiotic asteroid</label> <!-- hidden -->
+        <description>A symbiotic asteroid that was towed into orbit around the planet by an unknow force.\n\nThis location can be reached using transport pods, shuttles, or a gravship.</description>
+        <expandingIconTexture>Things/WorldObjects/ExSymbiotes_SymbioticAsteroid</expandingIconTexture>
+        <overrideMapSize>(250,1,250)</overrideMapSize>
+        <mapGenerator>ExSymbiotes_SpaceGrendelAsteroid</mapGenerator>
+        <canBePlayerHome>false</canBePlayerHome>
+        <treatAsPlayerHome>false</treatAsPlayerHome>
+    </WorldObjectDef>
+
+    <MapGeneratorDef ParentName="SpaceMapGenerator">
+        <defName>ExSymbiotes_SpaceGrendelAsteroid</defName>
+        <label>symbiotic asteroid</label>
+        <genSteps>
+            <li>ExSymbiotes_SpaceGrendelAsteroid</li>
+            <li>ExSymbiotes_SpaceGrendelSpawn</li>
+        </genSteps>
+    </MapGeneratorDef>
+
+    <GenStepDef>
+        <defName>ExSymbiotes_SpaceGrendelAsteroid</defName>
+        <order>200</order>
+        <genStep Class="ExSymbiotes.GenStep_SpaceGrendel"/>
+    </GenStepDef>
+
+    <GenStepDef>
+        <defName>ExSymbiotes_SpaceGrendelSpawn</defName>
+        <order>300</order>
+        <genStep Class="ExSymbiotes.GenStep_SpaceGrendelSpawn"/>
+    </GenStepDef>
+
+    <OrbitalDebrisDef>
+        <defName>ExSymbiotes_OrbitalDebris</defName>
+        <graphics>
+            <li>
+                <weighting>0.2</weighting>
+                <order>1</order>
+                <parallaxPer10Cells>0.2</parallaxPer10Cells>
+                <graphicData>
+                    <texPath>Things/WorldObjects/Debris</texPath>
+                    <graphicClass>Graphic_Random</graphicClass>
+                    <shaderType>OrbitalDebris</shaderType>
+                    <drawSize>14</drawSize>
+                </graphicData>
+            </li>
+            <li>
+                <weighting>0.5</weighting>
+                <order>2</order>
+                <parallaxPer10Cells>1</parallaxPer10Cells>
+                <graphicData>
+                    <texPath>Things/WorldObjects/Debris</texPath>
+                    <graphicClass>Graphic_Random</graphicClass>
+                    <shaderType>OrbitalDebris</shaderType>
+                    <drawSize>6</drawSize>
+                </graphicData>
+            </li>
+            <li>
+                <weighting>1.0</weighting>
+                <order>3</order>
+                <parallaxPer10Cells>2</parallaxPer10Cells>
+                <graphicData>
+                    <texPath>Things/WorldObjects/Debris</texPath>
+                    <graphicClass>Graphic_Random</graphicClass>
+                    <shaderType>OrbitalDebris</shaderType>
+                    <drawSize>3</drawSize>
+                </graphicData>
+            </li>
+        </graphics>
+    </OrbitalDebrisDef>
+</Defs>

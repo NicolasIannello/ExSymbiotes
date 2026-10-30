@@ -110,6 +110,22 @@
         </pawnFlyer>
     </ThingDef>
 
+    <ThingDef ParentName="PawnFlyerBase">
+        <defName>ExSymbiotes_PawnFlyer_GrendelLeap</defName>
+        <pawnFlyer>
+            <flightDurationMin>0.2</flightDurationMin>
+            <flightSpeed>36</flightSpeed>
+            <heightFactor>2</heightFactor>
+            <progressCurve>
+                <points>
+                    <li>(0, 0)</li>
+                    <li>(0.5, 0.5)</li>
+                    <li>(1, 1)</li>
+                </points>
+            </progressCurve>
+        </pawnFlyer>
+    </ThingDef>
+
     <TaleDef>
         <defName>ExSymbiotes_SymbiotePack</defName>
         <label>symbiote pack</label>

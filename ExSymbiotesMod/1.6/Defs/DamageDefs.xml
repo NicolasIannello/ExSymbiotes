@@ -17,10 +17,19 @@
     <DamageDef ParentName="ExSymbiotes_SymbioticStun">
         <defName>ExSymbiotes_VenomLeap</defName>
         <label>symbiote leap crushed</label>
-        <workerClass>ExSymbiotes.DamageWorker_VenomLeap</workerClass>
+        <workerClass>ExSymbiotes.DamageWorker_SymbioticStunBlack</workerClass>
         <deathMessage>{0} has been crushed to death.</deathMessage>
         <defaultDamage>70</defaultDamage>
         <constantStunDurationTicks>150</constantStunDurationTicks>
+    </DamageDef>
+
+    <DamageDef ParentName="ExSymbiotes_SymbioticStun">
+        <defName>ExSymbiotes_GrendelStun</defName>
+        <label>grendel tendrils crushed</label>
+        <workerClass>ExSymbiotes.DamageWorker_grendelStun</workerClass>
+        <deathMessage>{0} has been crushed to death.</deathMessage>
+        <defaultDamage>70</defaultDamage>
+        <constantStunDurationTicks>600</constantStunDurationTicks>
     </DamageDef>
     
     <DamageDef ParentName="StunBase">

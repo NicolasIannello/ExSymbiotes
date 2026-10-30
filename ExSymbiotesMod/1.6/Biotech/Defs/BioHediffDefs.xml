@@ -51,6 +51,28 @@
                 </abilityDefs>
             </li>
         </comps>
+        <renderNodeProperties>
+            <li>
+                <debugLabel>SymbioteStripes</debugLabel>
+                <nodeClass>ExSymbiotes.PawnRenderNode_SymbioteStripes</nodeClass>
+                <workerClass>ExSymbiotes.PawnRenderNodeWorker_SymbioteStripes</workerClass>
+                <texPath>Things/Pawn/Stripes/ExSymbiote_stripes</texPath>
+                <baseLayer>1</baseLayer>
+                <rotDrawMode>Fresh, Rotting</rotDrawMode>
+                <color>(31, 27, 28)</color>
+                <parentTagDef>Body</parentTagDef>
+            </li>
+            <li>
+                <debugLabel>SymbioteStripesHead</debugLabel>
+                <nodeClass>ExSymbiotes.PawnRenderNode_SymbioteStripesHead</nodeClass>
+                <workerClass>ExSymbiotes.PawnRenderNodeWorker_SymbioteStripes</workerClass>
+                <texPath>Things/Pawn/Stripes/ExSymbiote_stripes</texPath>
+                <baseLayer>51</baseLayer>
+                <rotDrawMode>Fresh, Rotting</rotDrawMode>
+                <color>(31, 27, 28)</color>
+                <parentTagDef>Head</parentTagDef>
+            </li>
+        </renderNodeProperties>
     </HediffDef>
 
     <HediffDef ParentName="ExSymbiotes_SymbioticTendrilsHediffDef">

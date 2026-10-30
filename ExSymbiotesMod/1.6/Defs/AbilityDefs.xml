@@ -1,5 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Defs>
+<!--        BLACK           -->
     <AbilityDef>
         <defName>ExSymbiotes_SymbioticArmor</defName>
         <label>symbiotic armor</label>
@@ -38,6 +39,38 @@
         </comps>
     </AbilityDef>
 
+    <AbilityDef>
+        <defName>ExSymbiotes_VenomLeap</defName>
+        <label>symbiotic leap</label>
+        <description>Jump to a position stunning everyone and dealing damage.</description>
+        <iconPath>UI/VenomLeap</iconPath>
+        <cooldownTicksRange>30</cooldownTicksRange>
+        <jobDef>CastJump</jobDef>
+        <verbProperties>
+            <verbClass>ExSymbiotes.Verb_CastAbilityVenomLeap</verbClass>
+            <label>symbiotic leap</label>
+            <range>15</range>
+            <requireLineOfSight>true</requireLineOfSight>
+            <warmupTime>0.10</warmupTime>
+            <soundCast>Pawn_Devourer_Jump</soundCast>
+            <soundLanding>Pawn_Devourer_Land</soundLanding>
+            <targetParams>
+                <canTargetLocations>true</canTargetLocations>
+                <canTargetBuildings>false</canTargetBuildings>
+            </targetParams>
+        </verbProperties>
+        <comps>
+            <li Class="ExSymbiotes.CompProperties_AbilitySymbiosisCost">
+                <symbiosisCost>10</symbiosisCost>
+            </li>
+            <li Class="ExSymbiotes.CompProperties_VenomLeap">
+                <radius>2.5</radius>
+                <filth>Filth_RevenantBloodPool</filth>
+            </li>
+        </comps>
+    </AbilityDef>
+    
+<!--        RED             -->
     <AbilityDef>
         <defName>ExSymbiotes_SymbioticScythe</defName>
         <label>symbiotic scythe</label>
@@ -131,6 +164,7 @@
         </comps>
     </AbilityDef>
     
+<!--        SYMBIOTE        -->
     <AbilityDef>
         <defName>ExSymbiotes_SymbiosisLeap</defName>
         <label>consume leap</label>
@@ -155,38 +189,8 @@
             <li Class="ExSymbiotes.CompProperties_SymbiosisLeap"/>
         </comps>
     </AbilityDef>
-
-    <AbilityDef>
-        <defName>ExSymbiotes_VenomLeap</defName>
-        <label>symbiotic leap</label>
-        <description>Jump to a position stunning everyone and dealing damage.</description>
-        <iconPath>UI/VenomLeap</iconPath>
-        <cooldownTicksRange>30</cooldownTicksRange>
-        <jobDef>CastJump</jobDef>
-        <verbProperties>
-            <verbClass>ExSymbiotes.Verb_CastAbilityVenomLeap</verbClass>
-            <label>symbiotic leap</label>
-            <range>15</range>
-            <requireLineOfSight>true</requireLineOfSight>
-            <warmupTime>0.10</warmupTime>
-            <soundCast>Pawn_Devourer_Jump</soundCast>
-            <soundLanding>Pawn_Devourer_Land</soundLanding>
-            <targetParams>
-                <canTargetLocations>true</canTargetLocations>
-                <canTargetBuildings>false</canTargetBuildings>
-            </targetParams>
-        </verbProperties>
-        <comps>
-            <li Class="ExSymbiotes.CompProperties_AbilitySymbiosisCost">
-                <symbiosisCost>10</symbiosisCost>
-            </li>
-            <li Class="ExSymbiotes.CompProperties_VenomLeap">
-                <radius>2.5</radius>
-                <filth>Filth_RevenantBloodPool</filth>
-            </li>
-        </comps>
-    </AbilityDef>
-
+    
+<!--        WHITE           -->
     <AbilityDef ParentName="AbilityTouchBase">
         <defName>ExSymbiotes_SymbioticResurrect</defName>
         <label>symbiotic resurrect</label>
@@ -259,7 +263,8 @@
             </li>
         </comps>
     </AbilityDef>
-
+    
+<!--        YELLOW          -->
     <AbilityDef>
         <defName>ExSymbiotes_SymbioticStun</defName>
         <label>symbiotic stun</label>
@@ -327,7 +332,8 @@
             </li>
         </comps>
     </AbilityDef>
-
+    
+<!--        HIVEMIND        -->
     <AbilityDef ParentName="AbilityTouchBase">
         <defName>ExSymbiotes_SymbioticEnthrall</defName>
         <label>symbiotic enthrall</label>
@@ -395,6 +401,109 @@
             <li Class="ExSymbiotes.CompProperties_AbilitySymbioticConsume"/>
             <li Class="CompProperties_AbilityRequiresCapacity">
                 <capacity>Manipulation</capacity>
+            </li>
+        </comps>
+    </AbilityDef>
+    
+<!--        GRENDEL         -->
+    <AbilityDef>
+        <defName>ExSymbiotes_GrendelLeap</defName>
+        <label>grendel leap</label>
+        <description>Jump to a position stunning everyone and dealing damage.</description>
+        <cooldownTicksRange>1200</cooldownTicksRange>
+        <jobDef>CastJump</jobDef>
+        <ai_IsOffensive>true</ai_IsOffensive>
+        <aiCanUse>true</aiCanUse>
+        <verbProperties>
+            <verbClass>ExSymbiotes.Verb_CastAbilityGrendelLeap</verbClass>
+            <label>grendel leap</label>
+            <range>50</range>
+            <requireLineOfSight>true</requireLineOfSight>
+            <warmupTime>0.10</warmupTime>
+            <soundCast>Pawn_Devourer_Jump</soundCast>
+            <soundLanding>Pawn_Devourer_Land</soundLanding>
+            <targetParams>
+                <canTargetLocations>false</canTargetLocations>
+                <canTargetBuildings>true</canTargetBuildings>
+            </targetParams>
+        </verbProperties>
+        <comps>
+            <li Class="ExSymbiotes.CompProperties_GrendelLeap">
+                <radius>2.5</radius>
+                <filth>Filth_RevenantBloodPool</filth>
+            </li>
+        </comps>
+    </AbilityDef>
+    
+    <AbilityDef>
+        <defName>ExSymbiotes_GrendelStun</defName>
+        <label>grendel stun</label>
+        <description>The symbiote lashes tendrils outwards stunning everything.</description>
+        <cooldownTicksRange>2000</cooldownTicksRange>
+        <ai_IsOffensive>true</ai_IsOffensive>
+        <aiCanUse>true</aiCanUse>
+        <writeCombatLog>True</writeCombatLog>
+        <targetRequired>false</targetRequired>
+        <verbProperties>
+            <verbClass>Verb_CastAbility</verbClass>
+            <warmupTime>2</warmupTime>
+            <requireLineOfSight>false</requireLineOfSight>
+            <range>4.7</range>
+            <drawAimPie>true</drawAimPie>
+            <nonInterruptingSelfCast>true</nonInterruptingSelfCast>
+            <targetParams>
+                <canTargetSelf>True</canTargetSelf>
+            </targetParams>
+        </verbProperties>
+        <comps>
+            <li Class="ExSymbiotes.CompProperties_AbilityGrendelStun">
+                <radius>4.7</radius>
+                <warmupEffecter>HoraxianSpellDark_Warmup</warmupEffecter>
+            </li>
+        </comps>
+    </AbilityDef>
+
+    <AbilityDef>
+        <defName>ExSymbiotes_GrendelBurner</defName>
+        <label>grendel burner</label>
+        <description>grendel fire spew.</description>
+        <aiCanUse>true</aiCanUse>
+        <ai_IsIncendiary>true</ai_IsIncendiary>
+        <warmupStartSound>FireSpew_Warmup</warmupStartSound>
+        <cooldownTicksRange>4000</cooldownTicksRange>
+        <verbProperties>
+            <verbClass>Verb_CastAbility</verbClass>
+            <range>12</range>
+            <warmupTime>1.5</warmupTime>
+            <soundCast>FireSpew_Resolve</soundCast>
+            <targetParams>
+                <canTargetLocations>true</canTargetLocations>
+            </targetParams>
+            <flammabilityAttachFireChanceCurve>
+                <points>
+                    <li>(0.2, 0)</li>
+                    <li>(1, 1)</li>
+                </points>
+            </flammabilityAttachFireChanceCurve>
+        </verbProperties>
+        <comps>
+            <li Class="CompProperties_AbilityFireSpew">
+                <range>11.9</range>
+                <lineWidthEnd>5</lineWidthEnd>
+                <filthDef>Filth_Ash</filthDef>
+                <damAmount>16</damAmount>
+                <canHitFilledCells>true</canHitFilledCells>
+            </li>
+            <li Class="CompProperties_AbilityBurner">
+                <numStreams>15</numStreams>
+                <range>13</range> <!-- go a bit further than the actual ability range, since it's meant to be a noisy effect -->
+                <coneSizeDegrees>12</coneSizeDegrees>
+                <moteDef>Mote_IncineratorBurst</moteDef>
+                <barrelOffsetDistance>6</barrelOffsetDistance>
+                <sizeReductionDistanceThreshold>8</sizeReductionDistanceThreshold>
+                <lifespanNoise>40</lifespanNoise>
+                <rangeNoise>.4</rangeNoise>
+                <effecterDef>BurnerUsed</effecterDef>
             </li>
         </comps>
     </AbilityDef>
