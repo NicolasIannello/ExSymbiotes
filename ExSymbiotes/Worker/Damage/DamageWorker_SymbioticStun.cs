@@ -10,16 +10,20 @@ namespace ExSymbiotes
         
         public override DamageWorker.DamageResult Apply(DamageInfo dinfo, Thing victim)
         {
-            DamageWorker.DamageResult damageResult = base.Apply(dinfo, victim);
+            DamageWorker.DamageResult damageResult = new DamageResult();
             if (victim is Pawn pawn && !pawn.Dead)
             {
-                if (victim == dinfo.Instigator) return new DamageResult();
+                if (victim == dinfo.Instigator) return damageResult;
+                damageResult = base.Apply(dinfo, victim);
 
-                float scale = pawn.BodySize>3 ? pawn.BodySize/2 : pawn.BodySize;
-                pawn.stances.stunner.StunFor((int)dinfo.Def.constantStunDurationTicks, dinfo.Instigator, showMote:false);
-                MoteMaker.MakeAttachedOverlay(pawn, moteDef, Vector3.zero, scale, (float)dinfo.Def.constantStunDurationTicks/60);
+                if (pawn.stances != null)
+                {
+                    float scale = pawn.BodySize>3 ? pawn.BodySize/2 : pawn.BodySize;
+                    pawn.stances.stunner.StunFor((int)dinfo.Def.constantStunDurationTicks, dinfo.Instigator, showMote:false);
+                    MoteMaker.MakeAttachedOverlay(pawn, moteDef, Vector3.zero, scale, (float)dinfo.Def.constantStunDurationTicks/60);
+                    damageResult.stunned = true;
+                }
             }
-            damageResult.stunned = true;
             return damageResult;
         }
     }
