@@ -8,6 +8,7 @@
 			<Flammability>2</Flammability>
 			<MeatAmount>0</MeatAmount>
 			<VacuumResistance MayRequire="Ludeon.RimWorld.Odyssey">1</VacuumResistance>
+			<EMPResistance>0.6</EMPResistance>
 		</statBases>
 		<tradeability>None</tradeability>
 		<hiddenWhileUndiscovered>true</hiddenWhileUndiscovered>
@@ -144,6 +145,7 @@
 			<MoveSpeed>7</MoveSpeed>
 			<MinimumContainmentStrength>60</MinimumContainmentStrength>
 			<ToxicResistance>1</ToxicResistance>
+			<EMPResistance>0.8</EMPResistance>
 		</statBases>
 		<uiIconPath>Things/Pawn/Symbiote/Red/SymbioteRed</uiIconPath>
 		<race>
@@ -172,6 +174,7 @@
 			<PsychicSensitivity>0</PsychicSensitivity>
 			<StaggerDurationFactor>0</StaggerDurationFactor>
 			<IncomingDamageFactor>0.2</IncomingDamageFactor>
+			<EMPResistance>0.9</EMPResistance>
 		</statBases>
 		<race>
 			<body>QuadrupedAnimalWithClawsTailAndJowl</body>
@@ -311,6 +314,7 @@
 		<abilities>
 			<li>ExSymbiotes_GrendelLeap</li>
 			<li>ExSymbiotes_GrendelStun</li>
+			<li>ExSymbiotes_GrendelBurner</li>
 		</abilities>
 		<combatPower>1000</combatPower>
 		<lifeStages>
