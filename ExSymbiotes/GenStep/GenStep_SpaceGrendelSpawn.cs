@@ -12,7 +12,7 @@ public class GenStep_SpaceGrendelSpawn : GenStep
     if (!ModsConfig.OdysseyActive)
       return;
 
-    foreach (IntVec3 cell in GenRadial.RadialCellsAround(map.Center, 16, true))
+    foreach (IntVec3 cell in GenRadial.RadialCellsAround(map.Center, 30, true))
     {
       List<Thing> things = cell.GetThingList(map);
       for (int i = things.Count - 1; i >= 0; i--) things[i].DeSpawn();

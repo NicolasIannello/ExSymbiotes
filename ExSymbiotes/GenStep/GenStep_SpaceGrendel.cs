@@ -13,7 +13,7 @@ public class GenStep_SpaceGrendel : GenStep
 
   public override int SeedPart => 1959414;
 
-  protected virtual float Radius => 0.224f;
+  protected virtual float Radius => 0.35f;
 
   public override void Generate(Map map, GenStepParams parms)
   {
@@ -90,9 +90,9 @@ public class GenStep_SpaceGrendel : GenStep
       closedTunnelsPer10k = 0,
       tunnelsWidthPerRockCount = new SimpleCurve()
       {
-        { new CurvePoint(100f, 3.1f), true },
-        { new CurvePoint(300f, 3.65f), true },
-        { new CurvePoint(3000f, 4.15f), true }
+        { new CurvePoint(100f, 3f), true },
+        { new CurvePoint(300f, 3.5f), true },
+        { new CurvePoint(3000f, 4f), true }
       },
       directionChangeSpeed = 5
     };
