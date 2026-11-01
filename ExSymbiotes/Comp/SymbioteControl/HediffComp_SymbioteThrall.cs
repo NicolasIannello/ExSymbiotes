@@ -39,8 +39,10 @@ namespace ExSymbiotes
             }
             if(!hivemind.Dead)
             {
-                ((HediffWithComps_Hivemind)hivemind.health.hediffSet.GetFirstHediffOfDef(
-                    ExSymbiotesDefOf.ExSymbiotes_HivemindConnection)).controlledPawns.Remove(this.Pawn);
+                HediffWithComps_Hivemind hivemindHediff = (HediffWithComps_Hivemind)hivemind.health.hediffSet.GetFirstHediffOfDef(ExSymbiotesDefOf.ExSymbiotes_HivemindConnection);
+                if (hivemindHediff == null) return;
+                
+                hivemindHediff.controlledPawns.Remove(this.Pawn);
                 MoteMaker.MakeThoughtBubble(hivemind, "Things/Pawn/Symbiote/Attachments/SymbioteSpiral/SymbioteSpiral_south");
             }
         }
