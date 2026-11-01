@@ -107,6 +107,12 @@ namespace ExSymbiotes
             InterruptThrall();
         }
 
+        public override void PostRemoved()
+        {
+            base.PostRemoved();
+            InterruptThrall();
+        }
+
         public void InterruptThrall()
         {
             for (int i = 0; i < controlledPawns.Count; i++)
