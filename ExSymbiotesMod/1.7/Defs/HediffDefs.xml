@@ -79,6 +79,7 @@
                     <ToxicResistance>1</ToxicResistance>
                     <ComfyTemperatureMax>100</ComfyTemperatureMax>
                     <ComfyTemperatureMin>-200</ComfyTemperatureMin>
+                    <VacuumResistance MayRequire="Ludeon.RimWorld.Odyssey">1</VacuumResistance>
                 </statOffsets>
                 <capMods>
                     <li><capacity>Consciousness</capacity><postFactor>1.50</postFactor></li>
@@ -183,6 +184,7 @@
                     <ToxicResistance>1</ToxicResistance>
                     <ComfyTemperatureMax>100</ComfyTemperatureMax>
                     <ComfyTemperatureMin>-200</ComfyTemperatureMin>
+                    <VacuumResistance MayRequire="Ludeon.RimWorld.Odyssey">1</VacuumResistance>
                 </statOffsets>
                 <capMods>
                     <li><capacity>Consciousness</capacity><postFactor>1.50</postFactor></li>
@@ -250,6 +252,7 @@
                     <ToxicResistance>1</ToxicResistance>
                     <ComfyTemperatureMax>100</ComfyTemperatureMax>
                     <ComfyTemperatureMin>-200</ComfyTemperatureMin>
+                    <VacuumResistance MayRequire="Ludeon.RimWorld.Odyssey">1</VacuumResistance>
                 </statOffsets>
                 <capMods>
                     <li><capacity>Consciousness</capacity><postFactor>1.50</postFactor></li>
@@ -329,6 +332,7 @@
                     <ToxicResistance>1</ToxicResistance>
                     <ComfyTemperatureMax>100</ComfyTemperatureMax>
                     <ComfyTemperatureMin>-200</ComfyTemperatureMin>
+                    <VacuumResistance MayRequire="Ludeon.RimWorld.Odyssey">1</VacuumResistance>
                 </statOffsets>
                 <capMods>
                     <li><capacity>Consciousness</capacity><postFactor>1.50</postFactor></li>
@@ -772,6 +776,7 @@
                     <ToxicResistance>1</ToxicResistance>
                     <ComfyTemperatureMax>100</ComfyTemperatureMax>
                     <ComfyTemperatureMin>-200</ComfyTemperatureMin>
+                    <VacuumResistance MayRequire="Ludeon.RimWorld.Odyssey">1</VacuumResistance>
                 </statOffsets>
                 <capMods>
                     <li><capacity>Consciousness</capacity><postFactor>1.50</postFactor></li>
@@ -855,6 +860,7 @@
                     <ToxicResistance>1</ToxicResistance>
                     <ComfyTemperatureMax>100</ComfyTemperatureMax>
                     <ComfyTemperatureMin>-200</ComfyTemperatureMin>
+                    <VacuumResistance MayRequire="Ludeon.RimWorld.Odyssey">1</VacuumResistance>
                 </statOffsets>
                 <capMods>
                     <li><capacity>Consciousness</capacity><postFactor>1.50</postFactor></li>
