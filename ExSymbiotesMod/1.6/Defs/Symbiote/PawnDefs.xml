@@ -335,7 +335,7 @@
 		</lifeStages>
 		<startingHediffs>
 			<li>
-				<def>RapidRegeneration</def>
+				<def>ExSymbiotes_GrendelRegeneration</def>
 			</li>
 		</startingHediffs>
 	</PawnKindDef>

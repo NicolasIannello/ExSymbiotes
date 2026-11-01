@@ -663,8 +663,22 @@
         <hediffClass>ExSymbiotes.HediffWithComps_SymbioticWings</hediffClass>
         <description>Two symbiotic wings protude from the back of the user allowing flight and fast movement.</description>
         <isBad>false</isBad>
+        <alwaysShowSeverity>false</alwaysShowSeverity>
+        <minSeverity>0.0</minSeverity>
+        <maxSeverity>1.0</maxSeverity>
+        <initialSeverity>1.0</initialSeverity>
         <stages>
             <li>
+                <minSeverity>0.5</minSeverity>
+                <statOffsets>
+                    <MaxFlightTime>10800</MaxFlightTime>
+                    <MeleeDodgeChance>30</MeleeDodgeChance>
+                </statOffsets>
+            </li>
+            <li>
+                <minSeverity>1</minSeverity>
+                <regeneration>30000</regeneration>
+                <showRegenerationStat>false</showRegenerationStat>
                 <statOffsets>
                     <MaxFlightTime>10800</MaxFlightTime>
                     <MeleeDodgeChance>30</MeleeDodgeChance>
@@ -1496,4 +1510,23 @@
         </comps>
     </HediffDef>
     
+    <HediffDef>
+        <defName>ExSymbiotes_GrendelRegeneration</defName>
+        <label>grendel regeneration</label>
+        <hediffClass>ExSymbiotes.HediffWithComps_GrendelRegeneration</hediffClass>
+        <description>This creature has stored an incredible amount of healing energy. While not unlimited, it will rapidly regenerate until its energy has been exhausted.</description>
+        <isBad>false</isBad>
+        <preventsDeath>true</preventsDeath>
+        <keepOnBodyPartRestoration>True</keepOnBodyPartRestoration>
+        <stages>
+            <li>
+                <minSeverity>0</minSeverity>
+                <regeneration>30000</regeneration>
+                <showRegenerationStat>false</showRegenerationStat>
+                <statOffsets>
+                    <PainShockThreshold>10</PainShockThreshold>
+                </statOffsets>
+            </li>
+        </stages>
+    </HediffDef>
 </Defs>
