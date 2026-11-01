@@ -52,6 +52,10 @@ namespace ExSymbiotes
             if (ModsConfig.BiotechActive && this.Pawn.genes!=null)
                 SymbioteUtility.CheckRemoveGene(this.Pawn, ExSymbiotesDefOf.PerfectImmunity, this.immunityGene);
             if(this.bond<2 && !Pawn.Dead) Pawn.needs.mood.thoughts.memories.TryGainMemory(ExSymbiotesDefOf.ExSymbiotes_BondedSymbioteLost);
+            if (Pawn.health.hediffSet.GetFirstHediffOfDef(ExSymbiotesDefOf.ExSymbiotes_HivemindConnection) is { } hivemindConnection)
+                Pawn.health.RemoveHediff(hivemindConnection);
+            if (Pawn.abilities.GetAbility(ExSymbiotesDefOf.ExSymbiotes_SymbioticWingsAbility) is { } wingAbility)
+                Pawn.abilities.RemoveAbility(wingAbility.def);
         }
         
         public override void CompPostTick(ref float severityAdjustment)
