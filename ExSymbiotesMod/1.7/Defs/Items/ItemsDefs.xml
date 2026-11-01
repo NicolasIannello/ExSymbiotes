@@ -432,7 +432,7 @@
             </li>
             <li Class="CompProperties_Serum" />
             <li Class="ExSymbiotes.CompProperties_UseEffect_GrendelGainAbility">
-                <ability>ExSymbiotes_SymbioticWings</ability>
+                <ability>ExSymbiotes_SymbioticWingsAbility</ability>
             </li>
             <li Class="CompProperties_UseEffectPlaySound">
                 <soundOnUsed>MechSerumUsed</soundOnUsed>

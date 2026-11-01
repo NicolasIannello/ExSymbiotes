@@ -509,7 +509,7 @@
     </AbilityDef>
 
     <AbilityDef>
-        <defName>ExSymbiotes_SymbioticWings</defName>
+        <defName>ExSymbiotes_SymbioticWingsAbility</defName>
         <label>symbiotic wings</label>
         <description>Two symbiotic wings protude from the back of the user allowing flight and fast movement.</description>
         <iconPath>UI/SymbioticWings</iconPath>

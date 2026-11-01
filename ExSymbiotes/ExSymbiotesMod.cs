@@ -70,6 +70,7 @@ namespace ExSymbiotes
     public static class ExSymbiotesDefOf
     {
         public static AbilityDef ExSymbiotes_SymbiosisLeap;
+        public static AbilityDef ExSymbiotes_SymbioticWingsAbility;
         public static DamageDef ExSymbiotes_SymbioticStun;
         public static DamageDef ExSymbiotes_GrendelStun;
         public static DamageDef ExSymbiotes_VenomLeap;
