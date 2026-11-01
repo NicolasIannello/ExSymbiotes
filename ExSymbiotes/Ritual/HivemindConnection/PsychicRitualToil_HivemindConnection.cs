@@ -1,4 +1,5 @@
-﻿using RimWorld;
+﻿using ExSymbiotes.Utils;
+using RimWorld;
 using Verse;
 using Verse.AI.Group;
 
@@ -29,6 +30,7 @@ namespace ExSymbiotes
     private void ApplyOutcome(PsychicRitual psychicRitual, Pawn pawn)
     {
       pawn.health.AddHediff(ExSymbiotesDefOf.ExSymbiotes_HivemindConnection);
+      SymbioteUtility.HasSymbiosis(pawn, false).TryGetComp<HediffComp_Symbiosis>().EnergyMax += 10;
 
       if (!PawnUtility.ShouldSendNotificationAbout(pawn))
         return;

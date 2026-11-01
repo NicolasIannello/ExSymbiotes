@@ -121,6 +121,7 @@ namespace ExSymbiotes
         public override void CompExposeData()
         {
             base.CompExposeData();
+            Scribe_Values.Look<int>(ref this.EnergyMax, "EnergyMax", 20);
             Scribe_Values.Look<int>(ref this.energy, "energy");
             Scribe_Values.Look<int>(ref this.bond, "stage");
             Scribe_Values.Look<bool>(ref this.deathlessGene, "deathlessGene");
