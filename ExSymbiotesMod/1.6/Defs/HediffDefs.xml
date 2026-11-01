@@ -79,6 +79,7 @@
                     <ToxicResistance>1</ToxicResistance>
                     <ComfyTemperatureMax>100</ComfyTemperatureMax>
                     <ComfyTemperatureMin>-200</ComfyTemperatureMin>
+                    <VacuumResistance MayRequire="Ludeon.RimWorld.Odyssey">1</VacuumResistance>
                 </statOffsets>
                 <capMods>
                     <li><capacity>Consciousness</capacity><postFactor>1.50</postFactor></li>
@@ -183,6 +184,7 @@
                     <ToxicResistance>1</ToxicResistance>
                     <ComfyTemperatureMax>100</ComfyTemperatureMax>
                     <ComfyTemperatureMin>-200</ComfyTemperatureMin>
+                    <VacuumResistance MayRequire="Ludeon.RimWorld.Odyssey">1</VacuumResistance>
                 </statOffsets>
                 <capMods>
                     <li><capacity>Consciousness</capacity><postFactor>1.50</postFactor></li>
@@ -250,6 +252,7 @@
                     <ToxicResistance>1</ToxicResistance>
                     <ComfyTemperatureMax>100</ComfyTemperatureMax>
                     <ComfyTemperatureMin>-200</ComfyTemperatureMin>
+                    <VacuumResistance MayRequire="Ludeon.RimWorld.Odyssey">1</VacuumResistance>
                 </statOffsets>
                 <capMods>
                     <li><capacity>Consciousness</capacity><postFactor>1.50</postFactor></li>
@@ -329,6 +332,7 @@
                     <ToxicResistance>1</ToxicResistance>
                     <ComfyTemperatureMax>100</ComfyTemperatureMax>
                     <ComfyTemperatureMin>-200</ComfyTemperatureMin>
+                    <VacuumResistance MayRequire="Ludeon.RimWorld.Odyssey">1</VacuumResistance>
                 </statOffsets>
                 <capMods>
                     <li><capacity>Consciousness</capacity><postFactor>1.50</postFactor></li>
@@ -653,6 +657,100 @@
         </comps>
     </HediffDef>
 
+    <HediffDef>
+        <defName>ExSymbiotes_SymbioticWings</defName>
+        <label>symbiotic wings</label>
+        <hediffClass>ExSymbiotes.HediffWithComps_SymbioticWings</hediffClass>
+        <description>Two symbiotic wings protude from the back of the user allowing flight and fast movement.</description>
+        <isBad>false</isBad>
+        <stages>
+            <li>
+                <statOffsets>
+                    <MaxFlightTime>10800</MaxFlightTime>
+                    <MeleeDodgeChance>30</MeleeDodgeChance>
+                </statOffsets>
+            </li>
+        </stages>
+        <comps>
+            <li Class="HediffCompProperties_Disappears">
+                <showRemainingTime>True</showRemainingTime>
+            </li>
+            <li Class="HediffCompProperties_DisappearsOnDeath"/>
+        </comps>
+        <renderNodeProperties>
+            <li>
+                <workerClass>PawnRenderNodeWorker_AttachmentBody</workerClass>
+                <texPath>Things/Pawn/Symbiote/Attachments/Wings/SymbioteWing</texPath>
+                <colorType>Skin</colorType>
+                <overrideMeshSize>1</overrideMeshSize>
+                <drawSize>1.5</drawSize>
+                <parentTagDef>Body</parentTagDef>
+                <rotDrawMode>Fresh, Rotting</rotDrawMode>
+                <shaderTypeDef>CutoutComplex</shaderTypeDef>
+                <useRottenColor>true</useRottenColor>
+                <drawData>
+                    <scaleOffsetByBodySize>true</scaleOffsetByBodySize>
+                    <dataSouth>
+                        <offset>(-0.6, 0, -0.3)</offset>
+                        <rotationOffset>30</rotationOffset>
+                        <layer>0</layer>
+                    </dataSouth>
+                    <dataNorth>
+                        <offset>(0.6, 0, -0.3)</offset>
+                        <rotationOffset>30</rotationOffset>
+                        <layer>101</layer>
+                        <flip>true</flip>
+                    </dataNorth>
+                    <dataEast>
+                        <offset>(-0.15, 0, -0.3)</offset>
+                        <layer>91</layer>
+                        <flip>true</flip>
+                    </dataEast>
+                    <dataWest>
+                        <offset>(0, 0, -0.3)</offset>
+                        <layer>0</layer>
+                        <flip>true</flip>
+                    </dataWest>
+                </drawData>
+            </li>
+            <li>
+                <workerClass>PawnRenderNodeWorker_AttachmentBody</workerClass>
+                <texPath>Things/Pawn/Symbiote/Attachments/Wings/SymbioteWing</texPath>
+                <colorType>Skin</colorType>
+                <overrideMeshSize>1</overrideMeshSize>
+                <drawSize>1.5</drawSize>
+                <parentTagDef>Body</parentTagDef>
+                <rotDrawMode>Fresh, Rotting</rotDrawMode>
+                <shaderTypeDef>CutoutComplex</shaderTypeDef>
+                <useRottenColor>true</useRottenColor>
+                <drawData>
+                    <scaleOffsetByBodySize>true</scaleOffsetByBodySize>
+                    <dataSouth>
+                        <offset>(0.6, 0, -0.3)</offset>
+                        <rotationOffset>30</rotationOffset>
+                        <layer>0</layer>
+                        <flip>true</flip>
+                    </dataSouth>
+                    <dataNorth>
+                        <offset>(-0.6, 0, -0.3)</offset>
+                        <rotationOffset>30</rotationOffset>
+                        <layer>101</layer>
+                    </dataNorth>
+                    <dataEast>
+                        <offset>(0, 0, -0.3)</offset>
+                        <layer>0</layer>
+                        <flip>true</flip>
+                    </dataEast>
+                    <dataWest>
+                        <offset>(0.15, 0, -0.3)</offset>
+                        <layer>91</layer>
+                        <flip>true</flip>
+                    </dataWest>
+                </drawData>
+            </li>
+        </renderNodeProperties>
+    </HediffDef>
+    
 <!--    CONTROLLED  -->
     <HediffDef Name="ExSymbiotes_SymbioteControl">
         <defName>ExSymbiotes_SymbioteControl</defName>
@@ -678,6 +776,7 @@
                     <ToxicResistance>1</ToxicResistance>
                     <ComfyTemperatureMax>100</ComfyTemperatureMax>
                     <ComfyTemperatureMin>-200</ComfyTemperatureMin>
+                    <VacuumResistance MayRequire="Ludeon.RimWorld.Odyssey">1</VacuumResistance>
                 </statOffsets>
                 <capMods>
                     <li><capacity>Consciousness</capacity><postFactor>1.50</postFactor></li>
@@ -761,6 +860,7 @@
                     <ToxicResistance>1</ToxicResistance>
                     <ComfyTemperatureMax>100</ComfyTemperatureMax>
                     <ComfyTemperatureMin>-200</ComfyTemperatureMin>
+                    <VacuumResistance MayRequire="Ludeon.RimWorld.Odyssey">1</VacuumResistance>
                 </statOffsets>
                 <capMods>
                     <li><capacity>Consciousness</capacity><postFactor>1.50</postFactor></li>

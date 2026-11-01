@@ -507,4 +507,42 @@
             </li>
         </comps>
     </AbilityDef>
+
+    <AbilityDef>
+        <defName>ExSymbiotes_SymbioticWingsAbility</defName>
+        <label>symbiotic wings</label>
+        <description>Two symbiotic wings protude from the back of the user allowing flight and fast movement.</description>
+        <iconPath>UI/SymbioticWings</iconPath>
+        <cooldownTicksRange>300</cooldownTicksRange>
+        <writeCombatLog>False</writeCombatLog>
+        <targetRequired>false</targetRequired>
+        <casterMustBeCapableOfViolence>false</casterMustBeCapableOfViolence>
+        <statBases>
+            <Ability_Duration>120</Ability_Duration>
+        </statBases>
+        <verbProperties>
+            <verbClass>Verb_CastAbility</verbClass>
+            <drawAimPie>false</drawAimPie>
+            <requireLineOfSight>false</requireLineOfSight>
+            <nonInterruptingSelfCast>true</nonInterruptingSelfCast>
+            <warmupTime>0.5</warmupTime>
+            <range>2</range>
+            <targetable>false</targetable>
+            <targetParams>
+                <canTargetSelf>True</canTargetSelf>
+            </targetParams>
+        </verbProperties>
+        <comps>
+            <li Class="ExSymbiotes.CompProperties_AbilitySymbiosisCost">
+                <symbiosisCost>5</symbiosisCost>
+            </li>
+            <li Class="CompProperties_AbilityGiveHediff">
+                <compClass>CompAbilityEffect_GiveHediff</compClass>
+                <hediffDef>ExSymbiotes_SymbioticWings</hediffDef>
+            </li>
+            <li Class="CompProperties_AbilityFleckOnTarget">
+                <fleckDef>BloodSplash</fleckDef>
+            </li>
+        </comps>
+    </AbilityDef>
 </Defs>

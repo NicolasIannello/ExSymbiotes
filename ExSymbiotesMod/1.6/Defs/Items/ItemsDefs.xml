@@ -245,7 +245,7 @@
             <Flammability>1</Flammability>
         </statBases>
         <thingCategories>
-            <li>Drugs</li>
+            <li>Manufactured</li>
         </thingCategories>
         <thingSetMakerTags>
             <li>RewardStandardLowFreq</li>
@@ -412,6 +412,34 @@
         </recipeMaker>
     </ThingDef>
 
+    <ThingDef ParentName="ExSymbiotes_SymbioticCore">
+        <defName>ExSymbiotes_GrendelCore</defName>
+        <label>grendel core</label>
+        <graphicData>
+            <texPath>Things/Item/GrendelCore</texPath>
+            <graphicClass>Graphic_Single</graphicClass>
+            <drawSize>0.8</drawSize>
+        </graphicData>
+        <comps Inherit="False">
+            <li Class="CompProperties_Drug">
+                <listOrder>1200</listOrder>
+                <teetotalerCanConsume>false</teetotalerCanConsume>
+            </li>
+            <li Class="CompProperties_Usable">
+                <useLabel>Use {0_label}</useLabel>
+                <useJob>Ingest</useJob>
+                <showUseGizmo>true</showUseGizmo>
+            </li>
+            <li Class="CompProperties_Serum" />
+            <li Class="ExSymbiotes.CompProperties_UseEffect_GrendelGainAbility">
+                <ability>ExSymbiotes_SymbioticWingsAbility</ability>
+            </li>
+            <li Class="CompProperties_UseEffectPlaySound">
+                <soundOnUsed>MechSerumUsed</soundOnUsed>
+            </li>
+        </comps>
+    </ThingDef>
+    
     <!--        WEAPONS     -->
     <ThingDef ParentName="ResourceVerbBase">
         <defName>ExSymbiotes_SymbioteScythe</defName>
