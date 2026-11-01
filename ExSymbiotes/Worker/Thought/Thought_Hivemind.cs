@@ -6,7 +6,10 @@ namespace ExSymbiotes
     {
         public override float MoodOffset()
         {
-            int controlledPawns = ((HediffWithComps_Hivemind)pawn.health.hediffSet.GetFirstHediffOfDef(this.def.hediff)).controlledPawns.Count + 1;
+            HediffWithComps_Hivemind hivemind = (HediffWithComps_Hivemind)pawn.health.hediffSet.GetFirstHediffOfDef(this.def.hediff);
+            if (hivemind == null) return 0f;
+            
+            int controlledPawns = hivemind.controlledPawns.Count + 1;
             return controlledPawns*BaseMoodOffset;
         }
     }
