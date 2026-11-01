@@ -183,6 +183,7 @@
 			<renderTree>ExSymbiotes_GrendelSymbiote_PawnRenderTree</renderTree>
 			<baseBodySize>6.00</baseBodySize>
 			<baseHealthScale>50</baseHealthScale>
+			<canFlyInVacuum>true</canFlyInVacuum>
 			<lifeStageAges>
 				<li>
 					<def>EntityFullyFormed</def>
