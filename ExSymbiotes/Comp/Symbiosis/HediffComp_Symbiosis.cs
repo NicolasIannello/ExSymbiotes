@@ -13,8 +13,6 @@ namespace ExSymbiotes
         protected int energy;
         public int Energy => this.energy;
         public int EnergyMax = 20;
-        private bool deathlessGene = false;
-        private bool vacuumGene = false;
         private bool immunityGene = false;
         public int bond = 2;
         protected Color originalHair;
@@ -41,11 +39,7 @@ namespace ExSymbiotes
             originalSkin = Pawn.story.skinColorOverride;
             ChangeVisual(false);
             if (ModsConfig.BiotechActive && this.Pawn.genes!=null)
-            {
-                deathlessGene = SymbioteUtility.CheckAddGene(this.Pawn, GeneDefOf.Deathless);
                 immunityGene = SymbioteUtility.CheckAddGene(this.Pawn, ExSymbiotesDefOf.PerfectImmunity);
-                if(ModsConfig.OdysseyActive) vacuumGene = SymbioteUtility.CheckAddGene(this.Pawn, ExSymbiotesDefOf.VacuumResistance_Total);
-            }
             RollBond();
         }
 
@@ -56,11 +50,7 @@ namespace ExSymbiotes
             Pawn.story.skinColorOverride = this.originalSkin ?? this.Pawn.story.SkinColorBase;
             Pawn.Drawer.renderer.SetAllGraphicsDirty();
             if (ModsConfig.BiotechActive && this.Pawn.genes!=null)
-            {
-                SymbioteUtility.CheckRemoveGene(this.Pawn, GeneDefOf.Deathless, this.deathlessGene);
                 SymbioteUtility.CheckRemoveGene(this.Pawn, ExSymbiotesDefOf.PerfectImmunity, this.immunityGene);
-                if (ModsConfig.OdysseyActive) SymbioteUtility.CheckRemoveGene(this.Pawn, ExSymbiotesDefOf.VacuumResistance_Total, this.vacuumGene);
-            }
             if(this.bond<2 && !Pawn.Dead) Pawn.needs.mood.thoughts.memories.TryGainMemory(ExSymbiotesDefOf.ExSymbiotes_BondedSymbioteLost);
         }
         
@@ -124,8 +114,6 @@ namespace ExSymbiotes
             Scribe_Values.Look<int>(ref this.EnergyMax, "EnergyMax", 20);
             Scribe_Values.Look<int>(ref this.energy, "energy");
             Scribe_Values.Look<int>(ref this.bond, "stage");
-            Scribe_Values.Look<bool>(ref this.deathlessGene, "deathlessGene");
-            Scribe_Values.Look<bool>(ref this.vacuumGene, "vacuumGene");
             Scribe_Values.Look<bool>(ref this.immunityGene, "immunityGene");
             Scribe_Values.Look<Color>(ref this.originalHair, "originalHair");
             Scribe_Values.Look<Color?>(ref this.originalSkin, "originalSkin");

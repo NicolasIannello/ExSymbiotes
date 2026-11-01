@@ -28,8 +28,6 @@ namespace ExSymbiotes
         {
             this.innerContainer = new ThingOwner<Thing>((IThingHolder) this, LookMode.Deep, false);
         }
-        private bool deathlessGene = false;
-        private bool vacuumGene = false;
         private bool immunityGene = false;
 
         public override void CompPostPostAdd(DamageInfo? dinfo)
@@ -40,11 +38,7 @@ namespace ExSymbiotes
             if(!thrall) this.Pawn.SetFaction(Find.FactionManager.FirstFactionOfDef(ExSymbiotesDefOf.ExSymbiotes_Symbiotes));
             skin = Props.color;
             if (ModsConfig.BiotechActive && this.Pawn.genes!=null)
-            {
-                deathlessGene = SymbioteUtility.CheckAddGene(this.Pawn, GeneDefOf.Deathless);
                 immunityGene = SymbioteUtility.CheckAddGene(this.Pawn, ExSymbiotesDefOf.PerfectImmunity);
-                if(ModsConfig.OdysseyActive) vacuumGene = SymbioteUtility.CheckAddGene(this.Pawn, ExSymbiotesDefOf.VacuumResistance_Total);
-            }
         }
 
         public override void CompPostPostRemoved()
@@ -64,11 +58,7 @@ namespace ExSymbiotes
                 Pawn.needs.mood.thoughts.memories.TryGainMemory(ExSymbiotesDefOf.ExSymbiotes_SymbioteControlledAfter);
             ConditionalWeakTableRemove(this.Pawn);
             if (ModsConfig.BiotechActive && this.Pawn.genes!=null)
-            {
-                SymbioteUtility.CheckRemoveGene(this.Pawn, GeneDefOf.Deathless, this.deathlessGene);
                 SymbioteUtility.CheckRemoveGene(this.Pawn, ExSymbiotesDefOf.PerfectImmunity, this.immunityGene);
-                if (ModsConfig.OdysseyActive) SymbioteUtility.CheckRemoveGene(this.Pawn, ExSymbiotesDefOf.VacuumResistance_Total, this.vacuumGene);
-            }
         }
 
         public override void CompPostTick(ref float severityAdjustment)
@@ -161,8 +151,6 @@ namespace ExSymbiotes
             Scribe_Values.Look<bool>(ref reproduce, "reproduce");
             Scribe_Values.Look<bool>(ref thrall, "thrall");
             Scribe_Deep.Look<ThingOwner<Thing>>(ref this.innerContainer, "innerContainer", (object) this);
-            Scribe_Values.Look<bool>(ref this.deathlessGene, "deathlessGene");
-            Scribe_Values.Look<bool>(ref this.vacuumGene, "vacuumGene");
             Scribe_Values.Look<bool>(ref this.immunityGene, "immunityGene");
             if (Scribe.mode == LoadSaveMode.PostLoadInit && this.Pawn != null) ConditionalWeakTableAdd(this.Pawn);
             if (Scribe.mode != LoadSaveMode.PostLoadInit || !this.innerContainer.removeContentsIfDestroyed)
