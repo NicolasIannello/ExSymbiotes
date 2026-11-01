@@ -7,6 +7,7 @@
         <isBad>false</isBad>
         <renderNodeProperties>
             <li Class="PawnRenderNodeProperties_Eye">
+                <debugLabel>SymbioteEyeRight</debugLabel>
                 <workerClass>ExSymbiotes.PawnRenderNodeWorker_EyeSymbiote</workerClass>
                 <texPath>Things/Pawn/Symbiote/Attachments/Eye/SymbioticEye</texPath>
                 <parentTagDef>Head</parentTagDef>
@@ -22,6 +23,7 @@
                 </drawData>
             </li>
             <li Class="PawnRenderNodeProperties_Eye">
+                <debugLabel>SymbioteEyeLeft</debugLabel>
                 <workerClass>ExSymbiotes.PawnRenderNodeWorker_EyeSymbiote</workerClass>
                 <texPath>Things/Pawn/Symbiote/Attachments/Eye/SymbioticEye</texPath>
                 <parentTagDef>Head</parentTagDef>
@@ -113,6 +115,7 @@
         </comps>
         <renderNodeProperties>
             <li>
+                <debugLabel>SymbioteVenomLeap</debugLabel>
                 <nodeClass>ExSymbiotes.PawnRenderNode_VenomLeap</nodeClass>
                 <workerClass>ExSymbiotes.PawnRenderNodeWorker_VenomLeap</workerClass>
                 <texPaths>
@@ -457,6 +460,7 @@
         </stages>
         <renderNodeProperties>
             <li Class="ExSymbiotes.PawnRenderNodeProperties_SpasticSymbiote">
+                <debugLabel>SymbioteTendrilTopRight</debugLabel>
                 <texPaths>
                     <li>Things/Pawn/Humanlike/BodyAttachments/FleshWhipLimb/FleshWhipLimbD</li>
                 </texPaths>
@@ -497,6 +501,7 @@
                 </drawData>
             </li>
             <li Class="ExSymbiotes.PawnRenderNodeProperties_SpasticSymbiote">
+                <debugLabel>SymbioteTendrilTopLeft</debugLabel>
                 <texPaths>
                     <li>Things/Pawn/Humanlike/BodyAttachments/FleshWhipLimb/FleshWhipLimbD</li>
                 </texPaths>
@@ -537,6 +542,7 @@
                 </drawData>
             </li>
             <li Class="ExSymbiotes.PawnRenderNodeProperties_SpasticSymbiote">
+                <debugLabel>SymbioteTendrilBottomLeft</debugLabel>
                 <texPaths>
                     <li>Things/Pawn/Humanlike/BodyAttachments/FleshWhipLimb/FleshWhipLimbC</li>
                 </texPaths>
@@ -566,7 +572,7 @@
                     <dataEast>
                         <offset>(-0.1, 0, -0.05)</offset>
                         <rotationOffset>-180</rotationOffset>
-                        <layer>91</layer>
+                        <layer>90</layer>
                         <flip>true</flip>
                     </dataEast>
                     <dataWest>
@@ -577,6 +583,7 @@
                 </drawData>
             </li>
             <li Class="ExSymbiotes.PawnRenderNodeProperties_SpasticSymbiote">
+                <debugLabel>SymbioteTendrilBottomRight</debugLabel>
                 <texPaths>
                     <li>Things/Pawn/Humanlike/BodyAttachments/FleshWhipLimb/FleshWhipLimbC</li>
                 </texPaths>
@@ -612,7 +619,7 @@
                     <dataWest>
                         <offset>(0.1, 0, -0.05)</offset>
                         <rotationOffset>-180</rotationOffset>
-                        <layer>91</layer>
+                        <layer>90</layer>
                     </dataWest>
                 </drawData>
             </li>
@@ -693,6 +700,7 @@
         </comps>
         <renderNodeProperties>
             <li>
+                <debugLabel>SymbioteWingRight</debugLabel>
                 <workerClass>PawnRenderNodeWorker_AttachmentBody</workerClass>
                 <texPath>Things/Pawn/Symbiote/Attachments/Wings/SymbioteWing</texPath>
                 <colorType>Skin</colorType>
@@ -707,12 +715,12 @@
                     <dataSouth>
                         <offset>(-0.6, 0, -0.3)</offset>
                         <rotationOffset>30</rotationOffset>
-                        <layer>0</layer>
+                        <layer>-10</layer>
                     </dataSouth>
                     <dataNorth>
                         <offset>(0.6, 0, -0.3)</offset>
                         <rotationOffset>30</rotationOffset>
-                        <layer>101</layer>
+                        <layer>95</layer>
                         <flip>true</flip>
                     </dataNorth>
                     <dataEast>
@@ -728,6 +736,7 @@
                 </drawData>
             </li>
             <li>
+                <debugLabel>SymbioteWingLeft</debugLabel>
                 <workerClass>PawnRenderNodeWorker_AttachmentBody</workerClass>
                 <texPath>Things/Pawn/Symbiote/Attachments/Wings/SymbioteWing</texPath>
                 <colorType>Skin</colorType>
@@ -742,13 +751,13 @@
                     <dataSouth>
                         <offset>(0.6, 0, -0.3)</offset>
                         <rotationOffset>30</rotationOffset>
-                        <layer>0</layer>
+                        <layer>-10</layer>
                         <flip>true</flip>
                     </dataSouth>
                     <dataNorth>
                         <offset>(-0.6, 0, -0.3)</offset>
                         <rotationOffset>30</rotationOffset>
-                        <layer>101</layer>
+                        <layer>95</layer>
                     </dataNorth>
                     <dataEast>
                         <offset>(0, 0, -0.3)</offset>
@@ -826,6 +835,7 @@
         </comps>
         <renderNodeProperties>
             <li Class="ExSymbiotes.PawnRenderNodeProperties_EyeSymbiote">
+                <debugLabel>SymbioteEyeRight</debugLabel>
                 <texPath>Things/Pawn/Symbiote/Attachments/Eye/SymbioticEye</texPath>
                 <parentTagDef>Head</parentTagDef>
                 <anchorTag>RightEye</anchorTag>
@@ -840,6 +850,7 @@
                 </drawData>
             </li>
             <li Class="ExSymbiotes.PawnRenderNodeProperties_EyeSymbiote">
+                <debugLabel>SymbioteEyeLeft</debugLabel>
                 <texPath>Things/Pawn/Symbiote/Attachments/Eye/SymbioticEye</texPath>
                 <parentTagDef>Head</parentTagDef>
                 <anchorTag>LeftEye</anchorTag>
@@ -860,6 +871,7 @@
         </renderNodeProperties>
     </HediffDef>
     
+<!--    layers todo-->
     <HediffDef ParentName="ExSymbiotes_SymbioteControl">
         <defName>ExSymbiotes_SymbioteControlRed</defName>
         <label>symbiote control (red)</label>
@@ -1311,6 +1323,7 @@
         </stages>
         <renderNodeProperties>
             <li Class="PawnRenderNodeProperties_Eye">
+                <debugLabel>SymbioteSpiral</debugLabel>
                 <workerClass>ExSymbiotes.PawnRenderNodeWorker_EyeSymbiote</workerClass>
                 <texPath>Things/Pawn/Symbiote/Attachments/SymbioteSpiral/SymbioteSpiral</texPath>
                 <parentTagDef>Head</parentTagDef>
@@ -1351,6 +1364,7 @@
         <lethalSeverity>1</lethalSeverity>
         <renderNodeProperties>
             <li Class="ExSymbiotes.PawnRenderNodeProperties_EyeSymbiote">
+                <debugLabel>SymbioteSpiral</debugLabel>
                 <texPath>Things/Pawn/Symbiote/Attachments/SymbioteSpiral/SymbioteSpiral</texPath>
                 <parentTagDef>Head</parentTagDef>
                 <anchorTag>Head</anchorTag>
