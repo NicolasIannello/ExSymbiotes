@@ -110,4 +110,13 @@ namespace ExSymbiotes
             if (hediff != null) hediff.TryGetComp<HediffComp_Symbiosis>().ChangeVisual();
         }
     }
+
+    [HarmonyPatch(typeof(Pawn_FlightTracker), nameof(Pawn_FlightTracker.ForceLand))]
+    public static class Patch_Pawn_FlightTracker_ForceLand
+    {
+        public static bool Prefix(Pawn ___pawn)
+        {
+            return ___pawn.health?.hediffSet?.GetFirstHediffOfDef(ExSymbiotesDefOf.ExSymbiotes_SymbioticWings) == null;
+        }
+    }
 }

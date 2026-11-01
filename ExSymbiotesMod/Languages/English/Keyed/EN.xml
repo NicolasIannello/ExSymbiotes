@@ -18,6 +18,7 @@
     <ExSymbiotes.AbilityDisabledNoSymbiosisHediff>{0_labelShort} is not symbiotic.</ExSymbiotes.AbilityDisabledNoSymbiosisHediff>
     <ExSymbiotes.AbilityDisabledNoSymbiosis>{0_labelShort} does not have enough symbiosis.</ExSymbiotes.AbilityDisabledNoSymbiosis>
     <ExSymbiotes.AbilitySymbiosisCost>Symbiosis cost</ExSymbiotes.AbilitySymbiosisCost>
+    <ExSymbiotes.AbilityAlreadyLearned>{USER_labelShort} already knows {1}.</ExSymbiotes.AbilityAlreadyLearned>
     <ExSymbiotes.SymbioticMassMutation>Requires {0} shards to mutate</ExSymbiotes.SymbioticMassMutation>
 
     <ExSymbiotes.MessageSymbioteModeChangeSingular>The symbiote is {0}</ExSymbiotes.MessageSymbioteModeChangeSingular>

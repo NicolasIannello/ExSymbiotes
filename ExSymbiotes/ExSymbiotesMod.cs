@@ -92,6 +92,7 @@ namespace ExSymbiotes
         public static HediffDef ExSymbiotes_Thrall;
         public static HediffDef ExSymbiotes_SymbioticResurrectionDEV;
         public static HediffDef ExSymbiotes_SymbioticResurrection;
+        public static HediffDef ExSymbiotes_SymbioticWings;
         public static IncidentDef ExSymbiotes_SymbioteMass_Incident;
         public static IncidentDef ExSymbiotes_SymbiotePack;
         public static JobDef ExSymbiotes_SymbioteDigest;
