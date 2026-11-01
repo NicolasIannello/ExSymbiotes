@@ -132,8 +132,6 @@ namespace ExSymbiotes
         public static ThoughtDef ExSymbiotes_BondedSymbioteLost;
         public static ThoughtDef ExSymbiotes_BondedSymbioteSacrifice;
 
-        [MayRequire("Ludeon.RimWorld.Odyssey,Ludeon.RimWorld.Biotech")]
-        public static GeneDef VacuumResistance_Total;
         [MayRequireBiotech]
         public static GeneDef PerfectImmunity;
         public static InteractionDef KindWords;
