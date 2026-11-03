@@ -17,6 +17,7 @@
         <label>symbiotic asteroid</label>
         <genSteps>
             <li>ExSymbiotes_SpaceGrendelAsteroid</li>
+            <li>ExSymbiotes_SpaceGrendelMinions</li>
             <li>ExSymbiotes_SpaceGrendelSpawn</li>
         </genSteps>
     </MapGeneratorDef>
@@ -27,6 +28,12 @@
         <genStep Class="ExSymbiotes.GenStep_SpaceGrendel"/>
     </GenStepDef>
 
+    <GenStepDef>
+        <defName>ExSymbiotes_SpaceGrendelMinions</defName>
+        <order>300</order>
+        <genStep Class="ExSymbiotes.GenStep_SpaceGrendelMinion"/>
+    </GenStepDef>
+    
     <GenStepDef>
         <defName>ExSymbiotes_SpaceGrendelSpawn</defName>
         <order>300</order>
