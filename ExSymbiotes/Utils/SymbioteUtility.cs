@@ -8,6 +8,7 @@ using Verse.AI.Group;
 using Verse.Sound;
 using RimWorld;
 using Verse.AI;
+using Verse.Noise;
 
 namespace ExSymbiotes.Utils
 {
@@ -82,11 +83,7 @@ namespace ExSymbiotes.Utils
             return LordMaker.MakeNewLord(Find.FactionManager.FirstFactionOfDef(ExSymbiotesDefOf.ExSymbiotes_Symbiotes), (LordJob) new LordJob_SymbioteMass(), map);
         }
         
-        public static void MeatSplatter(
-            int filthCount,
-            IntVec3 pos,
-            Map map,
-            FleshbeastUtility.MeatExplosionSize size = FleshbeastUtility.MeatExplosionSize.Normal)
+        public static void MeatSplatter(int filthCount, IntVec3 pos, Map map, FleshbeastUtility.MeatExplosionSize size = FleshbeastUtility.MeatExplosionSize.Normal)
         {
             switch (size)
             {
@@ -236,6 +233,98 @@ namespace ExSymbiotes.Utils
                 TaggedString taggedString = "ExSymbiotes.MetalhorrorNoticedDetailsAppended".Translate();
                 TaggedString subtleMessage = "ExSymbiotes.InteractionDetectedDesc".Translate(symbiote, recipient.Named("INFECTED")) + $"\n\n{taggedString}";
                 MetalhorrorUtility.Detect(recipient, (string) reason, (string) subtleMessage, 0.1f);
+            }
+        }
+
+        public static class MapGrendelCavesUtility
+        {
+            private static readonly HashSet<IntVec3> groupSet = new HashSet<IntVec3>();
+            private static readonly HashSet<IntVec3> groupVisited = new HashSet<IntVec3>();
+            private static readonly List<IntVec3> subGroup = new List<IntVec3>();
+            private static List<IntVec3> caves = new List<IntVec3>();
+            
+            public static void GenerateCaves(Map map, BoolGrid visited, List<IntVec3> group, ModuleBase directionNoise, MapGenCavesUtility.CaveGenParms parms, Predicate<IntVec3> isRock)
+            {
+                caves.Clear();
+                foreach (IntVec3 allCell in map.AllCells)
+                {
+                    if (!visited[allCell] && isRock(allCell))
+                    {
+                        group.Clear();
+                        map.floodFiller.FloodFill(allCell, isRock, (Action<IntVec3>) (x =>
+                        {
+                            visited[x] = true;
+                            group.Add(x);
+                        }));
+                        Trim(group, map);
+                        RemoveSmallDisconnectedSubGroups(group, map, parms);
+                        if (group.Count >= parms.minRocksToGenerateAnyTunnel)
+                        {
+                            DoOpenTunnels(group, map, directionNoise, parms, isRock);
+                        }
+                    }
+                }
+                MapGenerator.SetVar("ExSymbiotes_caves", caves);
+            }
+            
+            private static void Trim(List<IntVec3> group, Map map) => GenMorphology.Open(group, 6, map);
+
+            private static void DoOpenTunnels(List<IntVec3> group, Map map, ModuleBase directionNoise, MapGenCavesUtility.CaveGenParms parms, Predicate<IntVec3> isRock)
+            {
+                int maxInclusive1 = Mathf.Min(GenMath.RoundRandom((float) ((double) group.Count * (double) Rand.Range(0.9f, 1.1f) * (double) parms.openTunnelsPer10k / 10000.0)), parms.maxOpenTunnelsPerRockGroup);
+                if (maxInclusive1 > 0)
+                    maxInclusive1 = Rand.RangeInclusive(1, maxInclusive1);
+                float maxInclusive2 = parms.tunnelsWidthPerRockCount.Evaluate((float) group.Count);
+                for (int index1 = 0; index1 < maxInclusive1; ++index1)
+                {
+                    IntVec3 start = IntVec3.Invalid;
+                    float b = -1f;
+                    float dir = -1f;
+                    float num = -1f;
+                    for (int index2 = 0; index2 < 10; ++index2)
+                    {
+                        IntVec3 edgeCellForTunnel = MapGenCavesUtility.FindRandomEdgeCellForTunnel(group, map);
+                        float distToCave = MapGenCavesUtility.GetDistToCave(edgeCellForTunnel, group, map, 40f, false);
+                        float dist;
+                        float bestInitialDir = MapGenCavesUtility.FindBestInitialDir(edgeCellForTunnel, group, out dist);
+                        if (!start.IsValid || (double) distToCave > (double) b || Mathf.Approximately(distToCave, b) && (double) dist > (double) num)
+                        {
+                            start = edgeCellForTunnel;
+                            b = distToCave;
+                            dir = bestInitialDir;
+                            num = dist;
+                        }
+                    }
+                    float width = Rand.Range(maxInclusive2 * 0.8f, maxInclusive2);
+                    caves.Add(start);
+                    MapGenCavesUtility.Dig(start, dir, width, group, map, false, directionNoise, parms, isRock);
+                }
+            }
+            
+            private static void RemoveSmallDisconnectedSubGroups(List<IntVec3> group, Map map, MapGenCavesUtility.CaveGenParms parms)
+            {
+                groupSet.Clear();
+                groupSet.AddRange<IntVec3>(group);
+                groupVisited.Clear();
+                for (int index1 = 0; index1 < group.Count; ++index1)
+                {
+                    if (!groupVisited.Contains(group[index1]) && groupSet.Contains(group[index1]))
+                    {
+                        subGroup.Clear();
+                        map.floodFiller.FloodFill(group[index1], (Predicate<IntVec3>) (x => groupSet.Contains(x)), (Action<IntVec3>) (x =>
+                        {
+                            subGroup.Add(x);
+                            groupVisited.Add(x);
+                        }));
+                        if (subGroup.Count < parms.minRocksToGenerateAnyTunnel || (double) subGroup.Count < 0.05000000074505806 * (double) group.Count)
+                        {
+                            for (int index2 = 0; index2 < subGroup.Count; ++index2)
+                                groupSet.Remove(subGroup[index2]);
+                        }
+                    }
+                }
+                group.Clear();
+                group.AddRange((IEnumerable<IntVec3>) groupSet);
             }
         }
     }
