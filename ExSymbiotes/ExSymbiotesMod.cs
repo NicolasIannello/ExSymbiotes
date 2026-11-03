@@ -107,6 +107,8 @@ namespace ExSymbiotes
         public static PawnGroupKindDef ExSymbiotes_Symbiote_PawnGroupKindBlackRed;
         public static PawnGroupKindDef ExSymbiotes_Symbiote_PawnGroupKindRedBlack;
         public static PawnKindDef ExSymbiotes_GrendelSymbiote_PawnKind;
+        public static PawnKindDef ExSymbiotes_Symbiote_PawnKind;
+        public static PawnKindDef ExSymbiotes_Symbiote_PawnKindRed;
         [MayRequireOdyssey]
         public static QuestScriptDef ExSymbiotes_GrendelAsteroid;
         public static ThingDef ExSymbiotes_SymbioteMass_Black;
