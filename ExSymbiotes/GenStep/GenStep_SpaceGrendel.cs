@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using ExSymbiotes.Utils;
 using RimWorld;
 using Verse;
 using Verse.Noise;
@@ -52,7 +53,7 @@ namespace ExSymbiotes
             map.terrainGrid.SetTerrain(allCell, TerrainDefOf.Space);
             map.roofGrid.SetRoof(allCell, (RoofDef)null);
             foreach (Thing thing in allCell.GetThingList(map).ToList<Thing>())
-              thing.Destroy();
+              thing.DeSpawn();
           }
         }
       }
@@ -101,7 +102,7 @@ namespace ExSymbiotes
         { new CurvePoint(3000f, 4f), true }
       };
       parms1.directionChangeSpeed = 5;
-      MapGenCavesUtility.GenerateCaves(map, visited, group, (ModuleBase)directionNoise, parms1,
+      SymbioteUtility.MapGrendelCavesUtility.GenerateCaves(map, visited, group, (ModuleBase)directionNoise, parms1,
         new Predicate<IntVec3>(Rock));
 
       bool Rock(IntVec3 cell) => this.IsRock(cell, elevation, map);
