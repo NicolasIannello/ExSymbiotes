@@ -1,7 +1,9 @@
 ﻿using System.Collections.Generic;
+using System.Linq;
 using RimWorld;
 using UnityEngine;
 using Verse;
+using Verse.AI.Group;
 
 namespace ExSymbiotes
 {
@@ -9,13 +11,14 @@ namespace ExSymbiotes
   public class GenStep_SpaceGrendelMinion : GenStep
   {
     public override int SeedPart => 2127885;
+    private List<IntVec3> cocoons = new List<IntVec3>();
 
     public override void Generate(Map map, GenStepParams parms)
     {
       if (!ModsConfig.OdysseyActive)
         return;
       
-      List<IntVec3> cocoons = new List<IntVec3>();
+      cocoons.Clear();
       List<IntVec3> caves = MapGenerator.GetVar<List<IntVec3>>("ExSymbiotes_caves");
       
       for (int i = 0; i < caves.Count-1; i++)
@@ -40,6 +43,37 @@ namespace ExSymbiotes
         }
         
         GenSpawn.Spawn(ThingDefOf.Fleshbulb, spot, map);
+      }
+    }
+    
+    public override void PostMapInitialized(Map map, GenStepParams parms)
+    {
+      base.PostMapInitialized(map, parms);
+      
+      List<PawnKindDef> animals = DefDatabase<PawnKindDef>.AllDefs.Where(d => d.race.race != null && (d.race.race.Animal || d.race.race.IsMechanoid) && !d.race.race.Dryad && !d.race.IsCorpse && !d.isBoss).ToList();
+      for (int i = 0; i < cocoons.Count-1; i++)
+      {
+        IntVec3 spot = Vector3.MoveTowards(cocoons[i].ToVector3(), map.Center.ToVector3(), 15).ToIntVec3();
+        int chance = Rand.RangeInclusive(7, 12);
+        Lord lord = LordMaker.MakeNewLord(Find.FactionManager.FirstFactionOfDef(ExSymbiotesDefOf.ExSymbiotes_Symbiotes), (LordJob)new LordJob_DefendPoint(spot, 9, 20, addFleeToil: false), map);
+        for (int j = 0; j < chance - 1; j++)
+        {
+          bool chanceRed = Rand.RangeInclusive(1, 5) == 1;
+          Rot4 rot = Rot4.FromAngleFlat((map.Center - spot).AngleFlat);
+          IntVec3 spawnPos = CellFinder.RandomClosewalkCellNear(spot, map, 8);
+          Pawn newSymbiote = PawnGenerator.GeneratePawn(new PawnGenerationRequest(
+            chanceRed ? ExSymbiotesDefOf.ExSymbiotes_Symbiote_PawnKindRed : ExSymbiotesDefOf.ExSymbiotes_Symbiote_PawnKind,
+            Find.FactionManager.FirstFactionOfDef(ExSymbiotesDefOf.ExSymbiotes_Symbiotes)));
+          Pawn newThing = PawnGenerator.GeneratePawn(new PawnGenerationRequest(animals.RandomElement()));
+          Hediff hediff = newThing.health.AddHediff(chanceRed ? ExSymbiotesDefOf.ExSymbiotes_SymbioteControlRed : ExSymbiotesDefOf.ExSymbiotes_SymbioteControl);
+          HediffComp_SymbioteControl comp = hediff.TryGetComp<HediffComp_SymbioteControl>();
+          bool flag = j == chance - 1;
+
+          Pawn symbiote = (Pawn)GenSpawn.Spawn(newSymbiote, spawnPos, map, rot);
+          lord.AddPawn(symbiote);
+          GenSpawn.Spawn(newThing, spawnPos, map, rot);
+          comp.AddThing(symbiote, flag);
+        }
       }
     }
   }
