@@ -61,9 +61,9 @@ namespace ExSymbiotes
       return (double) num < 1.0 ? Mathf.Lerp(1f, maxScale, Mathf.Sin(3.1415927f * num)) : 1f;
     }
 
-    public void Explode()
+    public void Explode(Pawn grendel)
     {
-      SymbioteUtility.SymbioteHorde(this.MapHeld, this, points, "ExSymbiotes.LabelSymbioteCocoon", "ExSymbiotes.TextSymbioteCocoon");
+      SymbioteUtility.SymbioteHorde(this.MapHeld, this, points, "ExSymbiotes.LabelSymbioteCocoon", "ExSymbiotes.TextSymbioteCocoon", grendel);
       this.Kill();
     }
 
@@ -72,14 +72,14 @@ namespace ExSymbiotes
       IEnumerable<Gizmo> compGetGizmos = base.GetGizmos();
       if (compGetGizmos != null) foreach (Gizmo gizmo in compGetGizmos) yield return gizmo;
 
-      if (DebugSettings.ShowDevGizmos)
-      {
-        Command_Action commandAction = new Command_Action();
-        commandAction.defaultLabel = "DEV: Explode";
-        commandAction.action = new Action(this.Explode);
-
-        yield return (Gizmo) commandAction;
-      }
+      // if (DebugSettings.ShowDevGizmos)
+      // {
+      //   Command_Action commandAction = new Command_Action();
+      //   commandAction.defaultLabel = "DEV: Explode";
+      //   commandAction.action = new Action(this.Explode);
+      //
+      //   yield return (Gizmo) commandAction;
+      // }
     }
   }
 

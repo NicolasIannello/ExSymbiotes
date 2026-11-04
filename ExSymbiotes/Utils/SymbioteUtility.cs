@@ -27,7 +27,7 @@ namespace ExSymbiotes.Utils
             return PawnGroupMakerUtility.GeneratePawns(parms).ToList<Pawn>();
         }
 
-        public static void SymbioteHorde(Map map, Building mass, float points, string label, string text)
+        public static void SymbioteHorde(Map map, Building mass, float points, string label, string text, Pawn grendel = null)
         {
             bool symbioteMass = mass is Building_SymbioteMass;
             PawnGroupKindDef group =  
@@ -40,7 +40,7 @@ namespace ExSymbiotes.Utils
             List<PawnKindDef> animals = new List<PawnKindDef>();
             if (!symbioteMass)
                 animals = DefDatabase<PawnKindDef>.AllDefs.Where(d => d.race.race != null && (d.race.race.Animal || d.race.race.IsMechanoid) && !d.race.race.Dryad && !d.race.IsCorpse && !d.isBoss).ToList();
-            Lord lord = GetSymbioteLord(map);//lord for cocoons just attack
+            Lord lord = symbioteMass ? GetSymbioteLord(map) : LordMaker.MakeNewLord(Find.FactionManager.FirstFactionOfDef(ExSymbiotesDefOf.ExSymbiotes_Symbiotes), (LordJob) new LordJob_EscortGrendel(grendel), map);
             for (int i = 0; i < fleshbeastsForPoints.Count; i++)
             {
                 IntVec3 result;

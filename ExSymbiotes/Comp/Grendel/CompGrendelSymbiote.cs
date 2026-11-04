@@ -27,7 +27,7 @@ namespace ExSymbiotes
             List<Thing> things = cocoons[i].GetThingList(this.parent.Map);
             for (int j = things.Count - 1; j >= 0; j--)
               if (things[j] is Building_SymbioteCocoon cocoon)
-                cocoon.Explode();
+                cocoon.Explode((Pawn)this.parent);
           }
         }
       }
