@@ -12,6 +12,7 @@ namespace ExSymbiotes
     public static class Patch_PawnRenderNodeWorker_GetMaterial
     {
         private static readonly Dictionary<(Color color, Material mat), Material> materials = new Dictionary<(Color color, Material mat), Material>();
+        private static readonly object materialsLock = new object();
 
         public static void Postfix(PawnRenderNodeWorker __instance, PawnRenderNode node, PawnDrawParms parms, ref Material __result)
         {
@@ -28,14 +29,15 @@ namespace ExSymbiotes
             Material baseMat = graphic.NodeGetMat(parms);
             Material symbioticArmorMat;
 
-            if (!materials.TryGetValue((symbioteBase.skin, baseMat), out symbioticArmorMat))
-            {
-                symbioticArmorMat = new Material(baseMat);
-                symbioticArmorMat.shader = ShaderDatabase.CutoutSkin;
-                symbioticArmorMat.color = symbioteBase.skin;
-                symbioticArmorMat.SetColor("_ShadowColor", symbioteBase.color);
-                materials.Add((symbioteBase.skin, baseMat), symbioticArmorMat);
-            }
+            lock(materialsLock) 
+                if (!materials.TryGetValue((symbioteBase.skin, baseMat), out symbioticArmorMat))
+                {
+                    symbioticArmorMat = new Material(baseMat);
+                    symbioticArmorMat.shader = ShaderDatabase.CutoutSkin;
+                    symbioticArmorMat.color = symbioteBase.skin;
+                    symbioticArmorMat.SetColor("_ShadowColor", symbioteBase.color);
+                    materials.Add((symbioteBase.skin, baseMat), symbioticArmorMat);
+                }
             
             __result = symbioticArmorMat;
         }
