@@ -22,7 +22,6 @@ namespace ExSymbiotes
         public override void PostTick()
         {
             base.PostTick();
-            Log.Message($"hpRemaining {hpRemaining} Severity {Severity}");
             if (hpRemaining <= 0f && Severity > 0.5f) this.Severity = 0.5f;
         }
     }
