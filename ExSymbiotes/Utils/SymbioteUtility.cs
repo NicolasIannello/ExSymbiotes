@@ -40,7 +40,7 @@ namespace ExSymbiotes.Utils
             List<PawnKindDef> animals = new List<PawnKindDef>();
             if (!symbioteMass)
                 animals = DefDatabase<PawnKindDef>.AllDefs.Where(d => d.race.race != null && (d.race.race.Animal || d.race.race.IsMechanoid) && !d.race.race.Dryad && !d.race.IsCorpse && !d.isBoss).ToList();
-            Lord lord = GetSymbioteLord(map);
+            Lord lord = GetSymbioteLord(map);//lord for cocoons just attack
             for (int i = 0; i < fleshbeastsForPoints.Count; i++)
             {
                 IntVec3 randomCell = cellRect.RandomCell;
@@ -65,8 +65,11 @@ namespace ExSymbiotes.Utils
             float intervalSeconds = symbioteMass ? 600.TicksToSeconds() : 60.TicksToSeconds() / (float) fleshbeastsForPoints.Count;
             map.deferredSpawner.AddRequest(new SpawnRequest(source.Cast<Thing>().ToList<Thing>(), spawnPositions, 1, intervalSeconds));
             SoundDefOf.Pawn_Fleshbeast_EmergeFromPitGate.PlayOneShot((SoundInfo) (Thing) mass);
-            if(symbioteMass) mass.TakeDamage(new DamageInfo(DamageDefOf.Blunt, 1500));
-            EffecterDefOf.VoidNodeDisrupted.SpawnMaintained(mass, map);
+            if(symbioteMass)
+            {
+                mass.TakeDamage(new DamageInfo(DamageDefOf.Blunt, 1500));
+                EffecterDefOf.VoidNodeDisrupted.SpawnMaintained(mass, map);
+            }
             EffecterDefOf.VoidStructureActivated.SpawnMaintained(mass, map);
             Find.LetterStack.ReceiveLetter(label.Translate(), text.Translate(), LetterDefOf.ThreatBig, new TargetInfo(mass.Position, map));
         }
