@@ -28,7 +28,7 @@ namespace ExSymbiotes
       Pawn grendel = PawnGenerator.GeneratePawn(
         ExSymbiotesDefOf.ExSymbiotes_GrendelSymbiote_PawnKind, 
         Find.FactionManager.FirstFactionOfDef(ExSymbiotesDefOf.ExSymbiotes_Symbiotes));
-      GenSpawn.Spawn(grendel, map.Center, map);
+      GenSpawn.Spawn(grendel, map.Center, map).TryGetComp<CompGrendelSymbiote>().cocoons = MapGenerator.GetVar<List<IntVec3>>("ExSymbiotes_cocoons");
     }
   }
 }

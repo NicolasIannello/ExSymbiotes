@@ -22,7 +22,15 @@ public class HediffWithComps_GrendelRegeneration : HediffWithComps
         base.PostMake();
         this.SetHpCapacity(hpRegen);
     }
-    
+
+    public override void PostRemoved()
+    {
+        base.PostRemoved();
+        CompGrendelSymbiote grendelComp = this.pawn.TryGetComp<CompGrendelSymbiote>();
+        if (grendelComp != null)
+            grendelComp.ExplodeCocoons();
+    }
+
     public override void Notify_Regenerated(float hp)
     {
         this.hpRemaining = Mathf.Max(this.hpRemaining - hp, 0.0f);

@@ -30,6 +30,7 @@ namespace ExSymbiotes
           if(caves[i].DistanceTo(map.Center)>65f && caves[i].DistanceTo(map.Center)<100f && cocoons.Count<3)
             cocoons.Add(caves[i]);
 
+      List<IntVec3> spots = new List<IntVec3>();
       for (int i = 0; i < cocoons.Count; i++)
       {
         IntVec3 spot = Vector3.MoveTowards(cocoons[i].ToVector3(), map.Center.ToVector3(), 15).ToIntVec3();
@@ -42,8 +43,10 @@ namespace ExSymbiotes
               things[j].DeSpawn();
         }
         
+        spots.Add(spot);
         GenSpawn.Spawn(i==0 ? ExSymbiotesDefOf.ExSymbiotes_SymbioteCocoon_Red : ExSymbiotesDefOf.ExSymbiotes_SymbioteCocoon_Black, spot, map);
       }
+      MapGenerator.SetVar("ExSymbiotes_cocoons", spots);
     }
     
     public override void PostMapInitialized(Map map, GenStepParams parms)
