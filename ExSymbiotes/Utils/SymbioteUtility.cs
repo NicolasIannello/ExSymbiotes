@@ -43,10 +43,9 @@ namespace ExSymbiotes.Utils
             Lord lord = GetSymbioteLord(map);//lord for cocoons just attack
             for (int i = 0; i < fleshbeastsForPoints.Count; i++)
             {
-                IntVec3 randomCell = cellRect.RandomCell;
-                Pawn symbiote = (Pawn)GenSpawn.Spawn((Thing) fleshbeastsForPoints[i], randomCell, map);
                 IntVec3 result;
-                CellFinder.TryFindRandomCellNear(mass.Position, map, ThingDefOf.PitGate.size.x / 2 + 1, (Predicate<IntVec3>) (cell => !cell.Fogged(map) && cell.Walkable(map) && !cell.Impassable(map)), out result);
+                CellFinder.TryFindRandomCellNear(mass.PositionHeld, map, 6, (Predicate<IntVec3>) (cell => !cell.Fogged(map) && cell.Walkable(map) && !cell.Impassable(map)), out result);
+                Pawn symbiote = (Pawn)GenSpawn.Spawn((Thing) fleshbeastsForPoints[i], result, map);
                 fleshbeastsForPoints[i].rotationTracker.FaceCell(result);
                 lord.AddPawn(symbiote);
                 if (!symbioteMass)
@@ -55,12 +54,12 @@ namespace ExSymbiotes.Utils
                     Hediff hediff = newThing.health.AddHediff(fleshbeastsForPoints[i].def == ExSymbiotesDefOf.ExSymbiotes_SymbioteRed ? ExSymbiotesDefOf.ExSymbiotes_SymbioteControlRed : ExSymbiotesDefOf.ExSymbiotes_SymbioteControl);
                     HediffComp_SymbioteControl comp = hediff.TryGetComp<HediffComp_SymbioteControl>();
                     bool flag = i == fleshbeastsForPoints.Count - 1;
-                    GenSpawn.Spawn(newThing, randomCell, map);
+                    GenSpawn.Spawn(newThing, result, map);
                     comp.AddThing(symbiote, flag);
-                    source.Add(PawnFlyer.MakeFlyer(ThingDefOf.PawnFlyer_Stun, newThing, result, (EffecterDef) null, (SoundDef) null, overrideStartVec: new Vector3?(randomCell.ToVector3() + new Vector3(0.0f, 0.0f, -1f))));
+                    source.Add(PawnFlyer.MakeFlyer(ThingDefOf.PawnFlyer_Stun, newThing, result, (EffecterDef) null, (SoundDef) null, overrideStartVec: new Vector3?(mass.PositionHeld.ToVector3() + new Vector3(0.0f, 0.0f, -1f))));
                 }
-                if(symbioteMass) source.Add(PawnFlyer.MakeFlyer(ThingDefOf.PawnFlyer_Stun, fleshbeastsForPoints[i], result, (EffecterDef) null, (SoundDef) null, overrideStartVec: new Vector3?(randomCell.ToVector3() + new Vector3(0.0f, 0.0f, -1f))));
-                spawnPositions.Add(randomCell);
+                if(symbioteMass) source.Add(PawnFlyer.MakeFlyer(ThingDefOf.PawnFlyer_Stun, fleshbeastsForPoints[i], result, (EffecterDef) null, (SoundDef) null, overrideStartVec: new Vector3?(mass.PositionHeld.ToVector3() + new Vector3(0.0f, 0.0f, -1f))));
+                spawnPositions.Add(result);
             }
             float intervalSeconds = symbioteMass ? 600.TicksToSeconds() : 60.TicksToSeconds() / (float) fleshbeastsForPoints.Count;
             map.deferredSpawner.AddRequest(new SpawnRequest(source.Cast<Thing>().ToList<Thing>(), spawnPositions, 1, intervalSeconds));

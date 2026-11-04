@@ -43,8 +43,11 @@ namespace ExSymbiotes
               things[j].DeSpawn();
         }
         
-        spots.Add(spot);
-        GenSpawn.Spawn(i==0 ? ExSymbiotesDefOf.ExSymbiotes_SymbioteCocoon_Red : ExSymbiotesDefOf.ExSymbiotes_SymbioteCocoon_Black, spot, map);
+        if(spot.Walkable(map))
+        {
+          spots.Add(spot);
+          GenSpawn.Spawn(i == 0 ? ExSymbiotesDefOf.ExSymbiotes_SymbioteCocoon_Red : ExSymbiotesDefOf.ExSymbiotes_SymbioteCocoon_Black, spot, map);
+        }      
       }
       MapGenerator.SetVar("ExSymbiotes_cocoons", spots);
     }
