@@ -41,7 +41,7 @@
         <canHandleOfferings>true</canHandleOfferings>
         <showInvocationVfx>true</showInvocationVfx>
         <allowedConditions>DefaultInvoker</allowedConditions>
-        <psychicRitualLeaveReason_ExSymbiotesVoid>{PAWN_labelShort} is not void touched</psychicRitualLeaveReason_ExSymbiotesVoid>
+        <psychicRitualLeaveReason_ExSymbiotesVoid>{PAWN_labelShort} is not void touched or a winged symbiote</psychicRitualLeaveReason_ExSymbiotesVoid>
     </ExSymbiotes.PsychicRitualRoleDef_HivemindConnectionInvoker>
 
     <ExSymbiotes.PsychicRitualDef_HivemindConnection>

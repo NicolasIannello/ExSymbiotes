@@ -1,4 +1,5 @@
-﻿using RimWorld;
+﻿using System;
+using RimWorld;
 using Verse;
 
 namespace ExSymbiotes
@@ -17,7 +18,9 @@ namespace ExSymbiotes
             if (!base.PawnCanDo(context, pawn, target, out reason))
                 return false;
             Hediff spiral = pawn.health.hediffSet.GetFirstHediffOfDef(HediffDefOf.VoidTouched);
-            if (spiral != null)
+            bool winged = pawn.abilities != null && pawn.abilities.abilities.Any<Ability>((Predicate<Ability>) (a => a.def == ExSymbiotesDefOf.ExSymbiotes_SymbioticWingsAbility));
+            
+            if (spiral != null || winged)
                 return true;
             reason = AnyEnum.FromEnum<HivemindConnectionInvokerReason>(HivemindConnectionInvokerReason.NonVoid);
             return false;
