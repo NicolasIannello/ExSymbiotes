@@ -21,16 +21,16 @@ namespace ExSymbiotes
       cocoons.Clear();
       List<IntVec3> caves = MapGenerator.GetVar<List<IntVec3>>("ExSymbiotes_caves");
       
-      for (int i = 0; i < caves.Count-1; i++)
-        if(caves[i].DistanceTo(map.Center)>=100f && cocoons.Count<4)
+      for (int i = 0; i < caves.Count; i++)
+        if(caves[i].DistanceTo(map.Center)>=100f && cocoons.Count<3)
           cocoons.Add(caves[i]);
         
       if(cocoons.Count<4)
-        for (int i = 0; i < caves.Count-1; i++)
-          if(caves[i].DistanceTo(map.Center)>65f && caves[i].DistanceTo(map.Center)<100f && cocoons.Count<4)
+        for (int i = 0; i < caves.Count; i++)
+          if(caves[i].DistanceTo(map.Center)>65f && caves[i].DistanceTo(map.Center)<100f && cocoons.Count<3)
             cocoons.Add(caves[i]);
 
-      for (int i = 0; i < cocoons.Count - 1; i++)
+      for (int i = 0; i < cocoons.Count; i++)
       {
         IntVec3 spot = Vector3.MoveTowards(cocoons[i].ToVector3(), map.Center.ToVector3(), 15).ToIntVec3();
         
@@ -42,7 +42,7 @@ namespace ExSymbiotes
               things[j].DeSpawn();
         }
         
-        GenSpawn.Spawn(ThingDefOf.Fleshbulb, spot, map);
+        GenSpawn.Spawn(i==0 ? ExSymbiotesDefOf.ExSymbiotes_SymbioteCocoon_Red : ExSymbiotesDefOf.ExSymbiotes_SymbioteCocoon_Black, spot, map);
       }
     }
     
@@ -51,12 +51,12 @@ namespace ExSymbiotes
       base.PostMapInitialized(map, parms);
       
       List<PawnKindDef> animals = DefDatabase<PawnKindDef>.AllDefs.Where(d => d.race.race != null && (d.race.race.Animal || d.race.race.IsMechanoid) && !d.race.race.Dryad && !d.race.IsCorpse && !d.isBoss).ToList();
-      for (int i = 0; i < cocoons.Count-1; i++)
+      for (int i = 0; i < cocoons.Count; i++)
       {
         IntVec3 spot = Vector3.MoveTowards(cocoons[i].ToVector3(), map.Center.ToVector3(), 15).ToIntVec3();
         int chance = Rand.RangeInclusive(7, 12);
         Lord lord = LordMaker.MakeNewLord(Find.FactionManager.FirstFactionOfDef(ExSymbiotesDefOf.ExSymbiotes_Symbiotes), (LordJob)new LordJob_DefendPoint(spot, 9, 20, addFleeToil: false), map);
-        for (int j = 0; j < chance - 1; j++)
+        for (int j = 0; j < chance; j++)
         {
           bool chanceRed = Rand.RangeInclusive(1, 5) == 1;
           Rot4 rot = Rot4.FromAngleFlat((map.Center - spot).AngleFlat);
