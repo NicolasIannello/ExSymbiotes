@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using RimWorld;
 using Verse;
 
 namespace ExSymbiotes
@@ -18,12 +19,17 @@ namespace ExSymbiotes
       public void ExplodeCocoons()
       {
         if(cocoons.Count > 0)
-          for (int i = cocoons.Count-1; i >= 0 ; i--)
+        {
+          EffecterDefOf.ChimeraRage.SpawnAttached(this.parent, this.parent.Map).Cleanup();
+          ExSymbiotesDefOf.AgonyPulseExplosion.SpawnAttached(this.parent, this.parent.Map).Cleanup();
+          for (int i = cocoons.Count - 1; i >= 0; i--)
           {
             List<Thing> things = cocoons[i].GetThingList(this.parent.Map);
             for (int j = things.Count - 1; j >= 0; j--)
-                if(things[j] is Building_SymbioteCocoon cocoon) cocoon.Explode();
+              if (things[j] is Building_SymbioteCocoon cocoon)
+                cocoon.Explode();
           }
+        }
       }
     }
 }

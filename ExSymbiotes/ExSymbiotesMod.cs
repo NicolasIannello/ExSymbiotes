@@ -139,6 +139,7 @@ namespace ExSymbiotes
 
         [MayRequireBiotech]
         public static GeneDef PerfectImmunity;
+        public static EffecterDef AgonyPulseExplosion;
         public static InteractionDef KindWords;
         public static InteractionDef Slight;
         
