@@ -217,4 +217,70 @@
 			<explosionDamage>Bomb</explosionDamage>
 		</skyfaller>
 	</ThingDef>
+
+	<ThingDef Name="ExSymbiotes_SymbioteCocoon_Black" ParentName="BuildingNaturalBase">
+		<defName>ExSymbiotes_SymbioteCocoon_Black</defName>
+		<label>symbiote cocoon (Black)</label>
+		<description>A cocoon of symbiotes</description>
+		<tickerType>Normal</tickerType>
+		<size>(2,2)</size>
+		<drawerType>RealtimeOnly</drawerType>
+		<thingClass>ExSymbiotes.Building_SymbioteCocoon</thingClass>
+		<category>Building</category>
+		<uiIconPath>Things/Buildings/SymbioteCocoon/SymbioteCocoon</uiIconPath>
+		<blockWind>true</blockWind>
+		<fillPercent>1</fillPercent>
+		<rotatable>false</rotatable>
+		<holdsRoof>false</holdsRoof>
+		<terrainAffordanceNeeded>Light</terrainAffordanceNeeded>
+		<altitudeLayer>Building</altitudeLayer>
+		<passability>Impassable</passability>
+		<soundImpactDefault>Fleshmass_Damaged</soundImpactDefault>
+		<preventSkyfallersLandingOn>true</preventSkyfallersLandingOn>
+		<building>
+			<isEdifice>true</isEdifice>
+			<isInert>true</isInert>
+			<isTargetable>true</isTargetable>
+			<claimable>false</claimable>
+			<canBuildNonEdificesUnder>false</canBuildNonEdificesUnder>
+			<deconstructible>false</deconstructible>
+			<destroyEffecter>ExSymbiotes_FleshmassHeartDestroyed</destroyEffecter>
+		</building>
+		<forceLeavingsAllowed>true</forceLeavingsAllowed>
+		<statBases>
+			<Beauty>-25</Beauty>
+			<MaxHitPoints>5000</MaxHitPoints>
+			<Flammability>2</Flammability>
+		</statBases>
+		<comps>
+			<li Class="CompProperties_AmbientSound">
+				<sound>FleshmassHeart_Ambience</sound>
+			</li>
+			<li Class="CompProperties_LeaveFilthOnDestroyed">
+				<filthDef>Filth_RevenantBloodPool</filthDef>
+				<thickness>2</thickness>
+			</li>
+		</comps>
+	</ThingDef>
+
+	<ThingDef ParentName="ExSymbiotes_SymbioteCocoon_Black">
+		<defName>ExSymbiotes_SymbioteCocoon_Red</defName>
+		<label>symbiote cocoon (Red)</label>
+		<thingClass>ExSymbiotes.Building_SymbioteCocoonRed</thingClass>
+		<uiIconPath>Things/Buildings/SymbioteCocoon/SymbioteCocoonRed</uiIconPath>
+		<statBases Inherit="False">
+			<Beauty>-25</Beauty>
+			<MaxHitPoints>10000</MaxHitPoints>
+			<Flammability>2</Flammability>
+		</statBases>
+		<comps Inherit="False">
+			<li Class="CompProperties_AmbientSound">
+				<sound>FleshmassHeart_Ambience</sound>
+			</li>
+			<li Class="CompProperties_LeaveFilthOnDestroyed">
+				<filthDef>ExSymbiotes_Filth_RevenantBloodPool_Red</filthDef>
+				<thickness>2</thickness>
+			</li>
+		</comps>
+	</ThingDef>
 </Defs>

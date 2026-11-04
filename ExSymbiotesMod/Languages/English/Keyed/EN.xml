@@ -66,4 +66,7 @@
 
     <ExSymbiotes.SpaceGrendelLetter>Symbiotic asteroid</ExSymbiotes.SpaceGrendelLetter>
     <ExSymbiotes.SpaceGrendelText>A symbiotic asteroid that was towed into orbit around the planet by an unknow force.\n\nThis location can be reached using transport pods, shuttles, or a gravship.</ExSymbiotes.SpaceGrendelText>
+    <ExSymbiotes.LabelSymbioteCocoon>Grendel scream.</ExSymbiotes.LabelSymbioteCocoon>
+    <ExSymbiotes.TextSymbioteCocoon>The grendel symbiote scream made the symbiotic cocoons burst, more symbiote join the battle.</ExSymbiotes.TextSymbioteCocoon>
+
 </LanguageData>

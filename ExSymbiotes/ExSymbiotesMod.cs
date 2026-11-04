@@ -127,6 +127,8 @@ namespace ExSymbiotes
         public static ThingDef ExSymbiotes_SymbioticTissue;
         public static ThingDef ExSymbiotes_SymbioticTissue_Red;
         public static ThingDef ExSymbiotes_Filth_RevenantBloodPool_Red;
+        public static ThingDef ExSymbiotes_SymbioteCocoon_Black;
+        public static ThingDef ExSymbiotes_SymbioteCocoon_Red;
         [MayRequireBiotech]
         public static ThingDef ExSymbiotes_SymbioticCore_Purple;
         [MayRequireBiotech]
