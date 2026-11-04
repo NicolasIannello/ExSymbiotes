@@ -26,6 +26,10 @@
 		<label>symbiote pack</label>
 		<targetTags>
 			<li>Map_PlayerHome</li>
+			<li>Map_TempIncident</li>
+			<li>Map_Misc</li>
+			<li>Map_RaidBeacon</li>
+			<li>Caravan</li>
 		</targetTags>
 		<workerClass>ExSymbiotes.IncidentWorker_SymbiotePack</workerClass>
 		<baseChance>2.0</baseChance>

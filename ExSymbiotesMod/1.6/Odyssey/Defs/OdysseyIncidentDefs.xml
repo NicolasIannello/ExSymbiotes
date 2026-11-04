@@ -5,6 +5,10 @@
 		<label>space grendel</label>
 		<targetTags>
 			<li>Map_PlayerHome</li>
+			<li>Map_TempIncident</li>
+			<li>Map_Misc</li>
+			<li>Map_RaidBeacon</li>
+			<li>Caravan</li>
 		</targetTags>
 		<workerClass>ExSymbiotes.IncidentWorker_SpaceGrendel</workerClass>
 		<baseChance>1.0</baseChance>
