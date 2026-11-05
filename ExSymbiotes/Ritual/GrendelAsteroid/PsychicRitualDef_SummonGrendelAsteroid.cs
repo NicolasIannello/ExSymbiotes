@@ -1,0 +1,27 @@
+﻿using RimWorld;
+using Verse;
+using Verse.AI.Group;
+using System.Collections.Generic;
+
+namespace ExSymbiotes
+{
+    public class PsychicRitualDef_SummonGrendelAsteroid : PsychicRitualDef_InvocationCircle
+    {
+
+        public override List<PsychicRitualToil> CreateToils(
+            PsychicRitual psychicRitual, PsychicRitualGraph graph)
+        {
+            List<PsychicRitualToil> toils = base.CreateToils(psychicRitual, graph);
+            toils.Add((PsychicRitualToil) new PsychicRitualToil_SummonGrendelAsteroid(this.InvokerRole));
+            return toils;
+        }
+
+        public override IEnumerable<string> BlockingIssues(
+            PsychicRitualRoleAssignments assignments,
+            Map map)
+        {
+            foreach (string blockingIssue in base.BlockingIssues(assignments, map))
+                yield return blockingIssue;
+        }
+    }
+}

@@ -1,0 +1,34 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+    <ExSymbiotes.PsychicRitualDef_SummonGrendelAsteroid>
+        <defName>ExSymbiotes_SummonGrendelAsteroid</defName>
+        <label>summon symbiotic asteroid</label>
+        <description>Perform a psychic ritual which provokes a symbiotic asteroid to orbit the planet.</description>
+        <iconPath>UI/ExSymbiotesSummonGrendelAsteroid</iconPath>
+        <researchPrerequisite>ExSymbiotes_GrendelAsteroidResearch</researchPrerequisite>
+        <outcomeDescription>Perform a psychic ritual which provokes a symbiotic asteroid to orbit the planet.</outcomeDescription>
+        <hoursUntilOutcome>4</hoursUntilOutcome>
+        <castableOnPocketMaps>false</castableOnPocketMaps>
+        <invokerRole>ExSymbiotes_GrendelAsteroidInvoker</invokerRole>
+        <requiredOffering>
+            <filter>
+                <thingDefs>
+                    <li>ExSymbiotes_SymbioticCore</li>
+                </thingDefs>
+            </filter>
+            <count>1</count>
+        </requiredOffering>
+        <cooldownHours>1440</cooldownHours>
+        <chanterRole>ChanterAdvanced</chanterRole>
+    </ExSymbiotes.PsychicRitualDef_SummonGrendelAsteroid>
+
+    <ExSymbiotes.PsychicRitualRoleDef_GrendelAsteroidInvoker>
+        <defName>ExSymbiotes_GrendelAsteroidInvoker</defName>
+        <label>invoker</label>
+        <allowedCount>1</allowedCount>
+        <canHandleOfferings>true</canHandleOfferings>
+        <showInvocationVfx>true</showInvocationVfx>
+        <allowedConditions>DefaultInvoker</allowedConditions>
+        <psychicRitualLeaveReason_ExSymbiotesVoid>{PAWN_labelShort} is not connected to the hivemind</psychicRitualLeaveReason_ExSymbiotesVoid>
+    </ExSymbiotes.PsychicRitualRoleDef_GrendelAsteroidInvoker>
+</Defs>
