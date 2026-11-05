@@ -20,7 +20,7 @@
             </filter>
             <count>75</count>
         </requiredOffering>
-        <cooldownHours>540</cooldownHours>
+        <cooldownHours>360</cooldownHours>
         <chanterRole>ChanterAdvanced</chanterRole>
     </ExSymbiotes.PsychicRitualDef_SummonSymbioticMass>
 
@@ -61,7 +61,7 @@
             </filter>
             <count>1</count>
         </requiredOffering>
-        <cooldownHours>780</cooldownHours>
+        <cooldownHours>1440</cooldownHours>
         <chanterRole>ChanterAdvanced</chanterRole>
         <iconPath>UI/ExSymbiotesHivemind</iconPath>
     </ExSymbiotes.PsychicRitualDef_HivemindConnection>
