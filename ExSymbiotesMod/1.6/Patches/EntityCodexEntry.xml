@@ -5,7 +5,7 @@
         <match Class="PatchOperationAdd">
             <xpath>Defs/EntityCodexEntryDef[defName="VoidNode"]/discoveredResearchProjects</xpath>
             <value>
-                <li>ExSymbiotes_Symbiotes</li>
+                <li>ExSymbiotes_HivemindConnectionResearch</li>
             </value>
         </match>
         <nomatch Class="PatchOperationAdd">

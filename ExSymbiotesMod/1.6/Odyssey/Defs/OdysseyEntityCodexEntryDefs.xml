@@ -15,5 +15,8 @@
 			<li>ExSymbiotes_SpaceGrendel</li>
 		</provocationIncidents>
 		<orderInCategory>1443</orderInCategory>
+		<discoveredResearchProjects>
+			<li>ExSymbiotes_HivemindConnectionResearch</li>
+		</discoveredResearchProjects>
 	</EntityCodexEntryDef>
 </Defs>
