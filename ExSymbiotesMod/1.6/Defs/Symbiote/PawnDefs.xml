@@ -240,6 +240,9 @@
 				<cooldownTime>1.4</cooldownTime>
 			</li>
 		</tools>
+		<killedLeavings>
+			<ExSymbiotes_GrendelCore>1</ExSymbiotes_GrendelCore>
+		</killedLeavings>
 	</ThingDef>
 	
 	<PawnKindDef Name="ExSymbiotes_Symbiote_PawnKindBase" Abstract="True">

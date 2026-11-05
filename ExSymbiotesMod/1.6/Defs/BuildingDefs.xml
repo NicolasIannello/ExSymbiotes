@@ -246,6 +246,9 @@
 			<deconstructible>false</deconstructible>
 			<destroyEffecter>ExSymbiotes_FleshmassHeartDestroyed</destroyEffecter>
 		</building>
+		<killedLeavingsRanges>
+			<ExSymbiotes_SymbioticTissue>50~100</ExSymbiotes_SymbioticTissue>
+		</killedLeavingsRanges>
 		<forceLeavingsAllowed>true</forceLeavingsAllowed>
 		<statBases>
 			<Beauty>-25</Beauty>
@@ -268,6 +271,9 @@
 		<label>symbiote cocoon (Red)</label>
 		<thingClass>ExSymbiotes.Building_SymbioteCocoonRed</thingClass>
 		<uiIconPath>Things/Buildings/SymbioteCocoon/SymbioteCocoonRed</uiIconPath>
+		<killedLeavingsRanges Inherit="False">
+			<ExSymbiotes_SymbioticTissue_Red>50~100</ExSymbiotes_SymbioticTissue_Red>
+		</killedLeavingsRanges>
 		<statBases Inherit="False">
 			<Beauty>-25</Beauty>
 			<MaxHitPoints>10000</MaxHitPoints>
