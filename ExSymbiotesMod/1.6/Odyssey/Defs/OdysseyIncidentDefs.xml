@@ -16,9 +16,9 @@
 		<pointsScaleable>false</pointsScaleable>
 		<letterText>Grendel.</letterText>
 		<letterDef>NegativeEvent</letterDef>
-		<minAnomalyThreatLevel>3</minAnomalyThreatLevel>
+		<minAnomalyThreatLevel>2</minAnomalyThreatLevel>
 		<requireColonistsPresent>True</requireColonistsPresent>
 		<minRefireDays>100</minRefireDays>
-		<minThreatPoints>2000</minThreatPoints>
+		<minThreatPoints>5000</minThreatPoints>
 	</IncidentDef>
 </Defs>
