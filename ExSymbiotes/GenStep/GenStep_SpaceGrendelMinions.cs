@@ -39,7 +39,7 @@ namespace ExSymbiotes
         {
           List<Thing> things = cell.GetThingList(map);
           for (int j = things.Count - 1; j >= 0; j--) 
-            if(things[j].def == ThingDefOf.VoidmetalMassSmall) 
+            if(things[j].def == ExSymbiotesDefOf.ExSymbiotes_SymbioticWall) 
               things[j].DeSpawn();
         }
         

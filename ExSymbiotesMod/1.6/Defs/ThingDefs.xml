@@ -126,6 +126,67 @@
         </pawnFlyer>
     </ThingDef>
 
+    <ThingDef ParentName="BuildingBase">
+        <defName>ExSymbiotes_SymbioticWall</defName>
+        <label>symbiotic wall</label>
+        <description>A solid mass of symbiotic tissue, inhuman and threatening. The material is an oily metallic substance that feels wet to the touch but leaves no residue. It is impervious to damage..</description>
+        <filthLeaving>ExSymbiotes_Filth_BloodSmear_Black</filthLeaving>
+        <graphicData>
+            <texPath>Things/Buildings/ExSymbiotes_SymbioticWall</texPath>
+            <graphicClass>Graphic_Single</graphicClass>
+            <linkType>CornerOverlay</linkType>
+            <linkFlags>
+                <li>Fleshmass</li>
+            </linkFlags>
+            <cornerOverlayPath>Things/Buildings/ExSymbiotes_SymbioticWallPiece</cornerOverlayPath>
+            <shaderType>CutoutComplex</shaderType>
+        </graphicData>
+        <tickerType>Rare</tickerType>
+        <altitudeLayer>Building</altitudeLayer>
+        <passability>Impassable</passability>
+        <blockWind>true</blockWind>
+        <castEdgeShadows>false</castEdgeShadows>
+        <fillPercent>1</fillPercent>
+        <coversFloor>false </coversFloor>
+        <neverMultiSelect>true</neverMultiSelect>
+        <rotatable>false</rotatable>
+        <terrainAffordanceNeeded>Light</terrainAffordanceNeeded>
+        <saveCompressible>false</saveCompressible>
+        <holdsRoof>true</holdsRoof>
+        <staticSunShadowHeight>1.0</staticSunShadowHeight>
+        <blockLight>true</blockLight>
+        <mineable>false</mineable>
+        <fertility>0</fertility>
+        <soundImpactDefault>Fleshmass_Damaged</soundImpactDefault>
+        <canOverlapZones>false</canOverlapZones>
+        <autoTargetNearbyIdenticalThings>true</autoTargetNearbyIdenticalThings>
+        <statBases>
+            <MaxHitPoints>2000</MaxHitPoints>
+            <Flammability>2</Flammability>
+            <Beauty>-6</Beauty>
+        </statBases>
+        <building>
+            <isInert>true</isInert>
+            <claimable>false</claimable>
+            <canBuildNonEdificesUnder>false</canBuildNonEdificesUnder>
+            <deconstructible>false</deconstructible>
+            <quickTargetable>true</quickTargetable>
+            <supportsWallAttachments>true</supportsWallAttachments>
+            <isTargetable>true</isTargetable>
+            <destroyEffecter>ExSymbiotes_MeatExplosion_Black</destroyEffecter>
+            <destroyShakeAmount>0</destroyShakeAmount>
+            <artificialForMeditationPurposes>false</artificialForMeditationPurposes>
+        </building>
+        <comps>
+            <li Class="CompProperties_CascadeOnDestroyed">
+                <cascadeCountRange>1~2</cascadeCountRange>
+                <cascadeThingDefs>
+                    <li>ExSymbiotes_SymbioticWall</li>
+                </cascadeThingDefs>
+            </li>
+        </comps>
+    </ThingDef>
+
     <TaleDef>
         <defName>ExSymbiotes_SymbiotePack</defName>
         <label>symbiote pack</label>

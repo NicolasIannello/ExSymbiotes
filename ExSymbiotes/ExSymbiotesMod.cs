@@ -135,6 +135,7 @@ namespace ExSymbiotes
         public static ThingDef ExSymbiotes_SymbioticCore_Purple;
         [MayRequireBiotech]
         public static ThingDef ExSymbiotes_MechShield;
+        public static ThingDef ExSymbiotes_SymbioticWall;
         public static ThoughtDef ExSymbiotes_SymbioteControlledAfter;
         public static ThoughtDef ExSymbiotes_BondedSymbioteLost;
         public static ThoughtDef ExSymbiotes_BondedSymbioteSacrifice;

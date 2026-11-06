@@ -38,7 +38,7 @@ namespace ExSymbiotes
           if (num > 0.5)
             map.terrainGrid.SetTerrain(allCell, TerrainDefOf.Voidmetal);
           if (num > 0.69 && (double)cave == 0.0)
-            GenSpawn.Spawn(ThingDefOf.VoidmetalMassSmall, allCell, map);
+            GenSpawn.Spawn(ExSymbiotesDefOf.ExSymbiotes_SymbioticWall, allCell, map);
           if (num > 0.69)
             map.roofGrid.SetRoof(allCell, RoofDefOf.RoofRockThin);
         }
