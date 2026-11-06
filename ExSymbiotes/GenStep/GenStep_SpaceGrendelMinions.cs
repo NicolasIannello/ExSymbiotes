@@ -22,12 +22,12 @@ namespace ExSymbiotes
       List<IntVec3> caves = MapGenerator.GetVar<List<IntVec3>>("ExSymbiotes_caves");
       
       for (int i = 0; i < caves.Count; i++)
-        if(caves[i].DistanceTo(map.Center)>=100f && cocoons.Count<3)
+        if(caves[i].DistanceTo(map.Center)>=100f && cocoons.Count<4)
           cocoons.Add(caves[i]);
         
       if(cocoons.Count<4)
         for (int i = 0; i < caves.Count; i++)
-          if(caves[i].DistanceTo(map.Center)>65f && caves[i].DistanceTo(map.Center)<100f && cocoons.Count<3)
+          if(caves[i].DistanceTo(map.Center)>65f && caves[i].DistanceTo(map.Center)<100f && cocoons.Count<4)
             cocoons.Add(caves[i]);
 
       List<IntVec3> spots = new List<IntVec3>();
@@ -47,7 +47,7 @@ namespace ExSymbiotes
         {
           spots.Add(spot);
           GenSpawn.Spawn(i == 0 ? ExSymbiotesDefOf.ExSymbiotes_SymbioteCocoon_Red : ExSymbiotesDefOf.ExSymbiotes_SymbioteCocoon_Black, spot, map);
-        }      
+        }
       }
       MapGenerator.SetVar("ExSymbiotes_cocoons", spots);
     }
