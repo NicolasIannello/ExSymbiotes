@@ -10,12 +10,20 @@
         <mapGenerator>ExSymbiotes_SpaceGrendelAsteroid</mapGenerator>
         <canBePlayerHome>false</canBePlayerHome>
         <treatAsPlayerHome>false</treatAsPlayerHome>
+        <canResizeToGravship>true</canResizeToGravship>
     </WorldObjectDef>
 
-    <MapGeneratorDef ParentName="SpaceMapGenerator">
+    <MapGeneratorDef>
         <defName>ExSymbiotes_SpaceGrendelAsteroid</defName>
         <label>symbiotic asteroid</label>
+        <ignoreAreaRevealedLetter>true</ignoreAreaRevealedLetter>
+        <disableCallAid>true</disableCallAid>
+        <renderWorld>true</renderWorld>
+        <disableMapClippers>true</disableMapClippers>
+        <defaultUnderGridTerrain>Space</defaultUnderGridTerrain>
         <genSteps>
+            <li>Space</li>
+            <li>ScenParts</li>
             <li>ExSymbiotes_SpaceGrendelAsteroid</li>
             <li>ExSymbiotes_SpaceGrendelMinions</li>
             <li>ExSymbiotes_SpaceGrendelSpawn</li>
