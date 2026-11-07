@@ -173,7 +173,7 @@
 			<ToxicResistance>1</ToxicResistance>
 			<PsychicSensitivity>0</PsychicSensitivity>
 			<StaggerDurationFactor>0</StaggerDurationFactor>
-			<IncomingDamageFactor>0.2</IncomingDamageFactor>
+			<IncomingDamageFactor>0.4</IncomingDamageFactor>
 			<EMPResistance>0.9</EMPResistance>
 		</statBases>
 		<race>
@@ -215,7 +215,7 @@
 				</capacities>
 				<power>60</power>
 				<armorPenetration>0.8</armorPenetration>
-				<cooldownTime>0.7</cooldownTime>
+				<cooldownTime>2</cooldownTime>
 				<linkedBodyPartsGroup>Teeth</linkedBodyPartsGroup>
 				<ensureLinkedBodyPartsGroupAlwaysUsable>true</ensureLinkedBodyPartsGroupAlwaysUsable>
 			</li>
@@ -235,9 +235,9 @@
 				<capacities>
 					<li>Blunt</li>
 				</capacities>
-				<power>40</power>
+				<power>30</power>
 				<armorPenetration>0.2</armorPenetration>
-				<cooldownTime>1.4</cooldownTime>
+				<cooldownTime>3</cooldownTime>
 			</li>
 		</tools>
 		<killedLeavings>

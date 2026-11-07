@@ -252,7 +252,7 @@
 		<forceLeavingsAllowed>true</forceLeavingsAllowed>
 		<statBases>
 			<Beauty>-25</Beauty>
-			<MaxHitPoints>5000</MaxHitPoints>
+			<MaxHitPoints>2500</MaxHitPoints>
 			<Flammability>2</Flammability>
 		</statBases>
 		<comps>
@@ -276,7 +276,7 @@
 		</killedLeavingsRanges>
 		<statBases Inherit="False">
 			<Beauty>-25</Beauty>
-			<MaxHitPoints>10000</MaxHitPoints>
+			<MaxHitPoints>5000</MaxHitPoints>
 			<Flammability>2</Flammability>
 		</statBases>
 		<comps Inherit="False">
