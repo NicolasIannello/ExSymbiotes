@@ -8,7 +8,9 @@ namespace ExSymbiotes
     {
         public override bool CanApplyOn(LocalTargetInfo target, LocalTargetInfo dest)
         {
-            bool isSymbiote = (target.Pawn.def == ExSymbiotesDefOf.ExSymbiotes_Symbiote || target.Pawn.def == ExSymbiotesDefOf.ExSymbiotes_SymbioteRed);
+            bool isSymbiote = (target.Pawn.def == ExSymbiotesDefOf.ExSymbiotes_Symbiote || 
+                               target.Pawn.def == ExSymbiotesDefOf.ExSymbiotes_SymbioteRed || 
+                               target.Pawn.def == ExSymbiotesDefOf.ExSymbiotes_SymbioteGrendel);
             bool hasSymbiosis = SymbioteUtility.HasSymbiosis(target.Pawn) != null;
             
             if(isSymbiote)

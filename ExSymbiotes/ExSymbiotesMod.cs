@@ -118,6 +118,7 @@ namespace ExSymbiotes
         public static ThingDef ExSymbiotes_SymbioteMassIncoming;
         public static ThingDef ExSymbiotes_Symbiote;
         public static ThingDef ExSymbiotes_SymbioteRed;
+        public static ThingDef ExSymbiotes_SymbioteGrendel;
         public static ThingDef ExSymbiotes_Mote_HarbingerTreeRoots;
         public static ThingDef ExSymbiotes_Mote_HarbingerTreeRootsBlack;
         public static ThingDef ExSymbiotes_PawnFlyer_VenomLeap;
