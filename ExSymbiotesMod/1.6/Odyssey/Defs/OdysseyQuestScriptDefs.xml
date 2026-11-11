@@ -4,9 +4,7 @@
     <QuestScriptDef>
         <defName>ExSymbiotes_GrendelAsteroid</defName>
         <randomlySelectable>false</randomlySelectable>
-<!--        <givenBy>-->
-<!--            <li>OrbitalScanner</li>-->
-<!--        </givenBy>-->
+        <defaultChallengeRating>4</defaultChallengeRating>
         <rootSelectionWeight>0</rootSelectionWeight>
         <isRootSpecial>true</isRootSpecial>
         <autoAccept>true</autoAccept>
