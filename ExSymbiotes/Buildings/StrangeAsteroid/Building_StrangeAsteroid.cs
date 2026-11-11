@@ -8,6 +8,7 @@ using Verse.AI;
 
 namespace ExSymbiotes
 {
+  [StaticConstructorOnStartup]
   public class Building_StrangeAsteroid : Building
   {
     private static readonly Texture2D InspectCommandTex = ContentFinder<Texture2D>.Get("UI/Commands/Inspect");
