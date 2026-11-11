@@ -52,6 +52,7 @@ namespace ExSymbiotes.Utils
                 {
                     Pawn newThing = PawnGenerator.GeneratePawn(new PawnGenerationRequest(animals.RandomElement()));
                     Hediff hediff = newThing.health.AddHediff(fleshbeastsForPoints[i].def == ExSymbiotesDefOf.ExSymbiotes_SymbioteRed ? ExSymbiotesDefOf.ExSymbiotes_SymbioteControlRed : ExSymbiotesDefOf.ExSymbiotes_SymbioteControl);
+                    hediff.Severity = Rand.RangeInclusive(15, 75) / 100f;
                     HediffComp_SymbioteControl comp = hediff.TryGetComp<HediffComp_SymbioteControl>();
                     bool flag = i == fleshbeastsForPoints.Count - 1;
                     GenSpawn.Spawn(newThing, result, map);

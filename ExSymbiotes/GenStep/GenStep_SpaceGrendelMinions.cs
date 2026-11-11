@@ -72,6 +72,7 @@ namespace ExSymbiotes
             Find.FactionManager.FirstFactionOfDef(ExSymbiotesDefOf.ExSymbiotes_Symbiotes)));
           Pawn newThing = PawnGenerator.GeneratePawn(new PawnGenerationRequest(animals.RandomElement()));
           Hediff hediff = newThing.health.AddHediff(chanceRed ? ExSymbiotesDefOf.ExSymbiotes_SymbioteControlRed : ExSymbiotesDefOf.ExSymbiotes_SymbioteControl);
+          hediff.Severity = Rand.RangeInclusive(15, 75) / 100f;
           HediffComp_SymbioteControl comp = hediff.TryGetComp<HediffComp_SymbioteControl>();
           bool flag = j == chance - 1;
 

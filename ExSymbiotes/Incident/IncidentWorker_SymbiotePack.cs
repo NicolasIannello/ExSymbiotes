@@ -30,6 +30,7 @@ namespace ExSymbiotes
           Pawn newThing = PawnGenerator.GeneratePawn(new PawnGenerationRequest(animalKindDef));
           QuestUtility.AddQuestTag((object) GenSpawn.Spawn((Thing) newThing, CellFinder.RandomClosewalkCellNear(result, target, 10), target, rot), parms.questTag);
           Hediff hediff = newThing.health.AddHediff(symbiotes[index].def==ExSymbiotesDefOf.ExSymbiotes_Symbiote ? hediffDef : hediffDefRed);
+          hediff.Severity = Rand.RangeInclusive(15, 75) / 100f;
           HediffComp_SymbioteControl comp = hediff.TryGetComp<HediffComp_SymbioteControl>();
           
           GenSpawn.Spawn((Thing)symbiotes[index], CellFinder.RandomClosewalkCellNear(result, target, 10), target, rot);
