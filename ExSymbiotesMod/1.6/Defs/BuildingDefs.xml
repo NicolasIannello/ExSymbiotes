@@ -194,7 +194,7 @@
 		</comps>
 	</ThingDef>
 	
-	<ThingDef ParentName="SkyfallerBase">
+	<ThingDef Name="ExSymbiotes_SymbioteMassIncoming" ParentName="SkyfallerBase">
 		<defName>ExSymbiotes_SymbioteMassIncoming</defName>
 		<label>symbiote mass (incoming)</label>
 		<graphicData>
@@ -216,6 +216,17 @@
 			<explosionRadius>4</explosionRadius>
 			<explosionDamage>Bomb</explosionDamage>
 		</skyfaller>
+	</ThingDef>
+
+	<ThingDef ParentName="ExSymbiotes_SymbioteMassIncoming">
+		<defName>ExSymbiotes_StrangeAsteroidIncoming</defName>
+		<label>strange asteroid (incoming)</label>
+		<graphicData>
+			<texPath>Things/Skyfaller/Meteorite</texPath>
+			<graphicClass>Graphic_Single</graphicClass>
+			<shaderType>CutoutFlying</shaderType>
+			<drawSize>(4, 4)</drawSize>
+		</graphicData>
 	</ThingDef>
 
 	<ThingDef Name="ExSymbiotes_SymbioteCocoon_Black" ParentName="BuildingNaturalBase">
@@ -286,6 +297,67 @@
 			<li Class="CompProperties_LeaveFilthOnDestroyed">
 				<filthDef>ExSymbiotes_Filth_RevenantBloodPool_Red</filthDef>
 				<thickness>2</thickness>
+			</li>
+		</comps>
+	</ThingDef>
+
+	<ThingDef Name="ExSymbiotes_StrangeAsteroid" ParentName="BuildingNaturalBase">
+		<defName>ExSymbiotes_StrangeAsteroid</defName>
+		<label>strange asteroid</label>
+		<description>A strange asteroid with living tissue that emanates a putrid psychic energy.</description>
+		<tickerType>Normal</tickerType>
+		<size>(1,1)</size>
+		<drawerType>RealtimeOnly</drawerType>
+		<thingClass>ExSymbiotes.Building_StrangeAsteroid</thingClass>
+		<category>Building</category>
+		<uiIconPath>Things/Buildings/ExSymbiotes_StrangeAsteroid</uiIconPath>
+		<blockWind>true</blockWind>
+		<fillPercent>1</fillPercent>
+		<rotatable>false</rotatable>
+		<holdsRoof>false</holdsRoof>
+		<terrainAffordanceNeeded>Light</terrainAffordanceNeeded>
+		<altitudeLayer>Building</altitudeLayer>
+		<passability>Impassable</passability>
+		<soundImpactDefault>Fleshmass_Damaged</soundImpactDefault>
+		<preventSkyfallersLandingOn>true</preventSkyfallersLandingOn>
+		<graphicData>
+			<texPath>Things/Buildings/ExSymbiotes_StrangeAsteroid</texPath>
+			<drawSize>(2,2)</drawSize>
+			<graphicClass>Graphic_Single</graphicClass>
+		</graphicData>
+		<building>
+			<isEdifice>true</isEdifice>
+			<isInert>true</isInert>
+			<isTargetable>true</isTargetable>
+			<claimable>false</claimable>
+			<canBuildNonEdificesUnder>false</canBuildNonEdificesUnder>
+			<deconstructible>false</deconstructible>
+			<destroyEffecter>ExSymbiotes_FleshmassHeartDestroyed</destroyEffecter>
+		</building>
+		<forceLeavingsAllowed>true</forceLeavingsAllowed>
+		<statBases>
+			<Beauty>-25</Beauty>
+			<MaxHitPoints>50</MaxHitPoints>
+			<Flammability>2</Flammability>
+		</statBases>
+		<comps>
+			<li Class="CompProperties_LeaveFilthOnDestroyed">
+				<filthDef>Filth_RevenantBloodPool</filthDef>
+				<thickness>1</thickness>
+			</li>
+		</comps>
+	</ThingDef>
+
+	<ThingDef ParentName="ExSymbiotes_StrangeAsteroid">
+		<defName>ExSymbiotes_StrangeAsteroidRed</defName>
+		<uiIconPath>Things/Buildings/ExSymbiotes_StrangeAsteroidRed</uiIconPath>
+		<graphicData>
+			<texPath>Things/Buildings/ExSymbiotes_StrangeAsteroidRed</texPath>
+		</graphicData>
+		<comps>
+			<li Class="CompProperties_LeaveFilthOnDestroyed">
+				<filthDef>ExSymbiotes_Filth_RevenantBloodPool_Red</filthDef>
+				<thickness>1</thickness>
 			</li>
 		</comps>
 	</ThingDef>

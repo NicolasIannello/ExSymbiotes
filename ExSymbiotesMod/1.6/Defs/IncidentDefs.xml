@@ -52,4 +52,38 @@
 		<baseChance>1.0</baseChance>
 		<minThreatPoints>1500</minThreatPoints>
 	</IncidentDef>
+
+	<IncidentDef>
+		<defName>ExSymbiotes_Intro</defName>
+		<category>GiveQuest</category>
+		<label>strange asteroid</label>
+		<letterLabel>Strange asteroid</letterLabel>
+		<questScriptDef>ExSymbiotes_Intro</questScriptDef>
+		<workerClass>IncidentWorker_GiveQuest</workerClass>
+		<targetTags>
+			<li>Map_PlayerHome</li>
+		</targetTags>
+		<baseChance>0</baseChance>
+		<requireColonistsPresent>True</requireColonistsPresent>
+	</IncidentDef>
+
+	<IncidentDef Name="ExSymbiotes_IncidentStrangeAsteroid" ParentName="AnomalyIncidentBase">
+		<defName>ExSymbiotes_IncidentStrangeAsteroid</defName>
+		<label>strange asteroid</label>
+		<letterLabel>Strange asteroid</letterLabel>
+		<letterText>A strange asteroid has crashed nearby</letterText>
+		<category>Misc</category>
+		<letterDef>NeutralEvent</letterDef>
+		<workerClass>ExSymbiotes.IncidentWorker_StrangeAsteroid</workerClass>
+		<targetTags>
+			<li>Map_PlayerHome</li>
+		</targetTags>
+		<baseChance>0</baseChance>
+		<requireColonistsPresent>True</requireColonistsPresent>
+	</IncidentDef>
+
+	<IncidentDef ParentName="ExSymbiotes_IncidentStrangeAsteroid">
+		<defName>ExSymbiotes_IncidentStrangeAsteroidRed</defName>
+		<workerClass>ExSymbiotes.IncidentWorker_StrangeAsteroidRed</workerClass>
+	</IncidentDef>
 </Defs>

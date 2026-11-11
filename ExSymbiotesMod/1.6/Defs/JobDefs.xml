@@ -1,5 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Defs>
+<!--            JOB          -->
     <JobDef>
         <defName>ExSymbiotes_SymbioteDigest</defName>
         <driverClass>ExSymbiotes.JobDriver_SymbioteDigest</driverClass>
@@ -27,6 +28,12 @@
         <driverClass>ExSymbiotes.JobDriver_RemoveSymbiote</driverClass>
     </JobDef>
     
+    <JobDef>
+        <defName>ExSymbiotes_InspectStrangeAsteroid</defName>
+        <driverClass>ExSymbiotes.JobDriver_InspectStrangeAsteroid</driverClass>
+        <reportString>inspecting TargetA.</reportString>
+    </JobDef>
+<!--        DUTY            -->
     <DutyDef>
         <defName>ExSymbiotes_SymbioteStalkWander</defName>
         <thinkNode Class="ThinkNode_Priority">
@@ -38,7 +45,7 @@
             </subNodes>
         </thinkNode>
     </DutyDef>
-    
+<!--        THINKTREE       -->
     <ThinkTreeDef>
         <defName>ExSymbiotes_Symbiote</defName>
         <thinkRoot Class="ThinkNode_Priority">

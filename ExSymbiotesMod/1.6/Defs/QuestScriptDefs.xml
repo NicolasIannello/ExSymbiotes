@@ -1,0 +1,20 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+    <QuestScriptDef>
+        <defName>ExSymbiotes_Intro</defName>
+        <isRootSpecial>true</isRootSpecial>
+        <defaultHidden>true</defaultHidden>
+        <autoAccept>true</autoAccept>
+        <questNameRules>
+            <rulesStrings>
+                <li>questName->strange asteroid</li>
+            </rulesStrings>
+        </questNameRules>
+        <questDescriptionRules>
+            <rulesStrings>
+                <li>questDescription->strange asteroid.</li>
+            </rulesStrings>
+        </questDescriptionRules>
+        <root Class="ExSymbiotes.QuestNode_Root_Intro" />
+    </QuestScriptDef>
+</Defs>

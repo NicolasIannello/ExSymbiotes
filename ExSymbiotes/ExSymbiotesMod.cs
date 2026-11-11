@@ -98,10 +98,13 @@ namespace ExSymbiotes
         public static IncidentDef ExSymbiotes_SymbiotePack;
         [MayRequireOdyssey] 
         public static IncidentDef ExSymbiotes_SpaceGrendel;
+        public static IncidentDef ExSymbiotes_IncidentStrangeAsteroid;
+        public static IncidentDef ExSymbiotes_IncidentStrangeAsteroidRed;
         public static JobDef ExSymbiotes_SymbioteDigest;
         public static JobDef ExSymbiotes_SymbioteSwitchToAttackMode;
         public static JobDef ExSymbiotes_UseVerbOnThing;
         public static JobDef ExSymbiotes_RemoveSymbiote;
+        public static JobDef ExSymbiotes_InspectStrangeAsteroid;
         [MayRequireOdyssey] 
         public static OrbitalDebrisDef ExSymbiotes_OrbitalDebris;
         public static PawnGroupKindDef ExSymbiotes_Symbiote_PawnGroupKind;
@@ -137,6 +140,9 @@ namespace ExSymbiotes
         [MayRequireBiotech]
         public static ThingDef ExSymbiotes_MechShield;
         public static ThingDef ExSymbiotes_SymbioticWall;
+        public static ThingDef ExSymbiotes_StrangeAsteroid;
+        public static ThingDef ExSymbiotes_StrangeAsteroidRed;
+        public static ThingDef ExSymbiotes_StrangeAsteroidIncoming;
         public static ThoughtDef ExSymbiotes_SymbioteControlledAfter;
         public static ThoughtDef ExSymbiotes_BondedSymbioteLost;
         public static ThoughtDef ExSymbiotes_BondedSymbioteSacrifice;

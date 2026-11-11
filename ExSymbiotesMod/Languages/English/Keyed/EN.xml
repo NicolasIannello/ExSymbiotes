@@ -69,4 +69,10 @@
     <ExSymbiotes.LabelSymbioteCocoon>Grendel scream.</ExSymbiotes.LabelSymbioteCocoon>
     <ExSymbiotes.TextSymbioteCocoon>The grendel symbiote scream made the symbiotic cocoons burst, more symbiote join the battle.</ExSymbiotes.TextSymbioteCocoon>
 
+    <ExSymbiotes.StrangeAsteroid>Strange asteroid.</ExSymbiotes.StrangeAsteroid>
+    <ExSymbiotes.StrangeAsteroidChooseWhoShouldInspect>Choose who should inspect {0_definite}</ExSymbiotes.StrangeAsteroidChooseWhoShouldInspect>
+    <ExSymbiotes.StrangeAsteroidCommandInspect>Inspect {0_labelShort}</ExSymbiotes.StrangeAsteroidCommandInspect>
+    <ExSymbiotes.StrangeAsteroidCommandInspectDesc>Choose a colonist to inspect the mysterious asteroid.</ExSymbiotes.StrangeAsteroidCommandInspectDesc>
+    <ExSymbiotes.StrangeAsteroidInspectSuccess>While {0_labelShort} was inspecting the strange asteroid something from within it jump towards {0_labelShort}.\n\n{0_labelShort} couldn't saw what it was, but now {0_labelShort} can hear a voice.</ExSymbiotes.StrangeAsteroidInspectSuccess>
+    <ExSymbiotes.StrangeAsteroidInspectFail>{0_labelShort} inspected the strange asteroid, nothing happens.</ExSymbiotes.StrangeAsteroidInspectFail>
 </LanguageData>
