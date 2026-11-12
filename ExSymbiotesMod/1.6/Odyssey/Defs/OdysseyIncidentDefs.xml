@@ -19,6 +19,6 @@
 		<minAnomalyThreatLevel>2</minAnomalyThreatLevel>
 		<requireColonistsPresent>True</requireColonistsPresent>
 		<minRefireDays>100</minRefireDays>
-		<minThreatPoints>5000</minThreatPoints>
+		<minThreatPoints>0</minThreatPoints>
 	</IncidentDef>
 </Defs>
