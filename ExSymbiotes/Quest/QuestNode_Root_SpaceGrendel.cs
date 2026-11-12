@@ -24,16 +24,20 @@ namespace ExSymbiotes
       Slate slate = RimWorld.QuestGen.QuestGen.slate;
       PlanetTile tile;
       this.TryFindSiteTile(out tile);
-      SpaceMapParent var = (SpaceMapParent)WorldObjectMaker.MakeWorldObject(this.worldObjectDef);
+      SpaceGrendelMapParent var = (SpaceGrendelMapParent)WorldObjectMaker.MakeWorldObject(this.worldObjectDef);
       var.Tile = tile;
-      slate.Set<SpaceMapParent>("worldObject", var);
+      slate.Set<SpaceGrendelMapParent>("worldObject", var);
       slate.Set("delayTicks1", Rand.RangeInclusive(4, 7)*60000);
       slate.Set("delayTicks2", Rand.RangeInclusive(3, 7)*60000);
       quest.SpawnWorldObject((WorldObject)var);
       string inSignal = QuestGenUtility.HardcodedSignalWithQuestID("worldObject.MapRemoved");
       int delayTicks = QuestNode_Root_SpaceGrendel.TimeoutDays.RandomInRange * 60000;
       quest.WorldObjectTimeout((WorldObject)var, delayTicks);
-      quest.Delay(delayTicks, (Action)(() => QuestGen_End.End(quest, QuestEndOutcome.Fail)));
+      quest.Delay(delayTicks, (Action)(() =>
+      {
+        QuestGen_End.End(quest, QuestEndOutcome.Fail);
+        var.timeOut = true;
+      }));
       quest.End(QuestEndOutcome.Success, inSignal: inSignal);
       Find.LetterStack.ReceiveLetter("ExSymbiotes.SpaceGrendelLetter".Translate(),
         "ExSymbiotes.SpaceGrendelText".Translate(), LetterDefOf.ThreatBig, null, null, quest);
