@@ -106,5 +106,7 @@
                 </options>
             </li>
         </pawnGroupMakers>
+        <dropPodActive>ExSymbiotes_ActiveDropPod</dropPodActive>
+        <dropPodIncoming>ExSymbiotes_DropPodIncomingRapid</dropPodIncoming>
     </FactionDef>
 </Defs>

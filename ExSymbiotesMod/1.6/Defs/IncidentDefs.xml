@@ -86,4 +86,29 @@
 		<defName>ExSymbiotes_IncidentStrangeAsteroidRed</defName>
 		<workerClass>ExSymbiotes.IncidentWorker_StrangeAsteroidRed</workerClass>
 	</IncidentDef>
+	
+	<IncidentDef ParentName="AnomalyIncidentBase">
+		<defName>ExSymbiotes_SymbiotePackDropPod</defName>
+		<label>symbiote pack drop pod</label>
+		<targetTags>
+			<li>Map_PlayerHome</li>
+			<li>Map_TempIncident</li>
+			<li>Map_Misc</li>
+			<li>Map_RaidBeacon</li>
+			<li>Caravan</li>
+		</targetTags>
+		<workerClass>ExSymbiotes.IncidentWorker_SymbiotePackDropPod</workerClass>
+		<baseChance>0</baseChance>
+		<category>ThreatBig</category>
+		<pointsScaleable>true</pointsScaleable>
+		<tale>ExSymbiotes_SymbiotePack</tale>
+		<letterHyperlinkHediffDefs>
+			<li>ExSymbiotes_SymbioteControl</li>
+			<li>ExSymbiotes_SymbioteControlRed</li>
+			<li>ExSymbiotes_SymbioticTendrils</li>
+		</letterHyperlinkHediffDefs>
+		<minAnomalyThreatLevel>2</minAnomalyThreatLevel>
+		<requireColonistsPresent>True</requireColonistsPresent>
+		<minThreatPoints>0</minThreatPoints>
+	</IncidentDef>
 </Defs>

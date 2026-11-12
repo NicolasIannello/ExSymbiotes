@@ -361,4 +361,27 @@
 			</li>
 		</comps>
 	</ThingDef>
+	
+	<ThingDef ParentName="ActiveDropPod">
+		<defName>ExSymbiotes_ActiveDropPod</defName>
+		<label>symbiote drop pod</label>
+		<soundOpen>Fleshmass_Damaged</soundOpen>
+		<graphicData>
+			<texPath>Things/WorldObjects/Debris/SymbioteMass_B</texPath>
+		</graphicData>
+	</ThingDef>
+
+	<ThingDef ParentName="DropPodIncoming">
+		<defName>ExSymbiotes_DropPodIncomingRapid</defName>
+		<graphicData>
+			<texPath>Things/WorldObjects/Debris/SymbioteMass_B</texPath>
+		</graphicData>
+		<skyfaller>
+			<movementType>ConstantSpeed</movementType>
+			<shadow>Things/Skyfaller/SkyfallerShadowCircle</shadow>
+			<shadowSize>(2, 2)</shadowSize>
+			<anticipationSound>WarpedObelisk_Fall</anticipationSound>
+			<impactSound>Fleshmass_Damaged</impactSound>
+		</skyfaller>
+	</ThingDef>
 </Defs>
