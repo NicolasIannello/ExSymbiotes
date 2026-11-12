@@ -1341,6 +1341,7 @@
                 <abilityDefs>
                     <li>ExSymbiotes_SymbioticEnthrall</li>
                     <li>ExSymbiotes_SymbioticConsume</li>
+                    <li>ExSymbiotes_SymbioticRenewal</li>
                 </abilityDefs>
             </li>
         </comps>

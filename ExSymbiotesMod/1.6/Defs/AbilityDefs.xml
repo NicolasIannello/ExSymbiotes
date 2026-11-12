@@ -404,6 +404,39 @@
             </li>
         </comps>
     </AbilityDef>
+
+    <AbilityDef ParentName="AbilityTouchBase">
+        <defName>ExSymbiotes_SymbioticRenewal</defName>
+        <label>symbiotic renewal</label>
+        <description>Reset the severity of a thrall.</description>
+        <iconPath>UI/SymbioticRenewal</iconPath>
+        <stunTargetWhileCasting>true</stunTargetWhileCasting>
+        <warmupMote>ExSymbiotes_Mote_ResurrectAbility</warmupMote>
+        <jobDef>CastAbilityOnThingMelee</jobDef>
+        <displayOrder>400</displayOrder>
+        <hostile>false</hostile>
+        <casterMustBeCapableOfViolence>false</casterMustBeCapableOfViolence>
+        <verbProperties>
+            <verbClass>Verb_CastAbilityTouch</verbClass>
+            <drawAimPie>false</drawAimPie>
+            <range>-1</range>
+            <warmupTime>1</warmupTime>
+            <targetParams>
+                <canTargetPawns>true</canTargetPawns>
+                <canTargetSelf>false</canTargetSelf>
+                <canTargetBuildings>false</canTargetBuildings>
+            </targetParams>
+        </verbProperties>
+        <comps>
+            <li Class="ExSymbiotes.CompProperties_AbilitySymbiosisCost">
+                <symbiosisCost>5</symbiosisCost>
+            </li>
+            <li Class="ExSymbiotes.CompProperties_AbilitySymbioticRenewal"/>
+            <li Class="CompProperties_AbilityRequiresCapacity">
+                <capacity>Manipulation</capacity>
+            </li>
+        </comps>
+    </AbilityDef>
     
 <!--        GRENDEL         -->
     <AbilityDef>
