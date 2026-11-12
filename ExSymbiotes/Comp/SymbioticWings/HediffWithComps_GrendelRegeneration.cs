@@ -31,7 +31,10 @@ namespace ExSymbiotes
             base.PostRemoved();
             CompGrendelSymbiote grendelComp = this.pawn.TryGetComp<CompGrendelSymbiote>();
             if (grendelComp != null)
+            {
                 grendelComp.ExplodeCocoons();
+                this.pawn.health.Reset();
+            }
         }
 
         public override void Notify_Regenerated(float hp)
