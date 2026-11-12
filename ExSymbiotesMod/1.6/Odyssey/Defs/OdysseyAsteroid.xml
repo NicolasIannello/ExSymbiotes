@@ -1,8 +1,8 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Defs>
-    <WorldObjectDef ParentName="ClaimableSpace">
+    <WorldObjectDef ParentName="SpaceBase">
         <defName>ExSymbiotes_SpaceGrendelAsteroid</defName>
-        <worldObjectClass>BasicAsteroidMapParent</worldObjectClass>
+        <worldObjectClass>ExSymbiotes.SpaceGrendelMapParent</worldObjectClass>
         <label>symbiotic asteroid</label> <!-- hidden -->
         <description>A symbiotic asteroid that was towed into orbit around the planet by an unknow force.\n\nThis location can be reached using transport pods, shuttles, or a gravship.</description>
         <expandingIconTexture>Things/WorldObjects/ExSymbiotes_SymbioticAsteroid</expandingIconTexture>
