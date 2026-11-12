@@ -89,7 +89,7 @@
 	
 	<IncidentDef ParentName="AnomalyIncidentBase">
 		<defName>ExSymbiotes_SymbiotePackDropPod</defName>
-		<label>symbiote pack drop pod</label>
+		<label>symbiote pack pods</label>
 		<targetTags>
 			<li>Map_PlayerHome</li>
 			<li>Map_TempIncident</li>

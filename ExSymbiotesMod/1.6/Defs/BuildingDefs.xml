@@ -364,7 +364,7 @@
 	
 	<ThingDef ParentName="ActiveDropPod">
 		<defName>ExSymbiotes_ActiveDropPod</defName>
-		<label>symbiote drop pod</label>
+		<label>symbiote pod</label>
 		<soundOpen>Fleshmass_Damaged</soundOpen>
 		<graphicData>
 			<texPath>Things/WorldObjects/Debris/SymbioteMass_B</texPath>

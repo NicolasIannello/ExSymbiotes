@@ -66,7 +66,7 @@
     <ExSymbiotes.SymbioticResurrectionTextSuccess>{0} successfully resurrected {1}, {0} was lost in the process.</ExSymbiotes.SymbioticResurrectionTextSuccess>
 
     <ExSymbiotes.SpaceGrendelLetter>Symbiotic asteroid</ExSymbiotes.SpaceGrendelLetter>
-    <ExSymbiotes.SpaceGrendelText>A symbiotic asteroid that was towed into orbit around the planet by an unknow force.\n\nThis location can be reached using transport pods, shuttles, or a gravship.</ExSymbiotes.SpaceGrendelText>
+    <ExSymbiotes.SpaceGrendelText>A symbiotic asteroid that was towed into orbit around the planet by an unknow force.Will periodically launch symbiotic pods until deal with or until the asteroid leaves orbit.\n\nThis location can be reached using transport pods, shuttles, or a gravship.</ExSymbiotes.SpaceGrendelText>
     <ExSymbiotes.LabelSymbioteCocoon>Grendel scream.</ExSymbiotes.LabelSymbioteCocoon>
     <ExSymbiotes.TextSymbioteCocoon>The grendel symbiote scream made the symbiotic cocoons burst, more symbiote join the battle.</ExSymbiotes.TextSymbioteCocoon>
 
@@ -76,4 +76,7 @@
     <ExSymbiotes.StrangeAsteroidCommandInspectDesc>Choose a colonist to inspect the mysterious asteroid.</ExSymbiotes.StrangeAsteroidCommandInspectDesc>
     <ExSymbiotes.StrangeAsteroidInspectSuccess>While {0_labelShort} was inspecting the strange asteroid something from within it jump towards {0_labelShort}.\n\n{0_labelShort} couldn't saw what it was, but now {0_labelShort} can hear a voice.</ExSymbiotes.StrangeAsteroidInspectSuccess>
     <ExSymbiotes.StrangeAsteroidInspectFail>{0_labelShort} inspected the strange asteroid, nothing happens.</ExSymbiotes.StrangeAsteroidInspectFail>
+
+    <ExSymbiotes.LetterLabelSymbiotePods>Symbiote pods</ExSymbiotes.LetterLabelSymbiotePods>
+    <ExSymbiotes.SymbiotePods>Symbiotes pods launched from the symbiote asteroid.</ExSymbiotes.SymbiotePods>
 </LanguageData>

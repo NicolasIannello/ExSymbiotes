@@ -4,7 +4,7 @@
         <defName>ExSymbiotes_SpaceGrendelAsteroid</defName>
         <worldObjectClass>ExSymbiotes.SpaceGrendelMapParent</worldObjectClass>
         <label>symbiotic asteroid</label> <!-- hidden -->
-        <description>A symbiotic asteroid that was towed into orbit around the planet by an unknow force.\n\nThis location can be reached using transport pods, shuttles, or a gravship.</description>
+        <description>A symbiotic asteroid that was towed into orbit around the planet by an unknow force.Will periodically launch symbiotic pods until deal with or until the asteroid leaves orbit.\n\nThis location can be reached using transport pods, shuttles, or a gravship.</description>
         <expandingIconTexture>Things/WorldObjects/ExSymbiotes_SymbioticAsteroid</expandingIconTexture>
         <overrideMapSize>(250,1,250)</overrideMapSize>
         <mapGenerator>ExSymbiotes_SpaceGrendelAsteroid</mapGenerator>
