@@ -37,7 +37,7 @@ namespace ExSymbiotes
         yield return (Gizmo) gizmo1;
       }
 
-      static bool ValidateInspectionTarget(LocalTargetInfo targ)
+      bool ValidateInspectionTarget(LocalTargetInfo targ)
       {
         return targ.Thing is Pawn thing && thing.IsColonistPlayerControlled && thing.CanReach((LocalTargetInfo) thing.Position, PathEndMode.Touch, Danger.Deadly) && !thing.Downed && thing.health.capacities.CapableOf(PawnCapacityDefOf.Moving);
       }

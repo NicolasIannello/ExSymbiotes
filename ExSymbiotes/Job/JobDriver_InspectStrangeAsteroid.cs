@@ -14,7 +14,6 @@ namespace ExSymbiotes
         }
 
         protected override 
-        #nullable disable
         IEnumerable<Toil> MakeNewToils()
         {
             this.FailOnDespawnedOrNull<JobDriver_InspectStrangeAsteroid>(TargetIndex.A);
