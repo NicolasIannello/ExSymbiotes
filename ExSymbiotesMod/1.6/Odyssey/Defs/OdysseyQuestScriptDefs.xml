@@ -25,21 +25,30 @@
         <canOccurOnAllPlanetLayers>true</canOccurOnAllPlanetLayers>
         <root Class="QuestNode_Sequence">
             <nodes>
-<!--                <li Class="QuestNode_IsSet">-->
-<!--                    <name>discoveryMethod</name>-->
-<!--                    <elseNode Class="QuestNode_RandomNode">-->
-<!--                        <nodes>-->
-<!--                            <li Class="QuestNode_Set">-->
-<!--                                <name>discoveryMethod</name>-->
-<!--                                <value>You have discovered</value>-->
-<!--                            </li>-->
-<!--                        </nodes>-->
-<!--                    </elseNode>-->
-<!--                </li>-->
-
                 <li Class="ExSymbiotes.QuestNode_Root_SpaceGrendel">
                     <layerDef>Orbit</layerDef>
                     <worldObjectDef>ExSymbiotes_SpaceGrendelAsteroid</worldObjectDef>
+                </li>
+
+                <li Class="QuestNode_Delay">
+                    <delayTicks>$delayTicks1</delayTicks>
+                    <node Class="QuestNode_Sequence">
+                        <nodes>
+                            <li Class="QuestNode_Incident">
+                                <incidentDef>ExSymbiotes_SymbiotePackDropPod</incidentDef>
+                            </li>
+                            <li Class="QuestNode_Delay">
+                                <delayTicks>$delayTicks2</delayTicks>
+                                <node Class="QuestNode_Sequence">
+                                    <nodes>
+                                        <li Class="QuestNode_Incident">
+                                            <incidentDef>ExSymbiotes_SymbiotePackDropPod</incidentDef>
+                                        </li>
+                                    </nodes>
+                                </node>
+                            </li>
+                        </nodes>
+                    </node>
                 </li>
             </nodes>
         </root>

@@ -12,7 +12,7 @@ namespace ExSymbiotes
     public WorldObjectDef worldObjectDef;
     private const int MaxDistanceFromColony = 3;
     private const int MinDistanceFromColony = 1;
-    private static readonly IntRange TimeoutDays = new IntRange(10, 20);
+    private static readonly IntRange TimeoutDays = new IntRange(15, 20);
 
     protected override bool TestRunInt(Slate slate) => this.TryFindSiteTile(out PlanetTile _);
 
@@ -27,6 +27,8 @@ namespace ExSymbiotes
       SpaceMapParent var = (SpaceMapParent)WorldObjectMaker.MakeWorldObject(this.worldObjectDef);
       var.Tile = tile;
       slate.Set<SpaceMapParent>("worldObject", var);
+      slate.Set("delayTicks1", Rand.RangeInclusive(4, 7)*60000);
+      slate.Set("delayTicks2", Rand.RangeInclusive(3, 7)*60000);
       quest.SpawnWorldObject((WorldObject)var);
       string inSignal = QuestGenUtility.HardcodedSignalWithQuestID("worldObject.MapRemoved");
       int delayTicks = QuestNode_Root_SpaceGrendel.TimeoutDays.RandomInRange * 60000;
