@@ -67,32 +67,30 @@
         <label>symbiosis (Black)</label>
         <stages>
             <li>
-                <statFactors>
-                    <MeleeDamageFactor>1.5</MeleeDamageFactor>
-                    <MoveSpeed>1.50</MoveSpeed>
-                    <WorkSpeedGlobal>2.0</WorkSpeedGlobal>
-                    <IncomingDamageFactor>0.5</IncomingDamageFactor>
-                </statFactors>
                 <damageFactors>
                     <Flame>3</Flame>
                     <Burn>3</Burn>
                 </damageFactors>
                 <statOffsets>
+                    <MeleeDamageFactor>0.5</MeleeDamageFactor>
+                    <MoveSpeed>0.5</MoveSpeed>
+                    <WorkSpeedGlobal>1</WorkSpeedGlobal>
+                    <IncomingDamageFactor>0.5</IncomingDamageFactor>
                     <ToxicResistance>1</ToxicResistance>
                     <ComfyTemperatureMax>100</ComfyTemperatureMax>
                     <ComfyTemperatureMin>-200</ComfyTemperatureMin>
                     <VacuumResistance MayRequire="Ludeon.RimWorld.Odyssey">1</VacuumResistance>
                 </statOffsets>
                 <capMods>
-                    <li><capacity>Consciousness</capacity><postFactor>1.50</postFactor></li>
-                    <li><capacity>Hearing</capacity><postFactor>1.50</postFactor></li>
-                    <li><capacity>Talking</capacity><postFactor>1.50</postFactor></li>
-                    <li><capacity>Manipulation</capacity><postFactor>1.50</postFactor></li>
-                    <li><capacity>Sight</capacity><postFactor>1.50</postFactor></li>
-                    <li><capacity>Eating</capacity><postFactor>1.50</postFactor></li>
-                    <li><capacity>BloodPumping</capacity><postFactor>1.50</postFactor></li>
-                    <li><capacity>BloodFiltration</capacity><postFactor>1.50</postFactor></li>
-                    <li><capacity>Breathing</capacity><postFactor>1.50</postFactor></li>
+                    <li><capacity>Consciousness</capacity><offset>0.2</offset><postFactor>1.05</postFactor></li>
+                    <li><capacity>Hearing</capacity><offset>0.2</offset><postFactor>1.05</postFactor></li>
+                    <li><capacity>Talking</capacity><offset>0.2</offset><postFactor>1.05</postFactor></li>
+                    <li><capacity>Manipulation</capacity><offset>0.2</offset><postFactor>1.05</postFactor></li>
+                    <li><capacity>Sight</capacity><offset>0.2</offset><postFactor>1.05</postFactor></li>
+                    <li><capacity>Eating</capacity><offset>0.2</offset><postFactor>1.05</postFactor></li>
+                    <li><capacity>BloodPumping</capacity><offset>0.2</offset><postFactor>1.05</postFactor></li>
+                    <li><capacity>BloodFiltration</capacity><offset>0.2</offset><postFactor>1.05</postFactor></li>
+                    <li><capacity>Breathing</capacity><offset>0.2</offset><postFactor>1.05</postFactor></li>
                 </capMods>
                 <regeneration>50</regeneration>
             </li>
@@ -174,31 +172,29 @@
         <label>symbiosis (Red)</label>
         <stages>
             <li>
-                <statFactors>
-                    <MeleeDamageFactor>2</MeleeDamageFactor>
-                    <MoveSpeed>1.75</MoveSpeed>
-                    <WorkSpeedGlobal>2.0</WorkSpeedGlobal>
-                </statFactors>
                 <damageFactors>
                     <Flame>3</Flame>
                     <Burn>3</Burn>
                 </damageFactors>
                 <statOffsets>
+                    <MeleeDamageFactor>1</MeleeDamageFactor>
+                    <MoveSpeed>0.75</MoveSpeed>
+                    <WorkSpeedGlobal>1</WorkSpeedGlobal>
                     <ToxicResistance>1</ToxicResistance>
                     <ComfyTemperatureMax>100</ComfyTemperatureMax>
                     <ComfyTemperatureMin>-200</ComfyTemperatureMin>
                     <VacuumResistance MayRequire="Ludeon.RimWorld.Odyssey">1</VacuumResistance>
                 </statOffsets>
                 <capMods>
-                    <li><capacity>Consciousness</capacity><postFactor>1.50</postFactor></li>
-                    <li><capacity>Hearing</capacity><postFactor>1.50</postFactor></li>
-                    <li><capacity>Talking</capacity><postFactor>1.50</postFactor></li>
-                    <li><capacity>Manipulation</capacity><postFactor>1.50</postFactor></li>
-                    <li><capacity>Sight</capacity><postFactor>1.50</postFactor></li>
-                    <li><capacity>Eating</capacity><postFactor>1.50</postFactor></li>
-                    <li><capacity>BloodPumping</capacity><postFactor>1.50</postFactor></li>
-                    <li><capacity>BloodFiltration</capacity><postFactor>1.50</postFactor></li>
-                    <li><capacity>Breathing</capacity><postFactor>1.50</postFactor></li>
+                    <li><capacity>Consciousness</capacity><offset>0.2</offset><postFactor>1.05</postFactor></li>
+                    <li><capacity>Hearing</capacity><offset>0.2</offset><postFactor>1.05</postFactor></li>
+                    <li><capacity>Talking</capacity><offset>0.2</offset><postFactor>1.05</postFactor></li>
+                    <li><capacity>Manipulation</capacity><offset>0.2</offset><postFactor>1.05</postFactor></li>
+                    <li><capacity>Sight</capacity><offset>0.2</offset><postFactor>1.05</postFactor></li>
+                    <li><capacity>Eating</capacity><offset>0.2</offset><postFactor>1.05</postFactor></li>
+                    <li><capacity>BloodPumping</capacity><offset>0.2</offset><postFactor>1.05</postFactor></li>
+                    <li><capacity>BloodFiltration</capacity><offset>0.2</offset><postFactor>1.05</postFactor></li>
+                    <li><capacity>Breathing</capacity><offset>0.2</offset><postFactor>1.05</postFactor></li>
                 </capMods>
                 <regeneration>50</regeneration>
             </li>
@@ -245,28 +241,26 @@
         <label>symbiosis (White)</label>
         <stages>
             <li>
-                <statFactors>
-                    <MeleeDamageFactor>1.5</MeleeDamageFactor>
-                    <MoveSpeed>1.50</MoveSpeed>
-                    <WorkSpeedGlobal>2.0</WorkSpeedGlobal>
-                    <IncomingDamageFactor>0.5</IncomingDamageFactor>
-                </statFactors>
                 <statOffsets>
+                    <MeleeDamageFactor>0.5</MeleeDamageFactor>
+                    <MoveSpeed>0.5</MoveSpeed>
+                    <WorkSpeedGlobal>1</WorkSpeedGlobal>
+                    <IncomingDamageFactor>0.5</IncomingDamageFactor>
                     <ToxicResistance>1</ToxicResistance>
                     <ComfyTemperatureMax>100</ComfyTemperatureMax>
                     <ComfyTemperatureMin>-200</ComfyTemperatureMin>
                     <VacuumResistance MayRequire="Ludeon.RimWorld.Odyssey">1</VacuumResistance>
                 </statOffsets>
                 <capMods>
-                    <li><capacity>Consciousness</capacity><postFactor>1.50</postFactor></li>
-                    <li><capacity>Hearing</capacity><postFactor>1.50</postFactor></li>
-                    <li><capacity>Talking</capacity><postFactor>1.50</postFactor></li>
-                    <li><capacity>Manipulation</capacity><postFactor>1.50</postFactor></li>
-                    <li><capacity>Sight</capacity><postFactor>1.50</postFactor></li>
-                    <li><capacity>Eating</capacity><postFactor>1.50</postFactor></li>
-                    <li><capacity>BloodPumping</capacity><postFactor>1.50</postFactor></li>
-                    <li><capacity>BloodFiltration</capacity><postFactor>1.50</postFactor></li>
-                    <li><capacity>Breathing</capacity><postFactor>1.50</postFactor></li>
+                    <li><capacity>Consciousness</capacity><offset>0.2</offset><postFactor>1.05</postFactor></li>
+                    <li><capacity>Hearing</capacity><offset>0.2</offset><postFactor>1.05</postFactor></li>
+                    <li><capacity>Talking</capacity><offset>0.2</offset><postFactor>1.05</postFactor></li>
+                    <li><capacity>Manipulation</capacity><offset>0.2</offset><postFactor>1.05</postFactor></li>
+                    <li><capacity>Sight</capacity><offset>0.2</offset><postFactor>1.05</postFactor></li>
+                    <li><capacity>Eating</capacity><offset>0.2</offset><postFactor>1.05</postFactor></li>
+                    <li><capacity>BloodPumping</capacity><offset>0.2</offset><postFactor>1.05</postFactor></li>
+                    <li><capacity>BloodFiltration</capacity><offset>0.2</offset><postFactor>1.05</postFactor></li>
+                    <li><capacity>Breathing</capacity><offset>0.2</offset><postFactor>1.05</postFactor></li>
                 </capMods>
                 <regeneration>200</regeneration>
             </li>
@@ -322,31 +316,29 @@
         <label>symbiosis (Yellow)</label>
         <stages>
             <li>
-                <statFactors>
-                    <MeleeDamageFactor>2</MeleeDamageFactor>
-                    <MoveSpeed>1.75</MoveSpeed>
-                    <WorkSpeedGlobal>2.0</WorkSpeedGlobal>
-                </statFactors>
                 <damageFactors>
                     <Flame>3</Flame>
                     <Burn>3</Burn>
                 </damageFactors>
                 <statOffsets>
+                    <MeleeDamageFactor>1</MeleeDamageFactor>
+                    <MoveSpeed>0.75</MoveSpeed>
+                    <WorkSpeedGlobal>1</WorkSpeedGlobal>
                     <ToxicResistance>1</ToxicResistance>
                     <ComfyTemperatureMax>100</ComfyTemperatureMax>
                     <ComfyTemperatureMin>-200</ComfyTemperatureMin>
                     <VacuumResistance MayRequire="Ludeon.RimWorld.Odyssey">1</VacuumResistance>
                 </statOffsets>
                 <capMods>
-                    <li><capacity>Consciousness</capacity><postFactor>1.50</postFactor></li>
-                    <li><capacity>Hearing</capacity><postFactor>1.50</postFactor></li>
-                    <li><capacity>Talking</capacity><postFactor>1.50</postFactor></li>
-                    <li><capacity>Manipulation</capacity><postFactor>1.50</postFactor></li>
-                    <li><capacity>Sight</capacity><postFactor>1.50</postFactor></li>
-                    <li><capacity>Eating</capacity><postFactor>1.50</postFactor></li>
-                    <li><capacity>BloodPumping</capacity><postFactor>1.50</postFactor></li>
-                    <li><capacity>BloodFiltration</capacity><postFactor>1.50</postFactor></li>
-                    <li><capacity>Breathing</capacity><postFactor>1.50</postFactor></li>
+                    <li><capacity>Consciousness</capacity><offset>0.2</offset><postFactor>1.05</postFactor></li>
+                    <li><capacity>Hearing</capacity><offset>0.2</offset><postFactor>1.05</postFactor></li>
+                    <li><capacity>Talking</capacity><offset>0.2</offset><postFactor>1.05</postFactor></li>
+                    <li><capacity>Manipulation</capacity><offset>0.2</offset><postFactor>1.05</postFactor></li>
+                    <li><capacity>Sight</capacity><offset>0.2</offset><postFactor>1.05</postFactor></li>
+                    <li><capacity>Eating</capacity><offset>0.2</offset><postFactor>1.05</postFactor></li>
+                    <li><capacity>BloodPumping</capacity><offset>0.2</offset><postFactor>1.05</postFactor></li>
+                    <li><capacity>BloodFiltration</capacity><offset>0.2</offset><postFactor>1.05</postFactor></li>
+                    <li><capacity>Breathing</capacity><offset>0.2</offset><postFactor>1.05</postFactor></li>
                 </capMods>
                 <regeneration>50</regeneration>
             </li>
@@ -427,9 +419,12 @@
         <stages>
             <li>
                 <statFactors>
-                    <MeleeCooldownFactor>0.40</MeleeCooldownFactor>
-                    <MoveSpeed>2</MoveSpeed>
+                    <MeleeDamageFactor>1.5</MeleeDamageFactor>
+                    <MeleeCooldownFactor>0.5</MeleeCooldownFactor>
                 </statFactors>
+                <statOffsets>
+                    <MoveSpeed>0.5</MoveSpeed>
+                </statOffsets>
                 <regeneration>50</regeneration>
             </li>
         </stages>
@@ -450,11 +445,11 @@
         <isBad>false</isBad>
         <stages>
             <li>
-                <statFactors>
-                    <WorkSpeedGlobal>4.0</WorkSpeedGlobal>
-                </statFactors>
+                <statOffsets>
+                    <WorkSpeedGlobal>2</WorkSpeedGlobal>
+                </statOffsets>
                 <capMods>
-                    <li><capacity>Manipulation</capacity><postFactor>4</postFactor></li>
+                    <li><capacity>Manipulation</capacity><offset>0.20</offset></li>
                 </capMods>
             </li>
         </stages>
@@ -778,12 +773,12 @@
             <li>
                 <minSeverity>0</minSeverity>
                 <statFactors>
-                    <MeleeDamageFactor>1.5</MeleeDamageFactor>
-                    <MoveSpeed>1.50</MoveSpeed>
                     <ArmorRating_Sharp>1.20</ArmorRating_Sharp>
                     <ArmorRating_Blunt>1.20</ArmorRating_Blunt>
                 </statFactors>
                 <statOffsets>
+                    <MeleeDamageFactor>0.50</MeleeDamageFactor>
+                    <MoveSpeed>0.50</MoveSpeed>
                     <ArmorRating_Sharp>0.2</ArmorRating_Sharp>
                     <ArmorRating_Blunt>0.2</ArmorRating_Blunt>
                     <ToxicResistance>1</ToxicResistance>
@@ -792,15 +787,15 @@
                     <VacuumResistance MayRequire="Ludeon.RimWorld.Odyssey">1</VacuumResistance>
                 </statOffsets>
                 <capMods>
-                    <li><capacity>Consciousness</capacity><postFactor>1.50</postFactor></li>
-                    <li><capacity>Hearing</capacity><postFactor>1.50</postFactor></li>
-                    <li><capacity>Talking</capacity><postFactor>1.50</postFactor></li>
-                    <li><capacity>Manipulation</capacity><postFactor>1.50</postFactor></li>
-                    <li><capacity>Sight</capacity><postFactor>1.50</postFactor></li>
-                    <li><capacity>Eating</capacity><postFactor>1.50</postFactor></li>
-                    <li><capacity>BloodPumping</capacity><postFactor>1.50</postFactor></li>
-                    <li><capacity>BloodFiltration</capacity><postFactor>1.50</postFactor></li>
-                    <li><capacity>Breathing</capacity><postFactor>1.50</postFactor></li>
+                    <li><capacity>Consciousness</capacity><offset>0.2</offset><postFactor>1.05</postFactor></li>
+                    <li><capacity>Hearing</capacity><offset>0.2</offset><postFactor>1.05</postFactor></li>
+                    <li><capacity>Talking</capacity><offset>0.2</offset><postFactor>1.05</postFactor></li>
+                    <li><capacity>Manipulation</capacity><offset>0.2</offset><postFactor>1.05</postFactor></li>
+                    <li><capacity>Sight</capacity><offset>0.2</offset><postFactor>1.05</postFactor></li>
+                    <li><capacity>Eating</capacity><offset>0.2</offset><postFactor>1.05</postFactor></li>
+                    <li><capacity>BloodPumping</capacity><offset>0.2</offset><postFactor>1.05</postFactor></li>
+                    <li><capacity>BloodFiltration</capacity><offset>0.2</offset><postFactor>1.05</postFactor></li>
+                    <li><capacity>Breathing</capacity><offset>0.2</offset><postFactor>1.05</postFactor></li>
                 </capMods>
                 <regeneration>350</regeneration>
                 <disablesNeeds>
@@ -868,25 +863,25 @@
             <li>
                 <statFactors>
                     <MeleeCooldownFactor>0.60</MeleeCooldownFactor>
-                    <MeleeDamageFactor>2</MeleeDamageFactor>
-                    <MoveSpeed>1.75</MoveSpeed>
                 </statFactors>
                 <statOffsets>
+                    <MeleeDamageFactor>0.50</MeleeDamageFactor>
+                    <MoveSpeed>0.75</MoveSpeed>
                     <ToxicResistance>1</ToxicResistance>
                     <ComfyTemperatureMax>100</ComfyTemperatureMax>
                     <ComfyTemperatureMin>-200</ComfyTemperatureMin>
                     <VacuumResistance MayRequire="Ludeon.RimWorld.Odyssey">1</VacuumResistance>
                 </statOffsets>
                 <capMods>
-                    <li><capacity>Consciousness</capacity><postFactor>1.50</postFactor></li>
-                    <li><capacity>Hearing</capacity><postFactor>1.50</postFactor></li>
-                    <li><capacity>Talking</capacity><postFactor>1.50</postFactor></li>
-                    <li><capacity>Manipulation</capacity><postFactor>1.50</postFactor></li>
-                    <li><capacity>Sight</capacity><postFactor>1.50</postFactor></li>
-                    <li><capacity>Eating</capacity><postFactor>1.50</postFactor></li>
-                    <li><capacity>BloodPumping</capacity><postFactor>1.50</postFactor></li>
-                    <li><capacity>BloodFiltration</capacity><postFactor>1.50</postFactor></li>
-                    <li><capacity>Breathing</capacity><postFactor>1.50</postFactor></li>
+                    <li><capacity>Consciousness</capacity><offset>0.2</offset><postFactor>1.05</postFactor></li>
+                    <li><capacity>Hearing</capacity><offset>0.2</offset><postFactor>1.05</postFactor></li>
+                    <li><capacity>Talking</capacity><offset>0.2</offset><postFactor>1.05</postFactor></li>
+                    <li><capacity>Manipulation</capacity><offset>0.2</offset><postFactor>1.05</postFactor></li>
+                    <li><capacity>Sight</capacity><offset>0.2</offset><postFactor>1.05</postFactor></li>
+                    <li><capacity>Eating</capacity><offset>0.2</offset><postFactor>1.05</postFactor></li>
+                    <li><capacity>BloodPumping</capacity><offset>0.2</offset><postFactor>1.05</postFactor></li>
+                    <li><capacity>BloodFiltration</capacity><offset>0.2</offset><postFactor>1.05</postFactor></li>
+                    <li><capacity>Breathing</capacity><offset>0.2</offset><postFactor>1.05</postFactor></li>
                 </capMods>
                 <regeneration>350</regeneration>
                 <disablesNeeds>
@@ -1265,7 +1260,7 @@
                     <IncomingDamageFactor>0.8</IncomingDamageFactor>
                 </statFactors>
                 <capMods>
-                    <li><capacity>Consciousness</capacity><postFactor>1.25</postFactor></li>
+                    <li><capacity>Consciousness</capacity><offset>0.20</offset></li>
                 </capMods>
                 <regeneration>25</regeneration>
             </li>
@@ -1275,7 +1270,7 @@
                     <IncomingDamageFactor>0.6</IncomingDamageFactor>
                 </statFactors>
                 <capMods>
-                    <li><capacity>Consciousness</capacity><postFactor>1.50</postFactor></li>
+                    <li><capacity>Consciousness</capacity><offset>0.40</offset></li>
                 </capMods>
                 <regeneration>50</regeneration>
             </li>
@@ -1285,7 +1280,7 @@
                     <IncomingDamageFactor>0.5</IncomingDamageFactor>
                 </statFactors>
                 <capMods>
-                    <li><capacity>Consciousness</capacity><postFactor>1.75</postFactor></li>
+                    <li><capacity>Consciousness</capacity><offset>0.60</offset></li>
                 </capMods>
                 <regeneration>100</regeneration>
             </li>
@@ -1295,7 +1290,7 @@
                     <IncomingDamageFactor>0.4</IncomingDamageFactor>
                 </statFactors>
                 <capMods>
-                    <li><capacity>Consciousness</capacity><postFactor>1.75</postFactor></li>
+                    <li><capacity>Consciousness</capacity><offset>0.80</offset></li>
                 </capMods>
                 <regeneration>150</regeneration>
             </li>
@@ -1305,7 +1300,7 @@
                     <IncomingDamageFactor>0.3</IncomingDamageFactor>
                 </statFactors>
                 <capMods>
-                    <li><capacity>Consciousness</capacity><postFactor>2</postFactor></li>
+                    <li><capacity>Consciousness</capacity><offset>1</offset></li>
                 </capMods>
                 <regeneration>200</regeneration>
             </li>
