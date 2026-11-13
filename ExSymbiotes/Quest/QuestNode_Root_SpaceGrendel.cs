@@ -33,12 +33,9 @@ namespace ExSymbiotes
       string inSignal = QuestGenUtility.HardcodedSignalWithQuestID("worldObject.MapRemoved");
       int delayTicks = QuestNode_Root_SpaceGrendel.TimeoutDays.RandomInRange * 60000;
       quest.WorldObjectTimeout((WorldObject)var, delayTicks);
-      quest.Delay(delayTicks, (Action)(() =>
-      {
-        QuestGen_End.End(quest, QuestEndOutcome.Fail);
-        var.timeOut = true;
-      }));
+      quest.Delay(delayTicks, (Action)(() => QuestGen_End.End(quest, QuestEndOutcome.Fail)));
       quest.End(QuestEndOutcome.Success, inSignal: inSignal);
+      var.quest = quest;
       Find.LetterStack.ReceiveLetter("ExSymbiotes.SpaceGrendelLetter".Translate(),
         "ExSymbiotes.SpaceGrendelText".Translate(), LetterDefOf.ThreatBig, null, null, quest);
     }
