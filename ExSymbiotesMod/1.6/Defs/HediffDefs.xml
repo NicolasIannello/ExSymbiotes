@@ -67,6 +67,9 @@
         <label>symbiosis (Black)</label>
         <stages>
             <li>
+                <statFactors>
+                    <IncomingDamageFactor>0.7</IncomingDamageFactor>
+                </statFactors>
                 <damageFactors>
                     <Flame>3</Flame>
                     <Burn>3</Burn>
@@ -75,7 +78,6 @@
                     <MeleeDamageFactor>0.5</MeleeDamageFactor>
                     <MoveSpeed>0.5</MoveSpeed>
                     <WorkSpeedGlobal>1</WorkSpeedGlobal>
-                    <IncomingDamageFactor>0.5</IncomingDamageFactor>
                     <ToxicResistance>1</ToxicResistance>
                     <ComfyTemperatureMax>100</ComfyTemperatureMax>
                     <ComfyTemperatureMin>-200</ComfyTemperatureMin>
@@ -241,11 +243,13 @@
         <label>symbiosis (White)</label>
         <stages>
             <li>
+                <statFactors>
+                    <IncomingDamageFactor>0.7</IncomingDamageFactor>
+                </statFactors>
                 <statOffsets>
                     <MeleeDamageFactor>0.5</MeleeDamageFactor>
                     <MoveSpeed>0.5</MoveSpeed>
                     <WorkSpeedGlobal>1</WorkSpeedGlobal>
-                    <IncomingDamageFactor>0.5</IncomingDamageFactor>
                     <ToxicResistance>1</ToxicResistance>
                     <ComfyTemperatureMax>100</ComfyTemperatureMax>
                     <ComfyTemperatureMin>-200</ComfyTemperatureMin>
