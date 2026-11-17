@@ -245,7 +245,7 @@ namespace ExSymbiotes.Utils
             private static void MetalhorrorDetectionCheck(Pawn pawn, Pawn recipient, string symbiote)
             {
                 Hediff_MetalhorrorImplant firstHediff = recipient.health.hediffSet.GetFirstHediff<Hediff_MetalhorrorImplant>();
-                if (!MetalhorrorUtility.IsInfected(recipient) || firstHediff == null || firstHediff.Visible || !Rand.Chance(1f / 10f) && !firstHediff.debugDiscoverNextInteraction)
+                if (!MetalhorrorUtility.IsInfected(recipient) || firstHediff == null || firstHediff.Visible || !Rand.Chance(3f / 100f) && !firstHediff.debugDiscoverNextInteraction)
                     return;
                 TaggedString reason = "ExSymbiotes.MetalhorrorReasonInteraction".Translate(symbiote, recipient.Named("INFECTED"));
                 TaggedString taggedString = "ExSymbiotes.MetalhorrorNoticedDetailsAppended".Translate();
