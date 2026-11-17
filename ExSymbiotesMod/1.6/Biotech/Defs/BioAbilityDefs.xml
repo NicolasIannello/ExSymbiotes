@@ -110,7 +110,7 @@
         <targetRequired>false</targetRequired>
         <casterMustBeCapableOfViolence>true</casterMustBeCapableOfViolence>
         <statBases>
-            <Ability_Duration>15</Ability_Duration>
+            <Ability_Duration>22</Ability_Duration>
         </statBases>
         <verbProperties>
             <verbClass>Verb_CastAbility</verbClass>

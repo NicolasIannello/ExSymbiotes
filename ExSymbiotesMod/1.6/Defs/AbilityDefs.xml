@@ -11,7 +11,7 @@
         <targetRequired>false</targetRequired>
         <casterMustBeCapableOfViolence>false</casterMustBeCapableOfViolence>
         <statBases>
-            <Ability_Duration>30</Ability_Duration>
+            <Ability_Duration>86</Ability_Duration><!--2hrs-->
         </statBases>
         <verbProperties>
             <verbClass>Verb_CastAbility</verbClass>
@@ -81,7 +81,7 @@
         <targetRequired>false</targetRequired>
         <casterMustBeCapableOfViolence>true</casterMustBeCapableOfViolence>
         <statBases>
-            <Ability_Duration>120</Ability_Duration>
+            <Ability_Duration>172</Ability_Duration><!--4hrs-->
         </statBases>
         <verbProperties>
             <verbClass>Verb_CastAbility</verbClass>
@@ -120,7 +120,7 @@
         <targetRequired>false</targetRequired>
         <casterMustBeCapableOfViolence>true</casterMustBeCapableOfViolence>
         <statBases>
-            <Ability_Duration>60</Ability_Duration>
+            <Ability_Duration>172</Ability_Duration>
         </statBases>
         <verbProperties>
             <verbClass>Verb_CastAbility</verbClass>
