@@ -10,11 +10,10 @@
                     <Burn>3</Burn>
                 </damageFactors>
                 <statOffsets>
-                    <MeleeDamageFactor>0.25</MeleeDamageFactor>
+                    <MeleeDamageFactor>0.15</MeleeDamageFactor>
                     <MoveSpeed>0.50</MoveSpeed>
                     <WorkSpeedGlobal>1</WorkSpeedGlobal>
                     <ToxicResistance>1</ToxicResistance>
-                    <ComfyTemperatureMax>100</ComfyTemperatureMax>
                     <ComfyTemperatureMin>-200</ComfyTemperatureMin>
                     <VacuumResistance MayRequire="Ludeon.RimWorld.Odyssey">1</VacuumResistance>
                     <MechControlGroups>1</MechControlGroups>
