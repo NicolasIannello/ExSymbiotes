@@ -4,11 +4,11 @@
 	<ThingDef ParentName="BasePawn" Name="ExSymbiotes_BaseSymbiote" Abstract="True">
 		<statBases>
 			<ComfyTemperatureMin>-200</ComfyTemperatureMin>
-			<ComfyTemperatureMax>100</ComfyTemperatureMax>
 			<Flammability>2</Flammability>
 			<MeatAmount>0</MeatAmount>
 			<VacuumResistance MayRequire="Ludeon.RimWorld.Odyssey">1</VacuumResistance>
 			<EMPResistance>0.6</EMPResistance>
+			<StaggerDurationFactor>0</StaggerDurationFactor>
 		</statBases>
 		<tradeability>None</tradeability>
 		<hiddenWhileUndiscovered>true</hiddenWhileUndiscovered>
