@@ -6,8 +6,8 @@
         <stages>
             <li>
                 <damageFactors>
-                    <Flame>3</Flame>
-                    <Burn>3</Burn>
+                    <Flame>2</Flame>
+                    <Burn>2</Burn>
                 </damageFactors>
                 <statOffsets>
                     <MeleeDamageFactor>0.15</MeleeDamageFactor>
