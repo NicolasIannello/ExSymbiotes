@@ -75,11 +75,10 @@
                     <Burn>3</Burn>
                 </damageFactors>
                 <statOffsets>
-                    <MeleeDamageFactor>0.5</MeleeDamageFactor>
+                    <MeleeDamageFactor>0.15</MeleeDamageFactor>
                     <MoveSpeed>0.5</MoveSpeed>
                     <WorkSpeedGlobal>1</WorkSpeedGlobal>
                     <ToxicResistance>1</ToxicResistance>
-                    <ComfyTemperatureMax>100</ComfyTemperatureMax>
                     <ComfyTemperatureMin>-200</ComfyTemperatureMin>
                     <VacuumResistance MayRequire="Ludeon.RimWorld.Odyssey">1</VacuumResistance>
                 </statOffsets>
@@ -179,11 +178,10 @@
                     <Burn>3</Burn>
                 </damageFactors>
                 <statOffsets>
-                    <MeleeDamageFactor>1</MeleeDamageFactor>
+                    <MeleeDamageFactor>0.25</MeleeDamageFactor>
                     <MoveSpeed>0.75</MoveSpeed>
                     <WorkSpeedGlobal>1</WorkSpeedGlobal>
                     <ToxicResistance>1</ToxicResistance>
-                    <ComfyTemperatureMax>100</ComfyTemperatureMax>
                     <ComfyTemperatureMin>-200</ComfyTemperatureMin>
                     <VacuumResistance MayRequire="Ludeon.RimWorld.Odyssey">1</VacuumResistance>
                 </statOffsets>
@@ -247,11 +245,10 @@
                     <IncomingDamageFactor>0.7</IncomingDamageFactor>
                 </statFactors>
                 <statOffsets>
-                    <MeleeDamageFactor>0.5</MeleeDamageFactor>
+                    <MeleeDamageFactor>0.15</MeleeDamageFactor>
                     <MoveSpeed>0.5</MoveSpeed>
                     <WorkSpeedGlobal>1</WorkSpeedGlobal>
                     <ToxicResistance>1</ToxicResistance>
-                    <ComfyTemperatureMax>100</ComfyTemperatureMax>
                     <ComfyTemperatureMin>-200</ComfyTemperatureMin>
                     <VacuumResistance MayRequire="Ludeon.RimWorld.Odyssey">1</VacuumResistance>
                 </statOffsets>
@@ -325,11 +322,10 @@
                     <Burn>3</Burn>
                 </damageFactors>
                 <statOffsets>
-                    <MeleeDamageFactor>1</MeleeDamageFactor>
+                    <MeleeDamageFactor>0.25</MeleeDamageFactor>
                     <MoveSpeed>0.75</MoveSpeed>
                     <WorkSpeedGlobal>1</WorkSpeedGlobal>
                     <ToxicResistance>1</ToxicResistance>
-                    <ComfyTemperatureMax>100</ComfyTemperatureMax>
                     <ComfyTemperatureMin>-200</ComfyTemperatureMin>
                     <VacuumResistance MayRequire="Ludeon.RimWorld.Odyssey">1</VacuumResistance>
                 </statOffsets>
@@ -399,6 +395,7 @@
                     <ArmorRating_Blunt>0.2</ArmorRating_Blunt>
                 </statOffsets>
                 <statFactors>
+                    <StaggerDurationFactor>0</StaggerDurationFactor>
                     <ArmorRating_Sharp>1.20</ArmorRating_Sharp>
                     <ArmorRating_Blunt>1.20</ArmorRating_Blunt>
                 </statFactors>
@@ -423,10 +420,10 @@
         <stages>
             <li>
                 <statFactors>
-                    <MeleeDamageFactor>1.5</MeleeDamageFactor>
-                    <MeleeCooldownFactor>0.5</MeleeCooldownFactor>
+                    <MeleeCooldownFactor>0.75</MeleeCooldownFactor>
                 </statFactors>
                 <statOffsets>
+                    <MeleeDamageFactor>0.25</MeleeDamageFactor>
                     <MoveSpeed>0.5</MoveSpeed>
                 </statOffsets>
                 <regeneration>50</regeneration>
@@ -781,12 +778,11 @@
                     <ArmorRating_Blunt>1.20</ArmorRating_Blunt>
                 </statFactors>
                 <statOffsets>
-                    <MeleeDamageFactor>0.50</MeleeDamageFactor>
+                    <MeleeDamageFactor>0.15</MeleeDamageFactor>
                     <MoveSpeed>0.50</MoveSpeed>
                     <ArmorRating_Sharp>0.2</ArmorRating_Sharp>
                     <ArmorRating_Blunt>0.2</ArmorRating_Blunt>
                     <ToxicResistance>1</ToxicResistance>
-                    <ComfyTemperatureMax>100</ComfyTemperatureMax>
                     <ComfyTemperatureMin>-200</ComfyTemperatureMin>
                     <VacuumResistance MayRequire="Ludeon.RimWorld.Odyssey">1</VacuumResistance>
                 </statOffsets>
@@ -866,13 +862,12 @@
         <stages Inherit="False">
             <li>
                 <statFactors>
-                    <MeleeCooldownFactor>0.60</MeleeCooldownFactor>
+                    <MeleeCooldownFactor>0.75</MeleeCooldownFactor>
                 </statFactors>
                 <statOffsets>
-                    <MeleeDamageFactor>0.50</MeleeDamageFactor>
+                    <MeleeDamageFactor>0.25</MeleeDamageFactor>
                     <MoveSpeed>0.75</MoveSpeed>
                     <ToxicResistance>1</ToxicResistance>
-                    <ComfyTemperatureMax>100</ComfyTemperatureMax>
                     <ComfyTemperatureMin>-200</ComfyTemperatureMin>
                     <VacuumResistance MayRequire="Ludeon.RimWorld.Odyssey">1</VacuumResistance>
                 </statOffsets>
