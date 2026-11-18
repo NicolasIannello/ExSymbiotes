@@ -3,37 +3,6 @@
     <HediffDef ParentName="ExSymbiotes_SymbiosisBase">
         <defName>ExSymbiotes_Symbiosis_Purple</defName>
         <label>symbiosis (Purple)</label>
-        <stages>
-            <li>
-                <damageFactors>
-                    <Flame>2</Flame>
-                    <Burn>2</Burn>
-                </damageFactors>
-                <statOffsets>
-                    <MeleeDamageFactor>0.15</MeleeDamageFactor>
-                    <MoveSpeed>0.50</MoveSpeed>
-                    <WorkSpeedGlobal>1</WorkSpeedGlobal>
-                    <ToxicResistance>1</ToxicResistance>
-                    <ComfyTemperatureMin>-200</ComfyTemperatureMin>
-                    <VacuumResistance MayRequire="Ludeon.RimWorld.Odyssey">1</VacuumResistance>
-                    <MechControlGroups>1</MechControlGroups>
-                    <MechRepairSpeed>2</MechRepairSpeed>
-                    <MechBandwidth>10</MechBandwidth>
-                </statOffsets>
-                <capMods>
-                    <li><capacity>Consciousness</capacity><offset>0.2</offset><postFactor>1.05</postFactor></li>
-                    <li><capacity>Hearing</capacity><offset>0.2</offset><postFactor>1.05</postFactor></li>
-                    <li><capacity>Talking</capacity><offset>0.2</offset><postFactor>1.05</postFactor></li>
-                    <li><capacity>Manipulation</capacity><offset>0.2</offset><postFactor>1.05</postFactor></li>
-                    <li><capacity>Sight</capacity><offset>0.2</offset><postFactor>1.05</postFactor></li>
-                    <li><capacity>Eating</capacity><offset>0.2</offset><postFactor>1.05</postFactor></li>
-                    <li><capacity>BloodPumping</capacity><offset>0.2</offset><postFactor>1.05</postFactor></li>
-                    <li><capacity>BloodFiltration</capacity><offset>0.2</offset><postFactor>1.05</postFactor></li>
-                    <li><capacity>Breathing</capacity><offset>0.2</offset><postFactor>1.05</postFactor></li>
-                </capMods>
-                <regeneration>50</regeneration>
-            </li>
-        </stages>
         <comps>
             <li Class="ExSymbiotes.HediffCompProperties_SymbioticShield"/>
             <li Class="ExSymbiotes.HediffCompProperties_Symbiosis">
@@ -47,6 +16,25 @@
                     <li>ExSymbiotes_SymbioticCannon</li>
                     <li MayRequire="Ludeon.RimWorld.Biotech">ExSymbiotes_SymbioticLongjump</li>
                 </abilityDefs>
+            </li>
+            <li Class="ExSymbiotes.HediffCompProperties_Stats">
+                <Stats>
+                    <li>
+                        <stat>MechControlGroups</stat>
+                        <value>1</value>
+                        <type>statOffsets</type>
+                    </li>
+                    <li>
+                        <stat>MechRepairSpeed</stat>
+                        <value>2</value>
+                        <type>statOffsets</type>
+                    </li>
+                    <li>
+                        <stat>MechBandwidth</stat>
+                        <value>10</value>
+                        <type>statOffsets</type>
+                    </li>
+                </Stats>
             </li>
         </comps>
         <renderNodeProperties>

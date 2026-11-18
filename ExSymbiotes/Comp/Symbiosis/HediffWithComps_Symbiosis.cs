@@ -3,7 +3,7 @@ using Verse;
 
 namespace ExSymbiotes
 {
-    public class HediffWithComps_Symbiosis : HediffWithComps
+    public class HediffWithComps_Symbiosis : HediffWithComps_SymbioteStats
     {
         public override void Notify_IngestedThing(Thing thing, int amount)
         {

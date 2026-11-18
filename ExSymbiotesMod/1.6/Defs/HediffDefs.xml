@@ -5,6 +5,34 @@
         <hediffClass>ExSymbiotes.HediffWithComps_Symbiosis</hediffClass>
         <description>This person has perform symbiosis with a symbiotic core.The symbiote lives inside them, guiding their actions and twisting their flesh.</description>
         <isBad>false</isBad>
+        <stages>
+            <li>
+                <damageFactors>
+                    <Flame>2</Flame>
+                    <Burn>2</Burn>
+                </damageFactors>
+                <statOffsets>
+                    <MeleeDamageFactor>0.15</MeleeDamageFactor>
+                    <MoveSpeed>0.5</MoveSpeed>
+                    <WorkSpeedGlobal>1</WorkSpeedGlobal>
+                    <ToxicResistance>1</ToxicResistance>
+                    <ComfyTemperatureMin>-200</ComfyTemperatureMin>
+                    <VacuumResistance MayRequire="Ludeon.RimWorld.Odyssey">1</VacuumResistance>
+                </statOffsets>
+                <capMods>
+                    <li><capacity>Consciousness</capacity><offset>0.2</offset><postFactor>1.05</postFactor></li>
+                    <li><capacity>Hearing</capacity><offset>0.2</offset><postFactor>1.05</postFactor></li>
+                    <li><capacity>Talking</capacity><offset>0.2</offset><postFactor>1.05</postFactor></li>
+                    <li><capacity>Manipulation</capacity><offset>0.2</offset><postFactor>1.05</postFactor></li>
+                    <li><capacity>Sight</capacity><offset>0.2</offset><postFactor>1.05</postFactor></li>
+                    <li><capacity>Eating</capacity><offset>0.2</offset><postFactor>1.05</postFactor></li>
+                    <li><capacity>BloodPumping</capacity><offset>0.2</offset><postFactor>1.05</postFactor></li>
+                    <li><capacity>BloodFiltration</capacity><offset>0.2</offset><postFactor>1.05</postFactor></li>
+                    <li><capacity>Breathing</capacity><offset>0.2</offset><postFactor>1.05</postFactor></li>
+                </capMods>
+                <regeneration>50</regeneration>
+            </li>
+        </stages>
         <renderNodeProperties>
             <li Class="PawnRenderNodeProperties_Eye">
                 <debugLabel>SymbioteEyeRight</debugLabel>
@@ -65,37 +93,6 @@
     <HediffDef ParentName="ExSymbiotes_SymbiosisBase">
         <defName>ExSymbiotes_Symbiosis</defName>
         <label>symbiosis (Black)</label>
-        <stages>
-            <li>
-                <statFactors>
-                    <IncomingDamageFactor>0.7</IncomingDamageFactor>
-                </statFactors>
-                <damageFactors>
-                    <Flame>2</Flame>
-                    <Burn>2</Burn>
-                </damageFactors>
-                <statOffsets>
-                    <MeleeDamageFactor>0.15</MeleeDamageFactor>
-                    <MoveSpeed>0.5</MoveSpeed>
-                    <WorkSpeedGlobal>1</WorkSpeedGlobal>
-                    <ToxicResistance>1</ToxicResistance>
-                    <ComfyTemperatureMin>-200</ComfyTemperatureMin>
-                    <VacuumResistance MayRequire="Ludeon.RimWorld.Odyssey">1</VacuumResistance>
-                </statOffsets>
-                <capMods>
-                    <li><capacity>Consciousness</capacity><offset>0.2</offset><postFactor>1.05</postFactor></li>
-                    <li><capacity>Hearing</capacity><offset>0.2</offset><postFactor>1.05</postFactor></li>
-                    <li><capacity>Talking</capacity><offset>0.2</offset><postFactor>1.05</postFactor></li>
-                    <li><capacity>Manipulation</capacity><offset>0.2</offset><postFactor>1.05</postFactor></li>
-                    <li><capacity>Sight</capacity><offset>0.2</offset><postFactor>1.05</postFactor></li>
-                    <li><capacity>Eating</capacity><offset>0.2</offset><postFactor>1.05</postFactor></li>
-                    <li><capacity>BloodPumping</capacity><offset>0.2</offset><postFactor>1.05</postFactor></li>
-                    <li><capacity>BloodFiltration</capacity><offset>0.2</offset><postFactor>1.05</postFactor></li>
-                    <li><capacity>Breathing</capacity><offset>0.2</offset><postFactor>1.05</postFactor></li>
-                </capMods>
-                <regeneration>50</regeneration>
-            </li>
-        </stages>
         <comps>
             <li Class="ExSymbiotes.HediffCompProperties_Symbiosis">
                 <color>(31, 27, 28)</color>
@@ -111,6 +108,15 @@
                 </abilityDefs>
             </li>
             <li Class="ExSymbiotes.HediffCompProperties_VenomLeap"/>
+            <li Class="ExSymbiotes.HediffCompProperties_Stats">
+                <Stats>
+                    <li>
+                        <stat>IncomingDamageFactor</stat>
+                        <value>0.7</value>
+                        <type>statFactors</type>
+                    </li>
+                </Stats>
+            </li>
         </comps>
         <renderNodeProperties>
             <li>
@@ -171,34 +177,6 @@
     <HediffDef ParentName="ExSymbiotes_SymbiosisBase">
         <defName>ExSymbiotes_Symbiosis_Red</defName>
         <label>symbiosis (Red)</label>
-        <stages>
-            <li>
-                <damageFactors>
-                    <Flame>2</Flame>
-                    <Burn>2</Burn>
-                </damageFactors>
-                <statOffsets>
-                    <MeleeDamageFactor>0.25</MeleeDamageFactor>
-                    <MoveSpeed>0.75</MoveSpeed>
-                    <WorkSpeedGlobal>1</WorkSpeedGlobal>
-                    <ToxicResistance>1</ToxicResistance>
-                    <ComfyTemperatureMin>-200</ComfyTemperatureMin>
-                    <VacuumResistance MayRequire="Ludeon.RimWorld.Odyssey">1</VacuumResistance>
-                </statOffsets>
-                <capMods>
-                    <li><capacity>Consciousness</capacity><offset>0.2</offset><postFactor>1.05</postFactor></li>
-                    <li><capacity>Hearing</capacity><offset>0.2</offset><postFactor>1.05</postFactor></li>
-                    <li><capacity>Talking</capacity><offset>0.2</offset><postFactor>1.05</postFactor></li>
-                    <li><capacity>Manipulation</capacity><offset>0.2</offset><postFactor>1.05</postFactor></li>
-                    <li><capacity>Sight</capacity><offset>0.2</offset><postFactor>1.05</postFactor></li>
-                    <li><capacity>Eating</capacity><offset>0.2</offset><postFactor>1.05</postFactor></li>
-                    <li><capacity>BloodPumping</capacity><offset>0.2</offset><postFactor>1.05</postFactor></li>
-                    <li><capacity>BloodFiltration</capacity><offset>0.2</offset><postFactor>1.05</postFactor></li>
-                    <li><capacity>Breathing</capacity><offset>0.2</offset><postFactor>1.05</postFactor></li>
-                </capMods>
-                <regeneration>50</regeneration>
-            </li>
-        </stages>
         <comps>
             <li Class="ExSymbiotes.HediffCompProperties_Symbiosis">
                 <color>(156, 9, 9)</color>
@@ -210,6 +188,20 @@
                     <li>ExSymbiotes_SymbioticScythe</li>
                     <li MayRequire="Ludeon.RimWorld.Biotech">ExSymbiotes_SymbioticLongjump</li>
                 </abilityDefs>
+            </li>
+            <li Class="ExSymbiotes.HediffCompProperties_Stats">
+                <Stats>
+                    <li>
+                        <stat>MeleeDamageFactor</stat>
+                        <value>0.25</value>
+                        <type>statOffsets</type>
+                    </li>
+                    <li>
+                        <stat>MoveSpeed</stat>
+                        <value>0.75</value>
+                        <type>statOffsets</type>
+                    </li>
+                </Stats>
             </li>
         </comps>
         <renderNodeProperties>
@@ -239,33 +231,6 @@
     <HediffDef ParentName="ExSymbiotes_SymbiosisBase">
         <defName>ExSymbiotes_Symbiosis_White</defName>
         <label>symbiosis (White)</label>
-        <stages>
-            <li>
-                <statFactors>
-                    <IncomingDamageFactor>0.7</IncomingDamageFactor>
-                </statFactors>
-                <statOffsets>
-                    <MeleeDamageFactor>0.15</MeleeDamageFactor>
-                    <MoveSpeed>0.5</MoveSpeed>
-                    <WorkSpeedGlobal>1</WorkSpeedGlobal>
-                    <ToxicResistance>1</ToxicResistance>
-                    <ComfyTemperatureMin>-200</ComfyTemperatureMin>
-                    <VacuumResistance MayRequire="Ludeon.RimWorld.Odyssey">1</VacuumResistance>
-                </statOffsets>
-                <capMods>
-                    <li><capacity>Consciousness</capacity><offset>0.2</offset><postFactor>1.05</postFactor></li>
-                    <li><capacity>Hearing</capacity><offset>0.2</offset><postFactor>1.05</postFactor></li>
-                    <li><capacity>Talking</capacity><offset>0.2</offset><postFactor>1.05</postFactor></li>
-                    <li><capacity>Manipulation</capacity><offset>0.2</offset><postFactor>1.05</postFactor></li>
-                    <li><capacity>Sight</capacity><offset>0.2</offset><postFactor>1.05</postFactor></li>
-                    <li><capacity>Eating</capacity><offset>0.2</offset><postFactor>1.05</postFactor></li>
-                    <li><capacity>BloodPumping</capacity><offset>0.2</offset><postFactor>1.05</postFactor></li>
-                    <li><capacity>BloodFiltration</capacity><offset>0.2</offset><postFactor>1.05</postFactor></li>
-                    <li><capacity>Breathing</capacity><offset>0.2</offset><postFactor>1.05</postFactor></li>
-                </capMods>
-                <regeneration>200</regeneration>
-            </li>
-        </stages>
         <comps Inherit="False">
             <li Class="ExSymbiotes.HediffCompProperties_Symbiosis">
                 <color>(240, 240, 240)</color>
@@ -286,6 +251,19 @@
                 <letterLabel>Symbiosis pawn death</letterLabel>
                 <letterText>{PAWN} has died while being bonded with a symbiote. If the bond between {PAWN} and the symbiote was strong enough the symbiote will attemp to resurrect {PAWN} at the cost of its own life.\n\nYou can also harvest the symbiote from the corpse to use on another colonist.</letterText>
                 <onlyIfNoMechanitorDied>true</onlyIfNoMechanitorDied>
+            </li>
+            <li Class="ExSymbiotes.HediffCompProperties_Stats">
+                <Stats>
+                    <li>
+                        <stat>IncomingDamageFactor</stat>
+                        <value>0.7</value>
+                        <type>statFactors</type>
+                    </li>
+                </Stats>
+                <regenValue>200</regenValue>
+                <StatDefRemoveGroup>
+                    <li>damageFactors</li>
+                </StatDefRemoveGroup>
             </li>
         </comps>
         <renderNodeProperties>
@@ -315,34 +293,6 @@
     <HediffDef ParentName="ExSymbiotes_SymbiosisBase">
         <defName>ExSymbiotes_Symbiosis_Yellow</defName>
         <label>symbiosis (Yellow)</label>
-        <stages>
-            <li>
-                <damageFactors>
-                    <Flame>2</Flame>
-                    <Burn>2</Burn>
-                </damageFactors>
-                <statOffsets>
-                    <MeleeDamageFactor>0.25</MeleeDamageFactor>
-                    <MoveSpeed>0.75</MoveSpeed>
-                    <WorkSpeedGlobal>1</WorkSpeedGlobal>
-                    <ToxicResistance>1</ToxicResistance>
-                    <ComfyTemperatureMin>-200</ComfyTemperatureMin>
-                    <VacuumResistance MayRequire="Ludeon.RimWorld.Odyssey">1</VacuumResistance>
-                </statOffsets>
-                <capMods>
-                    <li><capacity>Consciousness</capacity><offset>0.2</offset><postFactor>1.05</postFactor></li>
-                    <li><capacity>Hearing</capacity><offset>0.2</offset><postFactor>1.05</postFactor></li>
-                    <li><capacity>Talking</capacity><offset>0.2</offset><postFactor>1.05</postFactor></li>
-                    <li><capacity>Manipulation</capacity><offset>0.2</offset><postFactor>1.05</postFactor></li>
-                    <li><capacity>Sight</capacity><offset>0.2</offset><postFactor>1.05</postFactor></li>
-                    <li><capacity>Eating</capacity><offset>0.2</offset><postFactor>1.05</postFactor></li>
-                    <li><capacity>BloodPumping</capacity><offset>0.2</offset><postFactor>1.05</postFactor></li>
-                    <li><capacity>BloodFiltration</capacity><offset>0.2</offset><postFactor>1.05</postFactor></li>
-                    <li><capacity>Breathing</capacity><offset>0.2</offset><postFactor>1.05</postFactor></li>
-                </capMods>
-                <regeneration>50</regeneration>
-            </li>
-        </stages>
         <comps>
             <li Class="ExSymbiotes.HediffCompProperties_Symbiosis">
                 <color>(255, 215, 0)</color>
@@ -355,6 +305,20 @@
                     <li>ExSymbiotes_SymbioticStun</li>
                     <li>ExSymbiotes_SymbioticWhip</li>
                 </abilityDefs>
+            </li>
+            <li Class="ExSymbiotes.HediffCompProperties_Stats">
+                <Stats>
+                    <li>
+                        <stat>MeleeDamageFactor</stat>
+                        <value>0.25</value>
+                        <type>statOffsets</type>
+                    </li>
+                    <li>
+                        <stat>MoveSpeed</stat>
+                        <value>0.75</value>
+                        <type>statOffsets</type>
+                    </li>
+                </Stats>
             </li>
         </comps>
         <renderNodeProperties>
@@ -761,52 +725,18 @@
     </HediffDef>
     
 <!--    CONTROLLED  -->
-    <HediffDef Name="ExSymbiotes_SymbioteControl">
+    <HediffDef Name="ExSymbiotes_SymbioteControl" ParentName="ExSymbiotes_SymbiosisBase">
         <defName>ExSymbiotes_SymbioteControl</defName>
         <label>symbiote control (black)</label>
-        <hediffClass>HediffWithComps</hediffClass>
+        <hediffClass>ExSymbiotes.HediffWithComps_SymbioteStats</hediffClass>
         <description>This creature has been taken over by a symbiote. It will create a new symbiote in the span of a day. The symbiote will abandon its host once it recieves enough damage or if it is disrupted with fire or EMP.</description>
         <isBad>true</isBad>
         <initialSeverity>0.001</initialSeverity>
         <maxSeverity>1</maxSeverity>
         <alwaysShowSeverity>true</alwaysShowSeverity>
-        <stages>
-            <li>
-                <minSeverity>0</minSeverity>
-                <statFactors>
-                    <ArmorRating_Sharp>1.20</ArmorRating_Sharp>
-                    <ArmorRating_Blunt>1.20</ArmorRating_Blunt>
-                </statFactors>
-                <statOffsets>
-                    <MeleeDamageFactor>0.15</MeleeDamageFactor>
-                    <MoveSpeed>0.50</MoveSpeed>
-                    <ArmorRating_Sharp>0.2</ArmorRating_Sharp>
-                    <ArmorRating_Blunt>0.2</ArmorRating_Blunt>
-                    <ToxicResistance>1</ToxicResistance>
-                    <ComfyTemperatureMin>-200</ComfyTemperatureMin>
-                    <VacuumResistance MayRequire="Ludeon.RimWorld.Odyssey">1</VacuumResistance>
-                </statOffsets>
-                <capMods>
-                    <li><capacity>Consciousness</capacity><offset>0.2</offset><postFactor>1.05</postFactor></li>
-                    <li><capacity>Hearing</capacity><offset>0.2</offset><postFactor>1.05</postFactor></li>
-                    <li><capacity>Talking</capacity><offset>0.2</offset><postFactor>1.05</postFactor></li>
-                    <li><capacity>Manipulation</capacity><offset>0.2</offset><postFactor>1.05</postFactor></li>
-                    <li><capacity>Sight</capacity><offset>0.2</offset><postFactor>1.05</postFactor></li>
-                    <li><capacity>Eating</capacity><offset>0.2</offset><postFactor>1.05</postFactor></li>
-                    <li><capacity>BloodPumping</capacity><offset>0.2</offset><postFactor>1.05</postFactor></li>
-                    <li><capacity>BloodFiltration</capacity><offset>0.2</offset><postFactor>1.05</postFactor></li>
-                    <li><capacity>Breathing</capacity><offset>0.2</offset><postFactor>1.05</postFactor></li>
-                </capMods>
-                <regeneration>350</regeneration>
-                <disablesNeeds>
-                    <li>Food</li>
-                    <li>Rest</li>
-                </disablesNeeds>
-            </li>
-        </stages>
-        <comps>
+        <comps Inherit="False">
             <li Class="HediffCompProperties_SeverityPerDay">
-                <severityPerDay>0.55</severityPerDay>
+                <severityPerDay>0.33</severityPerDay>
             </li>
             <li Class="ExSymbiotes.HediffCompProperties_SymbioteControl">
                 <color>(31, 27, 28)</color>
@@ -817,8 +747,22 @@
             <li Class="ExSymbiotes.HediffCompProperties_ReactOnDamageStack">
                 <createHediff>ExSymbiotes_Shock</createHediff>
             </li>
+            <li Class="ExSymbiotes.HediffCompProperties_Stats">
+                <Stats>
+                    <li>
+                        <stat>IncomingDamageFactor</stat>
+                        <value>0.7</value>
+                        <type>statFactors</type>
+                    </li>
+                </Stats>
+                <regenValue>350</regenValue>
+                <NeedDef>
+                    <li>Food</li>
+                    <li>Rest</li>
+                </NeedDef>
+            </li>
         </comps>
-        <renderNodeProperties>
+        <renderNodeProperties Inherit="False">
             <li Class="ExSymbiotes.PawnRenderNodeProperties_EyeSymbiote">
                 <debugLabel>SymbioteEyeRight</debugLabel>
                 <texPath>Things/Pawn/Symbiote/Attachments/Eye/SymbioticEye</texPath>
@@ -854,40 +798,13 @@
                 </drawData>
             </li>
         </renderNodeProperties>
+        <tags Inherit="False"/>
+        <removeWithTags Inherit="False"/>
     </HediffDef>
     
     <HediffDef ParentName="ExSymbiotes_SymbioteControl">
         <defName>ExSymbiotes_SymbioteControlRed</defName>
         <label>symbiote control (red)</label>
-        <stages Inherit="False">
-            <li>
-                <statFactors>
-                    <MeleeCooldownFactor>0.75</MeleeCooldownFactor>
-                </statFactors>
-                <statOffsets>
-                    <MeleeDamageFactor>0.25</MeleeDamageFactor>
-                    <MoveSpeed>0.75</MoveSpeed>
-                    <ToxicResistance>1</ToxicResistance>
-                    <ComfyTemperatureMin>-200</ComfyTemperatureMin>
-                    <VacuumResistance MayRequire="Ludeon.RimWorld.Odyssey">1</VacuumResistance>
-                </statOffsets>
-                <capMods>
-                    <li><capacity>Consciousness</capacity><offset>0.2</offset><postFactor>1.05</postFactor></li>
-                    <li><capacity>Hearing</capacity><offset>0.2</offset><postFactor>1.05</postFactor></li>
-                    <li><capacity>Talking</capacity><offset>0.2</offset><postFactor>1.05</postFactor></li>
-                    <li><capacity>Manipulation</capacity><offset>0.2</offset><postFactor>1.05</postFactor></li>
-                    <li><capacity>Sight</capacity><offset>0.2</offset><postFactor>1.05</postFactor></li>
-                    <li><capacity>Eating</capacity><offset>0.2</offset><postFactor>1.05</postFactor></li>
-                    <li><capacity>BloodPumping</capacity><offset>0.2</offset><postFactor>1.05</postFactor></li>
-                    <li><capacity>BloodFiltration</capacity><offset>0.2</offset><postFactor>1.05</postFactor></li>
-                    <li><capacity>Breathing</capacity><offset>0.2</offset><postFactor>1.05</postFactor></li>
-                </capMods>
-                <regeneration>350</regeneration>
-                <disablesNeeds>
-                    <li>Rest</li>
-                </disablesNeeds>
-            </li>
-        </stages>
         <renderNodeProperties>
             <li Class="ExSymbiotes.PawnRenderNodeProperties_SpasticSymbiote">
                 <pawnType>HumanlikeOnly</pawnType>
@@ -1236,6 +1153,30 @@
             <li Class="ExSymbiotes.HediffCompProperties_ReactOnDamageStack">
                 <createHediff>ExSymbiotes_Shock</createHediff>
             </li>
+            <li Class="ExSymbiotes.HediffCompProperties_Stats">
+                <Stats>
+                    <li>
+                        <stat>MeleeDamageFactor</stat>
+                        <value>0.25</value>
+                        <type>statOffsets</type>
+                    </li>
+                    <li>
+                        <stat>MoveSpeed</stat>
+                        <value>0.75</value>
+                        <type>statOffsets</type>
+                    </li>
+                    <li>
+                        <stat>MeleeCooldownFactor</stat>
+                        <value>0.75</value>
+                        <type>statFactors</type>
+                    </li>
+                </Stats>
+                <regenValue>350</regenValue>
+                <NeedDef>
+                    <li>Food</li>
+                    <li>Rest</li>
+                </NeedDef>
+            </li>
         </comps>
     </HediffDef>
     
@@ -1383,6 +1324,35 @@
             </li>
             <li Class="ExSymbiotes.HediffCompProperties_ReactOnDamageStack">
                 <createHediff>ExSymbiotes_Shock</createHediff>
+            </li>
+            <li Class="ExSymbiotes.HediffCompProperties_Stats">
+                <Stats>
+                    <li>
+                        <stat>IncomingDamageFactor</stat>
+                        <value>0.7</value>
+                        <type>statFactors</type>
+                    </li>
+                    <li>
+                        <stat>MeleeDamageFactor</stat>
+                        <value>0.25</value>
+                        <type>statOffsets</type>
+                    </li>
+                    <li>
+                        <stat>MoveSpeed</stat>
+                        <value>0.75</value>
+                        <type>statOffsets</type>
+                    </li>
+                    <li>
+                        <stat>MeleeCooldownFactor</stat>
+                        <value>0.75</value>
+                        <type>statFactors</type>
+                    </li>
+                </Stats>
+                <regenValue>350</regenValue>
+                <NeedDef>
+                    <li>Food</li>
+                    <li>Rest</li>
+                </NeedDef>
             </li>
         </comps>
     </HediffDef>
