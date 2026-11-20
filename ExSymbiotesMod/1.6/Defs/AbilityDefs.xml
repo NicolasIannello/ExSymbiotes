@@ -11,7 +11,7 @@
         <targetRequired>false</targetRequired>
         <casterMustBeCapableOfViolence>false</casterMustBeCapableOfViolence>
         <statBases>
-            <Ability_Duration>86</Ability_Duration><!--2hrs-->
+            <Ability_Duration>129</Ability_Duration><!--3hrs-->
         </statBases>
         <verbProperties>
             <verbClass>Verb_CastAbility</verbClass>
@@ -263,6 +263,44 @@
             </li>
         </comps>
     </AbilityDef>
+
+    <AbilityDef>
+        <defName>ExSymbiotes_SymbioticGrendel</defName>
+        <label>symbiotic grendel</label>
+        <description>Transform into a grendel.</description>
+        <iconPath>UI/WhiteGrendel</iconPath>
+        <cooldownTicksRange>300</cooldownTicksRange>
+        <writeCombatLog>True</writeCombatLog>
+        <targetRequired>false</targetRequired>
+        <casterMustBeCapableOfViolence>false</casterMustBeCapableOfViolence>
+        <statBases>
+            <Ability_Duration>172</Ability_Duration><!--4hrs-->
+        </statBases>
+        <verbProperties>
+            <verbClass>Verb_CastAbility</verbClass>
+            <drawAimPie>false</drawAimPie>
+            <requireLineOfSight>false</requireLineOfSight>
+            <nonInterruptingSelfCast>true</nonInterruptingSelfCast>
+            <warmupTime>2</warmupTime>
+            <range>19.9</range>
+            <targetable>false</targetable>
+            <targetParams>
+                <canTargetSelf>True</canTargetSelf>
+            </targetParams>
+        </verbProperties>
+        <comps>
+            <li Class="ExSymbiotes.CompProperties_AbilitySymbiosisCost">
+                <symbiosisCost>15</symbiosisCost>
+            </li>
+            <li Class="CompProperties_AbilityGiveHediff">
+                <compClass>CompAbilityEffect_GiveHediff</compClass>
+                <hediffDef>ExSymbiotes_SymbioticGrendel</hediffDef>
+            </li>
+            <li Class="CompProperties_AbilityFleckOnTarget">
+                <fleckDef>UnnaturalHealing</fleckDef>
+            </li>
+        </comps>
+    </AbilityDef>
     
 <!--        YELLOW          -->
     <AbilityDef>
@@ -443,6 +481,7 @@
         <defName>ExSymbiotes_GrendelLeap</defName>
         <label>grendel leap</label>
         <description>Jump to a position stunning everyone and dealing damage.</description>
+        <iconPath>UI/WhiteGrendelFly</iconPath>
         <cooldownTicksRange>1200</cooldownTicksRange>
         <jobDef>CastJump</jobDef>
         <ai_IsOffensive>true</ai_IsOffensive>
@@ -472,6 +511,7 @@
         <defName>ExSymbiotes_GrendelStun</defName>
         <label>grendel stun</label>
         <description>The symbiote lashes tendrils outwards stunning everything.</description>
+        <iconPath>UI/SymbioticStunGrendel</iconPath>
         <cooldownTicksRange>2000</cooldownTicksRange>
         <ai_IsOffensive>true</ai_IsOffensive>
         <aiCanUse>true</aiCanUse>
@@ -500,6 +540,7 @@
         <defName>ExSymbiotes_GrendelBurner</defName>
         <label>grendel burner</label>
         <description>grendel fire spew.</description>
+        <iconPath>UI/GrendelBurner</iconPath>
         <aiCanUse>true</aiCanUse>
         <ai_IsIncendiary>true</ai_IsIncendiary>
         <warmupStartSound>FireSpew_Warmup</warmupStartSound>

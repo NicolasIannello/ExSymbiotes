@@ -729,6 +729,88 @@
             </li>
         </renderNodeProperties>
     </HediffDef>
+
+    <HediffDef>
+        <defName>ExSymbiotes_SymbioticGrendel</defName>
+        <label>symbiotic grendel</label>
+        <hediffClass>ExSymbiotes.HediffWithComps_SymbioticGrendel</hediffClass>
+        <description>Transformed into a grendel.</description>
+        <isBad>false</isBad>
+        <alwaysShowSeverity>false</alwaysShowSeverity>
+        <minSeverity>0.0</minSeverity>
+        <maxSeverity>1.0</maxSeverity>
+        <initialSeverity>1.0</initialSeverity>
+        <stages>
+            <li>
+                <minSeverity>0.5</minSeverity>
+                <statFactors>
+                    <MeleeDamageFactor>5</MeleeDamageFactor>
+                    <MoveSpeed>3</MoveSpeed>
+                    <StaggerDurationFactor>0</StaggerDurationFactor>
+                    <ArmorRating_Sharp>3</ArmorRating_Sharp>
+                    <ArmorRating_Blunt>3</ArmorRating_Blunt>
+                </statFactors>
+            </li>
+            <li>
+                <minSeverity>1</minSeverity>
+                <statFactors>
+                    <MeleeDamageFactor>5</MeleeDamageFactor>
+                    <MoveSpeed>3</MoveSpeed>
+                    <StaggerDurationFactor>0</StaggerDurationFactor>
+                    <ArmorRating_Sharp>3</ArmorRating_Sharp>
+                    <ArmorRating_Blunt>3</ArmorRating_Blunt>
+                </statFactors>
+                <regeneration>30000</regeneration>
+                <showRegenerationStat>false</showRegenerationStat>
+            </li>
+        </stages>
+        <comps>
+            <li Class="HediffCompProperties_Disappears">
+                <showRemainingTime>True</showRemainingTime>
+            </li>
+            <li Class="HediffCompProperties_DisappearsOnDeath"/>
+            <li Class="HediffCompProperties_GiveAbility">
+                <abilityDefs>
+                    <li>ExSymbiotes_GrendelLeap</li>
+                    <li>ExSymbiotes_GrendelStun</li>
+                    <li>ExSymbiotes_GrendelBurner</li>
+                </abilityDefs>
+            </li>
+        </comps>
+        <renderNodeProperties>
+            <li>
+                <debugLabel>SymbioticGrendel</debugLabel>
+                <nodeClass>ExSymbiotes.PawnRenderNode_SymbioticGrendel</nodeClass>
+                <texPaths>
+                    <li>Things/Pawn/Grendel/WhiteGrendelSymbiote</li>
+                </texPaths>
+                <parentTagDef>Body</parentTagDef>
+                <overrideMeshSize>1</overrideMeshSize>
+                <drawSize>7.5</drawSize>
+                <rotDrawMode>Fresh, Rotting</rotDrawMode>
+                <useSkinShader>true</useSkinShader>
+                <useRottenColor>true</useRottenColor>
+                <drawData>
+                    <scaleOffsetByBodySize>true</scaleOffsetByBodySize>
+                    <defaultData>
+                        <layer>100</layer>
+                    </defaultData>
+                    <dataSouth>
+                        <offset>(0, 0, -0.3)</offset>
+                    </dataSouth>
+                    <dataNorth>
+                        <offset>(0, 0, -0.25)</offset>
+                    </dataNorth>
+                    <dataEast>
+                        <offset>(-0.15, 0, -0.3)</offset>
+                    </dataEast>
+                    <dataWest>
+                        <offset>(0.15, 0, -0.3)</offset>
+                    </dataWest>
+                </drawData>
+            </li>
+        </renderNodeProperties>
+    </HediffDef>
     
 <!--    CONTROLLED  -->
     <HediffDef Name="ExSymbiotes_SymbioteControl" ParentName="ExSymbiotes_SymbiosisBase">

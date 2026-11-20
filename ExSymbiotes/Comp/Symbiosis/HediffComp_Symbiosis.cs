@@ -51,6 +51,8 @@ namespace ExSymbiotes
                 Pawn.health.RemoveHediff(hivemindConnection);
             if (Pawn.abilities.GetAbility(ExSymbiotesDefOf.ExSymbiotes_SymbioticWingsAbility) is Ability wingAbility)
                 Pawn.abilities.RemoveAbility(wingAbility.def);
+            if (Pawn.abilities.GetAbility(ExSymbiotesDefOf.ExSymbiotes_SymbioticGrendel) is Ability grendelAbility)
+                Pawn.abilities.RemoveAbility(grendelAbility.def);
         }
         
         public override void CompPostTick(ref float severityAdjustment)

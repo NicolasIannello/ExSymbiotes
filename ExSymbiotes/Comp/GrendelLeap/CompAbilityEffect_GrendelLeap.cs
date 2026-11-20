@@ -11,14 +11,16 @@ namespace ExSymbiotes
         public override void Apply(LocalTargetInfo target, LocalTargetInfo dest)
         {
             base.Apply(target, dest);
-            this.parent.pawn.TryGetComp<CompGrendelSymbiote>().flying = true;
+            this.parent.pawn.TryGetComp<CompGrendelSymbiote>()?.flying = true;
+            this.parent.pawn.health.hediffSet.GetFirstHediff<HediffWithComps_SymbioticGrendel>()?.flying = true;
             this.parent.pawn.Drawer.renderer.SetAllGraphicsDirty();
             SymbioteUtility.MeatSplatter(0, this.parent.pawn.Position, this.parent.pawn.Map, FleshbeastUtility.MeatExplosionSize.Small);
         }
         
         public void OnJumpCompleted(IntVec3 origin, LocalTargetInfo target)
         {
-            this.parent.pawn.TryGetComp<CompGrendelSymbiote>().flying = false;
+            this.parent.pawn.TryGetComp<CompGrendelSymbiote>()?.flying = false;
+            this.parent.pawn.health.hediffSet.GetFirstHediff<HediffWithComps_SymbioticGrendel>()?.flying = false;
             this.parent.pawn.Drawer.renderer.SetAllGraphicsDirty();
             GenExplosion.DoExplosion(this.parent.pawn.Position, this.parent.pawn.Map, this.Props2.radius, ExSymbiotesDefOf.ExSymbiotes_VenomLeap, this.parent.pawn, doVisualEffects:false, doSoundEffects:false, screenShakeFactor:0f);
             SymbioteUtility.MeatSplatter(0, this.parent.pawn.Position, this.parent.pawn.Map, FleshbeastUtility.MeatExplosionSize.Small);
