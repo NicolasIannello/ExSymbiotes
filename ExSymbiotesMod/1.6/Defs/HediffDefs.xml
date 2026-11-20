@@ -355,15 +355,15 @@
         <stages>
             <li>
                 <statOffsets>
-                    <ArmorRating_Sharp>0.2</ArmorRating_Sharp>
-                    <ArmorRating_Blunt>0.2</ArmorRating_Blunt>
+                    <ArmorRating_Sharp>0.4</ArmorRating_Sharp>
+                    <ArmorRating_Blunt>0.4</ArmorRating_Blunt>
                 </statOffsets>
                 <statFactors>
                     <StaggerDurationFactor>0</StaggerDurationFactor>
-                    <ArmorRating_Sharp>1.20</ArmorRating_Sharp>
-                    <ArmorRating_Blunt>1.20</ArmorRating_Blunt>
+                    <ArmorRating_Sharp>1.25</ArmorRating_Sharp>
+                    <ArmorRating_Blunt>1.25</ArmorRating_Blunt>
                 </statFactors>
-                <regeneration>250</regeneration>
+                <regeneration>500</regeneration>
             </li>
         </stages>
         <comps>
@@ -384,13 +384,13 @@
         <stages>
             <li>
                 <statFactors>
-                    <MeleeCooldownFactor>0.75</MeleeCooldownFactor>
+                    <MeleeCooldownFactor>0.60</MeleeCooldownFactor>
                 </statFactors>
                 <statOffsets>
                     <MeleeDamageFactor>0.25</MeleeDamageFactor>
                     <MoveSpeed>0.5</MoveSpeed>
                 </statOffsets>
-                <regeneration>50</regeneration>
+                <regeneration>100</regeneration>
             </li>
         </stages>
         <comps>
@@ -591,7 +591,7 @@
         <comps>
             <li Class="ExSymbiotes.HediffCompProperties_SymbioticTendrils">
                 <turretGunDef>ExSymbiotes_TendrilTurret</turretGunDef>
-                <cd>2</cd>
+                <cd>1.5</cd>
             </li>
             <li Class="HediffCompProperties_Disappears">
                 <showRemainingTime>True</showRemainingTime>
@@ -605,7 +605,7 @@
         <comps Inherit="False">
             <li Class="ExSymbiotes.HediffCompProperties_SymbioticTendrils">
                 <turretGunDef>ExSymbiotes_TendrilTurretBlack</turretGunDef>
-                <cd>4</cd>
+                <cd>2</cd>
             </li>
             <li Class="HediffCompProperties_Disappears">
                 <showRemainingTime>True</showRemainingTime>

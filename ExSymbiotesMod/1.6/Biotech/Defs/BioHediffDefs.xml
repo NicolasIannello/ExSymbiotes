@@ -66,7 +66,7 @@
         <comps Inherit="False">
             <li Class="ExSymbiotes.HediffCompProperties_SymbioticTendrils">
                 <turretGunDef>ExSymbiotes_TendrilTurretPurple</turretGunDef>
-                <cd>2.5</cd>
+                <cd>2</cd>
             </li>
             <li Class="HediffCompProperties_Disappears">
                 <showRemainingTime>True</showRemainingTime>
