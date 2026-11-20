@@ -13,7 +13,6 @@ namespace ExSymbiotes
         protected int energy;
         public int Energy => this.energy;
         public int EnergyMax = 20;
-        private bool immunityGene = false;
         public int bond = 2;
         protected Color originalHair;
         protected Color? originalSkin;
@@ -38,8 +37,6 @@ namespace ExSymbiotes
             originalHair = Pawn.story.HairColor;
             originalSkin = Pawn.story.skinColorOverride;
             ChangeVisual(false);
-            if (ModsConfig.BiotechActive && this.Pawn.genes!=null)
-                immunityGene = SymbioteUtility.CheckAddGene(this.Pawn, ExSymbiotesDefOf.PerfectImmunity);
             RollBond();
         }
 
@@ -49,8 +46,6 @@ namespace ExSymbiotes
             Pawn.story.HairColor = this.originalHair;
             Pawn.story.skinColorOverride = this.originalSkin ?? this.Pawn.story.SkinColorBase;
             Pawn.Drawer.renderer.SetAllGraphicsDirty();
-            if (ModsConfig.BiotechActive && this.Pawn.genes!=null)
-                SymbioteUtility.CheckRemoveGene(this.Pawn, ExSymbiotesDefOf.PerfectImmunity, this.immunityGene);
             if(this.bond<2 && !Pawn.Dead) Pawn.needs.mood.thoughts.memories.TryGainMemory(ExSymbiotesDefOf.ExSymbiotes_BondedSymbioteLost);
             if (Pawn.health.hediffSet.GetFirstHediffOfDef(ExSymbiotesDefOf.ExSymbiotes_HivemindConnection) is Hediff hivemindConnection)
                 Pawn.health.RemoveHediff(hivemindConnection);
@@ -118,7 +113,6 @@ namespace ExSymbiotes
             Scribe_Values.Look<int>(ref this.EnergyMax, "EnergyMax", 20);
             Scribe_Values.Look<int>(ref this.energy, "energy");
             Scribe_Values.Look<int>(ref this.bond, "stage");
-            Scribe_Values.Look<bool>(ref this.immunityGene, "immunityGene");
             Scribe_Values.Look<Color>(ref this.originalHair, "originalHair");
             Scribe_Values.Look<Color?>(ref this.originalSkin, "originalSkin");
             Scribe_Values.Look<string>(ref this.name, "name", "ExSymbiotes.Symbiote".Translate());

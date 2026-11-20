@@ -28,7 +28,6 @@ namespace ExSymbiotes
         {
             this.innerContainer = new ThingOwner<Thing>((IThingHolder) this, LookMode.Deep, false);
         }
-        private bool immunityGene = false;
 
         public override void CompPostPostAdd(DamageInfo? dinfo)
         {
@@ -37,8 +36,6 @@ namespace ExSymbiotes
             originalLord = Pawn.GetLord();
             if(!thrall) this.Pawn.SetFaction(Find.FactionManager.FirstFactionOfDef(ExSymbiotesDefOf.ExSymbiotes_Symbiotes));
             skin = Props.color;
-            if (ModsConfig.BiotechActive && this.Pawn.genes!=null)
-                immunityGene = SymbioteUtility.CheckAddGene(this.Pawn, ExSymbiotesDefOf.PerfectImmunity);
         }
 
         public override void CompPostPostRemoved()
@@ -57,8 +54,6 @@ namespace ExSymbiotes
             if(Pawn.RaceProps.Humanlike && !Pawn.Dead) 
                 Pawn.needs.mood.thoughts.memories.TryGainMemory(ExSymbiotesDefOf.ExSymbiotes_SymbioteControlledAfter);
             ConditionalWeakTableRemove(this.Pawn);
-            if (ModsConfig.BiotechActive && this.Pawn.genes!=null)
-                SymbioteUtility.CheckRemoveGene(this.Pawn, ExSymbiotesDefOf.PerfectImmunity, this.immunityGene);
         }
 
         public override void CompPostTick(ref float severityAdjustment)
@@ -151,7 +146,6 @@ namespace ExSymbiotes
             Scribe_Values.Look<bool>(ref reproduce, "reproduce");
             Scribe_Values.Look<bool>(ref thrall, "thrall");
             Scribe_Deep.Look<ThingOwner<Thing>>(ref this.innerContainer, "innerContainer", (object) this);
-            Scribe_Values.Look<bool>(ref this.immunityGene, "immunityGene");
             if (Scribe.mode == LoadSaveMode.PostLoadInit && this.Pawn != null) ConditionalWeakTableAdd(this.Pawn);
             if (Scribe.mode != LoadSaveMode.PostLoadInit || !this.innerContainer.removeContentsIfDestroyed)
                 return;

@@ -18,6 +18,7 @@
                     <ToxicResistance>1</ToxicResistance>
                     <ComfyTemperatureMin>-200</ComfyTemperatureMin>
                     <VacuumResistance MayRequire="Ludeon.RimWorld.Odyssey">1</VacuumResistance>
+                    <ImmunityGainSpeed>2</ImmunityGainSpeed>
                 </statOffsets>
                 <capMods>
                     <li><capacity>Consciousness</capacity><offset>0.2</offset><postFactor>1.05</postFactor></li>
@@ -258,6 +259,11 @@
                         <stat>IncomingDamageFactor</stat>
                         <value>0.7</value>
                         <type>statFactors</type>
+                    </li>
+                    <li>
+                        <stat>ImmunityGainSpeed</stat>
+                        <value>5</value>
+                        <type>StatOffsets</type>
                     </li>
                 </Stats>
                 <regenValue>200</regenValue>

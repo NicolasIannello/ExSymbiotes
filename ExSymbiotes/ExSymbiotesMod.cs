@@ -147,8 +147,6 @@ namespace ExSymbiotes
         public static ThoughtDef ExSymbiotes_BondedSymbioteLost;
         public static ThoughtDef ExSymbiotes_BondedSymbioteSacrifice;
 
-        [MayRequireBiotech]
-        public static GeneDef PerfectImmunity;
         public static EffecterDef AgonyPulseExplosion;
         public static EntityCategoryDef Advanced;
         public static InteractionDef KindWords;
