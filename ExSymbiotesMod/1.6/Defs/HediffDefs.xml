@@ -744,21 +744,21 @@
             <li>
                 <minSeverity>0.5</minSeverity>
                 <statFactors>
-                    <MeleeDamageFactor>5</MeleeDamageFactor>
+                    <MeleeDamageFactor>3</MeleeDamageFactor>
                     <MoveSpeed>3</MoveSpeed>
                     <StaggerDurationFactor>0</StaggerDurationFactor>
-                    <ArmorRating_Sharp>3</ArmorRating_Sharp>
-                    <ArmorRating_Blunt>3</ArmorRating_Blunt>
+                    <ArmorRating_Sharp>1.5</ArmorRating_Sharp>
+                    <ArmorRating_Blunt>1.5</ArmorRating_Blunt>
                 </statFactors>
             </li>
             <li>
                 <minSeverity>1</minSeverity>
                 <statFactors>
-                    <MeleeDamageFactor>5</MeleeDamageFactor>
+                    <MeleeDamageFactor>4</MeleeDamageFactor>
                     <MoveSpeed>3</MoveSpeed>
                     <StaggerDurationFactor>0</StaggerDurationFactor>
-                    <ArmorRating_Sharp>3</ArmorRating_Sharp>
-                    <ArmorRating_Blunt>3</ArmorRating_Blunt>
+                    <ArmorRating_Sharp>2</ArmorRating_Sharp>
+                    <ArmorRating_Blunt>2</ArmorRating_Blunt>
                 </statFactors>
                 <regeneration>30000</regeneration>
                 <showRegenerationStat>false</showRegenerationStat>
