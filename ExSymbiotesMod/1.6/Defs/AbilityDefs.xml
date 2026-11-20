@@ -18,7 +18,7 @@
             <drawAimPie>false</drawAimPie>
             <requireLineOfSight>false</requireLineOfSight>
             <nonInterruptingSelfCast>true</nonInterruptingSelfCast>
-            <warmupTime>1</warmupTime>
+            <warmupTime>0.3</warmupTime>
             <range>19.9</range>
             <targetable>false</targetable>
             <targetParams>
@@ -51,7 +51,7 @@
             <label>symbiotic leap</label>
             <range>15</range>
             <requireLineOfSight>true</requireLineOfSight>
-            <warmupTime>0.10</warmupTime>
+            <warmupTime>0.1</warmupTime>
             <soundCast>Pawn_Devourer_Jump</soundCast>
             <soundLanding>Pawn_Devourer_Land</soundLanding>
             <targetParams>
@@ -88,7 +88,7 @@
             <drawAimPie>false</drawAimPie>
             <requireLineOfSight>false</requireLineOfSight>
             <nonInterruptingSelfCast>true</nonInterruptingSelfCast>
-            <warmupTime>1</warmupTime>
+            <warmupTime>0.1</warmupTime>
             <range>19.9</range>
             <targetable>false</targetable>
             <targetParams>
@@ -127,7 +127,7 @@
             <drawAimPie>false</drawAimPie>
             <requireLineOfSight>false</requireLineOfSight>
             <nonInterruptingSelfCast>true</nonInterruptingSelfCast>
-            <warmupTime>1</warmupTime>
+            <warmupTime>0.3</warmupTime>
             <range>19.9</range>
             <targetable>false</targetable>
             <targetParams>
@@ -178,7 +178,7 @@
             <label>consume leap</label>
             <range>7</range>
             <requireLineOfSight>true</requireLineOfSight>
-            <warmupTime>0.10</warmupTime>
+            <warmupTime>0.1</warmupTime>
             <soundCast>Pawn_Devourer_Jump</soundCast>
             <soundLanding>Pawn_Devourer_Land</soundLanding>
             <targetParams>
@@ -277,7 +277,7 @@
         <verbProperties>
             <verbClass>Verb_CastAbility</verbClass>
             <warmupEffecter>ExSymbiotes_Bloodfeed_Warmup</warmupEffecter>
-            <warmupTime>1.5</warmupTime>
+            <warmupTime>1</warmupTime>
             <requireLineOfSight>false</requireLineOfSight>
             <range>3.5</range>
             <drawAimPie>false</drawAimPie>
@@ -558,7 +558,7 @@
             <drawAimPie>false</drawAimPie>
             <requireLineOfSight>false</requireLineOfSight>
             <nonInterruptingSelfCast>true</nonInterruptingSelfCast>
-            <warmupTime>0.5</warmupTime>
+            <warmupTime>0.3</warmupTime>
             <range>2</range>
             <targetable>false</targetable>
             <targetParams>

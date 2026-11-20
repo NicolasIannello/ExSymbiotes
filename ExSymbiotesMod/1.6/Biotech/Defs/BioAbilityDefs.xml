@@ -84,7 +84,7 @@
             <range>7.9</range>
             <drawAimPie>false</drawAimPie>
             <requireLineOfSight>false</requireLineOfSight>
-            <warmupTime>1</warmupTime>
+            <warmupTime>0.5</warmupTime>
             <targetable>false</targetable>
             <targetParams>
                 <canTargetSelf>true</canTargetSelf>
@@ -117,7 +117,7 @@
             <drawAimPie>false</drawAimPie>
             <requireLineOfSight>false</requireLineOfSight>
             <nonInterruptingSelfCast>true</nonInterruptingSelfCast>
-            <warmupTime>1</warmupTime>
+            <warmupTime>0.5</warmupTime>
             <range>19.9</range>
             <targetable>false</targetable>
             <targetParams>
