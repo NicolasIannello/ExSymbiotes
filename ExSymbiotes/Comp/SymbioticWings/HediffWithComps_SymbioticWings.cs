@@ -5,7 +5,21 @@ namespace ExSymbiotes
     public class HediffWithComps_SymbioticWings : HediffWithComps_GrendelRegeneration
     {
         protected override float hpRegen => 300f;
-        public override bool ShouldRemove => false;
+        public override bool ShouldRemove
+        {
+            get
+            {
+                if (this.comps != null)
+                {
+                    for (int index = 0; index < this.comps.Count; ++index)
+                    {
+                        if (this.comps[index].CompShouldRemove)
+                            return true;
+                    }
+                }
+                return (double) this.Severity <= 0.0;
+            }
+        }
         
         public override void PostAdd(DamageInfo? dinfo)
         {
