@@ -208,6 +208,7 @@
 <!--    <Compile Include="Render\PawnRenderNodeWorker_EyeSymbiote.cs" />-->
 <!--    <Compile Include="Render\PawnRenderNode_GrendelSymbiote.cs" />-->
 <!--    <Compile Include="Render\PawnRenderNode_Symbiote.cs" />-->
+<!--    <Compile Include="Render\PawnRenderNode_SymbioticGrendel.cs" />-->
 <!--    <Compile Include="Render\Spastic\PawnRenderNodeProperties_SpasticSymbiote.cs" />-->
 <!--    <Compile Include="Render\Spastic\PawnRenderNodeWorker_SpasticSymbiote.cs" />-->
 <!--    <Compile Include="Render\Spastic\PawnRenderNode_SpasticSymbiote.cs" />-->
