@@ -279,6 +279,7 @@
         <verbProperties>
             <verbClass>Verb_CastAbility</verbClass>
             <drawAimPie>false</drawAimPie>
+            <warmupEffecter>HoraxianSpellDark_Warmup</warmupEffecter>
             <requireLineOfSight>false</requireLineOfSight>
             <nonInterruptingSelfCast>true</nonInterruptingSelfCast>
             <warmupTime>2</warmupTime>
