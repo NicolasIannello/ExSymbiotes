@@ -187,6 +187,25 @@
         </comps>
     </ThingDef>
 
+    <ThingDef>
+        <defName>ExSymbiotes_WhiteGrendel</defName>
+        <label>white grendel</label>
+        <thingClass>ExSymbiotes.GrendelThingWithComps</thingClass>
+        <tickerType>Normal</tickerType>
+        <drawerType>RealtimeOnly</drawerType>
+        <drawOffscreen>true</drawOffscreen>
+        <useHitPoints>false</useHitPoints>
+        <comps>
+            <li Class="ExSymbiotes.CompProperties_WhiteGrendel">
+                <size>7.5</size>
+                <offsetSouth>(0, 0, -0.1)</offsetSouth>
+                <offsetNorth>(0, 0, -0.25)</offsetNorth>
+                <offsetEast>(-0.5, 0, -0.3)</offsetEast>
+                <offsetWest>(0.5, 0, -0.3)</offsetWest>
+            </li>
+        </comps>
+    </ThingDef>
+    
     <TaleDef>
         <defName>ExSymbiotes_SymbiotePack</defName>
         <label>symbiote pack</label>

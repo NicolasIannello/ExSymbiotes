@@ -14,7 +14,7 @@ namespace ExSymbiotes
             CompGrendelSymbiote compGrendel = this.parent.pawn.TryGetComp<CompGrendelSymbiote>();
             if (compGrendel != null) compGrendel.flying = true;
             HediffWithComps_SymbioticGrendel hediffGrendel = this.parent.pawn.health.hediffSet.GetFirstHediff<HediffWithComps_SymbioticGrendel>();
-            if (hediffGrendel != null) hediffGrendel.flying = true;
+            if (hediffGrendel != null) hediffGrendel.setFlying(true);
             this.parent.pawn.Drawer.renderer.SetAllGraphicsDirty();
             SymbioteUtility.MeatSplatter(0, this.parent.pawn.Position, this.parent.pawn.Map, FleshbeastUtility.MeatExplosionSize.Small);
         }
@@ -24,7 +24,7 @@ namespace ExSymbiotes
             CompGrendelSymbiote compGrendel = this.parent.pawn.TryGetComp<CompGrendelSymbiote>();
             if (compGrendel != null) compGrendel.flying = false;
             HediffWithComps_SymbioticGrendel hediffGrendel = this.parent.pawn.health.hediffSet.GetFirstHediff<HediffWithComps_SymbioticGrendel>();
-            if (hediffGrendel != null) hediffGrendel.flying = false;
+            if (hediffGrendel != null) hediffGrendel.setFlying(false);
             this.parent.pawn.Drawer.renderer.SetAllGraphicsDirty();
             GenExplosion.DoExplosion(this.parent.pawn.Position, this.parent.pawn.Map, this.Props2.radius, ExSymbiotesDefOf.ExSymbiotes_VenomLeap, this.parent.pawn, doVisualEffects:false, doSoundEffects:false, screenShakeFactor:0f);
             SymbioteUtility.MeatSplatter(0, this.parent.pawn.Position, this.parent.pawn.Map, FleshbeastUtility.MeatExplosionSize.Small);

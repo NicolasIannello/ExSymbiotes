@@ -777,39 +777,6 @@
                 </abilityDefs>
             </li>
         </comps>
-        <renderNodeProperties>
-            <li>
-                <debugLabel>SymbioticGrendel</debugLabel>
-                <nodeClass>ExSymbiotes.PawnRenderNode_SymbioticGrendel</nodeClass>
-                <texPaths>
-                    <li>Things/Pawn/Grendel/WhiteGrendelSymbiote</li>
-                </texPaths>
-                <parentTagDef>Body</parentTagDef>
-                <overrideMeshSize>1</overrideMeshSize>
-                <drawSize>7.5</drawSize>
-                <rotDrawMode>Fresh, Rotting</rotDrawMode>
-                <useSkinShader>true</useSkinShader>
-                <useRottenColor>true</useRottenColor>
-                <drawData>
-                    <scaleOffsetByBodySize>true</scaleOffsetByBodySize>
-                    <defaultData>
-                        <layer>100</layer>
-                    </defaultData>
-                    <dataSouth>
-                        <offset>(0, 0, -0.3)</offset>
-                    </dataSouth>
-                    <dataNorth>
-                        <offset>(0, 0, -0.25)</offset>
-                    </dataNorth>
-                    <dataEast>
-                        <offset>(-0.15, 0, -0.3)</offset>
-                    </dataEast>
-                    <dataWest>
-                        <offset>(0.15, 0, -0.3)</offset>
-                    </dataWest>
-                </drawData>
-            </li>
-        </renderNodeProperties>
     </HediffDef>
     
 <!--    CONTROLLED  -->

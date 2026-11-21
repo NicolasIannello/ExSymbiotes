@@ -144,6 +144,7 @@ namespace ExSymbiotes
         public static ThingDef ExSymbiotes_StrangeAsteroid;
         public static ThingDef ExSymbiotes_StrangeAsteroidRed;
         public static ThingDef ExSymbiotes_StrangeAsteroidIncoming;
+        public static ThingDef ExSymbiotes_WhiteGrendel;
         public static ThoughtDef ExSymbiotes_SymbioteControlledAfter;
         public static ThoughtDef ExSymbiotes_BondedSymbioteLost;
         public static ThoughtDef ExSymbiotes_BondedSymbioteSacrifice;

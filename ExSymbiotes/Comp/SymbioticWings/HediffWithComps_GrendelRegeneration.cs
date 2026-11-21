@@ -69,18 +69,33 @@ namespace ExSymbiotes
                 return (double) this.Severity <= 0.0;
             }
         }
-        public bool flying = false;
+        public GrendelThingWithComps GrendelThingWithComps;
+
+        public override void PostAdd(DamageInfo? dinfo)
+        {
+            base.PostAdd(dinfo);
+            this.GrendelThingWithComps = (GrendelThingWithComps) GenSpawn.Spawn(ExSymbiotesDefOf.ExSymbiotes_WhiteGrendel, this.pawn.Position, this.pawn.Map);
+            this.GrendelThingWithComps.SetTarget(this.pawn);
+        }
+
+        public override void PostRemoved()
+        {
+            base.PostRemoved();
+            this.GrendelThingWithComps.Destroy();
+        }
 
         public override void PostTick()
         {
             base.PostTick();
             if (hpRemaining <= 0f && Severity > 0.5f) this.Severity = 0.5f;
         }
+
+        public void setFlying(bool flag) => this.GrendelThingWithComps.flying = flag;
         
         public override void ExposeData()
         {
             base.ExposeData();
-            Scribe_Values.Look<bool>(ref flying, "flying");
+            Scribe_References.Look<GrendelThingWithComps>(ref this.GrendelThingWithComps, "GrendelThingWithComps");
         }
     }
 }
