@@ -24,10 +24,8 @@ namespace ExSymbiotes
       {
         base.PostDraw();
         GrendelThingWithComps comp = ((GrendelThingWithComps)parent);
-        Vector3 drawPos = this.parent.DrawPos with
-        {
-          y = AltitudeLayer.MoteOverhead.AltitudeFor()
-        };
+        Vector3 drawPos = this.parent.DrawPos;
+        drawPos.y = AltitudeLayer.MoteOverhead.AltitudeFor();
         Material material = mat_south;
         bool flying = comp.flying;
         switch (comp.target.Rotation.AsInt)
