@@ -298,6 +298,7 @@
             <drawSize>0.8</drawSize>
         </graphicData>
         <comps Inherit="False">
+            <li Class="CompProperties_Forbiddable"/>
             <li Class="CompProperties_Drug">
                 <listOrder>1200</listOrder>
                 <teetotalerCanConsume>false</teetotalerCanConsume>
@@ -329,6 +330,7 @@
             <drawSize>0.8</drawSize>
         </graphicData>
         <comps Inherit="False">
+            <li Class="CompProperties_Forbiddable"/>
             <li Class="CompProperties_Drug">
                 <listOrder>1200</listOrder>
                 <teetotalerCanConsume>false</teetotalerCanConsume>
@@ -376,6 +378,7 @@
             <drawSize>0.8</drawSize>
         </graphicData>
         <comps Inherit="False">
+            <li Class="CompProperties_Forbiddable"/>
             <li Class="CompProperties_Drug">
                 <listOrder>1200</listOrder>
                 <teetotalerCanConsume>false</teetotalerCanConsume>
@@ -415,12 +418,14 @@
     <ThingDef ParentName="ExSymbiotes_SymbioticCore">
         <defName>ExSymbiotes_GrendelCore</defName>
         <label>grendel core</label>
+        <description>Symbiotic core dropped from a grendel symbiote, consume to absorb it power.</description>
         <graphicData>
             <texPath>Things/Item/GrendelCore</texPath>
             <graphicClass>Graphic_Single</graphicClass>
             <drawSize>0.8</drawSize>
         </graphicData>
         <comps Inherit="False">
+            <li Class="CompProperties_Forbiddable"/>
             <li Class="CompProperties_Drug">
                 <listOrder>1200</listOrder>
                 <teetotalerCanConsume>false</teetotalerCanConsume>
@@ -430,7 +435,6 @@
                 <useJob>Ingest</useJob>
                 <showUseGizmo>true</showUseGizmo>
             </li>
-            <li Class="CompProperties_Serum" />
             <li Class="ExSymbiotes.CompProperties_UseEffect_GrendelGainAbility">
                 <ability>ExSymbiotes_SymbioticWingsAbility</ability>
             </li>
@@ -438,6 +442,7 @@
                 <soundOnUsed>MechSerumUsed</soundOnUsed>
             </li>
         </comps>
+        <thingSetMakerTags Inherit="False"/>
     </ThingDef>
     
     <!--        WEAPONS     -->

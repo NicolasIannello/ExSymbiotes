@@ -46,6 +46,7 @@
             <drawSize>0.8</drawSize>
         </graphicData>
         <comps Inherit="False">
+            <li Class="CompProperties_Forbiddable"/>
             <li Class="CompProperties_Drug">
                 <listOrder>1200</listOrder>
                 <teetotalerCanConsume>false</teetotalerCanConsume>
