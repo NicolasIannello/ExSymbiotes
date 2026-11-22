@@ -1,5 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Defs>
+<!--43 1hr-->
 <!--        BLACK           -->
     <AbilityDef>
         <defName>ExSymbiotes_SymbioticArmor</defName>
@@ -11,7 +12,7 @@
         <targetRequired>false</targetRequired>
         <casterMustBeCapableOfViolence>false</casterMustBeCapableOfViolence>
         <statBases>
-            <Ability_Duration>129</Ability_Duration><!--3hrs-->
+            <Ability_Duration>86</Ability_Duration><!--2hrs-->
         </statBases>
         <verbProperties>
             <verbClass>Verb_CastAbility</verbClass>
