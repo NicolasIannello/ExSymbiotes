@@ -8,8 +8,8 @@
         <stages>
             <li>
                 <damageFactors>
-                    <Flame>1.25</Flame>
-                    <Burn>1.25</Burn>
+                    <Flame>2.5</Flame>
+                    <Burn>2.5</Burn>
                 </damageFactors>
                 <statOffsets>
                     <MeleeDamageFactor>0.15</MeleeDamageFactor>
@@ -361,15 +361,15 @@
         <stages>
             <li>
                 <statOffsets>
-                    <ArmorRating_Sharp>0.4</ArmorRating_Sharp>
-                    <ArmorRating_Blunt>0.4</ArmorRating_Blunt>
+                    <ArmorRating_Sharp>0.5</ArmorRating_Sharp>
+                    <ArmorRating_Blunt>0.5</ArmorRating_Blunt>
                 </statOffsets>
                 <statFactors>
                     <StaggerDurationFactor>0</StaggerDurationFactor>
                     <ArmorRating_Sharp>1.25</ArmorRating_Sharp>
                     <ArmorRating_Blunt>1.25</ArmorRating_Blunt>
                 </statFactors>
-                <regeneration>500</regeneration>
+                <regeneration>2500</regeneration>
             </li>
         </stages>
         <comps>
@@ -391,12 +391,12 @@
             <li>
                 <statFactors>
                     <MeleeCooldownFactor>0.60</MeleeCooldownFactor>
+                    <StaggerDurationFactor>0.2</StaggerDurationFactor>
                 </statFactors>
                 <statOffsets>
-                    <MeleeDamageFactor>0.25</MeleeDamageFactor>
-                    <MoveSpeed>0.5</MoveSpeed>
+                    <MeleeDamageFactor>1.5</MeleeDamageFactor>
+                    <MoveSpeed>1.5</MoveSpeed>
                 </statOffsets>
-                <regeneration>100</regeneration>
             </li>
         </stages>
         <comps>
