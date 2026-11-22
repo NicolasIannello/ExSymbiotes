@@ -18,8 +18,7 @@ namespace ExSymbiotes
             Hediff symbiosis = SymbioteUtility.HasSymbiosis(user, false);
             if (symbiosis.def == ExSymbiotesDefOf.ExSymbiotes_Symbiosis_White)
                 user.abilities.GainAbility(ExSymbiotesDefOf.ExSymbiotes_SymbioticGrendel);
-            else
-                user.abilities.GainAbility(this.Props.ability);
+            user.abilities.GainAbility(this.Props.ability);
             symbiosis.TryGetComp<HediffComp_Symbiosis>().EnergyMax += 10;
         }
 
