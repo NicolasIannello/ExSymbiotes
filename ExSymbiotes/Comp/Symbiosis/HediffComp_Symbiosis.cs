@@ -192,7 +192,7 @@ namespace ExSymbiotes
                                interaction == InteractionDefOf.CreepyWords || interaction == InteractionDefOf.DisturbingChat ||
                                interaction == ExSymbiotesDefOf.KindWords;
             if(SymbioteUtility.SymbioteInteraction.TryInteractWith(this.parent.pawn, this.parent.pawn, interaction, name, this.Props.color, initiator))
-                this.talkTick = Find.TickManager.TicksGame + Rand.RangeInclusive(2500, 7500);
+                this.talkTick = Find.TickManager.TicksGame + Rand.RangeInclusive(5000, 10000);
             else
                 this.talkTick = Find.TickManager.TicksGame + 2500;
         }
