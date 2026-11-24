@@ -1,4 +1,7 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
 using RimWorld;
 using Verse;
 
@@ -14,10 +17,7 @@ namespace ExSymbiotes
                 if (this.curStage == null)
                 {
                     this.curStage = new HediffStage();
-                    this.curStage.damageFactors = this.def.stages[this.CurStageIndex].damageFactors;
-                    this.curStage.statOffsets = this.def.stages[this.CurStageIndex].statOffsets;
-                    this.curStage.capMods = this.def.stages[this.CurStageIndex].capMods;
-                    this.curStage.regeneration = this.def.stages[this.CurStageIndex].regeneration;
+                    this.curStage = this.def.stages[this.CurStageIndex];
                     HediffComp_Stats comp = this.TryGetComp<HediffComp_Stats>();
                     if (comp != null)
                     {
@@ -53,6 +53,92 @@ namespace ExSymbiotes
                     }
                 }
                 return this.curStage;
+            }
+        }
+        public override string TipStringExtra
+        {
+            get
+            {
+                StringBuilder stringBuilder = new StringBuilder();
+                HediffStage stage = this.CurStage;
+                if (stage != null)
+                {
+                    if (!stage.capMods.NullOrEmpty())
+                    {
+                        stringBuilder.Append($"  - {"TabStats".Translate()}: {stage.capMods[0].offset * 100f:+#;-#}%, x{stage.capMods[0].postFactor.ToStringPercent()}");
+                        stringBuilder.AppendLine();
+                    }
+                    if (stage.regeneration>0f && stage.showRegenerationStat)
+                    {
+                        stringBuilder.Append($"  - {"Stat_Hediff_Regeneration_Name".Translate()}: {"Stat_Hediff_Regeneration_Stat".Translate((NamedArgument)$"{stage.regeneration:0}")}");
+                        stringBuilder.AppendLine();
+                    }
+                    if (stage.statOffsets != null)
+                    {
+                        for(int i = 0; i<stage.statOffsets.Count; i++)
+                        {
+                            if (stage.statOffsets[i].stat.CanShowWithLoadedMods())
+                            {
+                                stringBuilder.Append($"  - {stage.statOffsets[i].stat.LabelCap}: {stage.statOffsets[i].stat.Worker.ValueToString(stage.statOffsets[i].value, false, ToStringNumberSense.Offset)}");
+                                stringBuilder.AppendLine();
+                            }
+                        }
+                    }
+                    if (stage.statFactors != null)
+                    {
+                        for (int i = 0; i < stage.statFactors.Count; i++)
+                        {
+                            if (stage.statFactors[i].stat.CanShowWithLoadedMods())
+                            {
+                                stringBuilder.Append($"  - {stage.statFactors[i].stat.LabelCap}: {stage.statFactors[i].stat.Worker.ValueToString(stage.statFactors[i].value, false, ToStringNumberSense.Factor)}");
+                                stringBuilder.AppendLine();
+                            }
+                        }
+                    }
+                    if (!stage.damageFactors.NullOrEmpty<DamageFactor>())
+                    {
+                        for (int i = 0; i < stage.damageFactors.Count; i++)
+                        {
+                            stringBuilder.Append($"  - {"DamageFactorWeakness".Translate(stage.damageFactors[i].damageDef.Named("DAMAGE")).CapitalizeFirst()}: x{stage.damageFactors[i].factor.ToStringPercent()}");
+                            stringBuilder.AppendLine();
+                        }
+                    }
+                    if (stage.foodPoisoningChanceFactor != 1)
+                    {
+                        stringBuilder.Append($"  - {"Stat_Hediff_FoodPoisoningChanceFactor_Name".Translate()} : {stage.foodPoisoningChanceFactor.ToStringByStyle(ToStringStyle.FloatTwo, ToStringNumberSense.Factor)}");
+                        stringBuilder.AppendLine();
+                    }
+                }
+                if (ModsConfig.AnomalyActive && !this.def.aptitudes.NullOrEmpty<Aptitude>())
+                    stringBuilder.AppendLine(this.def.aptitudes.Select<Aptitude, string>((Func<Aptitude, string>) (x => $"{x.skill.LabelCap.ToString()} {x.level.ToStringWithSign()}")).ToLineList("  - ", true));
+                if (stage != null)
+                {
+                    if (!stage.enablesNeeds.NullOrEmpty<NeedDef>())
+                    {
+                        if (stringBuilder.Length > 0)
+                            stringBuilder.AppendLine();
+                        stringBuilder.AppendLine(("AddsNeeds".Translate().CapitalizeFirst() + ":").Colorize(ColoredText.TipSectionTitleColor));
+                        stringBuilder.AppendLine(stage.enablesNeeds.Select<NeedDef, string>((Func<NeedDef, string>) (x => x.LabelCap.ToString())).ToLineList("  - "));
+                    }
+                    if (!stage.disablesNeeds.NullOrEmpty<NeedDef>())
+                    {
+                        if (stringBuilder.Length > 0)
+                            stringBuilder.AppendLine();
+                        stringBuilder.AppendLine(("DisabledNeedsLabel".Translate().CapitalizeFirst() + ":").Colorize(ColoredText.TipSectionTitleColor));
+                        stringBuilder.AppendLine(stage.disablesNeeds.Select<NeedDef, string>((Func<NeedDef, string>) (x => x.LabelCap.ToString())).ToLineList("  - "));
+                    }
+                    if (stage.disabledWorkTags != WorkTags.None)
+                    {
+                        if (stringBuilder.Length > 0)
+                            stringBuilder.AppendLine();
+                        stringBuilder.AppendLine(("DisabledWorkLabel".Translate().CapitalizeFirst() + ":").Colorize(ColoredText.TipSectionTitleColor));
+                        IEnumerable<string> items = DefDatabase<WorkTypeDef>.AllDefsListForReading.Where<WorkTypeDef>((Func<WorkTypeDef, bool>) (x => (stage.disabledWorkTags & x.workTags) != 0)).Select<WorkTypeDef, string>((Func<WorkTypeDef, string>) (x => x.labelShort));
+                        stringBuilder.Append("  - " + items.ToCommaList().CapitalizeFirst());
+                    }
+                }
+                if (this.def.CompProps<HediffCompProperties_GiveLovinMTBFactor>() != null)
+                    stringBuilder.AppendLine((string) ("  - " + "IncreasesChanceOfLovin".Translate()));
+                return stringBuilder.ToString();
             }
         }
 
