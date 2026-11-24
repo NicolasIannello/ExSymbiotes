@@ -3,7 +3,7 @@ using Verse;
 
 namespace ExSymbiotes
 {
-
+    [StaticConstructorOnStartup]
     public class CompWhiteGrendel : ThingComp
     {
       public CompProperties_WhiteGrendel Props
