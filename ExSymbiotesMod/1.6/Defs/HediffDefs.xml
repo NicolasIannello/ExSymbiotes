@@ -660,9 +660,8 @@
             <li Class="HediffCompProperties_DisappearsOnDeath"/>
         </comps>
         <renderNodeProperties>
-            <li>
+            <li Class="ExSymbiotes.PawnRenderNodeProperties_SpasticSymbiote">
                 <debugLabel>SymbioteWingRight</debugLabel>
-                <workerClass>PawnRenderNodeWorker_AttachmentBody</workerClass>
                 <texPath>Things/Pawn/Symbiote/Attachments/Wings/SymbioteWing</texPath>
                 <colorType>Skin</colorType>
                 <overrideMeshSize>1</overrideMeshSize>
@@ -675,30 +674,30 @@
                     <scaleOffsetByBodySize>true</scaleOffsetByBodySize>
                     <dataSouth>
                         <offset>(-0.6, 0, -0.3)</offset>
-                        <rotationOffset>30</rotationOffset>
+                        <rotationOffset>180</rotationOffset>
                         <layer>-10</layer>
                     </dataSouth>
                     <dataNorth>
                         <offset>(0.6, 0, -0.3)</offset>
-                        <rotationOffset>30</rotationOffset>
+                        <rotationOffset>25</rotationOffset>
                         <layer>95</layer>
                         <flip>true</flip>
                     </dataNorth>
                     <dataEast>
                         <offset>(-0.15, 0, -0.3)</offset>
+                        <rotationOffset>65</rotationOffset>
                         <layer>91</layer>
                         <flip>true</flip>
                     </dataEast>
                     <dataWest>
                         <offset>(0, 0, -0.3)</offset>
+                        <rotationOffset>80</rotationOffset>
                         <layer>0</layer>
-                        <flip>true</flip>
                     </dataWest>
                 </drawData>
             </li>
-            <li>
+            <li Class="ExSymbiotes.PawnRenderNodeProperties_SpasticSymbiote">
                 <debugLabel>SymbioteWingLeft</debugLabel>
-                <workerClass>PawnRenderNodeWorker_AttachmentBody</workerClass>
                 <texPath>Things/Pawn/Symbiote/Attachments/Wings/SymbioteWing</texPath>
                 <colorType>Skin</colorType>
                 <overrideMeshSize>1</overrideMeshSize>
@@ -711,24 +710,25 @@
                     <scaleOffsetByBodySize>true</scaleOffsetByBodySize>
                     <dataSouth>
                         <offset>(0.6, 0, -0.3)</offset>
-                        <rotationOffset>30</rotationOffset>
+                        <rotationOffset>180</rotationOffset>
                         <layer>-10</layer>
                         <flip>true</flip>
                     </dataSouth>
                     <dataNorth>
                         <offset>(-0.6, 0, -0.3)</offset>
-                        <rotationOffset>30</rotationOffset>
+                        <rotationOffset>25</rotationOffset>
                         <layer>95</layer>
                     </dataNorth>
                     <dataEast>
                         <offset>(0, 0, -0.3)</offset>
-                        <layer>0</layer>
+                        <rotationOffset>65</rotationOffset>
+                        <layer>65</layer>
                         <flip>true</flip>
                     </dataEast>
                     <dataWest>
                         <offset>(0.15, 0, -0.3)</offset>
+                        <rotationOffset>80</rotationOffset>
                         <layer>91</layer>
-                        <flip>true</flip>
                     </dataWest>
                 </drawData>
             </li>
