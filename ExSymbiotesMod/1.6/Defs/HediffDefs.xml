@@ -1427,48 +1427,42 @@
         <alwaysShowSeverity>true</alwaysShowSeverity>
         <minSeverity>0.0</minSeverity>
         <maxSeverity>1.0</maxSeverity>
-        <initialSeverity>0.1</initialSeverity>
+        <initialSeverity>0.01</initialSeverity>
         <comps>
             <li Class="HediffCompProperties_DisappearsOnDeath"/>
             <li Class="HediffCompProperties_SeverityPerDay">
-                <severityPerDay>-0.90</severityPerDay>
+                <severityPerDay>-4</severityPerDay>
             </li>
         </comps>
         <stages>
             <li>
                 <minSeverity>0</minSeverity>
                 <capMods>
-                    <li>
-                        <capacity>Consciousness</capacity>
-                        <postFactor>0.75</postFactor>
-                    </li>
+                    <li><capacity>Consciousness</capacity><postFactor>0.95</postFactor></li>
+                </capMods>
+            </li>
+            <li>
+                <minSeverity>0.25</minSeverity>
+                <capMods>
+                    <li><capacity>Consciousness</capacity><postFactor>0.80</postFactor></li>
                 </capMods>
             </li>
             <li>
                 <minSeverity>0.5</minSeverity>
                 <capMods>
-                    <li>
-                        <capacity>Consciousness</capacity>
-                        <postFactor>0.5</postFactor>
-                    </li>
+                    <li><capacity>Consciousness</capacity><postFactor>0.60</postFactor></li>
                 </capMods>
             </li>
             <li>
                 <minSeverity>0.75</minSeverity>
                 <capMods>
-                    <li>
-                        <capacity>Consciousness</capacity>
-                        <postFactor>0.3</postFactor>
-                    </li>
+                    <li><capacity>Consciousness</capacity><postFactor>0.4</postFactor></li>
                 </capMods>
             </li>
             <li>
                 <minSeverity>0.9</minSeverity>
                 <capMods>
-                    <li>
-                        <capacity>Consciousness</capacity>
-                        <setMax>0.1</setMax>
-                    </li>
+                    <li><capacity>Consciousness</capacity><setMax>0.1</setMax></li>
                 </capMods>
             </li>
         </stages>

@@ -152,6 +152,24 @@ namespace ExSymbiotes.Utils
             
             return null;
         }
+
+        public static bool IsSpecial(Pawn pawn)
+        {
+            if (pawn.health == null) return false;
+            List<Hediff> hediffs = pawn.health.hediffSet.hediffs;
+
+            if (pawn.abilities.GetAbility(ExSymbiotesDefOf.ExSymbiotes_SymbioticWingsAbility) is Ability wingAbility)
+                return true;
+            
+            for (int i = 0; i < hediffs.Count; i++)
+            {
+                HediffDef def = hediffs[i].def;
+                if (def == ExSymbiotesDefOf.ExSymbiotes_HivemindConnection)
+                    return true;
+            }
+
+            return false;
+        }
         
         public static class TargetFinder
         {
