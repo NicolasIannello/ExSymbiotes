@@ -35,7 +35,7 @@
                 <filter>
                     <thingDefs><li>Bioferrite</li></thingDefs>
                 </filter>
-                <count>1</count>
+                <count>5</count>
             </li>
         </ingredients>
         <fixedIngredientFilter>
@@ -78,7 +78,7 @@
                 <filter>
                     <thingDefs><li>Bioferrite</li></thingDefs>
                 </filter>
-                <count>1</count>
+                <count>5</count>
             </li>
         </ingredients>
         <fixedIngredientFilter Inherit="False">
@@ -130,7 +130,7 @@
                 <filter>
                     <thingDefs><li>Bioferrite</li></thingDefs>
                 </filter>
-                <count>10</count>
+                <count>50</count>
             </li>
         </ingredients>
         <fixedIngredientFilter>
@@ -173,7 +173,7 @@
                 <filter>
                     <thingDefs><li>Bioferrite</li></thingDefs>
                 </filter>
-                <count>10</count>
+                <count>50</count>
             </li>
         </ingredients>
         <fixedIngredientFilter Inherit="False">
@@ -213,7 +213,7 @@
                 <filter>
                     <thingDefs><li>Plasteel</li></thingDefs>
                 </filter>
-                <count>10</count>
+                <count>5</count>
             </li>
             <li>
                 <filter>
@@ -225,7 +225,7 @@
                 <filter>
                     <thingDefs><li>Bioferrite</li></thingDefs>
                 </filter>
-                <count>1</count>
+                <count>5</count>
             </li>
         </ingredients>
         <fixedIngredientFilter>
@@ -249,7 +249,7 @@
                 <filter>
                     <thingDefs><li>Plasteel</li></thingDefs>
                 </filter>
-                <count>10</count>
+                <count>5</count>
             </li>
             <li>
                 <filter>
@@ -261,7 +261,7 @@
                 <filter>
                     <thingDefs><li>Bioferrite</li></thingDefs>
                 </filter>
-                <count>1</count>
+                <count>5</count>
             </li>
         </ingredients>
         <fixedIngredientFilter Inherit="False">
@@ -294,7 +294,7 @@
                 <filter>
                     <thingDefs><li>Plasteel</li></thingDefs>
                 </filter>
-                <count>100</count>
+                <count>50</count>
             </li>
             <li>
                 <filter>
@@ -306,7 +306,7 @@
                 <filter>
                     <thingDefs><li>Bioferrite</li></thingDefs>
                 </filter>
-                <count>10</count>
+                <count>50</count>
             </li>
         </ingredients>
         <fixedIngredientFilter>
@@ -330,7 +330,7 @@
                 <filter>
                     <thingDefs><li>Plasteel</li></thingDefs>
                 </filter>
-                <count>100</count>
+                <count>50</count>
             </li>
             <li>
                 <filter>
@@ -342,7 +342,7 @@
                 <filter>
                     <thingDefs><li>Bioferrite</li></thingDefs>
                 </filter>
-                <count>10</count>
+                <count>50</count>
             </li>
         </ingredients>
         <fixedIngredientFilter Inherit="False">
