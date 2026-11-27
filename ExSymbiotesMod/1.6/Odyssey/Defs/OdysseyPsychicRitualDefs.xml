@@ -21,14 +21,4 @@
         <cooldownHours>1440</cooldownHours>
         <chanterRole>ChanterAdvanced</chanterRole>
     </ExSymbiotes.PsychicRitualDef_SummonGrendelAsteroid>
-
-    <ExSymbiotes.PsychicRitualRoleDef_GrendelAsteroidInvoker>
-        <defName>ExSymbiotes_GrendelAsteroidInvoker</defName>
-        <label>invoker</label>
-        <allowedCount>1</allowedCount>
-        <canHandleOfferings>true</canHandleOfferings>
-        <showInvocationVfx>true</showInvocationVfx>
-        <allowedConditions>DefaultInvoker</allowedConditions>
-        <psychicRitualLeaveReason_ExSymbiotesVoid>{PAWN_labelShort} is not connected to the hivemind</psychicRitualLeaveReason_ExSymbiotesVoid>
-    </ExSymbiotes.PsychicRitualRoleDef_GrendelAsteroidInvoker>
 </Defs>
