@@ -97,6 +97,7 @@ namespace ExSymbiotes
         public static HediffDef ExSymbiotes_SymbioticWings;
         public static IncidentDef ExSymbiotes_SymbioteMass_Incident;
         public static IncidentDef ExSymbiotes_SymbiotePack;
+        public static IncidentDef ExSymbiotes_SymbiotePackRed;
         [MayRequireOdyssey] 
         public static IncidentDef ExSymbiotes_SpaceGrendel;
         public static IncidentDef ExSymbiotes_IncidentStrangeAsteroid;
