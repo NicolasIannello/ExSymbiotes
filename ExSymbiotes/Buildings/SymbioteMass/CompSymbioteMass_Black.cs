@@ -42,7 +42,8 @@ namespace ExSymbiotes
       {
         float points = StorytellerUtility.DefaultThreatPointsNow((IIncidentTarget) Heart.Map);
         incident = false;
-        Find.Storyteller.incidentQueue.Add(ExSymbiotesDefOf.ExSymbiotes_SymbiotePack, Find.TickManager.TicksGame, new IncidentParms()
+        EffecterDefOf.VoidNodeDisrupted.SpawnMaintained(Heart, Heart.Map);
+        Find.Storyteller.incidentQueue.Add(ExSymbiotesDefOf.ExSymbiotes_SymbiotePack, Find.TickManager.TicksGame + Rand.RangeInclusive(2500, 10000), new IncidentParms()
         {
           target = (IIncidentTarget) Heart.Map,
           forced = true, 
