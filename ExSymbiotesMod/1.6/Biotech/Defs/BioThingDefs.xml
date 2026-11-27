@@ -106,7 +106,7 @@
                 <disarmedByEmpForTicks>3200</disarmedByEmpForTicks>
                 <gizmoTipKey>RemoteMechShieldTip</gizmoTipKey>
                 <alwaysShowHitpointsGizmo>true</alwaysShowHitpointsGizmo>
-                <activeDuration>900</activeDuration>
+                <activeDuration>5160</activeDuration>
             </li>
         </comps>
     </ThingDef>
