@@ -67,4 +67,18 @@
         <researchViewX>2.00</researchViewX>
         <researchViewY>0.00</researchViewY>
     </ResearchProjectDef>
+
+    <ResearchProjectDef>
+        <defName>ExSymbiotes_SymbiotePackResearch</defName>
+        <label>symbiote pack</label>
+        <description>Perform a psychic ritual which provokes a pack of symbiotes to arrive to the colony.</description>
+        <tab>ExSymbiotes_Tab</tab>
+        <prerequisites>
+            <li>ExSymbiotes_HivemindConnectionResearch</li>
+        </prerequisites>
+        <knowledgeCost>15</knowledgeCost>
+        <knowledgeCategory>Advanced</knowledgeCategory>
+        <researchViewX>4.00</researchViewX>
+        <researchViewY>0</researchViewY>
+    </ResearchProjectDef>
 </Defs>
