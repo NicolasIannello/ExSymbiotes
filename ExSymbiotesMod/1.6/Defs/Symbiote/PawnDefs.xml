@@ -164,7 +164,7 @@
 				<meatExplosionSize>Normal</meatExplosionSize>
 			</deathAction>
 		</race>
-		<killedLeavingsRanges>
+		<killedLeavingsRanges Inherit="False">
 			<ExSymbiotes_SymbioticTissue_Red>0~3</ExSymbiotes_SymbioticTissue_Red>
 		</killedLeavingsRanges>
 	</ThingDef>
