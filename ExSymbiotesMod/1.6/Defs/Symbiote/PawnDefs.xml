@@ -136,6 +136,9 @@
 				<ensureLinkedBodyPartsGroupAlwaysUsable>true</ensureLinkedBodyPartsGroupAlwaysUsable>
 			</li>
 		</tools>
+		<killedLeavingsRanges>
+			<ExSymbiotes_SymbioticTissue>0~3</ExSymbiotes_SymbioticTissue>
+		</killedLeavingsRanges>
 	</ThingDef>
 
 	<ThingDef ParentName="ExSymbiotes_Symbiote">
@@ -161,6 +164,9 @@
 				<meatExplosionSize>Normal</meatExplosionSize>
 			</deathAction>
 		</race>
+		<killedLeavingsRanges>
+			<ExSymbiotes_SymbioticTissue_Red>0~3</ExSymbiotes_SymbioticTissue_Red>
+		</killedLeavingsRanges>
 	</ThingDef>
 
 	<ThingDef ParentName="ExSymbiotes_BaseSymbiote">
@@ -243,6 +249,10 @@
 		<killedLeavings>
 			<ExSymbiotes_GrendelCore>1</ExSymbiotes_GrendelCore>
 		</killedLeavings>
+		<killedLeavingsRanges>
+			<Shard>1~5</Shard>
+			<ExSymbiotes_SymbioticTissue>50~100</ExSymbiotes_SymbioticTissue>
+		</killedLeavingsRanges>
 	</ThingDef>
 	
 	<PawnKindDef Name="ExSymbiotes_Symbiote_PawnKindBase" Abstract="True">
