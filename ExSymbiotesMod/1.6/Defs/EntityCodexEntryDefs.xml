@@ -36,11 +36,13 @@
 		</linkedThings>
 		<provocationIncidents>
 			<li>ExSymbiotes_SymbioteMass_Incident</li>
+			<li>ExSymbiotes_SymbiotePack</li>
 		</provocationIncidents>
 		<orderInCategory>1442</orderInCategory>
 		<discoveredResearchProjects>
 			<li>ExSymbiotes_SymbioticTissueResearch</li>
 			<li>ExSymbiotes_SymbioticCoreResearch</li>
+			<li>ExSymbiotes_SymbiotePackResearch</li>
 		</discoveredResearchProjects>
 	</EntityCodexEntryDef>
 </Defs>
