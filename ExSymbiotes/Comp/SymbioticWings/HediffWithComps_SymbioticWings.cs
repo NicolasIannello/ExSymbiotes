@@ -1,4 +1,5 @@
-﻿using Verse;
+﻿using RimWorld;
+using Verse;
 
 namespace ExSymbiotes
 {
@@ -24,12 +25,14 @@ namespace ExSymbiotes
         public override void PostAdd(DamageInfo? dinfo)
         {
             base.PostAdd(dinfo);
+            pawn.GetStatValue(StatDefOf.MaxFlightTime); //this refreshes Pawn_FlightTracker.MaxFlightTicks
             this.pawn.flight.StartFlying();
         }
 
         public override void PostRemoved()
         {
             base.PostRemoved();
+            pawn.GetStatValue(StatDefOf.MaxFlightTime);
             if(!this.pawn.Dead) this.pawn.flight.ForceLand();
         }
 
