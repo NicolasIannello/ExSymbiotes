@@ -449,10 +449,10 @@
     <ThingDef ParentName="ResourceVerbBase">
         <defName>ExSymbiotes_SymbioteScythe</defName>
         <label>symbiotic scythe</label>
+        <thingClass>ExSymbiotes.SymbioticScythe</thingClass>
         <description>A symbiote arm turned into a scythe.</description>
         <possessionCount>1</possessionCount>
         <graphicData>
-<!--            <texPath>Things/Item/Special/ThrumboHorn</texPath>-->
             <texPath>UI/SymbioticScythe</texPath>
             <graphicClass>Graphic_Single</graphicClass>
         </graphicData>
@@ -467,9 +467,6 @@
         <resourceReadoutPriority>Middle</resourceReadoutPriority>
         <stackLimit>1</stackLimit>
         <relicChance>0</relicChance>
-        <comps>
-            <li Class="ExSymbiotes.CompProperties_SymbioticWeapon"></li>
-        </comps>
         <weaponClasses>
             <li>Melee</li>
             <li>MeleePiercer</li>
@@ -480,16 +477,16 @@
                 <capacities>
                     <li>Stab</li>
                 </capacities>
-                <power>20</power>
-                <cooldownTime>0.75</cooldownTime>
+                <power>30</power>
+                <cooldownTime>1</cooldownTime>
             </li>
             <li>
                 <label>edge</label>
                 <capacities>
                     <li>Cut</li>
                 </capacities>
-                <power>35</power>
-                <cooldownTime>1.5</cooldownTime>
+                <power>45</power>
+                <cooldownTime>0.65</cooldownTime>
             </li>
         </tools>
     </ThingDef>
